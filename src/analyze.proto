@@ -1,23 +1,30 @@
 syntax = "proto3";
 import "common.proto";
+import "template.proto";
+
 package types;
 
-
-message Results {
-  repeated Result results = 1;
-}
-
+/* AnalyzeApiRequest represents the request to the API HTTP service */
 message AnalyzeApiRequest {
   string text = 1;
   string analyzeTemplateId = 2;
 }
 
+
+/* AnalyzeRequest represents the request to the analyze service via GRPC */
 message AnalyzeRequest {
   string value = 1;
-  repeated string fields = 2;
+  AnalyzeTemplate analyzeTemplate = 2;
   string minProbability = 3;
 }
 
+
+/* AnalyzeResponse represents the analyze service response */
+message AnalyzeResponse{
+  repeated AnalyzeResult analyzeResults = 1;
+}
+
+
 service AnalyzeService {
-  rpc Apply (AnalyzeRequest) returns (Results) {}
+  rpc Apply (AnalyzeRequest) returns (AnalyzeResponse) {}
 }

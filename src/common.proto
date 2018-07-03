@@ -2,39 +2,36 @@ syntax = "proto3";
 package types;
 
 message FieldType {
-  string name = 1;
+  FieldTypeNames name = 1;
   string languageCode = 2;
 }
 
-message Result {
-  string value = 1;
+enum FieldTypeNames{
+    CREDIT_CARD = 0;
+    CRYPTO = 1;
+    DATE_TIME = 2;
+    DOMAIN_NAME = 3;
+    EMAIL_ADDRESS = 4;
+    IBAN_CODE = 5;
+    IP_ADDRESS = 6;
+    NRP = 7;
+    LOCATION = 8;
+    PERSON = 9;
+    PHONE_NUMBER = 10;
+}
+
+message AnalyzeResult {
+  string text = 1;
   string fieldType = 2;
   float probability = 3;
   Location location = 4;
-  Transformation transformation = 5;
 }
 
 message Location {
   sint32 start = 1;
   sint32 end = 2;
   sint32 length = 3;
-  sint32 newStart = 4;
-  sint32 newEnd = 5;
-  sint32 newLength = 6;
-}
-
-message Transformation {
-  string newValue = 1;
-  ReplaceValue replaceValue = 2;
-  RedactValue redactValue = 3;
-}
-
-message ReplaceValue {
-  string newValue = 1;
-}
-
-message RedactValue {
-}
-
-message RecordTransformation {
+  sint32 newStart = 4; // Not used in the template
+  sint32 newEnd = 5; // Not used in the template
+  sint32 newLength = 6; // Not used in the template
 }

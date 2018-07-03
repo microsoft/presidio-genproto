@@ -1,0 +1,41 @@
+syntax = "proto3";
+import "common.proto";
+package types;
+
+/* AnalyzeTemplate represents the analyze service template definition */
+message AnalyzeTemplate {
+    repeated string fields = 1;
+}
+
+
+/* AnonymizeTemplate represents the anonymize service template definition */
+message AnonymizeTemplate {
+    string name = 1;
+    string displayName = 2;
+    string description = 3;
+    string createTime = 4;
+    string modifiedTime = 5;
+    repeated FieldTypeTransformation fieldTypeTransformations = 6;
+}
+
+
+/* FieldTypeTransformation represents the transformation for array of fields types */
+message FieldTypeTransformation {
+  repeated FieldType fields = 1;
+  Transformation transformation = 2;
+}
+
+
+/* Transformation represents the transformation type */
+message Transformation {
+  string newValue = 1; // Not used in the template 
+  ReplaceValue replaceValue = 2;
+  RedactValue redactValue = 3;
+}
+
+message ReplaceValue {
+  string newValue = 1;
+}
+
+message RedactValue {
+}

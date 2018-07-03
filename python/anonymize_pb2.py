@@ -14,15 +14,16 @@ _sym_db = _symbol_database.Default()
 
 
 import common_pb2 as common__pb2
+import template_pb2 as template__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='anonymize.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0f\x61nonymize.proto\x12\x05types\x1a\x0c\x63ommon.proto\"[\n\x13\x41nonymizeApiRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x02 \x01(\t\x12\x1b\n\x13\x61nonymizeTemplateId\x18\x03 \x01(\t\"l\n\x10\x41nonymizeRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12*\n\x08template\x18\x02 \x01(\x0b\x32\x18.types.AnonymizeTemplate\x12\x1e\n\x07results\x18\x03 \x03(\x0b\x32\r.types.Result\"\xa2\x01\n\x11\x41nonymizeTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64isplayName\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x12\n\ncreateTime\x18\x04 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x05 \x01(\t\x12+\n\rconfiguration\x18\x06 \x01(\x0b\x32\x14.types.Configuration\"\x8d\x01\n\rConfiguration\x12@\n\x18\x66ieldTypeTransformations\x18\x01 \x03(\x0b\x32\x1e.types.FieldTypeTransformation\x12:\n\x15recordTransformations\x18\x02 \x03(\x0b\x32\x1b.types.RecordTransformation\"n\n\x17\x46ieldTypeTransformation\x12$\n\nfieldTypes\x18\x01 \x03(\x0b\x32\x10.types.FieldType\x12-\n\x0etransformation\x18\x02 \x01(\x0b\x32\x15.types.Transformation\"!\n\x11\x41nonymizeResponse\x12\x0c\n\x04text\x18\x01 \x01(\t2P\n\x10\x41nonymizeService\x12<\n\x05\x41pply\x12\x17.types.AnonymizeRequest\x1a\x18.types.AnonymizeResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0f\x61nonymize.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\"[\n\x13\x41nonymizeApiRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x02 \x01(\t\x12\x1b\n\x13\x61nonymizeTemplateId\x18\x03 \x01(\t\"z\n\x10\x41nonymizeRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12*\n\x08template\x18\x02 \x01(\x0b\x32\x18.types.AnonymizeTemplate\x12,\n\x0e\x61nalyzeResults\x18\x03 \x03(\x0b\x32\x14.types.AnalyzeResult\"!\n\x11\x41nonymizeResponse\x12\x0c\n\x04text\x18\x01 \x01(\t2P\n\x10\x41nonymizeService\x12<\n\x05\x41pply\x12\x17.types.AnonymizeRequest\x1a\x18.types.AnonymizeResponse\"\x00\x62\x06proto3')
   ,
-  dependencies=[common__pb2.DESCRIPTOR,])
+  dependencies=[common__pb2.DESCRIPTOR,template__pb2.DESCRIPTOR,])
 
 
 
@@ -67,8 +68,8 @@ _ANONYMIZEAPIREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=40,
-  serialized_end=131,
+  serialized_start=56,
+  serialized_end=147,
 )
 
 
@@ -94,7 +95,7 @@ _ANONYMIZEREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='results', full_name='types.AnonymizeRequest.results', index=2,
+      name='analyzeResults', full_name='types.AnonymizeRequest.analyzeResults', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -112,150 +113,8 @@ _ANONYMIZEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=133,
-  serialized_end=241,
-)
-
-
-_ANONYMIZETEMPLATE = _descriptor.Descriptor(
-  name='AnonymizeTemplate',
-  full_name='types.AnonymizeTemplate',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='types.AnonymizeTemplate.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='displayName', full_name='types.AnonymizeTemplate.displayName', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='description', full_name='types.AnonymizeTemplate.description', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='createTime', full_name='types.AnonymizeTemplate.createTime', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='modifiedTime', full_name='types.AnonymizeTemplate.modifiedTime', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='configuration', full_name='types.AnonymizeTemplate.configuration', index=5,
-      number=6, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=244,
-  serialized_end=406,
-)
-
-
-_CONFIGURATION = _descriptor.Descriptor(
-  name='Configuration',
-  full_name='types.Configuration',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='fieldTypeTransformations', full_name='types.Configuration.fieldTypeTransformations', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='recordTransformations', full_name='types.Configuration.recordTransformations', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=409,
-  serialized_end=550,
-)
-
-
-_FIELDTYPETRANSFORMATION = _descriptor.Descriptor(
-  name='FieldTypeTransformation',
-  full_name='types.FieldTypeTransformation',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='fieldTypes', full_name='types.FieldTypeTransformation.fieldTypes', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='transformation', full_name='types.FieldTypeTransformation.transformation', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=552,
-  serialized_end=662,
+  serialized_start=149,
+  serialized_end=271,
 )
 
 
@@ -285,22 +144,14 @@ _ANONYMIZERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=664,
-  serialized_end=697,
+  serialized_start=273,
+  serialized_end=306,
 )
 
-_ANONYMIZEREQUEST.fields_by_name['template'].message_type = _ANONYMIZETEMPLATE
-_ANONYMIZEREQUEST.fields_by_name['results'].message_type = common__pb2._RESULT
-_ANONYMIZETEMPLATE.fields_by_name['configuration'].message_type = _CONFIGURATION
-_CONFIGURATION.fields_by_name['fieldTypeTransformations'].message_type = _FIELDTYPETRANSFORMATION
-_CONFIGURATION.fields_by_name['recordTransformations'].message_type = common__pb2._RECORDTRANSFORMATION
-_FIELDTYPETRANSFORMATION.fields_by_name['fieldTypes'].message_type = common__pb2._FIELDTYPE
-_FIELDTYPETRANSFORMATION.fields_by_name['transformation'].message_type = common__pb2._TRANSFORMATION
+_ANONYMIZEREQUEST.fields_by_name['template'].message_type = template__pb2._ANONYMIZETEMPLATE
+_ANONYMIZEREQUEST.fields_by_name['analyzeResults'].message_type = common__pb2._ANALYZERESULT
 DESCRIPTOR.message_types_by_name['AnonymizeApiRequest'] = _ANONYMIZEAPIREQUEST
 DESCRIPTOR.message_types_by_name['AnonymizeRequest'] = _ANONYMIZEREQUEST
-DESCRIPTOR.message_types_by_name['AnonymizeTemplate'] = _ANONYMIZETEMPLATE
-DESCRIPTOR.message_types_by_name['Configuration'] = _CONFIGURATION
-DESCRIPTOR.message_types_by_name['FieldTypeTransformation'] = _FIELDTYPETRANSFORMATION
 DESCRIPTOR.message_types_by_name['AnonymizeResponse'] = _ANONYMIZERESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -318,27 +169,6 @@ AnonymizeRequest = _reflection.GeneratedProtocolMessageType('AnonymizeRequest', 
   ))
 _sym_db.RegisterMessage(AnonymizeRequest)
 
-AnonymizeTemplate = _reflection.GeneratedProtocolMessageType('AnonymizeTemplate', (_message.Message,), dict(
-  DESCRIPTOR = _ANONYMIZETEMPLATE,
-  __module__ = 'anonymize_pb2'
-  # @@protoc_insertion_point(class_scope:types.AnonymizeTemplate)
-  ))
-_sym_db.RegisterMessage(AnonymizeTemplate)
-
-Configuration = _reflection.GeneratedProtocolMessageType('Configuration', (_message.Message,), dict(
-  DESCRIPTOR = _CONFIGURATION,
-  __module__ = 'anonymize_pb2'
-  # @@protoc_insertion_point(class_scope:types.Configuration)
-  ))
-_sym_db.RegisterMessage(Configuration)
-
-FieldTypeTransformation = _reflection.GeneratedProtocolMessageType('FieldTypeTransformation', (_message.Message,), dict(
-  DESCRIPTOR = _FIELDTYPETRANSFORMATION,
-  __module__ = 'anonymize_pb2'
-  # @@protoc_insertion_point(class_scope:types.FieldTypeTransformation)
-  ))
-_sym_db.RegisterMessage(FieldTypeTransformation)
-
 AnonymizeResponse = _reflection.GeneratedProtocolMessageType('AnonymizeResponse', (_message.Message,), dict(
   DESCRIPTOR = _ANONYMIZERESPONSE,
   __module__ = 'anonymize_pb2'
@@ -354,8 +184,8 @@ _ANONYMIZESERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=699,
-  serialized_end=779,
+  serialized_start=308,
+  serialized_end=388,
   methods=[
   _descriptor.MethodDescriptor(
     name='Apply',

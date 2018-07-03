@@ -23,44 +23,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type Results struct {
-	Results              []*Result `protobuf:"bytes,1,rep,name=results" json:"results,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
-}
-
-func (m *Results) Reset()         { *m = Results{} }
-func (m *Results) String() string { return proto.CompactTextString(m) }
-func (*Results) ProtoMessage()    {}
-func (*Results) Descriptor() ([]byte, []int) {
-	return fileDescriptor_analyze_b614ff30b2243d3a, []int{0}
-}
-func (m *Results) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Results.Unmarshal(m, b)
-}
-func (m *Results) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Results.Marshal(b, m, deterministic)
-}
-func (dst *Results) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Results.Merge(dst, src)
-}
-func (m *Results) XXX_Size() int {
-	return xxx_messageInfo_Results.Size(m)
-}
-func (m *Results) XXX_DiscardUnknown() {
-	xxx_messageInfo_Results.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_Results proto.InternalMessageInfo
-
-func (m *Results) GetResults() []*Result {
-	if m != nil {
-		return m.Results
-	}
-	return nil
-}
-
+// AnalyzeApiRequest represents the request to the API HTTP service
 type AnalyzeApiRequest struct {
 	Text                 string   `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
 	AnalyzeTemplateId    string   `protobuf:"bytes,2,opt,name=analyzeTemplateId" json:"analyzeTemplateId,omitempty"`
@@ -73,7 +36,7 @@ func (m *AnalyzeApiRequest) Reset()         { *m = AnalyzeApiRequest{} }
 func (m *AnalyzeApiRequest) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeApiRequest) ProtoMessage()    {}
 func (*AnalyzeApiRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_analyze_b614ff30b2243d3a, []int{1}
+	return fileDescriptor_analyze_67b65ff3d58fe642, []int{0}
 }
 func (m *AnalyzeApiRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeApiRequest.Unmarshal(m, b)
@@ -107,20 +70,21 @@ func (m *AnalyzeApiRequest) GetAnalyzeTemplateId() string {
 	return ""
 }
 
+// AnalyzeRequest represents the request to the analyze service via GRPC
 type AnalyzeRequest struct {
-	Value                string   `protobuf:"bytes,1,opt,name=value" json:"value,omitempty"`
-	Fields               []string `protobuf:"bytes,2,rep,name=fields" json:"fields,omitempty"`
-	MinProbability       string   `protobuf:"bytes,3,opt,name=minProbability" json:"minProbability,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Value                string           `protobuf:"bytes,1,opt,name=value" json:"value,omitempty"`
+	AnalyzeTemplate      *AnalyzeTemplate `protobuf:"bytes,2,opt,name=analyzeTemplate" json:"analyzeTemplate,omitempty"`
+	MinProbability       string           `protobuf:"bytes,3,opt,name=minProbability" json:"minProbability,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
 }
 
 func (m *AnalyzeRequest) Reset()         { *m = AnalyzeRequest{} }
 func (m *AnalyzeRequest) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeRequest) ProtoMessage()    {}
 func (*AnalyzeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_analyze_b614ff30b2243d3a, []int{2}
+	return fileDescriptor_analyze_67b65ff3d58fe642, []int{1}
 }
 func (m *AnalyzeRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeRequest.Unmarshal(m, b)
@@ -147,9 +111,9 @@ func (m *AnalyzeRequest) GetValue() string {
 	return ""
 }
 
-func (m *AnalyzeRequest) GetFields() []string {
+func (m *AnalyzeRequest) GetAnalyzeTemplate() *AnalyzeTemplate {
 	if m != nil {
-		return m.Fields
+		return m.AnalyzeTemplate
 	}
 	return nil
 }
@@ -161,10 +125,49 @@ func (m *AnalyzeRequest) GetMinProbability() string {
 	return ""
 }
 
+// AnalyzeResponse represents the analyze service response
+type AnalyzeResponse struct {
+	AnalyzeResults       []*AnalyzeResult `protobuf:"bytes,1,rep,name=analyzeResults" json:"analyzeResults,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
+}
+
+func (m *AnalyzeResponse) Reset()         { *m = AnalyzeResponse{} }
+func (m *AnalyzeResponse) String() string { return proto.CompactTextString(m) }
+func (*AnalyzeResponse) ProtoMessage()    {}
+func (*AnalyzeResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_analyze_67b65ff3d58fe642, []int{2}
+}
+func (m *AnalyzeResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AnalyzeResponse.Unmarshal(m, b)
+}
+func (m *AnalyzeResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AnalyzeResponse.Marshal(b, m, deterministic)
+}
+func (dst *AnalyzeResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AnalyzeResponse.Merge(dst, src)
+}
+func (m *AnalyzeResponse) XXX_Size() int {
+	return xxx_messageInfo_AnalyzeResponse.Size(m)
+}
+func (m *AnalyzeResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_AnalyzeResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AnalyzeResponse proto.InternalMessageInfo
+
+func (m *AnalyzeResponse) GetAnalyzeResults() []*AnalyzeResult {
+	if m != nil {
+		return m.AnalyzeResults
+	}
+	return nil
+}
+
 func init() {
-	proto.RegisterType((*Results)(nil), "types.Results")
 	proto.RegisterType((*AnalyzeApiRequest)(nil), "types.AnalyzeApiRequest")
 	proto.RegisterType((*AnalyzeRequest)(nil), "types.AnalyzeRequest")
+	proto.RegisterType((*AnalyzeResponse)(nil), "types.AnalyzeResponse")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -179,7 +182,7 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type AnalyzeServiceClient interface {
-	Apply(ctx context.Context, in *AnalyzeRequest, opts ...grpc.CallOption) (*Results, error)
+	Apply(ctx context.Context, in *AnalyzeRequest, opts ...grpc.CallOption) (*AnalyzeResponse, error)
 }
 
 type analyzeServiceClient struct {
@@ -190,8 +193,8 @@ func NewAnalyzeServiceClient(cc *grpc.ClientConn) AnalyzeServiceClient {
 	return &analyzeServiceClient{cc}
 }
 
-func (c *analyzeServiceClient) Apply(ctx context.Context, in *AnalyzeRequest, opts ...grpc.CallOption) (*Results, error) {
-	out := new(Results)
+func (c *analyzeServiceClient) Apply(ctx context.Context, in *AnalyzeRequest, opts ...grpc.CallOption) (*AnalyzeResponse, error) {
+	out := new(AnalyzeResponse)
 	err := c.cc.Invoke(ctx, "/types.AnalyzeService/Apply", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -201,7 +204,7 @@ func (c *analyzeServiceClient) Apply(ctx context.Context, in *AnalyzeRequest, op
 
 // AnalyzeServiceServer is the server API for AnalyzeService service.
 type AnalyzeServiceServer interface {
-	Apply(context.Context, *AnalyzeRequest) (*Results, error)
+	Apply(context.Context, *AnalyzeRequest) (*AnalyzeResponse, error)
 }
 
 func RegisterAnalyzeServiceServer(s *grpc.Server, srv AnalyzeServiceServer) {
@@ -239,24 +242,25 @@ var _AnalyzeService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "analyze.proto",
 }
 
-func init() { proto.RegisterFile("analyze.proto", fileDescriptor_analyze_b614ff30b2243d3a) }
+func init() { proto.RegisterFile("analyze.proto", fileDescriptor_analyze_67b65ff3d58fe642) }
 
-var fileDescriptor_analyze_b614ff30b2243d3a = []byte{
-	// 243 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x64, 0x90, 0xdf, 0x4a, 0xc3, 0x30,
-	0x14, 0xc6, 0xed, 0x6a, 0x37, 0x76, 0x74, 0x85, 0x1d, 0x54, 0xca, 0xae, 0x4a, 0x2f, 0xb4, 0x17,
-	0x52, 0xa4, 0x3e, 0x41, 0xbd, 0xf3, 0x4e, 0xa2, 0x3e, 0x40, 0xba, 0x9d, 0x41, 0x20, 0x6d, 0x62,
-	0x93, 0x0e, 0xeb, 0xd3, 0x0b, 0x49, 0x26, 0xcc, 0xdd, 0x9d, 0x7f, 0xdf, 0x2f, 0x5f, 0x3e, 0x58,
-	0xf1, 0x9e, 0xcb, 0xe9, 0x87, 0x2a, 0x3d, 0x28, 0xab, 0x30, 0xb1, 0x93, 0x26, 0xb3, 0xb9, 0xde,
-	0xaa, 0xae, 0x53, 0xbd, 0x1f, 0x16, 0x35, 0x2c, 0x18, 0x99, 0x51, 0x5a, 0x83, 0x0f, 0xb0, 0x18,
-	0x7c, 0x99, 0x45, 0x79, 0x5c, 0x5e, 0xd5, 0xab, 0xca, 0x29, 0x2a, 0x7f, 0xc0, 0x8e, 0xdb, 0xe2,
-	0x13, 0xd6, 0x8d, 0x27, 0x37, 0x5a, 0x30, 0xfa, 0x1a, 0xc9, 0x58, 0x44, 0xb8, 0xb4, 0xf4, 0x6d,
-	0xb3, 0x28, 0x8f, 0xca, 0x25, 0x73, 0x35, 0x3e, 0xc2, 0x3a, 0x58, 0xf8, 0xa0, 0x4e, 0x4b, 0x6e,
-	0xe9, 0x75, 0x97, 0xcd, 0xdc, 0xc1, 0xf9, 0xa2, 0xd8, 0x43, 0x1a, 0xb0, 0x47, 0xe6, 0x0d, 0x24,
-	0x07, 0x2e, 0x47, 0x0a, 0x50, 0xdf, 0xe0, 0x1d, 0xcc, 0xf7, 0x82, 0xe4, 0xce, 0x64, 0xb3, 0x3c,
-	0x2e, 0x97, 0x2c, 0x74, 0x78, 0x0f, 0x69, 0x27, 0xfa, 0xb7, 0x41, 0xb5, 0xbc, 0x15, 0x52, 0xd8,
-	0x29, 0x8b, 0x9d, 0xec, 0xdf, 0xb4, 0x7e, 0xf9, 0x7b, 0xe7, 0x9d, 0x86, 0x83, 0xd8, 0x12, 0x3e,
-	0x41, 0xd2, 0x68, 0x2d, 0x27, 0xbc, 0x0d, 0x3f, 0x3e, 0xf5, 0xb1, 0x49, 0x4f, 0x82, 0x30, 0xc5,
-	0x45, 0x3b, 0x77, 0xe9, 0x3d, 0xff, 0x06, 0x00, 0x00, 0xff, 0xff, 0xbe, 0x79, 0x17, 0x12, 0x63,
-	0x01, 0x00, 0x00,
+var fileDescriptor_analyze_67b65ff3d58fe642 = []byte{
+	// 261 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x64, 0x91, 0x31, 0x4f, 0xc3, 0x30,
+	0x10, 0x85, 0x09, 0x25, 0x48, 0x5c, 0x21, 0x55, 0x4f, 0xa5, 0x8a, 0x32, 0x55, 0x19, 0x50, 0x07,
+	0x94, 0x21, 0x2c, 0x0c, 0x0c, 0x64, 0x84, 0x05, 0x14, 0xe0, 0x07, 0x38, 0xe5, 0x86, 0x48, 0x4e,
+	0x6c, 0xe2, 0x4b, 0x45, 0xf8, 0x15, 0xfc, 0x64, 0x24, 0xc7, 0x44, 0xaa, 0xbb, 0x25, 0xef, 0xbd,
+	0xfb, 0xee, 0xd9, 0x86, 0x2b, 0xd1, 0x0a, 0x39, 0xfc, 0x50, 0xa6, 0x3b, 0xc5, 0x0a, 0x43, 0x1e,
+	0x34, 0x99, 0xe4, 0x72, 0xa7, 0x9a, 0x46, 0xb5, 0xa3, 0x98, 0x44, 0x4c, 0x8d, 0x96, 0x82, 0x5d,
+	0x28, 0xfd, 0x80, 0x65, 0x31, 0x4e, 0x15, 0xba, 0x2e, 0xe9, 0xab, 0x27, 0xc3, 0x88, 0x70, 0xc6,
+	0xf4, 0xcd, 0x71, 0xb0, 0x09, 0xb6, 0x17, 0xa5, 0xfd, 0xc6, 0x5b, 0x58, 0x3a, 0xfc, 0xbb, 0x23,
+	0x3c, 0x7d, 0xc6, 0xa7, 0x36, 0x70, 0x6c, 0xa4, 0xbf, 0x01, 0x44, 0x8e, 0xfb, 0x0f, 0x5d, 0x41,
+	0xb8, 0x17, 0xb2, 0x27, 0x47, 0x1d, 0x7f, 0xf0, 0x11, 0x16, 0xde, 0xb4, 0x85, 0xce, 0xf3, 0x75,
+	0x66, 0xeb, 0x67, 0xc5, 0xa1, 0x5b, 0xfa, 0x71, 0xbc, 0x81, 0xa8, 0xa9, 0xdb, 0xd7, 0x4e, 0x55,
+	0xa2, 0xaa, 0x65, 0xcd, 0x43, 0x3c, 0xb3, 0x0b, 0x3c, 0x35, 0x7d, 0x81, 0xc5, 0xd4, 0xc8, 0x68,
+	0xd5, 0x1a, 0xc2, 0x07, 0x88, 0xc4, 0x24, 0xf5, 0x92, 0x4d, 0x1c, 0x6c, 0x66, 0xdb, 0x79, 0xbe,
+	0x3a, 0xdc, 0x3d, 0x9a, 0xa5, 0x97, 0xcd, 0x9f, 0xa7, 0x23, 0xbe, 0x51, 0xb7, 0xaf, 0x77, 0x84,
+	0xf7, 0x10, 0x16, 0x5a, 0xcb, 0x01, 0xaf, 0x7d, 0x80, 0xbd, 0x82, 0x64, 0x7d, 0xc4, 0xb5, 0x3d,
+	0xd2, 0x93, 0xea, 0xdc, 0xbe, 0xc6, 0xdd, 0x5f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x97, 0xd6, 0x62,
+	0x88, 0xc3, 0x01, 0x00, 0x00,
 }

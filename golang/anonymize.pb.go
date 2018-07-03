@@ -23,6 +23,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
+// AnonymizeApiRequest represents the request to the API HTTP service
 type AnonymizeApiRequest struct {
 	Text                 string   `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
 	AnalyzeTemplateId    string   `protobuf:"bytes,2,opt,name=analyzeTemplateId" json:"analyzeTemplateId,omitempty"`
@@ -36,7 +37,7 @@ func (m *AnonymizeApiRequest) Reset()         { *m = AnonymizeApiRequest{} }
 func (m *AnonymizeApiRequest) String() string { return proto.CompactTextString(m) }
 func (*AnonymizeApiRequest) ProtoMessage()    {}
 func (*AnonymizeApiRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_anonymize_6f48d097d35dfc44, []int{0}
+	return fileDescriptor_anonymize_661d39234596ba7c, []int{0}
 }
 func (m *AnonymizeApiRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnonymizeApiRequest.Unmarshal(m, b)
@@ -77,10 +78,11 @@ func (m *AnonymizeApiRequest) GetAnonymizeTemplateId() string {
 	return ""
 }
 
+// AnonymizeRequest represents the request to the anonymize service via GRPC
 type AnonymizeRequest struct {
 	Text                 string             `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
 	Template             *AnonymizeTemplate `protobuf:"bytes,2,opt,name=template" json:"template,omitempty"`
-	Results              []*Result          `protobuf:"bytes,3,rep,name=results" json:"results,omitempty"`
+	AnalyzeResults       []*AnalyzeResult   `protobuf:"bytes,3,rep,name=analyzeResults" json:"analyzeResults,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
 	XXX_sizecache        int32              `json:"-"`
@@ -90,7 +92,7 @@ func (m *AnonymizeRequest) Reset()         { *m = AnonymizeRequest{} }
 func (m *AnonymizeRequest) String() string { return proto.CompactTextString(m) }
 func (*AnonymizeRequest) ProtoMessage()    {}
 func (*AnonymizeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_anonymize_6f48d097d35dfc44, []int{1}
+	return fileDescriptor_anonymize_661d39234596ba7c, []int{1}
 }
 func (m *AnonymizeRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnonymizeRequest.Unmarshal(m, b)
@@ -124,183 +126,14 @@ func (m *AnonymizeRequest) GetTemplate() *AnonymizeTemplate {
 	return nil
 }
 
-func (m *AnonymizeRequest) GetResults() []*Result {
+func (m *AnonymizeRequest) GetAnalyzeResults() []*AnalyzeResult {
 	if m != nil {
-		return m.Results
+		return m.AnalyzeResults
 	}
 	return nil
 }
 
-type AnonymizeTemplate struct {
-	Name                 string         `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	DisplayName          string         `protobuf:"bytes,2,opt,name=displayName" json:"displayName,omitempty"`
-	Description          string         `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
-	CreateTime           string         `protobuf:"bytes,4,opt,name=createTime" json:"createTime,omitempty"`
-	ModifiedTime         string         `protobuf:"bytes,5,opt,name=modifiedTime" json:"modifiedTime,omitempty"`
-	Configuration        *Configuration `protobuf:"bytes,6,opt,name=configuration" json:"configuration,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
-}
-
-func (m *AnonymizeTemplate) Reset()         { *m = AnonymizeTemplate{} }
-func (m *AnonymizeTemplate) String() string { return proto.CompactTextString(m) }
-func (*AnonymizeTemplate) ProtoMessage()    {}
-func (*AnonymizeTemplate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_anonymize_6f48d097d35dfc44, []int{2}
-}
-func (m *AnonymizeTemplate) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_AnonymizeTemplate.Unmarshal(m, b)
-}
-func (m *AnonymizeTemplate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_AnonymizeTemplate.Marshal(b, m, deterministic)
-}
-func (dst *AnonymizeTemplate) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_AnonymizeTemplate.Merge(dst, src)
-}
-func (m *AnonymizeTemplate) XXX_Size() int {
-	return xxx_messageInfo_AnonymizeTemplate.Size(m)
-}
-func (m *AnonymizeTemplate) XXX_DiscardUnknown() {
-	xxx_messageInfo_AnonymizeTemplate.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_AnonymizeTemplate proto.InternalMessageInfo
-
-func (m *AnonymizeTemplate) GetName() string {
-	if m != nil {
-		return m.Name
-	}
-	return ""
-}
-
-func (m *AnonymizeTemplate) GetDisplayName() string {
-	if m != nil {
-		return m.DisplayName
-	}
-	return ""
-}
-
-func (m *AnonymizeTemplate) GetDescription() string {
-	if m != nil {
-		return m.Description
-	}
-	return ""
-}
-
-func (m *AnonymizeTemplate) GetCreateTime() string {
-	if m != nil {
-		return m.CreateTime
-	}
-	return ""
-}
-
-func (m *AnonymizeTemplate) GetModifiedTime() string {
-	if m != nil {
-		return m.ModifiedTime
-	}
-	return ""
-}
-
-func (m *AnonymizeTemplate) GetConfiguration() *Configuration {
-	if m != nil {
-		return m.Configuration
-	}
-	return nil
-}
-
-type Configuration struct {
-	FieldTypeTransformations []*FieldTypeTransformation `protobuf:"bytes,1,rep,name=fieldTypeTransformations" json:"fieldTypeTransformations,omitempty"`
-	RecordTransformations    []*RecordTransformation    `protobuf:"bytes,2,rep,name=recordTransformations" json:"recordTransformations,omitempty"`
-	XXX_NoUnkeyedLiteral     struct{}                   `json:"-"`
-	XXX_unrecognized         []byte                     `json:"-"`
-	XXX_sizecache            int32                      `json:"-"`
-}
-
-func (m *Configuration) Reset()         { *m = Configuration{} }
-func (m *Configuration) String() string { return proto.CompactTextString(m) }
-func (*Configuration) ProtoMessage()    {}
-func (*Configuration) Descriptor() ([]byte, []int) {
-	return fileDescriptor_anonymize_6f48d097d35dfc44, []int{3}
-}
-func (m *Configuration) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Configuration.Unmarshal(m, b)
-}
-func (m *Configuration) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Configuration.Marshal(b, m, deterministic)
-}
-func (dst *Configuration) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Configuration.Merge(dst, src)
-}
-func (m *Configuration) XXX_Size() int {
-	return xxx_messageInfo_Configuration.Size(m)
-}
-func (m *Configuration) XXX_DiscardUnknown() {
-	xxx_messageInfo_Configuration.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_Configuration proto.InternalMessageInfo
-
-func (m *Configuration) GetFieldTypeTransformations() []*FieldTypeTransformation {
-	if m != nil {
-		return m.FieldTypeTransformations
-	}
-	return nil
-}
-
-func (m *Configuration) GetRecordTransformations() []*RecordTransformation {
-	if m != nil {
-		return m.RecordTransformations
-	}
-	return nil
-}
-
-type FieldTypeTransformation struct {
-	FieldTypes           []*FieldType    `protobuf:"bytes,1,rep,name=fieldTypes" json:"fieldTypes,omitempty"`
-	Transformation       *Transformation `protobuf:"bytes,2,opt,name=transformation" json:"transformation,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
-}
-
-func (m *FieldTypeTransformation) Reset()         { *m = FieldTypeTransformation{} }
-func (m *FieldTypeTransformation) String() string { return proto.CompactTextString(m) }
-func (*FieldTypeTransformation) ProtoMessage()    {}
-func (*FieldTypeTransformation) Descriptor() ([]byte, []int) {
-	return fileDescriptor_anonymize_6f48d097d35dfc44, []int{4}
-}
-func (m *FieldTypeTransformation) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_FieldTypeTransformation.Unmarshal(m, b)
-}
-func (m *FieldTypeTransformation) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_FieldTypeTransformation.Marshal(b, m, deterministic)
-}
-func (dst *FieldTypeTransformation) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_FieldTypeTransformation.Merge(dst, src)
-}
-func (m *FieldTypeTransformation) XXX_Size() int {
-	return xxx_messageInfo_FieldTypeTransformation.Size(m)
-}
-func (m *FieldTypeTransformation) XXX_DiscardUnknown() {
-	xxx_messageInfo_FieldTypeTransformation.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_FieldTypeTransformation proto.InternalMessageInfo
-
-func (m *FieldTypeTransformation) GetFieldTypes() []*FieldType {
-	if m != nil {
-		return m.FieldTypes
-	}
-	return nil
-}
-
-func (m *FieldTypeTransformation) GetTransformation() *Transformation {
-	if m != nil {
-		return m.Transformation
-	}
-	return nil
-}
-
+// AnonymizeResponse represents the anonymize service response
 type AnonymizeResponse struct {
 	Text                 string   `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -312,7 +145,7 @@ func (m *AnonymizeResponse) Reset()         { *m = AnonymizeResponse{} }
 func (m *AnonymizeResponse) String() string { return proto.CompactTextString(m) }
 func (*AnonymizeResponse) ProtoMessage()    {}
 func (*AnonymizeResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_anonymize_6f48d097d35dfc44, []int{5}
+	return fileDescriptor_anonymize_661d39234596ba7c, []int{2}
 }
 func (m *AnonymizeResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnonymizeResponse.Unmarshal(m, b)
@@ -342,9 +175,6 @@ func (m *AnonymizeResponse) GetText() string {
 func init() {
 	proto.RegisterType((*AnonymizeApiRequest)(nil), "types.AnonymizeApiRequest")
 	proto.RegisterType((*AnonymizeRequest)(nil), "types.AnonymizeRequest")
-	proto.RegisterType((*AnonymizeTemplate)(nil), "types.AnonymizeTemplate")
-	proto.RegisterType((*Configuration)(nil), "types.Configuration")
-	proto.RegisterType((*FieldTypeTransformation)(nil), "types.FieldTypeTransformation")
 	proto.RegisterType((*AnonymizeResponse)(nil), "types.AnonymizeResponse")
 }
 
@@ -420,36 +250,24 @@ var _AnonymizeService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "anonymize.proto",
 }
 
-func init() { proto.RegisterFile("anonymize.proto", fileDescriptor_anonymize_6f48d097d35dfc44) }
+func init() { proto.RegisterFile("anonymize.proto", fileDescriptor_anonymize_661d39234596ba7c) }
 
-var fileDescriptor_anonymize_6f48d097d35dfc44 = []byte{
-	// 444 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x93, 0xc1, 0x6e, 0xd3, 0x40,
-	0x10, 0x86, 0x71, 0xd3, 0x14, 0x98, 0x34, 0xd0, 0x4e, 0xa9, 0x6a, 0x15, 0xa9, 0x8a, 0x7c, 0x69,
-	0x0f, 0x28, 0xaa, 0x02, 0x27, 0x04, 0x87, 0x08, 0x09, 0x89, 0x0b, 0x82, 0x25, 0x27, 0x6e, 0x8b,
-	0x3d, 0x41, 0x2b, 0xd9, 0xbb, 0xcb, 0xee, 0x06, 0xe1, 0xde, 0x39, 0xc0, 0x43, 0xf1, 0x42, 0xbc,
-	0x04, 0xca, 0xc4, 0xb1, 0x36, 0x4e, 0xc2, 0xcd, 0x9a, 0xff, 0x9b, 0x7f, 0xff, 0x1d, 0xcf, 0xc2,
-	0x63, 0xa9, 0x8d, 0xae, 0x2b, 0x75, 0x47, 0x63, 0xeb, 0x4c, 0x30, 0xd8, 0x0f, 0xb5, 0x25, 0x7f,
-	0x79, 0x9c, 0x9b, 0xaa, 0x32, 0x7a, 0x55, 0xcc, 0x7e, 0x25, 0x70, 0x36, 0x5d, 0x83, 0x53, 0xab,
-	0x04, 0x7d, 0x5b, 0x90, 0x0f, 0x88, 0x70, 0x18, 0xe8, 0x47, 0x48, 0x93, 0x51, 0x72, 0xf3, 0x50,
-	0xf0, 0x37, 0x3e, 0x83, 0x53, 0xa9, 0x65, 0x59, 0xdf, 0xd1, 0x8c, 0x2a, 0x5b, 0xca, 0x40, 0xef,
-	0x8a, 0xf4, 0x80, 0x81, 0x6d, 0x01, 0x6f, 0xe1, 0xac, 0x4d, 0x10, 0xf1, 0x3d, 0xe6, 0x77, 0x49,
-	0xd9, 0xcf, 0x04, 0x4e, 0xda, 0x2c, 0xff, 0x0b, 0xf2, 0x02, 0x1e, 0x84, 0xa6, 0x8d, 0xcf, 0x1f,
-	0x4c, 0xd2, 0x31, 0x5f, 0x6e, 0x3c, 0xed, 0xda, 0x8a, 0x96, 0xc4, 0x6b, 0xb8, 0xef, 0xc8, 0x2f,
-	0xca, 0xe0, 0xd3, 0xde, 0xa8, 0x77, 0x33, 0x98, 0x0c, 0x9b, 0x26, 0xc1, 0x55, 0xb1, 0x56, 0xb3,
-	0xbf, 0x09, 0x9c, 0x6e, 0x19, 0x2d, 0x83, 0x68, 0x59, 0xd1, 0x3a, 0xc8, 0xf2, 0x1b, 0x47, 0x30,
-	0x28, 0x94, 0xb7, 0xa5, 0xac, 0xdf, 0x2f, 0xa5, 0xd5, 0x2c, 0xe2, 0x12, 0x13, 0xe4, 0x73, 0xa7,
-	0x6c, 0x50, 0x46, 0x37, 0xb7, 0x8f, 0x4b, 0x78, 0x05, 0x90, 0x3b, 0x92, 0x81, 0x66, 0xaa, 0xa2,
-	0xf4, 0x90, 0x81, 0xa8, 0x82, 0x19, 0x1c, 0x57, 0xa6, 0x50, 0x73, 0x45, 0x05, 0x13, 0x7d, 0x26,
-	0x36, 0x6a, 0xf8, 0x12, 0x86, 0xb9, 0xd1, 0x73, 0xf5, 0x75, 0xe1, 0x24, 0x9f, 0x73, 0xc4, 0x53,
-	0x79, 0xd2, 0x5c, 0xf0, 0x4d, 0xac, 0x89, 0x4d, 0x34, 0xfb, 0x93, 0xc0, 0x70, 0x03, 0xc0, 0xcf,
-	0x90, 0xce, 0x15, 0x95, 0xc5, 0xac, 0xb6, 0x34, 0x73, 0x52, 0xfb, 0xb9, 0x71, 0x15, 0x4b, 0x3e,
-	0x4d, 0x78, 0x72, 0x57, 0x8d, 0xf1, 0xdb, 0xdd, 0x98, 0xd8, 0xdb, 0x8f, 0x1f, 0xe1, 0xdc, 0x51,
-	0x6e, 0x5c, 0xd1, 0x35, 0x3e, 0x60, 0xe3, 0xa7, 0xed, 0x2f, 0xd9, 0x66, 0xc4, 0xee, 0xce, 0xec,
-	0x77, 0x02, 0x17, 0x7b, 0x82, 0xe0, 0x2d, 0x40, 0x1b, 0x65, 0x1d, 0xfe, 0xa4, 0x1b, 0x5e, 0x44,
-	0x0c, 0xbe, 0x86, 0x47, 0x61, 0xc3, 0xa3, 0xd9, 0xb0, 0xf3, 0xa6, 0xab, 0x93, 0xa9, 0x03, 0x67,
-	0xd7, 0xd1, 0xea, 0x08, 0xf2, 0xd6, 0x68, 0x4f, 0xbb, 0x76, 0x78, 0xf2, 0x21, 0xda, 0xf5, 0x4f,
-	0xe4, 0xbe, 0xab, 0x9c, 0xf0, 0x15, 0xf4, 0xa7, 0xd6, 0x96, 0x35, 0x5e, 0x74, 0xd7, 0xb9, 0x79,
-	0x0d, 0x97, 0xe9, 0xb6, 0xb0, 0x3a, 0x23, 0xbb, 0xf7, 0xe5, 0x88, 0x5f, 0xf4, 0xf3, 0x7f, 0x01,
-	0x00, 0x00, 0xff, 0xff, 0xfd, 0x01, 0x7e, 0x07, 0xf9, 0x03, 0x00, 0x00,
+var fileDescriptor_anonymize_661d39234596ba7c = []byte{
+	// 252 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4f, 0xcc, 0xcb, 0xcf,
+	0xab, 0xcc, 0xcd, 0xac, 0x4a, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2d, 0xa9, 0x2c,
+	0x48, 0x2d, 0x96, 0xe2, 0x49, 0xce, 0xcf, 0xcd, 0xcd, 0xcf, 0x83, 0x08, 0x4a, 0xf1, 0x95, 0xa4,
+	0xe6, 0x16, 0xe4, 0x24, 0x96, 0x40, 0x15, 0x29, 0x75, 0x32, 0x72, 0x09, 0x3b, 0xc2, 0x34, 0x3a,
+	0x16, 0x64, 0x06, 0xa5, 0x16, 0x96, 0xa6, 0x16, 0x97, 0x08, 0x09, 0x71, 0xb1, 0x94, 0xa4, 0x56,
+	0x94, 0x48, 0x30, 0x2a, 0x30, 0x6a, 0x70, 0x06, 0x81, 0xd9, 0x42, 0x3a, 0x5c, 0x82, 0x89, 0x79,
+	0x89, 0x39, 0x95, 0x55, 0xa9, 0x21, 0x50, 0x43, 0x3c, 0x53, 0x24, 0x98, 0xc0, 0x0a, 0x30, 0x25,
+	0x84, 0x0c, 0xb8, 0x84, 0xe1, 0x2e, 0x42, 0x52, 0xcf, 0x0c, 0x56, 0x8f, 0x4d, 0x4a, 0x69, 0x16,
+	0x23, 0x97, 0x00, 0xdc, 0x2d, 0xf8, 0x1c, 0x62, 0xc2, 0xc5, 0x01, 0xf3, 0x06, 0xd8, 0x7e, 0x6e,
+	0x23, 0x09, 0x3d, 0xb0, 0x67, 0xf5, 0x1c, 0xd1, 0x8d, 0x0d, 0x82, 0xab, 0x14, 0xb2, 0xe1, 0xe2,
+	0x83, 0xba, 0x32, 0x28, 0xb5, 0xb8, 0x34, 0xa7, 0xa4, 0x58, 0x82, 0x59, 0x81, 0x59, 0x83, 0xdb,
+	0x48, 0x04, 0xae, 0x17, 0x49, 0x32, 0x08, 0x4d, 0xad, 0x92, 0x3a, 0x97, 0x20, 0x92, 0xdb, 0x8a,
+	0x0b, 0xf2, 0xf3, 0x8a, 0x53, 0xb1, 0x39, 0xce, 0x28, 0x00, 0xc9, 0x13, 0xc1, 0xa9, 0x45, 0x65,
+	0x99, 0xc9, 0x20, 0xab, 0x59, 0x1d, 0x0b, 0x0a, 0x72, 0x2a, 0x85, 0xc4, 0xd1, 0xdd, 0x09, 0xf5,
+	0xa6, 0x94, 0x04, 0xa6, 0x04, 0xc4, 0x0e, 0x25, 0x86, 0x24, 0x36, 0x70, 0x54, 0x19, 0x03, 0x02,
+	0x00, 0x00, 0xff, 0xff, 0x4b, 0x74, 0x97, 0x95, 0xe2, 0x01, 0x00, 0x00,
 }
