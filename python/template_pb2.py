@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='template.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0etemplate.proto\x12\x05types\x1a\x0c\x63ommon.proto\"!\n\x0f\x41nalyzeTemplate\x12\x0e\n\x06\x66ields\x18\x01 \x03(\t\"\xb7\x01\n\x11\x41nonymizeTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64isplayName\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x12\n\ncreateTime\x18\x04 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x05 \x01(\t\x12@\n\x18\x66ieldTypeTransformations\x18\x06 \x03(\x0b\x32\x1e.types.FieldTypeTransformation\"j\n\x17\x46ieldTypeTransformation\x12 \n\x06\x66ields\x18\x01 \x03(\x0b\x32\x10.types.FieldType\x12-\n\x0etransformation\x18\x02 \x01(\x0b\x32\x15.types.Transformation\"v\n\x0eTransformation\x12\x10\n\x08newValue\x18\x01 \x01(\t\x12)\n\x0creplaceValue\x18\x02 \x01(\x0b\x32\x13.types.ReplaceValue\x12\'\n\x0bredactValue\x18\x03 \x01(\x0b\x32\x12.types.RedactValue\" \n\x0cReplaceValue\x12\x10\n\x08newValue\x18\x01 \x01(\t\"\r\n\x0bRedactValueb\x06proto3')
+  serialized_pb=_b('\n\x0etemplate.proto\x12\x05types\x1a\x0c\x63ommon.proto\"4\n\x0f\x41nalyzeTemplate\x12!\n\x06\x66ields\x18\x01 \x03(\x0e\x32\x11.types.FieldTypes\"\xb7\x01\n\x11\x41nonymizeTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64isplayName\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x12\n\ncreateTime\x18\x04 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x05 \x01(\t\x12@\n\x18\x66ieldTypeTransformations\x18\x06 \x03(\x0b\x32\x1e.types.FieldTypeTransformation\"k\n\x17\x46ieldTypeTransformation\x12!\n\x06\x66ields\x18\x01 \x03(\x0e\x32\x11.types.FieldTypes\x12-\n\x0etransformation\x18\x02 \x01(\x0b\x32\x15.types.Transformation\"v\n\x0eTransformation\x12\x10\n\x08newValue\x18\x01 \x01(\t\x12)\n\x0creplaceValue\x18\x02 \x01(\x0b\x32\x13.types.ReplaceValue\x12\'\n\x0bredactValue\x18\x03 \x01(\x0b\x32\x12.types.RedactValue\" \n\x0cReplaceValue\x12\x10\n\x08newValue\x18\x01 \x01(\t\"\r\n\x0bRedactValueb\x06proto3')
   ,
   dependencies=[common__pb2.DESCRIPTOR,])
 
@@ -36,7 +36,7 @@ _ANALYZETEMPLATE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='fields', full_name='types.AnalyzeTemplate.fields', index=0,
-      number=1, type=9, cpp_type=9, label=3,
+      number=1, type=14, cpp_type=8, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -54,7 +54,7 @@ _ANALYZETEMPLATE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=39,
-  serialized_end=72,
+  serialized_end=91,
 )
 
 
@@ -119,8 +119,8 @@ _ANONYMIZETEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=75,
-  serialized_end=258,
+  serialized_start=94,
+  serialized_end=277,
 )
 
 
@@ -133,7 +133,7 @@ _FIELDTYPETRANSFORMATION = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='fields', full_name='types.FieldTypeTransformation.fields', index=0,
-      number=1, type=11, cpp_type=10, label=3,
+      number=1, type=14, cpp_type=8, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -157,8 +157,8 @@ _FIELDTYPETRANSFORMATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=260,
-  serialized_end=366,
+  serialized_start=279,
+  serialized_end=386,
 )
 
 
@@ -202,8 +202,8 @@ _TRANSFORMATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=368,
-  serialized_end=486,
+  serialized_start=388,
+  serialized_end=506,
 )
 
 
@@ -233,8 +233,8 @@ _REPLACEVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=488,
-  serialized_end=520,
+  serialized_start=508,
+  serialized_end=540,
 )
 
 
@@ -257,12 +257,13 @@ _REDACTVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=522,
-  serialized_end=535,
+  serialized_start=542,
+  serialized_end=555,
 )
 
+_ANALYZETEMPLATE.fields_by_name['fields'].enum_type = common__pb2._FIELDTYPES
 _ANONYMIZETEMPLATE.fields_by_name['fieldTypeTransformations'].message_type = _FIELDTYPETRANSFORMATION
-_FIELDTYPETRANSFORMATION.fields_by_name['fields'].message_type = common__pb2._FIELDTYPE
+_FIELDTYPETRANSFORMATION.fields_by_name['fields'].enum_type = common__pb2._FIELDTYPES
 _FIELDTYPETRANSFORMATION.fields_by_name['transformation'].message_type = _TRANSFORMATION
 _TRANSFORMATION.fields_by_name['replaceValue'].message_type = _REPLACEVALUE
 _TRANSFORMATION.fields_by_name['redactValue'].message_type = _REDACTVALUE

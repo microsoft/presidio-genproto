@@ -20,12 +20,12 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='common.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0c\x63ommon.proto\x12\x05types\"F\n\tFieldType\x12#\n\x04name\x18\x01 \x01(\x0e\x32\x15.types.FieldTypeNames\x12\x14\n\x0clanguageCode\x18\x02 \x01(\t\"h\n\rAnalyzeResult\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x11\n\tfieldType\x18\x02 \x01(\t\x12\x13\n\x0bprobability\x18\x03 \x01(\x02\x12!\n\x08location\x18\x04 \x01(\x0b\x32\x0f.types.Location\"k\n\x08Location\x12\r\n\x05start\x18\x01 \x01(\x11\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x11\x12\x0e\n\x06length\x18\x03 \x01(\x11\x12\x10\n\x08newStart\x18\x04 \x01(\x11\x12\x0e\n\x06newEnd\x18\x05 \x01(\x11\x12\x11\n\tnewLength\x18\x06 \x01(\x11*\xb4\x01\n\x0e\x46ieldTypeNames\x12\x0f\n\x0b\x43REDIT_CARD\x10\x00\x12\n\n\x06\x43RYPTO\x10\x01\x12\r\n\tDATE_TIME\x10\x02\x12\x0f\n\x0b\x44OMAIN_NAME\x10\x03\x12\x11\n\rEMAIL_ADDRESS\x10\x04\x12\r\n\tIBAN_CODE\x10\x05\x12\x0e\n\nIP_ADDRESS\x10\x06\x12\x07\n\x03NRP\x10\x07\x12\x0c\n\x08LOCATION\x10\x08\x12\n\n\x06PERSON\x10\t\x12\x10\n\x0cPHONE_NUMBER\x10\nb\x06proto3')
+  serialized_pb=_b('\n\x0c\x63ommon.proto\x12\x05types\"w\n\rAnalyzeResult\x12\x0c\n\x04text\x18\x01 \x01(\t\x12 \n\x05\x66ield\x18\x02 \x01(\x0e\x32\x11.types.FieldTypes\x12\x13\n\x0bprobability\x18\x03 \x01(\x02\x12!\n\x08location\x18\x04 \x01(\x0b\x32\x0f.types.Location\"k\n\x08Location\x12\r\n\x05start\x18\x01 \x01(\x11\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x11\x12\x0e\n\x06length\x18\x03 \x01(\x11\x12\x10\n\x08newStart\x18\x04 \x01(\x11\x12\x0e\n\x06newEnd\x18\x05 \x01(\x11\x12\x11\n\tnewLength\x18\x06 \x01(\x11*\xb0\x01\n\nFieldTypes\x12\x0f\n\x0b\x43REDIT_CARD\x10\x00\x12\n\n\x06\x43RYPTO\x10\x01\x12\r\n\tDATE_TIME\x10\x02\x12\x0f\n\x0b\x44OMAIN_NAME\x10\x03\x12\x11\n\rEMAIL_ADDRESS\x10\x04\x12\r\n\tIBAN_CODE\x10\x05\x12\x0e\n\nIP_ADDRESS\x10\x06\x12\x07\n\x03NRP\x10\x07\x12\x0c\n\x08LOCATION\x10\x08\x12\n\n\x06PERSON\x10\t\x12\x10\n\x0cPHONE_NUMBER\x10\nb\x06proto3')
 )
 
-_FIELDTYPENAMES = _descriptor.EnumDescriptor(
-  name='FieldTypeNames',
-  full_name='types.FieldTypeNames',
+_FIELDTYPES = _descriptor.EnumDescriptor(
+  name='FieldTypes',
+  full_name='types.FieldTypes',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -76,12 +76,12 @@ _FIELDTYPENAMES = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=311,
-  serialized_end=491,
+  serialized_start=254,
+  serialized_end=430,
 )
-_sym_db.RegisterEnumDescriptor(_FIELDTYPENAMES)
+_sym_db.RegisterEnumDescriptor(_FIELDTYPES)
 
-FieldTypeNames = enum_type_wrapper.EnumTypeWrapper(_FIELDTYPENAMES)
+FieldTypes = enum_type_wrapper.EnumTypeWrapper(_FIELDTYPES)
 CREDIT_CARD = 0
 CRYPTO = 1
 DATE_TIME = 2
@@ -94,44 +94,6 @@ LOCATION = 8
 PERSON = 9
 PHONE_NUMBER = 10
 
-
-
-_FIELDTYPE = _descriptor.Descriptor(
-  name='FieldType',
-  full_name='types.FieldType',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='types.FieldType.name', index=0,
-      number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='languageCode', full_name='types.FieldType.languageCode', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=23,
-  serialized_end=93,
-)
 
 
 _ANALYZERESULT = _descriptor.Descriptor(
@@ -149,9 +111,9 @@ _ANALYZERESULT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='fieldType', full_name='types.AnalyzeResult.fieldType', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='field', full_name='types.AnalyzeResult.field', index=1,
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
@@ -181,8 +143,8 @@ _ANALYZERESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=95,
-  serialized_end=199,
+  serialized_start=23,
+  serialized_end=142,
 )
 
 
@@ -247,24 +209,16 @@ _LOCATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=201,
-  serialized_end=308,
+  serialized_start=144,
+  serialized_end=251,
 )
 
-_FIELDTYPE.fields_by_name['name'].enum_type = _FIELDTYPENAMES
+_ANALYZERESULT.fields_by_name['field'].enum_type = _FIELDTYPES
 _ANALYZERESULT.fields_by_name['location'].message_type = _LOCATION
-DESCRIPTOR.message_types_by_name['FieldType'] = _FIELDTYPE
 DESCRIPTOR.message_types_by_name['AnalyzeResult'] = _ANALYZERESULT
 DESCRIPTOR.message_types_by_name['Location'] = _LOCATION
-DESCRIPTOR.enum_types_by_name['FieldTypeNames'] = _FIELDTYPENAMES
+DESCRIPTOR.enum_types_by_name['FieldTypes'] = _FIELDTYPES
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
-
-FieldType = _reflection.GeneratedProtocolMessageType('FieldType', (_message.Message,), dict(
-  DESCRIPTOR = _FIELDTYPE,
-  __module__ = 'common_pb2'
-  # @@protoc_insertion_point(class_scope:types.FieldType)
-  ))
-_sym_db.RegisterMessage(FieldType)
 
 AnalyzeResult = _reflection.GeneratedProtocolMessageType('AnalyzeResult', (_message.Message,), dict(
   DESCRIPTOR = _ANALYZERESULT,

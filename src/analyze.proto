@@ -13,7 +13,7 @@ message AnalyzeApiRequest {
 
 /* AnalyzeRequest represents the request to the analyze service via GRPC */
 message AnalyzeRequest {
-  string value = 1;
+  string text = 1;
   AnalyzeTemplate analyzeTemplate = 2;
   string minProbability = 3;
 }

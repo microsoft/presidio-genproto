@@ -4,7 +4,7 @@ package types;
 
 /* AnalyzeTemplate represents the analyze service template definition */
 message AnalyzeTemplate {
-    repeated string fields = 1;
+    repeated FieldTypes fields = 1;
 }
 
 
@@ -21,7 +21,7 @@ message AnonymizeTemplate {
 
 /* FieldTypeTransformation represents the transformation for array of fields types */
 message FieldTypeTransformation {
-  repeated FieldType fields = 1;
+  repeated FieldTypes fields = 1;
   Transformation transformation = 2;
 }
 

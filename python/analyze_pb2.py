@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='analyze.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\ranalyze.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\"<\n\x11\x41nalyzeApiRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x02 \x01(\t\"h\n\x0e\x41nalyzeRequest\x12\r\n\x05value\x18\x01 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x02 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x16\n\x0eminProbability\x18\x03 \x01(\t\"?\n\x0f\x41nalyzeResponse\x12,\n\x0e\x61nalyzeResults\x18\x01 \x03(\x0b\x32\x14.types.AnalyzeResult2J\n\x0e\x41nalyzeService\x12\x38\n\x05\x41pply\x12\x15.types.AnalyzeRequest\x1a\x16.types.AnalyzeResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\ranalyze.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\"<\n\x11\x41nalyzeApiRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x02 \x01(\t\"g\n\x0e\x41nalyzeRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x02 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x16\n\x0eminProbability\x18\x03 \x01(\t\"?\n\x0f\x41nalyzeResponse\x12,\n\x0e\x61nalyzeResults\x18\x01 \x03(\x0b\x32\x14.types.AnalyzeResult2J\n\x0e\x41nalyzeService\x12\x38\n\x05\x41pply\x12\x15.types.AnalyzeRequest\x1a\x16.types.AnalyzeResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[common__pb2.DESCRIPTOR,template__pb2.DESCRIPTOR,])
 
@@ -74,7 +74,7 @@ _ANALYZEREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='value', full_name='types.AnalyzeRequest.value', index=0,
+      name='text', full_name='types.AnalyzeRequest.text', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -107,7 +107,7 @@ _ANALYZEREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=116,
-  serialized_end=220,
+  serialized_end=219,
 )
 
 
@@ -137,8 +137,8 @@ _ANALYZERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=222,
-  serialized_end=285,
+  serialized_start=221,
+  serialized_end=284,
 )
 
 _ANALYZEREQUEST.fields_by_name['analyzeTemplate'].message_type = template__pb2._ANALYZETEMPLATE
@@ -177,8 +177,8 @@ _ANALYZESERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=287,
-  serialized_end=361,
+  serialized_start=286,
+  serialized_end=360,
   methods=[
   _descriptor.MethodDescriptor(
     name='Apply',

@@ -1,12 +1,7 @@
 syntax = "proto3";
 package types;
 
-message FieldType {
-  FieldTypeNames name = 1;
-  string languageCode = 2;
-}
-
-enum FieldTypeNames{
+enum FieldTypes{
     CREDIT_CARD = 0;
     CRYPTO = 1;
     DATE_TIME = 2;
@@ -22,7 +17,7 @@ enum FieldTypeNames{
 
 message AnalyzeResult {
   string text = 1;
-  string fieldType = 2;
+  FieldTypes field = 2;
   float probability = 3;
   Location location = 4;
 }
