@@ -1,7 +1,12 @@
 syntax = "proto3";
 package types;
 
-enum FieldTypes{
+message FieldTypes {
+  string name = 1;
+  string languageCode = 2;
+}
+
+enum FieldTypesEnum{
     CREDIT_CARD = 0;
     CRYPTO = 1;
     DATE_TIME = 2;
