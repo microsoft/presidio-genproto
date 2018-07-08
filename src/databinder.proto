@@ -6,6 +6,7 @@ package types;
 /* DatabinderRequest represents the request to the data-binder service via GRPC */
 message DatabinderRequest {
     repeated AnalyzeResult analyzeResults = 1;
+    string path = 2;
 }
 
 /* DatabinderResponse represents the response from the data-binder service via GRPC */
