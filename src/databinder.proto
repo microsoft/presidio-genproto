@@ -1,0 +1,21 @@
+syntax = "proto3";
+import "common.proto";
+
+package types;
+
+/* DatabinderRequest represents the request to the data-binder service via GRPC */
+message DatabinderRequest {
+    FieldTypes field = 1;
+    string probability = 2;
+    string path = 3;
+}
+
+/* DatabinderResponse represents the response from the data-binder service via GRPC */
+message DatabinderResponse {
+    sint32 statusCode = 1;
+    string error = 2;
+}
+
+service DatabinderService {
+  rpc Apply (DatabinderRequest) returns (DatabinderResponse) {}
+}
