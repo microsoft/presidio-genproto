@@ -5,9 +5,7 @@ package types;
 
 /* DatabinderRequest represents the request to the data-binder service via GRPC */
 message DatabinderRequest {
-    FieldTypes field = 1;
-    string probability = 2;
-    string path = 3;
+    repeated AnalyzeResult analyzeResults = 1;
 }
 
 /* DatabinderResponse represents the response from the data-binder service via GRPC */

@@ -322,9 +322,7 @@ DatabinderRequest represents the request to the data-binder service via GRPC
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| field | [FieldTypes](#types.FieldTypes) |  |  |
-| probability | [string](#string) |  |  |
-| path | [string](#string) |  |  |
+| analyzeResults | [AnalyzeResult](#types.AnalyzeResult) | repeated |  |
 
 
 
