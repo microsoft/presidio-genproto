@@ -11,8 +11,6 @@ message DatabinderRequest {
 
 /* DatabinderResponse represents the response from the data-binder service via GRPC */
 message DatabinderResponse {
-    sint32 statusCode = 1;
-    string error = 2;
 }
 
 service DatabinderService {

@@ -336,12 +336,6 @@ DatabinderRequest represents the request to the data-binder service via GRPC
 DatabinderResponse represents the response from the data-binder service via GRPC
 
 
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| statusCode | [sint32](#sint32) |  |  |
-| error | [string](#string) |  |  |
-
-
 
 
 
