@@ -297,6 +297,11 @@ AnonymizeResponse represents the anonymize service response
 | LOCATION | 8 |  |
 | PERSON | 9 |  |
 | PHONE_NUMBER | 10 |  |
+| US_BANK_NUMBER | 11 |  |
+| US_DRIVER_LICENSE | 12 |  |
+| US_ITIN | 13 |  |
+| US_PASSPORT | 14 |  |
+| US_SSN | 15 |  |
 
 
  
