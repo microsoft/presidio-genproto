@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='template.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0etemplate.proto\x12\x05types\x1a\x0c\x63ommon.proto\"4\n\x0f\x41nalyzeTemplate\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\"\xb7\x01\n\x11\x41nonymizeTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64isplayName\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x12\n\ncreateTime\x18\x04 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x05 \x01(\t\x12@\n\x18\x66ieldTypeTransformations\x18\x06 \x03(\x0b\x32\x1e.types.FieldTypeTransformation\"k\n\x17\x46ieldTypeTransformation\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\x12-\n\x0etransformation\x18\x02 \x01(\x0b\x32\x15.types.Transformation\"v\n\x0eTransformation\x12\x10\n\x08newValue\x18\x01 \x01(\t\x12)\n\x0creplaceValue\x18\x02 \x01(\x0b\x32\x13.types.ReplaceValue\x12\'\n\x0bredactValue\x18\x03 \x01(\x0b\x32\x12.types.RedactValue\" \n\x0cReplaceValue\x12\x10\n\x08newValue\x18\x01 \x01(\t\"\r\n\x0bRedactValueb\x06proto3')
+  serialized_pb=_b('\n\x0etemplate.proto\x12\x05types\x1a\x0c\x63ommon.proto\"4\n\x0f\x41nalyzeTemplate\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\"\xb7\x01\n\x11\x41nonymizeTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64isplayName\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x12\n\ncreateTime\x18\x04 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x05 \x01(\t\x12@\n\x18\x66ieldTypeTransformations\x18\x06 \x03(\x0b\x32\x1e.types.FieldTypeTransformation\";\n\x12\x44\x61taBinderTemplate\x12%\n\ndatabinder\x18\x01 \x03(\x0b\x32\x11.types.DataBinder\"k\n\x17\x46ieldTypeTransformation\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\x12-\n\x0etransformation\x18\x02 \x01(\x0b\x32\x15.types.Transformation\"v\n\x0eTransformation\x12\x10\n\x08newValue\x18\x01 \x01(\t\x12)\n\x0creplaceValue\x18\x02 \x01(\x0b\x32\x13.types.ReplaceValue\x12\'\n\x0bredactValue\x18\x03 \x01(\x0b\x32\x12.types.RedactValue\" \n\x0cReplaceValue\x12\x10\n\x08newValue\x18\x01 \x01(\t\"\r\n\x0bRedactValueb\x06proto3')
   ,
   dependencies=[common__pb2.DESCRIPTOR,])
 
@@ -124,6 +124,37 @@ _ANONYMIZETEMPLATE = _descriptor.Descriptor(
 )
 
 
+_DATABINDERTEMPLATE = _descriptor.Descriptor(
+  name='DataBinderTemplate',
+  full_name='types.DataBinderTemplate',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='databinder', full_name='types.DataBinderTemplate.databinder', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=279,
+  serialized_end=338,
+)
+
+
 _FIELDTYPETRANSFORMATION = _descriptor.Descriptor(
   name='FieldTypeTransformation',
   full_name='types.FieldTypeTransformation',
@@ -157,8 +188,8 @@ _FIELDTYPETRANSFORMATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=279,
-  serialized_end=386,
+  serialized_start=340,
+  serialized_end=447,
 )
 
 
@@ -202,8 +233,8 @@ _TRANSFORMATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=388,
-  serialized_end=506,
+  serialized_start=449,
+  serialized_end=567,
 )
 
 
@@ -233,8 +264,8 @@ _REPLACEVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=508,
-  serialized_end=540,
+  serialized_start=569,
+  serialized_end=601,
 )
 
 
@@ -257,18 +288,20 @@ _REDACTVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=542,
-  serialized_end=555,
+  serialized_start=603,
+  serialized_end=616,
 )
 
 _ANALYZETEMPLATE.fields_by_name['fields'].message_type = common__pb2._FIELDTYPES
 _ANONYMIZETEMPLATE.fields_by_name['fieldTypeTransformations'].message_type = _FIELDTYPETRANSFORMATION
+_DATABINDERTEMPLATE.fields_by_name['databinder'].message_type = common__pb2._DATABINDER
 _FIELDTYPETRANSFORMATION.fields_by_name['fields'].message_type = common__pb2._FIELDTYPES
 _FIELDTYPETRANSFORMATION.fields_by_name['transformation'].message_type = _TRANSFORMATION
 _TRANSFORMATION.fields_by_name['replaceValue'].message_type = _REPLACEVALUE
 _TRANSFORMATION.fields_by_name['redactValue'].message_type = _REDACTVALUE
 DESCRIPTOR.message_types_by_name['AnalyzeTemplate'] = _ANALYZETEMPLATE
 DESCRIPTOR.message_types_by_name['AnonymizeTemplate'] = _ANONYMIZETEMPLATE
+DESCRIPTOR.message_types_by_name['DataBinderTemplate'] = _DATABINDERTEMPLATE
 DESCRIPTOR.message_types_by_name['FieldTypeTransformation'] = _FIELDTYPETRANSFORMATION
 DESCRIPTOR.message_types_by_name['Transformation'] = _TRANSFORMATION
 DESCRIPTOR.message_types_by_name['ReplaceValue'] = _REPLACEVALUE
@@ -288,6 +321,13 @@ AnonymizeTemplate = _reflection.GeneratedProtocolMessageType('AnonymizeTemplate'
   # @@protoc_insertion_point(class_scope:types.AnonymizeTemplate)
   ))
 _sym_db.RegisterMessage(AnonymizeTemplate)
+
+DataBinderTemplate = _reflection.GeneratedProtocolMessageType('DataBinderTemplate', (_message.Message,), dict(
+  DESCRIPTOR = _DATABINDERTEMPLATE,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.DataBinderTemplate)
+  ))
+_sym_db.RegisterMessage(DataBinderTemplate)
 
 FieldTypeTransformation = _reflection.GeneratedProtocolMessageType('FieldTypeTransformation', (_message.Message,), dict(
   DESCRIPTOR = _FIELDTYPETRANSFORMATION,

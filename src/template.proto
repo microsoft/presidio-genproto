@@ -20,7 +20,7 @@ message AnonymizeTemplate {
 
 /* DatabinderTemplate represents the analyzer service outputs definition */
 message DataBinderTemplate {
-  repeated DataBinder = 1;
+  repeated DataBinder databinder = 1;
 }
 
 /* FieldTypeTransformation represents the transformation for array of fields types */

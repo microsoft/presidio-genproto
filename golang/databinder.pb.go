@@ -25,8 +25,8 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // DatabinderRequest represents the request to the data-binder service via GRPC
 type DatabinderRequest struct {
-	AnalyzeResults       []*AnalyzeResult `protobuf:"bytes,1,rep,name=analyzeResults" json:"analyzeResults,omitempty"`
-	Path                 string           `protobuf:"bytes,2,opt,name=path" json:"path,omitempty"`
+	AnalyzeResults       []*AnalyzeResult `protobuf:"bytes,1,rep,name=analyzeResults,proto3" json:"analyzeResults,omitempty"`
+	Path                 string           `protobuf:"bytes,2,opt,name=path,proto3" json:"path,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
 	XXX_unrecognized     []byte           `json:"-"`
 	XXX_sizecache        int32            `json:"-"`
