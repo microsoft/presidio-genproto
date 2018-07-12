@@ -40,3 +40,8 @@ message Location {
   sint32 newEnd = 5; // Not used in the template
   sint32 newLength = 6; // Not used in the template
 }
+
+message DataBinder {
+  string name = 1;
+  string key = 2;
+}
