@@ -18,11 +18,6 @@ message AnonymizeTemplate {
     repeated FieldTypeTransformation fieldTypeTransformations = 6;
 }
 
-/* DatabinderTemplate represents the analyzer service outputs definition */
-message DataBinderTemplate {
-  repeated DataBinder databinder = 1;
-}
-
 /* FieldTypeTransformation represents the transformation for array of fields types */
 message FieldTypeTransformation {
   repeated FieldTypes fields = 1;
@@ -42,4 +37,15 @@ message ReplaceValue {
 }
 
 message RedactValue {
+}
+
+
+message DataBinder {
+  string name = 1;
+  string key = 2;
+}
+
+/* DatabinderTemplate represents the analyzer service outputs definition */
+message DataBinderTemplate {
+  repeated DataBinder databinder = 1;
 }

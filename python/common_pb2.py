@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='common.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0c\x63ommon.proto\x12\x05types\"0\n\nFieldTypes\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0clanguageCode\x18\x02 \x01(\t\"w\n\rAnalyzeResult\x12\x0c\n\x04text\x18\x01 \x01(\t\x12 \n\x05\x66ield\x18\x02 \x01(\x0b\x32\x11.types.FieldTypes\x12\x13\n\x0bprobability\x18\x03 \x01(\x02\x12!\n\x08location\x18\x04 \x01(\x0b\x32\x0f.types.Location\"k\n\x08Location\x12\r\n\x05start\x18\x01 \x01(\x11\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x11\x12\x0e\n\x06length\x18\x03 \x01(\x11\x12\x10\n\x08newStart\x18\x04 \x01(\x11\x12\x0e\n\x06newEnd\x18\x05 \x01(\x11\x12\x11\n\tnewLength\x18\x06 \x01(\x11\"\'\n\nDataBinder\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03key\x18\x02 \x01(\t*\x89\x02\n\x0e\x46ieldTypesEnum\x12\x0f\n\x0b\x43REDIT_CARD\x10\x00\x12\n\n\x06\x43RYPTO\x10\x01\x12\r\n\tDATE_TIME\x10\x02\x12\x0f\n\x0b\x44OMAIN_NAME\x10\x03\x12\x11\n\rEMAIL_ADDRESS\x10\x04\x12\r\n\tIBAN_CODE\x10\x05\x12\x0e\n\nIP_ADDRESS\x10\x06\x12\x07\n\x03NRP\x10\x07\x12\x0c\n\x08LOCATION\x10\x08\x12\n\n\x06PERSON\x10\t\x12\x10\n\x0cPHONE_NUMBER\x10\n\x12\x12\n\x0eUS_BANK_NUMBER\x10\x0b\x12\x15\n\x11US_DRIVER_LICENSE\x10\x0c\x12\x0b\n\x07US_ITIN\x10\r\x12\x0f\n\x0bUS_PASSPORT\x10\x0e\x12\n\n\x06US_SSN\x10\x0f\x62\x06proto3')
+  serialized_pb=_b('\n\x0c\x63ommon.proto\x12\x05types\"0\n\nFieldTypes\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0clanguageCode\x18\x02 \x01(\t\"w\n\rAnalyzeResult\x12\x0c\n\x04text\x18\x01 \x01(\t\x12 \n\x05\x66ield\x18\x02 \x01(\x0b\x32\x11.types.FieldTypes\x12\x13\n\x0bprobability\x18\x03 \x01(\x02\x12!\n\x08location\x18\x04 \x01(\x0b\x32\x0f.types.Location\"k\n\x08Location\x12\r\n\x05start\x18\x01 \x01(\x11\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x11\x12\x0e\n\x06length\x18\x03 \x01(\x11\x12\x10\n\x08newStart\x18\x04 \x01(\x11\x12\x0e\n\x06newEnd\x18\x05 \x01(\x11\x12\x11\n\tnewLength\x18\x06 \x01(\x11*\x89\x02\n\x0e\x46ieldTypesEnum\x12\x0f\n\x0b\x43REDIT_CARD\x10\x00\x12\n\n\x06\x43RYPTO\x10\x01\x12\r\n\tDATE_TIME\x10\x02\x12\x0f\n\x0b\x44OMAIN_NAME\x10\x03\x12\x11\n\rEMAIL_ADDRESS\x10\x04\x12\r\n\tIBAN_CODE\x10\x05\x12\x0e\n\nIP_ADDRESS\x10\x06\x12\x07\n\x03NRP\x10\x07\x12\x0c\n\x08LOCATION\x10\x08\x12\n\n\x06PERSON\x10\t\x12\x10\n\x0cPHONE_NUMBER\x10\n\x12\x12\n\x0eUS_BANK_NUMBER\x10\x0b\x12\x15\n\x11US_DRIVER_LICENSE\x10\x0c\x12\x0b\n\x07US_ITIN\x10\r\x12\x0f\n\x0bUS_PASSPORT\x10\x0e\x12\n\n\x06US_SSN\x10\x0f\x62\x06proto3')
 )
 
 _FIELDTYPESENUM = _descriptor.EnumDescriptor(
@@ -96,8 +96,8 @@ _FIELDTYPESENUM = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=345,
-  serialized_end=610,
+  serialized_start=304,
+  serialized_end=569,
 )
 _sym_db.RegisterEnumDescriptor(_FIELDTYPESENUM)
 
@@ -276,50 +276,11 @@ _LOCATION = _descriptor.Descriptor(
   serialized_end=301,
 )
 
-
-_DATABINDER = _descriptor.Descriptor(
-  name='DataBinder',
-  full_name='types.DataBinder',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='types.DataBinder.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='key', full_name='types.DataBinder.key', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=303,
-  serialized_end=342,
-)
-
 _ANALYZERESULT.fields_by_name['field'].message_type = _FIELDTYPES
 _ANALYZERESULT.fields_by_name['location'].message_type = _LOCATION
 DESCRIPTOR.message_types_by_name['FieldTypes'] = _FIELDTYPES
 DESCRIPTOR.message_types_by_name['AnalyzeResult'] = _ANALYZERESULT
 DESCRIPTOR.message_types_by_name['Location'] = _LOCATION
-DESCRIPTOR.message_types_by_name['DataBinder'] = _DATABINDER
 DESCRIPTOR.enum_types_by_name['FieldTypesEnum'] = _FIELDTYPESENUM
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -343,13 +304,6 @@ Location = _reflection.GeneratedProtocolMessageType('Location', (_message.Messag
   # @@protoc_insertion_point(class_scope:types.Location)
   ))
 _sym_db.RegisterMessage(Location)
-
-DataBinder = _reflection.GeneratedProtocolMessageType('DataBinder', (_message.Message,), dict(
-  DESCRIPTOR = _DATABINDER,
-  __module__ = 'common_pb2'
-  # @@protoc_insertion_point(class_scope:types.DataBinder)
-  ))
-_sym_db.RegisterMessage(DataBinder)
 
 
 # @@protoc_insertion_point(module_scope)
