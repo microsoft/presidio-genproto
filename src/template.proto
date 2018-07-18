@@ -39,13 +39,32 @@ message ReplaceValue {
 message RedactValue {
 }
 
-
-message DataBinder {
-  string name = 1;
-  string key = 2;
+message Databinder {
+  string bindType = 1;
+  string connectionString = 2;
+  string tableName = 3;
 }
 
 /* DatabinderTemplate represents the analyzer service outputs definition */
-message DataBinderTemplate {
-  repeated DataBinder databinder = 1;
+message DatabinderTemplate {
+  repeated Databinder databinder = 1;
+}
+
+message BlobStorageConnector {
+    string accountName = 1;
+    string accountKey = 2;
+    string containrName = 3;
+}
+
+message S3Connector {
+    string accessId = 1;
+    string region = 2;
+    string bucketName = 3;
+}
+
+message ScannerTemplate {
+    string kind = 1;
+    BlobStorageConnector blobStorageConnector = 2;
+    S3Connector s3Connector = 3;
+    DatabinderTemplate databinderTemplate = 4;
 }

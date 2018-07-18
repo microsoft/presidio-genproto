@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='template.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0etemplate.proto\x12\x05types\x1a\x0c\x63ommon.proto\"4\n\x0f\x41nalyzeTemplate\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\"\xb7\x01\n\x11\x41nonymizeTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64isplayName\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x12\n\ncreateTime\x18\x04 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x05 \x01(\t\x12@\n\x18\x66ieldTypeTransformations\x18\x06 \x03(\x0b\x32\x1e.types.FieldTypeTransformation\"k\n\x17\x46ieldTypeTransformation\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\x12-\n\x0etransformation\x18\x02 \x01(\x0b\x32\x15.types.Transformation\"v\n\x0eTransformation\x12\x10\n\x08newValue\x18\x01 \x01(\t\x12)\n\x0creplaceValue\x18\x02 \x01(\x0b\x32\x13.types.ReplaceValue\x12\'\n\x0bredactValue\x18\x03 \x01(\x0b\x32\x12.types.RedactValue\" \n\x0cReplaceValue\x12\x10\n\x08newValue\x18\x01 \x01(\t\"\r\n\x0bRedactValue\"\'\n\nDataBinder\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0b\n\x03key\x18\x02 \x01(\t\";\n\x12\x44\x61taBinderTemplate\x12%\n\ndatabinder\x18\x01 \x03(\x0b\x32\x11.types.DataBinderb\x06proto3')
+  serialized_pb=_b('\n\x0etemplate.proto\x12\x05types\x1a\x0c\x63ommon.proto\"4\n\x0f\x41nalyzeTemplate\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\"\xb7\x01\n\x11\x41nonymizeTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64isplayName\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x12\n\ncreateTime\x18\x04 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x05 \x01(\t\x12@\n\x18\x66ieldTypeTransformations\x18\x06 \x03(\x0b\x32\x1e.types.FieldTypeTransformation\"k\n\x17\x46ieldTypeTransformation\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\x12-\n\x0etransformation\x18\x02 \x01(\x0b\x32\x15.types.Transformation\"v\n\x0eTransformation\x12\x10\n\x08newValue\x18\x01 \x01(\t\x12)\n\x0creplaceValue\x18\x02 \x01(\x0b\x32\x13.types.ReplaceValue\x12\'\n\x0bredactValue\x18\x03 \x01(\x0b\x32\x12.types.RedactValue\" \n\x0cReplaceValue\x12\x10\n\x08newValue\x18\x01 \x01(\t\"\r\n\x0bRedactValue\"K\n\nDatabinder\x12\x10\n\x08\x62indType\x18\x01 \x01(\t\x12\x18\n\x10\x63onnectionString\x18\x02 \x01(\t\x12\x11\n\ttableName\x18\x03 \x01(\t\";\n\x12\x44\x61tabinderTemplate\x12%\n\ndatabinder\x18\x01 \x03(\x0b\x32\x11.types.Databinder\"U\n\x14\x42lobStorageConnector\x12\x13\n\x0b\x61\x63\x63ountName\x18\x01 \x01(\t\x12\x12\n\naccountKey\x18\x02 \x01(\t\x12\x14\n\x0c\x63ontainrName\x18\x03 \x01(\t\"C\n\x0bS3Connector\x12\x10\n\x08\x61\x63\x63\x65ssId\x18\x01 \x01(\t\x12\x0e\n\x06region\x18\x02 \x01(\t\x12\x12\n\nbucketName\x18\x03 \x01(\t\"\xba\x01\n\x0fScannerTemplate\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x39\n\x14\x62lobStorageConnector\x18\x02 \x01(\x0b\x32\x1b.types.BlobStorageConnector\x12\'\n\x0bs3Connector\x18\x03 \x01(\x0b\x32\x12.types.S3Connector\x12\x35\n\x12\x64\x61tabinderTemplate\x18\x04 \x01(\x0b\x32\x19.types.DatabinderTemplateb\x06proto3')
   ,
   dependencies=[common__pb2.DESCRIPTOR,])
 
@@ -263,22 +263,29 @@ _REDACTVALUE = _descriptor.Descriptor(
 
 
 _DATABINDER = _descriptor.Descriptor(
-  name='DataBinder',
-  full_name='types.DataBinder',
+  name='Databinder',
+  full_name='types.Databinder',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='types.DataBinder.name', index=0,
+      name='bindType', full_name='types.Databinder.bindType', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='key', full_name='types.DataBinder.key', index=1,
+      name='connectionString', full_name='types.Databinder.connectionString', index=1,
       number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='tableName', full_name='types.Databinder.tableName', index=2,
+      number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -296,19 +303,19 @@ _DATABINDER = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=557,
-  serialized_end=596,
+  serialized_end=632,
 )
 
 
 _DATABINDERTEMPLATE = _descriptor.Descriptor(
-  name='DataBinderTemplate',
-  full_name='types.DataBinderTemplate',
+  name='DatabinderTemplate',
+  full_name='types.DatabinderTemplate',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='databinder', full_name='types.DataBinderTemplate.databinder', index=0,
+      name='databinder', full_name='types.DatabinderTemplate.databinder', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -326,8 +333,150 @@ _DATABINDERTEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=598,
-  serialized_end=657,
+  serialized_start=634,
+  serialized_end=693,
+)
+
+
+_BLOBSTORAGECONNECTOR = _descriptor.Descriptor(
+  name='BlobStorageConnector',
+  full_name='types.BlobStorageConnector',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='accountName', full_name='types.BlobStorageConnector.accountName', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='accountKey', full_name='types.BlobStorageConnector.accountKey', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='containrName', full_name='types.BlobStorageConnector.containrName', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=695,
+  serialized_end=780,
+)
+
+
+_S3CONNECTOR = _descriptor.Descriptor(
+  name='S3Connector',
+  full_name='types.S3Connector',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='accessId', full_name='types.S3Connector.accessId', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='region', full_name='types.S3Connector.region', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='bucketName', full_name='types.S3Connector.bucketName', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=782,
+  serialized_end=849,
+)
+
+
+_SCANNERTEMPLATE = _descriptor.Descriptor(
+  name='ScannerTemplate',
+  full_name='types.ScannerTemplate',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='kind', full_name='types.ScannerTemplate.kind', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='blobStorageConnector', full_name='types.ScannerTemplate.blobStorageConnector', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='s3Connector', full_name='types.ScannerTemplate.s3Connector', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='databinderTemplate', full_name='types.ScannerTemplate.databinderTemplate', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=852,
+  serialized_end=1038,
 )
 
 _ANALYZETEMPLATE.fields_by_name['fields'].message_type = common__pb2._FIELDTYPES
@@ -337,14 +486,20 @@ _FIELDTYPETRANSFORMATION.fields_by_name['transformation'].message_type = _TRANSF
 _TRANSFORMATION.fields_by_name['replaceValue'].message_type = _REPLACEVALUE
 _TRANSFORMATION.fields_by_name['redactValue'].message_type = _REDACTVALUE
 _DATABINDERTEMPLATE.fields_by_name['databinder'].message_type = _DATABINDER
+_SCANNERTEMPLATE.fields_by_name['blobStorageConnector'].message_type = _BLOBSTORAGECONNECTOR
+_SCANNERTEMPLATE.fields_by_name['s3Connector'].message_type = _S3CONNECTOR
+_SCANNERTEMPLATE.fields_by_name['databinderTemplate'].message_type = _DATABINDERTEMPLATE
 DESCRIPTOR.message_types_by_name['AnalyzeTemplate'] = _ANALYZETEMPLATE
 DESCRIPTOR.message_types_by_name['AnonymizeTemplate'] = _ANONYMIZETEMPLATE
 DESCRIPTOR.message_types_by_name['FieldTypeTransformation'] = _FIELDTYPETRANSFORMATION
 DESCRIPTOR.message_types_by_name['Transformation'] = _TRANSFORMATION
 DESCRIPTOR.message_types_by_name['ReplaceValue'] = _REPLACEVALUE
 DESCRIPTOR.message_types_by_name['RedactValue'] = _REDACTVALUE
-DESCRIPTOR.message_types_by_name['DataBinder'] = _DATABINDER
-DESCRIPTOR.message_types_by_name['DataBinderTemplate'] = _DATABINDERTEMPLATE
+DESCRIPTOR.message_types_by_name['Databinder'] = _DATABINDER
+DESCRIPTOR.message_types_by_name['DatabinderTemplate'] = _DATABINDERTEMPLATE
+DESCRIPTOR.message_types_by_name['BlobStorageConnector'] = _BLOBSTORAGECONNECTOR
+DESCRIPTOR.message_types_by_name['S3Connector'] = _S3CONNECTOR
+DESCRIPTOR.message_types_by_name['ScannerTemplate'] = _SCANNERTEMPLATE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 AnalyzeTemplate = _reflection.GeneratedProtocolMessageType('AnalyzeTemplate', (_message.Message,), dict(
@@ -389,19 +544,40 @@ RedactValue = _reflection.GeneratedProtocolMessageType('RedactValue', (_message.
   ))
 _sym_db.RegisterMessage(RedactValue)
 
-DataBinder = _reflection.GeneratedProtocolMessageType('DataBinder', (_message.Message,), dict(
+Databinder = _reflection.GeneratedProtocolMessageType('Databinder', (_message.Message,), dict(
   DESCRIPTOR = _DATABINDER,
   __module__ = 'template_pb2'
-  # @@protoc_insertion_point(class_scope:types.DataBinder)
+  # @@protoc_insertion_point(class_scope:types.Databinder)
   ))
-_sym_db.RegisterMessage(DataBinder)
+_sym_db.RegisterMessage(Databinder)
 
-DataBinderTemplate = _reflection.GeneratedProtocolMessageType('DataBinderTemplate', (_message.Message,), dict(
+DatabinderTemplate = _reflection.GeneratedProtocolMessageType('DatabinderTemplate', (_message.Message,), dict(
   DESCRIPTOR = _DATABINDERTEMPLATE,
   __module__ = 'template_pb2'
-  # @@protoc_insertion_point(class_scope:types.DataBinderTemplate)
+  # @@protoc_insertion_point(class_scope:types.DatabinderTemplate)
   ))
-_sym_db.RegisterMessage(DataBinderTemplate)
+_sym_db.RegisterMessage(DatabinderTemplate)
+
+BlobStorageConnector = _reflection.GeneratedProtocolMessageType('BlobStorageConnector', (_message.Message,), dict(
+  DESCRIPTOR = _BLOBSTORAGECONNECTOR,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.BlobStorageConnector)
+  ))
+_sym_db.RegisterMessage(BlobStorageConnector)
+
+S3Connector = _reflection.GeneratedProtocolMessageType('S3Connector', (_message.Message,), dict(
+  DESCRIPTOR = _S3CONNECTOR,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.S3Connector)
+  ))
+_sym_db.RegisterMessage(S3Connector)
+
+ScannerTemplate = _reflection.GeneratedProtocolMessageType('ScannerTemplate', (_message.Message,), dict(
+  DESCRIPTOR = _SCANNERTEMPLATE,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.ScannerTemplate)
+  ))
+_sym_db.RegisterMessage(ScannerTemplate)
 
 
 # @@protoc_insertion_point(module_scope)

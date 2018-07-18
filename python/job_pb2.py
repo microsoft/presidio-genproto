@@ -13,14 +13,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
+import template_pb2 as template__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='job.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\tjob.proto\x12\x05types\"I\n\x03Job\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\",\n\x07Trigger\x12!\n\x08schedule\x18\x01 \x01(\x0b\x32\x0f.types.Schedule\",\n\x08Schedule\x12 \n\x18recurrencePeriodDuration\x18\x01 \x01(\tb\x06proto3')
-)
+  serialized_pb=_b('\n\tjob.proto\x12\x05types\x1a\x0etemplate.proto\"\xe0\x01\n\x03Job\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\x12/\n\x0f\x61nalyzeTemplate\x18\x04 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x33\n\x11\x61nonymizeTemplate\x18\x05 \x01(\x0b\x32\x18.types.AnonymizeTemplate\x12/\n\x0fscannerTemplate\x18\x06 \x01(\x0b\x32\x16.types.ScannerTemplate\",\n\x07Trigger\x12!\n\x08schedule\x18\x01 \x01(\x0b\x32\x0f.types.Schedule\",\n\x08Schedule\x12 \n\x18recurrencePeriodDuration\x18\x01 \x01(\tb\x06proto3')
+  ,
+  dependencies=[template__pb2.DESCRIPTOR,])
 
 
 
@@ -53,6 +55,27 @@ _JOB = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='analyzeTemplate', full_name='types.Job.analyzeTemplate', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='anonymizeTemplate', full_name='types.Job.anonymizeTemplate', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='scannerTemplate', full_name='types.Job.scannerTemplate', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -65,8 +88,8 @@ _JOB = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20,
-  serialized_end=93,
+  serialized_start=37,
+  serialized_end=261,
 )
 
 
@@ -96,8 +119,8 @@ _TRIGGER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=95,
-  serialized_end=139,
+  serialized_start=263,
+  serialized_end=307,
 )
 
 
@@ -127,11 +150,14 @@ _SCHEDULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=141,
-  serialized_end=185,
+  serialized_start=309,
+  serialized_end=353,
 )
 
 _JOB.fields_by_name['trigger'].message_type = _TRIGGER
+_JOB.fields_by_name['analyzeTemplate'].message_type = template__pb2._ANALYZETEMPLATE
+_JOB.fields_by_name['anonymizeTemplate'].message_type = template__pb2._ANONYMIZETEMPLATE
+_JOB.fields_by_name['scannerTemplate'].message_type = template__pb2._SCANNERTEMPLATE
 _TRIGGER.fields_by_name['schedule'].message_type = _SCHEDULE
 DESCRIPTOR.message_types_by_name['Job'] = _JOB
 DESCRIPTOR.message_types_by_name['Trigger'] = _TRIGGER
