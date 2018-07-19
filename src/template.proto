@@ -63,14 +63,14 @@ message S3Config {
     string bucketName = 4;
 }
 
-message StorageConfig {
+message InputConfig {
   BlobStorageConfig blobStorageConfig = 1;
   S3Config s3Config = 2;
 }
 
 message ScannerTemplate {
     string kind = 1;
-    StorageConfig storageConfig = 2;
+    InputConfig inputConfig = 2;
     string minProbability = 3;
     AnalyzeTemplate analyzeTemplate = 4;
     AnonymizeTemplate anonymizeTemplate = 5;
