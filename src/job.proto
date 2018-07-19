@@ -1,11 +1,12 @@
 syntax = "proto3";
 package types;
+import "template.proto";
 
 message Job {
     string name = 1;
     string description = 2;
     Trigger trigger = 3;
-
+    ScannerTemplate scannerTemplate = 6;
 }
 
 message Trigger {

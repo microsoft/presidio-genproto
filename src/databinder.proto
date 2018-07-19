@@ -1,5 +1,6 @@
 syntax = "proto3";
 import "common.proto";
+import "template.proto";
 
 package types;
 
@@ -15,4 +16,14 @@ message DatabinderResponse {
 
 service DatabinderService {
   rpc Apply (DatabinderRequest) returns (DatabinderResponse) {}
+  rpc Init (DatabinderTemplate) returns (DatabinderResponse) {}
+
+}
+
+enum DataBinderTypesEnum{
+    mysql = 0;
+    mssql = 1;
+    postgres = 2;
+    sqlite3 = 3;
+    oracle = 4;
 }

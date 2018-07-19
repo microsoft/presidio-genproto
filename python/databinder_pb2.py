@@ -3,6 +3,7 @@
 
 import sys
 _b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+from google.protobuf.internal import enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -14,16 +15,57 @@ _sym_db = _symbol_database.Default()
 
 
 import common_pb2 as common__pb2
+import template_pb2 as template__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='databinder.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x10\x64\x61tabinder.proto\x12\x05types\x1a\x0c\x63ommon.proto\"O\n\x11\x44\x61tabinderRequest\x12,\n\x0e\x61nalyzeResults\x18\x01 \x03(\x0b\x32\x14.types.AnalyzeResult\x12\x0c\n\x04path\x18\x02 \x01(\t\"\x14\n\x12\x44\x61tabinderResponse2S\n\x11\x44\x61tabinderService\x12>\n\x05\x41pply\x12\x18.types.DatabinderRequest\x1a\x19.types.DatabinderResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x10\x64\x61tabinder.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\"O\n\x11\x44\x61tabinderRequest\x12,\n\x0e\x61nalyzeResults\x18\x01 \x03(\x0b\x32\x14.types.AnalyzeResult\x12\x0c\n\x04path\x18\x02 \x01(\t\"\x14\n\x12\x44\x61tabinderResponse*R\n\x13\x44\x61taBinderTypesEnum\x12\t\n\x05mysql\x10\x00\x12\t\n\x05mssql\x10\x01\x12\x0c\n\x08postgres\x10\x02\x12\x0b\n\x07sqlite3\x10\x03\x12\n\n\x06oracle\x10\x04\x32\x93\x01\n\x11\x44\x61tabinderService\x12>\n\x05\x41pply\x12\x18.types.DatabinderRequest\x1a\x19.types.DatabinderResponse\"\x00\x12>\n\x04Init\x12\x19.types.DatabinderTemplate\x1a\x19.types.DatabinderResponse\"\x00\x62\x06proto3')
   ,
-  dependencies=[common__pb2.DESCRIPTOR,])
+  dependencies=[common__pb2.DESCRIPTOR,template__pb2.DESCRIPTOR,])
 
+_DATABINDERTYPESENUM = _descriptor.EnumDescriptor(
+  name='DataBinderTypesEnum',
+  full_name='types.DataBinderTypesEnum',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='mysql', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='mssql', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='postgres', index=2, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='sqlite3', index=3, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='oracle', index=4, number=4,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=160,
+  serialized_end=242,
+)
+_sym_db.RegisterEnumDescriptor(_DATABINDERTYPESENUM)
+
+DataBinderTypesEnum = enum_type_wrapper.EnumTypeWrapper(_DATABINDERTYPESENUM)
+mysql = 0
+mssql = 1
+postgres = 2
+sqlite3 = 3
+oracle = 4
 
 
 
@@ -60,8 +102,8 @@ _DATABINDERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=41,
-  serialized_end=120,
+  serialized_start=57,
+  serialized_end=136,
 )
 
 
@@ -84,13 +126,14 @@ _DATABINDERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=122,
-  serialized_end=142,
+  serialized_start=138,
+  serialized_end=158,
 )
 
 _DATABINDERREQUEST.fields_by_name['analyzeResults'].message_type = common__pb2._ANALYZERESULT
 DESCRIPTOR.message_types_by_name['DatabinderRequest'] = _DATABINDERREQUEST
 DESCRIPTOR.message_types_by_name['DatabinderResponse'] = _DATABINDERRESPONSE
+DESCRIPTOR.enum_types_by_name['DataBinderTypesEnum'] = _DATABINDERTYPESENUM
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 DatabinderRequest = _reflection.GeneratedProtocolMessageType('DatabinderRequest', (_message.Message,), dict(
@@ -115,8 +158,8 @@ _DATABINDERSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=144,
-  serialized_end=227,
+  serialized_start=245,
+  serialized_end=392,
   methods=[
   _descriptor.MethodDescriptor(
     name='Apply',
@@ -124,6 +167,15 @@ _DATABINDERSERVICE = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=_DATABINDERREQUEST,
+    output_type=_DATABINDERRESPONSE,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Init',
+    full_name='types.DatabinderService.Init',
+    index=1,
+    containing_service=None,
+    input_type=template__pb2._DATABINDERTEMPLATE,
     output_type=_DATABINDERRESPONSE,
     options=None,
   ),

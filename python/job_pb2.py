@@ -13,14 +13,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
+import template_pb2 as template__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='job.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\tjob.proto\x12\x05types\"I\n\x03Job\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\",\n\x07Trigger\x12!\n\x08schedule\x18\x01 \x01(\x0b\x32\x0f.types.Schedule\",\n\x08Schedule\x12 \n\x18recurrencePeriodDuration\x18\x01 \x01(\tb\x06proto3')
-)
+  serialized_pb=_b('\n\tjob.proto\x12\x05types\x1a\x0etemplate.proto\"z\n\x03Job\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\x12/\n\x0fscannerTemplate\x18\x06 \x01(\x0b\x32\x16.types.ScannerTemplate\",\n\x07Trigger\x12!\n\x08schedule\x18\x01 \x01(\x0b\x32\x0f.types.Schedule\",\n\x08Schedule\x12 \n\x18recurrencePeriodDuration\x18\x01 \x01(\tb\x06proto3')
+  ,
+  dependencies=[template__pb2.DESCRIPTOR,])
 
 
 
@@ -53,6 +55,13 @@ _JOB = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='scannerTemplate', full_name='types.Job.scannerTemplate', index=3,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -65,8 +74,8 @@ _JOB = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=20,
-  serialized_end=93,
+  serialized_start=36,
+  serialized_end=158,
 )
 
 
@@ -96,8 +105,8 @@ _TRIGGER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=95,
-  serialized_end=139,
+  serialized_start=160,
+  serialized_end=204,
 )
 
 
@@ -127,11 +136,12 @@ _SCHEDULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=141,
-  serialized_end=185,
+  serialized_start=206,
+  serialized_end=250,
 )
 
 _JOB.fields_by_name['trigger'].message_type = _TRIGGER
+_JOB.fields_by_name['scannerTemplate'].message_type = template__pb2._SCANNERTEMPLATE
 _TRIGGER.fields_by_name['schedule'].message_type = _SCHEDULE
 DESCRIPTOR.message_types_by_name['Job'] = _JOB
 DESCRIPTOR.message_types_by_name['Trigger'] = _TRIGGER
