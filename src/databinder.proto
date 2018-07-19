@@ -24,6 +24,6 @@ enum DataBinderTypesEnum{
     mysql = 0;
     mssql = 1;
     postgres = 2;
-    sqllite = 3;
+    sqlite3 = 3;
     oracle = 4;
 }

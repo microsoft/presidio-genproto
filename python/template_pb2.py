@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='template.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0etemplate.proto\x12\x05types\x1a\x0c\x63ommon.proto\"4\n\x0f\x41nalyzeTemplate\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\"\xb7\x01\n\x11\x41nonymizeTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64isplayName\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x12\n\ncreateTime\x18\x04 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x05 \x01(\t\x12@\n\x18\x66ieldTypeTransformations\x18\x06 \x03(\x0b\x32\x1e.types.FieldTypeTransformation\"k\n\x17\x46ieldTypeTransformation\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\x12-\n\x0etransformation\x18\x02 \x01(\x0b\x32\x15.types.Transformation\"v\n\x0eTransformation\x12\x10\n\x08newValue\x18\x01 \x01(\t\x12)\n\x0creplaceValue\x18\x02 \x01(\x0b\x32\x13.types.ReplaceValue\x12\'\n\x0bredactValue\x18\x03 \x01(\x0b\x32\x12.types.RedactValue\" \n\x0cReplaceValue\x12\x10\n\x08newValue\x18\x01 \x01(\t\"\r\n\x0bRedactValue\"K\n\nDatabinder\x12\x10\n\x08\x62indType\x18\x01 \x01(\t\x12\x18\n\x10\x63onnectionString\x18\x02 \x01(\t\x12\x11\n\ttableName\x18\x03 \x01(\t\";\n\x12\x44\x61tabinderTemplate\x12%\n\ndatabinder\x18\x01 \x03(\x0b\x32\x11.types.Databinder\"U\n\x14\x42lobStorageConnector\x12\x13\n\x0b\x61\x63\x63ountName\x18\x01 \x01(\t\x12\x12\n\naccountKey\x18\x02 \x01(\t\x12\x14\n\x0c\x63ontainrName\x18\x03 \x01(\t\"C\n\x0bS3Connector\x12\x10\n\x08\x61\x63\x63\x65ssId\x18\x01 \x01(\t\x12\x0e\n\x06region\x18\x02 \x01(\t\x12\x12\n\nbucketName\x18\x03 \x01(\t\"\xba\x01\n\x0fScannerTemplate\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x39\n\x14\x62lobStorageConnector\x18\x02 \x01(\x0b\x32\x1b.types.BlobStorageConnector\x12\'\n\x0bs3Connector\x18\x03 \x01(\x0b\x32\x12.types.S3Connector\x12\x35\n\x12\x64\x61tabinderTemplate\x18\x04 \x01(\x0b\x32\x19.types.DatabinderTemplateb\x06proto3')
+  serialized_pb=_b('\n\x0etemplate.proto\x12\x05types\x1a\x0c\x63ommon.proto\"4\n\x0f\x41nalyzeTemplate\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\"\xb7\x01\n\x11\x41nonymizeTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64isplayName\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x12\n\ncreateTime\x18\x04 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x05 \x01(\t\x12@\n\x18\x66ieldTypeTransformations\x18\x06 \x03(\x0b\x32\x1e.types.FieldTypeTransformation\"k\n\x17\x46ieldTypeTransformation\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\x12-\n\x0etransformation\x18\x02 \x01(\x0b\x32\x15.types.Transformation\"v\n\x0eTransformation\x12\x10\n\x08newValue\x18\x01 \x01(\t\x12)\n\x0creplaceValue\x18\x02 \x01(\x0b\x32\x13.types.ReplaceValue\x12\'\n\x0bredactValue\x18\x03 \x01(\x0b\x32\x12.types.RedactValue\" \n\x0cReplaceValue\x12\x10\n\x08newValue\x18\x01 \x01(\t\"\r\n\x0bRedactValue\"K\n\nDatabinder\x12\x10\n\x08\x62indType\x18\x01 \x01(\t\x12\x18\n\x10\x63onnectionString\x18\x02 \x01(\t\x12\x11\n\ttableName\x18\x03 \x01(\t\";\n\x12\x44\x61tabinderTemplate\x12%\n\ndatabinder\x18\x01 \x03(\x0b\x32\x11.types.Databinder\"R\n\x11\x42lobStorageConfig\x12\x13\n\x0b\x61\x63\x63ountName\x18\x01 \x01(\t\x12\x12\n\naccountKey\x18\x02 \x01(\t\x12\x14\n\x0c\x63ontainrName\x18\x03 \x01(\t\"S\n\x08S3Config\x12\x10\n\x08\x61\x63\x63\x65ssId\x18\x01 \x01(\t\x12\x11\n\taccessKey\x18\x02 \x01(\t\x12\x0e\n\x06region\x18\x03 \x01(\t\x12\x12\n\nbucketName\x18\x04 \x01(\t\"g\n\rStorageConfig\x12\x33\n\x11\x62lobStorageConfig\x18\x01 \x01(\x0b\x32\x18.types.BlobStorageConfig\x12!\n\x08s3Config\x18\x02 \x01(\x0b\x32\x0f.types.S3Config\"\xe9\x01\n\x0fScannerTemplate\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12+\n\rstorageConfig\x18\x02 \x01(\x0b\x32\x14.types.StorageConfig\x12/\n\x0f\x61nalyzeTemplate\x18\x04 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x33\n\x11\x61nonymizeTemplate\x18\x05 \x01(\x0b\x32\x18.types.AnonymizeTemplate\x12\x35\n\x12\x64\x61tabinderTemplate\x18\x03 \x01(\x0b\x32\x19.types.DatabinderTemplateb\x06proto3')
   ,
   dependencies=[common__pb2.DESCRIPTOR,])
 
@@ -338,29 +338,29 @@ _DATABINDERTEMPLATE = _descriptor.Descriptor(
 )
 
 
-_BLOBSTORAGECONNECTOR = _descriptor.Descriptor(
-  name='BlobStorageConnector',
-  full_name='types.BlobStorageConnector',
+_BLOBSTORAGECONFIG = _descriptor.Descriptor(
+  name='BlobStorageConfig',
+  full_name='types.BlobStorageConfig',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='accountName', full_name='types.BlobStorageConnector.accountName', index=0,
+      name='accountName', full_name='types.BlobStorageConfig.accountName', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='accountKey', full_name='types.BlobStorageConnector.accountKey', index=1,
+      name='accountKey', full_name='types.BlobStorageConfig.accountKey', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='containrName', full_name='types.BlobStorageConnector.containrName', index=2,
+      name='containrName', full_name='types.BlobStorageConfig.containrName', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -379,34 +379,41 @@ _BLOBSTORAGECONNECTOR = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=695,
-  serialized_end=780,
+  serialized_end=777,
 )
 
 
-_S3CONNECTOR = _descriptor.Descriptor(
-  name='S3Connector',
-  full_name='types.S3Connector',
+_S3CONFIG = _descriptor.Descriptor(
+  name='S3Config',
+  full_name='types.S3Config',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='accessId', full_name='types.S3Connector.accessId', index=0,
+      name='accessId', full_name='types.S3Config.accessId', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='region', full_name='types.S3Connector.region', index=1,
+      name='accessKey', full_name='types.S3Config.accessKey', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='bucketName', full_name='types.S3Connector.bucketName', index=2,
+      name='region', full_name='types.S3Config.region', index=2,
       number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='bucketName', full_name='types.S3Config.bucketName', index=3,
+      number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -423,8 +430,46 @@ _S3CONNECTOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=782,
-  serialized_end=849,
+  serialized_start=779,
+  serialized_end=862,
+)
+
+
+_STORAGECONFIG = _descriptor.Descriptor(
+  name='StorageConfig',
+  full_name='types.StorageConfig',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='blobStorageConfig', full_name='types.StorageConfig.blobStorageConfig', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='s3Config', full_name='types.StorageConfig.s3Config', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=864,
+  serialized_end=967,
 )
 
 
@@ -443,22 +488,29 @@ _SCANNERTEMPLATE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='blobStorageConnector', full_name='types.ScannerTemplate.blobStorageConnector', index=1,
+      name='storageConfig', full_name='types.ScannerTemplate.storageConfig', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='s3Connector', full_name='types.ScannerTemplate.s3Connector', index=2,
-      number=3, type=11, cpp_type=10, label=1,
+      name='analyzeTemplate', full_name='types.ScannerTemplate.analyzeTemplate', index=2,
+      number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='databinderTemplate', full_name='types.ScannerTemplate.databinderTemplate', index=3,
-      number=4, type=11, cpp_type=10, label=1,
+      name='anonymizeTemplate', full_name='types.ScannerTemplate.anonymizeTemplate', index=3,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='databinderTemplate', full_name='types.ScannerTemplate.databinderTemplate', index=4,
+      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -475,8 +527,8 @@ _SCANNERTEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=852,
-  serialized_end=1038,
+  serialized_start=970,
+  serialized_end=1203,
 )
 
 _ANALYZETEMPLATE.fields_by_name['fields'].message_type = common__pb2._FIELDTYPES
@@ -486,8 +538,11 @@ _FIELDTYPETRANSFORMATION.fields_by_name['transformation'].message_type = _TRANSF
 _TRANSFORMATION.fields_by_name['replaceValue'].message_type = _REPLACEVALUE
 _TRANSFORMATION.fields_by_name['redactValue'].message_type = _REDACTVALUE
 _DATABINDERTEMPLATE.fields_by_name['databinder'].message_type = _DATABINDER
-_SCANNERTEMPLATE.fields_by_name['blobStorageConnector'].message_type = _BLOBSTORAGECONNECTOR
-_SCANNERTEMPLATE.fields_by_name['s3Connector'].message_type = _S3CONNECTOR
+_STORAGECONFIG.fields_by_name['blobStorageConfig'].message_type = _BLOBSTORAGECONFIG
+_STORAGECONFIG.fields_by_name['s3Config'].message_type = _S3CONFIG
+_SCANNERTEMPLATE.fields_by_name['storageConfig'].message_type = _STORAGECONFIG
+_SCANNERTEMPLATE.fields_by_name['analyzeTemplate'].message_type = _ANALYZETEMPLATE
+_SCANNERTEMPLATE.fields_by_name['anonymizeTemplate'].message_type = _ANONYMIZETEMPLATE
 _SCANNERTEMPLATE.fields_by_name['databinderTemplate'].message_type = _DATABINDERTEMPLATE
 DESCRIPTOR.message_types_by_name['AnalyzeTemplate'] = _ANALYZETEMPLATE
 DESCRIPTOR.message_types_by_name['AnonymizeTemplate'] = _ANONYMIZETEMPLATE
@@ -497,8 +552,9 @@ DESCRIPTOR.message_types_by_name['ReplaceValue'] = _REPLACEVALUE
 DESCRIPTOR.message_types_by_name['RedactValue'] = _REDACTVALUE
 DESCRIPTOR.message_types_by_name['Databinder'] = _DATABINDER
 DESCRIPTOR.message_types_by_name['DatabinderTemplate'] = _DATABINDERTEMPLATE
-DESCRIPTOR.message_types_by_name['BlobStorageConnector'] = _BLOBSTORAGECONNECTOR
-DESCRIPTOR.message_types_by_name['S3Connector'] = _S3CONNECTOR
+DESCRIPTOR.message_types_by_name['BlobStorageConfig'] = _BLOBSTORAGECONFIG
+DESCRIPTOR.message_types_by_name['S3Config'] = _S3CONFIG
+DESCRIPTOR.message_types_by_name['StorageConfig'] = _STORAGECONFIG
 DESCRIPTOR.message_types_by_name['ScannerTemplate'] = _SCANNERTEMPLATE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -558,19 +614,26 @@ DatabinderTemplate = _reflection.GeneratedProtocolMessageType('DatabinderTemplat
   ))
 _sym_db.RegisterMessage(DatabinderTemplate)
 
-BlobStorageConnector = _reflection.GeneratedProtocolMessageType('BlobStorageConnector', (_message.Message,), dict(
-  DESCRIPTOR = _BLOBSTORAGECONNECTOR,
+BlobStorageConfig = _reflection.GeneratedProtocolMessageType('BlobStorageConfig', (_message.Message,), dict(
+  DESCRIPTOR = _BLOBSTORAGECONFIG,
   __module__ = 'template_pb2'
-  # @@protoc_insertion_point(class_scope:types.BlobStorageConnector)
+  # @@protoc_insertion_point(class_scope:types.BlobStorageConfig)
   ))
-_sym_db.RegisterMessage(BlobStorageConnector)
+_sym_db.RegisterMessage(BlobStorageConfig)
 
-S3Connector = _reflection.GeneratedProtocolMessageType('S3Connector', (_message.Message,), dict(
-  DESCRIPTOR = _S3CONNECTOR,
+S3Config = _reflection.GeneratedProtocolMessageType('S3Config', (_message.Message,), dict(
+  DESCRIPTOR = _S3CONFIG,
   __module__ = 'template_pb2'
-  # @@protoc_insertion_point(class_scope:types.S3Connector)
+  # @@protoc_insertion_point(class_scope:types.S3Config)
   ))
-_sym_db.RegisterMessage(S3Connector)
+_sym_db.RegisterMessage(S3Config)
+
+StorageConfig = _reflection.GeneratedProtocolMessageType('StorageConfig', (_message.Message,), dict(
+  DESCRIPTOR = _STORAGECONFIG,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.StorageConfig)
+  ))
+_sym_db.RegisterMessage(StorageConfig)
 
 ScannerTemplate = _reflection.GeneratedProtocolMessageType('ScannerTemplate', (_message.Message,), dict(
   DESCRIPTOR = _SCANNERTEMPLATE,

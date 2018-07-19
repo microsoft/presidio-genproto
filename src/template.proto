@@ -50,21 +50,28 @@ message DatabinderTemplate {
   repeated Databinder databinder = 1;
 }
 
-message BlobStorageConnector {
+message BlobStorageConfig {
     string accountName = 1;
     string accountKey = 2;
     string containrName = 3;
 }
 
-message S3Connector {
+message S3Config {
     string accessId = 1;
-    string region = 2;
-    string bucketName = 3;
+    string accessKey = 2;
+    string region = 3;
+    string bucketName = 4;
+}
+
+message StorageConfig {
+  BlobStorageConfig blobStorageConfig = 1;
+  S3Config s3Config = 2;
 }
 
 message ScannerTemplate {
     string kind = 1;
-    BlobStorageConnector blobStorageConnector = 2;
-    S3Connector s3Connector = 3;
-    DatabinderTemplate databinderTemplate = 4;
+    StorageConfig storageConfig = 2;
+    AnalyzeTemplate analyzeTemplate = 4;
+    AnonymizeTemplate anonymizeTemplate = 5;
+    DatabinderTemplate databinderTemplate = 3;
 }
