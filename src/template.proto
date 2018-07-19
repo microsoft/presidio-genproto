@@ -53,7 +53,7 @@ message DatabinderTemplate {
 message BlobStorageConfig {
     string accountName = 1;
     string accountKey = 2;
-    string containrName = 3;
+    string containerName = 3;
 }
 
 message S3Config {
@@ -71,7 +71,8 @@ message StorageConfig {
 message ScannerTemplate {
     string kind = 1;
     StorageConfig storageConfig = 2;
+    string minProbability = 3;
     AnalyzeTemplate analyzeTemplate = 4;
     AnonymizeTemplate anonymizeTemplate = 5;
-    DatabinderTemplate databinderTemplate = 3;
+    DatabinderTemplate databinderTemplate = 6;
 }
