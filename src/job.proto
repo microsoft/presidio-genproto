@@ -2,17 +2,9 @@ syntax = "proto3";
 package types;
 import "template.proto";
 
-message Job {
+message JobRequest {
     string name = 1;
     string description = 2;
     Trigger trigger = 3;
-    ScannerTemplate scannerTemplate = 6;
-}
-
-message Trigger {
-    Schedule schedule = 1;
-}
-
-message Schedule {
-    string recurrencePeriodDuration = 1;
+    ScanTemplate scanTemplate = 4;
 }
