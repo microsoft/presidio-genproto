@@ -68,11 +68,26 @@ message InputConfig {
   S3Config s3Config = 2;
 }
 
-message ScannerTemplate {
+message ScanTemplate {
     string kind = 1;
     InputConfig inputConfig = 2;
     string minProbability = 3;
-    AnalyzeTemplate analyzeTemplate = 4;
-    AnonymizeTemplate anonymizeTemplate = 5;
-    DatabinderTemplate databinderTemplate = 6;
+    string analyzeTemplateId = 4;
+    string anonymizeTemplateId = 5;
+    string databinderTemplateId = 6;
+}
+
+message JobTemplate {
+    string name = 1;
+    string description = 2;
+    Trigger trigger = 3;
+    string scanTemplateId = 6;
+}
+
+message Trigger {
+    Schedule schedule = 1;
+}
+
+message Schedule {
+    string recurrencePeriodDuration = 1;
 }

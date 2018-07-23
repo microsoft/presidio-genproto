@@ -7,6 +7,11 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 
+import (
+	context "golang.org/x/net/context"
+	grpc "google.golang.org/grpc"
+)
+
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
@@ -18,167 +23,191 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type Job struct {
-	Name                 string           `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Description          string           `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
-	Trigger              *Trigger         `protobuf:"bytes,3,opt,name=trigger,proto3" json:"trigger,omitempty"`
-	ScannerTemplate      *ScannerTemplate `protobuf:"bytes,6,opt,name=scannerTemplate,proto3" json:"scannerTemplate,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+type JobRequest struct {
+	Name                 string        `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Description          string        `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	Trigger              *Trigger      `protobuf:"bytes,3,opt,name=trigger,proto3" json:"trigger,omitempty"`
+	ScanTemplate         *ScanTemplate `protobuf:"bytes,4,opt,name=scanTemplate,proto3" json:"scanTemplate,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
+	XXX_unrecognized     []byte        `json:"-"`
+	XXX_sizecache        int32         `json:"-"`
 }
 
-func (m *Job) Reset()         { *m = Job{} }
-func (m *Job) String() string { return proto.CompactTextString(m) }
-func (*Job) ProtoMessage()    {}
-func (*Job) Descriptor() ([]byte, []int) {
-	return fileDescriptor_job_8c36177fd988b50c, []int{0}
+func (m *JobRequest) Reset()         { *m = JobRequest{} }
+func (m *JobRequest) String() string { return proto.CompactTextString(m) }
+func (*JobRequest) ProtoMessage()    {}
+func (*JobRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_job_f561423a6b7ed667, []int{0}
 }
-func (m *Job) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Job.Unmarshal(m, b)
+func (m *JobRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_JobRequest.Unmarshal(m, b)
 }
-func (m *Job) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Job.Marshal(b, m, deterministic)
+func (m *JobRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_JobRequest.Marshal(b, m, deterministic)
 }
-func (dst *Job) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Job.Merge(dst, src)
+func (dst *JobRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_JobRequest.Merge(dst, src)
 }
-func (m *Job) XXX_Size() int {
-	return xxx_messageInfo_Job.Size(m)
+func (m *JobRequest) XXX_Size() int {
+	return xxx_messageInfo_JobRequest.Size(m)
 }
-func (m *Job) XXX_DiscardUnknown() {
-	xxx_messageInfo_Job.DiscardUnknown(m)
+func (m *JobRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_JobRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_Job proto.InternalMessageInfo
+var xxx_messageInfo_JobRequest proto.InternalMessageInfo
 
-func (m *Job) GetName() string {
+func (m *JobRequest) GetName() string {
 	if m != nil {
 		return m.Name
 	}
 	return ""
 }
 
-func (m *Job) GetDescription() string {
+func (m *JobRequest) GetDescription() string {
 	if m != nil {
 		return m.Description
 	}
 	return ""
 }
 
-func (m *Job) GetTrigger() *Trigger {
+func (m *JobRequest) GetTrigger() *Trigger {
 	if m != nil {
 		return m.Trigger
 	}
 	return nil
 }
 
-func (m *Job) GetScannerTemplate() *ScannerTemplate {
+func (m *JobRequest) GetScanTemplate() *ScanTemplate {
 	if m != nil {
-		return m.ScannerTemplate
+		return m.ScanTemplate
 	}
 	return nil
 }
 
-type Trigger struct {
-	Schedule             *Schedule `protobuf:"bytes,1,opt,name=schedule,proto3" json:"schedule,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
+type JobResponse struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *Trigger) Reset()         { *m = Trigger{} }
-func (m *Trigger) String() string { return proto.CompactTextString(m) }
-func (*Trigger) ProtoMessage()    {}
-func (*Trigger) Descriptor() ([]byte, []int) {
-	return fileDescriptor_job_8c36177fd988b50c, []int{1}
+func (m *JobResponse) Reset()         { *m = JobResponse{} }
+func (m *JobResponse) String() string { return proto.CompactTextString(m) }
+func (*JobResponse) ProtoMessage()    {}
+func (*JobResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_job_f561423a6b7ed667, []int{1}
 }
-func (m *Trigger) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Trigger.Unmarshal(m, b)
+func (m *JobResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_JobResponse.Unmarshal(m, b)
 }
-func (m *Trigger) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Trigger.Marshal(b, m, deterministic)
+func (m *JobResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_JobResponse.Marshal(b, m, deterministic)
 }
-func (dst *Trigger) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Trigger.Merge(dst, src)
+func (dst *JobResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_JobResponse.Merge(dst, src)
 }
-func (m *Trigger) XXX_Size() int {
-	return xxx_messageInfo_Trigger.Size(m)
+func (m *JobResponse) XXX_Size() int {
+	return xxx_messageInfo_JobResponse.Size(m)
 }
-func (m *Trigger) XXX_DiscardUnknown() {
-	xxx_messageInfo_Trigger.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_Trigger proto.InternalMessageInfo
-
-func (m *Trigger) GetSchedule() *Schedule {
-	if m != nil {
-		return m.Schedule
-	}
-	return nil
+func (m *JobResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_JobResponse.DiscardUnknown(m)
 }
 
-type Schedule struct {
-	RecurrencePeriodDuration string   `protobuf:"bytes,1,opt,name=recurrencePeriodDuration,proto3" json:"recurrencePeriodDuration,omitempty"`
-	XXX_NoUnkeyedLiteral     struct{} `json:"-"`
-	XXX_unrecognized         []byte   `json:"-"`
-	XXX_sizecache            int32    `json:"-"`
-}
-
-func (m *Schedule) Reset()         { *m = Schedule{} }
-func (m *Schedule) String() string { return proto.CompactTextString(m) }
-func (*Schedule) ProtoMessage()    {}
-func (*Schedule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_job_8c36177fd988b50c, []int{2}
-}
-func (m *Schedule) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Schedule.Unmarshal(m, b)
-}
-func (m *Schedule) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Schedule.Marshal(b, m, deterministic)
-}
-func (dst *Schedule) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Schedule.Merge(dst, src)
-}
-func (m *Schedule) XXX_Size() int {
-	return xxx_messageInfo_Schedule.Size(m)
-}
-func (m *Schedule) XXX_DiscardUnknown() {
-	xxx_messageInfo_Schedule.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_Schedule proto.InternalMessageInfo
-
-func (m *Schedule) GetRecurrencePeriodDuration() string {
-	if m != nil {
-		return m.RecurrencePeriodDuration
-	}
-	return ""
-}
+var xxx_messageInfo_JobResponse proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*Job)(nil), "types.Job")
-	proto.RegisterType((*Trigger)(nil), "types.Trigger")
-	proto.RegisterType((*Schedule)(nil), "types.Schedule")
+	proto.RegisterType((*JobRequest)(nil), "types.JobRequest")
+	proto.RegisterType((*JobResponse)(nil), "types.JobResponse")
 }
 
-func init() { proto.RegisterFile("job.proto", fileDescriptor_job_8c36177fd988b50c) }
+// Reference imports to suppress errors if they are not otherwise used.
+var _ context.Context
+var _ grpc.ClientConn
 
-var fileDescriptor_job_8c36177fd988b50c = []byte{
-	// 227 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0xcc, 0xca, 0x4f, 0xd2,
-	0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2d, 0xa9, 0x2c, 0x48, 0x2d, 0x96, 0xe2, 0x2b, 0x49,
-	0xcd, 0x2d, 0xc8, 0x49, 0x2c, 0x49, 0x85, 0x08, 0x2b, 0x2d, 0x67, 0xe4, 0x62, 0xf6, 0xca, 0x4f,
-	0x12, 0x12, 0xe2, 0x62, 0xc9, 0x4b, 0xcc, 0x4d, 0x95, 0x60, 0x54, 0x60, 0xd4, 0xe0, 0x0c, 0x02,
-	0xb3, 0x85, 0x14, 0xb8, 0xb8, 0x53, 0x52, 0x8b, 0x93, 0x8b, 0x32, 0x0b, 0x4a, 0x32, 0xf3, 0xf3,
-	0x24, 0x98, 0xc0, 0x52, 0xc8, 0x42, 0x42, 0x1a, 0x5c, 0xec, 0x25, 0x45, 0x99, 0xe9, 0xe9, 0xa9,
-	0x45, 0x12, 0xcc, 0x0a, 0x8c, 0x1a, 0xdc, 0x46, 0x7c, 0x7a, 0x60, 0x6b, 0xf4, 0x42, 0x20, 0xa2,
-	0x41, 0x30, 0x69, 0x21, 0x07, 0x2e, 0xfe, 0xe2, 0xe4, 0xc4, 0xbc, 0xbc, 0xd4, 0xa2, 0x10, 0xa8,
-	0x03, 0x24, 0xd8, 0xc0, 0x3a, 0xc4, 0xa0, 0x3a, 0x82, 0x51, 0x65, 0x83, 0xd0, 0x95, 0x2b, 0x99,
-	0x71, 0xb1, 0x43, 0x4d, 0x15, 0xd2, 0xe6, 0xe2, 0x28, 0x4e, 0xce, 0x48, 0x4d, 0x29, 0xcd, 0x81,
-	0x38, 0x98, 0xdb, 0x88, 0x1f, 0x6e, 0x0a, 0x44, 0x38, 0x08, 0xae, 0x40, 0xc9, 0x8d, 0x8b, 0x03,
-	0x26, 0x2a, 0x64, 0xc5, 0x25, 0x51, 0x94, 0x9a, 0x5c, 0x5a, 0x54, 0x94, 0x9a, 0x97, 0x9c, 0x1a,
-	0x90, 0x5a, 0x94, 0x99, 0x9f, 0xe2, 0x52, 0x5a, 0x94, 0x08, 0xf6, 0x1e, 0xc4, 0xe7, 0x38, 0xe5,
-	0x93, 0xd8, 0xc0, 0x01, 0x66, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0xed, 0xc4, 0xeb, 0x88, 0x54,
-	0x01, 0x00, 0x00,
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the grpc package it is being compiled against.
+const _ = grpc.SupportPackageIsVersion4
+
+// JobServiceClient is the client API for JobService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type JobServiceClient interface {
+	Apply(ctx context.Context, in *JobRequest, opts ...grpc.CallOption) (*JobResponse, error)
+}
+
+type jobServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewJobServiceClient(cc *grpc.ClientConn) JobServiceClient {
+	return &jobServiceClient{cc}
+}
+
+func (c *jobServiceClient) Apply(ctx context.Context, in *JobRequest, opts ...grpc.CallOption) (*JobResponse, error) {
+	out := new(JobResponse)
+	err := c.cc.Invoke(ctx, "/types.JobService/Apply", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// JobServiceServer is the server API for JobService service.
+type JobServiceServer interface {
+	Apply(context.Context, *JobRequest) (*JobResponse, error)
+}
+
+func RegisterJobServiceServer(s *grpc.Server, srv JobServiceServer) {
+	s.RegisterService(&_JobService_serviceDesc, srv)
+}
+
+func _JobService_Apply_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(JobRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(JobServiceServer).Apply(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/types.JobService/Apply",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(JobServiceServer).Apply(ctx, req.(*JobRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _JobService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "types.JobService",
+	HandlerType: (*JobServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Apply",
+			Handler:    _JobService_Apply_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "job.proto",
+}
+
+func init() { proto.RegisterFile("job.proto", fileDescriptor_job_f561423a6b7ed667) }
+
+var fileDescriptor_job_f561423a6b7ed667 = []byte{
+	// 210 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x8f, 0xc1, 0x4e, 0x86, 0x30,
+	0x10, 0x84, 0xad, 0x82, 0x86, 0x45, 0x49, 0x5c, 0x2f, 0x0d, 0x27, 0xc2, 0x89, 0x13, 0x31, 0x78,
+	0xf0, 0x66, 0xe2, 0xd5, 0x63, 0xe1, 0x05, 0x00, 0x37, 0xa4, 0x06, 0xda, 0xda, 0x56, 0x13, 0x1e,
+	0xc8, 0xf7, 0x34, 0x29, 0xfc, 0xf9, 0xf9, 0x6f, 0x9b, 0x6f, 0x66, 0x77, 0x67, 0x20, 0xf9, 0xd2,
+	0x43, 0x6d, 0xac, 0xf6, 0x1a, 0x63, 0xbf, 0x1a, 0x72, 0x79, 0xe6, 0x69, 0x31, 0x73, 0xef, 0x69,
+	0xc3, 0xe5, 0x1f, 0x03, 0xf8, 0xd0, 0x83, 0xa0, 0xef, 0x1f, 0x72, 0x1e, 0x11, 0x22, 0xd5, 0x2f,
+	0xc4, 0x59, 0xc1, 0xaa, 0x44, 0x84, 0x19, 0x0b, 0x48, 0x3f, 0xc9, 0x8d, 0x56, 0x1a, 0x2f, 0xb5,
+	0xe2, 0xd7, 0x41, 0x3a, 0x22, 0xac, 0xe0, 0xce, 0x5b, 0x39, 0x4d, 0x64, 0xf9, 0x4d, 0xc1, 0xaa,
+	0xb4, 0xc9, 0xea, 0xf0, 0xad, 0xee, 0x36, 0x2a, 0x4e, 0x32, 0xbe, 0xc2, 0xbd, 0x1b, 0x7b, 0xd5,
+	0xed, 0x21, 0x78, 0x14, 0xec, 0x4f, 0xbb, 0xbd, 0x3d, 0x48, 0xe2, 0xc2, 0x58, 0x3e, 0x40, 0x1a,
+	0x62, 0x3a, 0xa3, 0x95, 0xa3, 0xe6, 0x2d, 0xa4, 0x6e, 0xc9, 0xfe, 0xca, 0x91, 0xf0, 0x19, 0xe2,
+	0x77, 0x63, 0xe6, 0x15, 0x1f, 0xf7, 0x43, 0xe7, 0x46, 0x39, 0x1e, 0xd1, 0xb6, 0x5d, 0x5e, 0x0d,
+	0xb7, 0xa1, 0xfd, 0xcb, 0x7f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x63, 0x31, 0x6b, 0xa6, 0x21, 0x01,
+	0x00, 0x00,
 }

@@ -20,44 +20,44 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='job.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\tjob.proto\x12\x05types\x1a\x0etemplate.proto\"z\n\x03Job\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\x12/\n\x0fscannerTemplate\x18\x06 \x01(\x0b\x32\x16.types.ScannerTemplate\",\n\x07Trigger\x12!\n\x08schedule\x18\x01 \x01(\x0b\x32\x0f.types.Schedule\",\n\x08Schedule\x12 \n\x18recurrencePeriodDuration\x18\x01 \x01(\tb\x06proto3')
+  serialized_pb=_b('\n\tjob.proto\x12\x05types\x1a\x0etemplate.proto\"{\n\nJobRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\x12)\n\x0cscanTemplate\x18\x04 \x01(\x0b\x32\x13.types.ScanTemplate\"\r\n\x0bJobResponse2>\n\nJobService\x12\x30\n\x05\x41pply\x12\x11.types.JobRequest\x1a\x12.types.JobResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[template__pb2.DESCRIPTOR,])
 
 
 
 
-_JOB = _descriptor.Descriptor(
-  name='Job',
-  full_name='types.Job',
+_JOBREQUEST = _descriptor.Descriptor(
+  name='JobRequest',
+  full_name='types.JobRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='types.Job.name', index=0,
+      name='name', full_name='types.JobRequest.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='description', full_name='types.Job.description', index=1,
+      name='description', full_name='types.JobRequest.description', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='trigger', full_name='types.Job.trigger', index=2,
+      name='trigger', full_name='types.JobRequest.trigger', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='scannerTemplate', full_name='types.Job.scannerTemplate', index=3,
-      number=6, type=11, cpp_type=10, label=1,
+      name='scanTemplate', full_name='types.JobRequest.scanTemplate', index=3,
+      number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -75,24 +75,17 @@ _JOB = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=36,
-  serialized_end=158,
+  serialized_end=159,
 )
 
 
-_TRIGGER = _descriptor.Descriptor(
-  name='Trigger',
-  full_name='types.Trigger',
+_JOBRESPONSE = _descriptor.Descriptor(
+  name='JobResponse',
+  full_name='types.JobResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
-    _descriptor.FieldDescriptor(
-      name='schedule', full_name='types.Trigger.schedule', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -105,69 +98,53 @@ _TRIGGER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=160,
-  serialized_end=204,
+  serialized_start=161,
+  serialized_end=174,
 )
 
-
-_SCHEDULE = _descriptor.Descriptor(
-  name='Schedule',
-  full_name='types.Schedule',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='recurrencePeriodDuration', full_name='types.Schedule.recurrencePeriodDuration', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=206,
-  serialized_end=250,
-)
-
-_JOB.fields_by_name['trigger'].message_type = _TRIGGER
-_JOB.fields_by_name['scannerTemplate'].message_type = template__pb2._SCANNERTEMPLATE
-_TRIGGER.fields_by_name['schedule'].message_type = _SCHEDULE
-DESCRIPTOR.message_types_by_name['Job'] = _JOB
-DESCRIPTOR.message_types_by_name['Trigger'] = _TRIGGER
-DESCRIPTOR.message_types_by_name['Schedule'] = _SCHEDULE
+_JOBREQUEST.fields_by_name['trigger'].message_type = template__pb2._TRIGGER
+_JOBREQUEST.fields_by_name['scanTemplate'].message_type = template__pb2._SCANTEMPLATE
+DESCRIPTOR.message_types_by_name['JobRequest'] = _JOBREQUEST
+DESCRIPTOR.message_types_by_name['JobResponse'] = _JOBRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-Job = _reflection.GeneratedProtocolMessageType('Job', (_message.Message,), dict(
-  DESCRIPTOR = _JOB,
+JobRequest = _reflection.GeneratedProtocolMessageType('JobRequest', (_message.Message,), dict(
+  DESCRIPTOR = _JOBREQUEST,
   __module__ = 'job_pb2'
-  # @@protoc_insertion_point(class_scope:types.Job)
+  # @@protoc_insertion_point(class_scope:types.JobRequest)
   ))
-_sym_db.RegisterMessage(Job)
+_sym_db.RegisterMessage(JobRequest)
 
-Trigger = _reflection.GeneratedProtocolMessageType('Trigger', (_message.Message,), dict(
-  DESCRIPTOR = _TRIGGER,
+JobResponse = _reflection.GeneratedProtocolMessageType('JobResponse', (_message.Message,), dict(
+  DESCRIPTOR = _JOBRESPONSE,
   __module__ = 'job_pb2'
-  # @@protoc_insertion_point(class_scope:types.Trigger)
+  # @@protoc_insertion_point(class_scope:types.JobResponse)
   ))
-_sym_db.RegisterMessage(Trigger)
+_sym_db.RegisterMessage(JobResponse)
 
-Schedule = _reflection.GeneratedProtocolMessageType('Schedule', (_message.Message,), dict(
-  DESCRIPTOR = _SCHEDULE,
-  __module__ = 'job_pb2'
-  # @@protoc_insertion_point(class_scope:types.Schedule)
-  ))
-_sym_db.RegisterMessage(Schedule)
 
+
+_JOBSERVICE = _descriptor.ServiceDescriptor(
+  name='JobService',
+  full_name='types.JobService',
+  file=DESCRIPTOR,
+  index=0,
+  options=None,
+  serialized_start=176,
+  serialized_end=238,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='Apply',
+    full_name='types.JobService.Apply',
+    index=0,
+    containing_service=None,
+    input_type=_JOBREQUEST,
+    output_type=_JOBRESPONSE,
+    options=None,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_JOBSERVICE)
+
+DESCRIPTOR.services_by_name['JobService'] = _JOBSERVICE
 
 # @@protoc_insertion_point(module_scope)
