@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='job.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\tjob.proto\x12\x05types\x1a\x0etemplate.proto\"{\n\nJobRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\x12)\n\x0cscanTemplate\x18\x04 \x01(\x0b\x32\x13.types.ScanTemplateb\x06proto3')
+  serialized_pb=_b('\n\tjob.proto\x12\x05types\x1a\x0etemplate.proto\"{\n\nJobRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\x12)\n\x0cscanTemplate\x18\x04 \x01(\x0b\x32\x13.types.ScanTemplate\"\r\n\x0bJobResponse2>\n\nJobService\x12\x30\n\x05\x41pply\x12\x11.types.JobRequest\x1a\x12.types.JobResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[template__pb2.DESCRIPTOR,])
 
@@ -78,9 +78,34 @@ _JOBREQUEST = _descriptor.Descriptor(
   serialized_end=159,
 )
 
+
+_JOBRESPONSE = _descriptor.Descriptor(
+  name='JobResponse',
+  full_name='types.JobResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=161,
+  serialized_end=174,
+)
+
 _JOBREQUEST.fields_by_name['trigger'].message_type = template__pb2._TRIGGER
 _JOBREQUEST.fields_by_name['scanTemplate'].message_type = template__pb2._SCANTEMPLATE
 DESCRIPTOR.message_types_by_name['JobRequest'] = _JOBREQUEST
+DESCRIPTOR.message_types_by_name['JobResponse'] = _JOBRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 JobRequest = _reflection.GeneratedProtocolMessageType('JobRequest', (_message.Message,), dict(
@@ -90,5 +115,36 @@ JobRequest = _reflection.GeneratedProtocolMessageType('JobRequest', (_message.Me
   ))
 _sym_db.RegisterMessage(JobRequest)
 
+JobResponse = _reflection.GeneratedProtocolMessageType('JobResponse', (_message.Message,), dict(
+  DESCRIPTOR = _JOBRESPONSE,
+  __module__ = 'job_pb2'
+  # @@protoc_insertion_point(class_scope:types.JobResponse)
+  ))
+_sym_db.RegisterMessage(JobResponse)
+
+
+
+_JOBSERVICE = _descriptor.ServiceDescriptor(
+  name='JobService',
+  full_name='types.JobService',
+  file=DESCRIPTOR,
+  index=0,
+  options=None,
+  serialized_start=176,
+  serialized_end=238,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='Apply',
+    full_name='types.JobService.Apply',
+    index=0,
+    containing_service=None,
+    input_type=_JOBREQUEST,
+    output_type=_JOBRESPONSE,
+    options=None,
+  ),
+])
+_sym_db.RegisterServiceDescriptor(_JOBSERVICE)
+
+DESCRIPTOR.services_by_name['JobService'] = _JOBSERVICE
 
 # @@protoc_insertion_point(module_scope)

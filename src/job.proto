@@ -8,3 +8,10 @@ message JobRequest {
     Trigger trigger = 3;
     ScanTemplate scanTemplate = 4;
 }
+
+message JobResponse {
+}
+
+service JobService {
+  rpc Apply (JobRequest) returns (JobResponse) {}
+}
