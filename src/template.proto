@@ -30,6 +30,7 @@ message Transformation {
   string newValue = 1; // Not used in the template 
   ReplaceValue replaceValue = 2;
   RedactValue redactValue = 3;
+  HashValue hashValue = 4;
 }
 
 message ReplaceValue {
@@ -37,6 +38,9 @@ message ReplaceValue {
 }
 
 message RedactValue {
+}
+
+message HashValue {
 }
 
 message Databinder {
