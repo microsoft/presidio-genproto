@@ -102,3 +102,16 @@ message Trigger {
 message Schedule {
     string recurrencePeriodDuration = 1;
 }
+
+message ImageWord {
+	string XLocation  = 1;
+	string Width      = 2;
+	string Height     = 3;
+	string YLocation  = 4;
+	string Text    = 5;
+}
+
+message ImageLocations  {
+	repeated ImageWord Words  = 1;
+	string ImageText  = 2;
+}
