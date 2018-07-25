@@ -109,6 +109,8 @@ message ImageWord {
 	string Height     = 3;
 	string YLocation  = 4;
 	string Text    = 5;
+    int32 startPosition = 6;
+    int32 endPoistion = 7;
 }
 
 message ImageLocations  {
