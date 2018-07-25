@@ -110,7 +110,7 @@ message ImageWord {
 	string YLocation  = 4;
 	string Text    = 5;
     int32 startPosition = 6;
-    int32 endPoistion = 7;
+    int32 endPosition = 7;
 }
 
 message ImageLocations  {
