@@ -31,7 +31,8 @@ message Transformation {
   ReplaceValue replaceValue = 2;
   RedactValue redactValue = 3;
   HashValue hashValue = 4;
-  MaskValue maskValue= 5;
+  MaskValue maskValue = 5;
+  MaskImage maskImage = 6;
 }
 
 message ReplaceValue {
@@ -45,9 +46,14 @@ message HashValue {
 }
 
 message MaskValue {
-    string maskingCharacter =1;
+    string maskingCharacter = 1;
     int32 charsToMask = 2;
     bool fromEnd = 3;
+}
+
+message MaskImage {
+    ImageLocations imageLocations = 1; 
+    string imageToMaskBase64 =2;
 }
 
 message Databinder {
