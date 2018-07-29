@@ -9,6 +9,8 @@ message AnonymizeApiRequest {
   string text = 1;
   string analyzeTemplateId = 2;
   string anonymizeTemplateId = 3;
+  AnalyzeTemplate analyzeTemplate = 4;
+  AnonymizeTemplate anonymizeTemplate = 5;
 }
 
 /* AnonymizeRequest represents the request to the anonymize service via GRPC */

@@ -1,18 +1,18 @@
 syntax = "proto3";
 package types;
 import "template.proto";
+import "scan.proto";
 
-message Job {
+message JobRequest {
     string name = 1;
     string description = 2;
     Trigger trigger = 3;
-    ScannerTemplate scannerTemplate = 6;
+    ScanRequest scanRequest = 4;
 }
 
-message Trigger {
-    Schedule schedule = 1;
+message JobResponse {
 }
 
-message Schedule {
-    string recurrencePeriodDuration = 1;
+service JobService {
+  rpc Apply (JobRequest) returns (JobResponse) {}
 }

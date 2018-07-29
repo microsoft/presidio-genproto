@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='template.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0etemplate.proto\x12\x05types\x1a\x0c\x63ommon.proto\"4\n\x0f\x41nalyzeTemplate\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\"\xb7\x01\n\x11\x41nonymizeTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64isplayName\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x12\n\ncreateTime\x18\x04 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x05 \x01(\t\x12@\n\x18\x66ieldTypeTransformations\x18\x06 \x03(\x0b\x32\x1e.types.FieldTypeTransformation\"k\n\x17\x46ieldTypeTransformation\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\x12-\n\x0etransformation\x18\x02 \x01(\x0b\x32\x15.types.Transformation\"v\n\x0eTransformation\x12\x10\n\x08newValue\x18\x01 \x01(\t\x12)\n\x0creplaceValue\x18\x02 \x01(\x0b\x32\x13.types.ReplaceValue\x12\'\n\x0bredactValue\x18\x03 \x01(\x0b\x32\x12.types.RedactValue\" \n\x0cReplaceValue\x12\x10\n\x08newValue\x18\x01 \x01(\t\"\r\n\x0bRedactValue\"K\n\nDatabinder\x12\x10\n\x08\x62indType\x18\x01 \x01(\t\x12\x18\n\x10\x63onnectionString\x18\x02 \x01(\t\x12\x11\n\ttableName\x18\x03 \x01(\t\";\n\x12\x44\x61tabinderTemplate\x12%\n\ndatabinder\x18\x01 \x03(\x0b\x32\x11.types.Databinder\"S\n\x11\x42lobStorageConfig\x12\x13\n\x0b\x61\x63\x63ountName\x18\x01 \x01(\t\x12\x12\n\naccountKey\x18\x02 \x01(\t\x12\x15\n\rcontainerName\x18\x03 \x01(\t\"S\n\x08S3Config\x12\x10\n\x08\x61\x63\x63\x65ssId\x18\x01 \x01(\t\x12\x11\n\taccessKey\x18\x02 \x01(\t\x12\x0e\n\x06region\x18\x03 \x01(\t\x12\x12\n\nbucketName\x18\x04 \x01(\t\"e\n\x0bInputConfig\x12\x33\n\x11\x62lobStorageConfig\x18\x01 \x01(\x0b\x32\x18.types.BlobStorageConfig\x12!\n\x08s3Config\x18\x02 \x01(\x0b\x32\x0f.types.S3Config\"\xfd\x01\n\x0fScannerTemplate\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\'\n\x0binputConfig\x18\x02 \x01(\x0b\x32\x12.types.InputConfig\x12\x16\n\x0eminProbability\x18\x03 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x04 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x33\n\x11\x61nonymizeTemplate\x18\x05 \x01(\x0b\x32\x18.types.AnonymizeTemplate\x12\x35\n\x12\x64\x61tabinderTemplate\x18\x06 \x01(\x0b\x32\x19.types.DatabinderTemplateb\x06proto3')
+  serialized_pb=_b('\n\x0etemplate.proto\x12\x05types\x1a\x0c\x63ommon.proto\"4\n\x0f\x41nalyzeTemplate\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\"\xb7\x01\n\x11\x41nonymizeTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64isplayName\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x12\n\ncreateTime\x18\x04 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x05 \x01(\t\x12@\n\x18\x66ieldTypeTransformations\x18\x06 \x03(\x0b\x32\x1e.types.FieldTypeTransformation\"k\n\x17\x46ieldTypeTransformation\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\x12-\n\x0etransformation\x18\x02 \x01(\x0b\x32\x15.types.Transformation\"\x9b\x01\n\x0eTransformation\x12\x10\n\x08newValue\x18\x01 \x01(\t\x12)\n\x0creplaceValue\x18\x02 \x01(\x0b\x32\x13.types.ReplaceValue\x12\'\n\x0bredactValue\x18\x03 \x01(\x0b\x32\x12.types.RedactValue\x12#\n\thashValue\x18\x04 \x01(\x0b\x32\x10.types.HashValue\" \n\x0cReplaceValue\x12\x10\n\x08newValue\x18\x01 \x01(\t\"\r\n\x0bRedactValue\"\x0b\n\tHashValue\"K\n\nDatabinder\x12\x10\n\x08\x62indType\x18\x01 \x01(\t\x12\x18\n\x10\x63onnectionString\x18\x02 \x01(\t\x12\x11\n\ttableName\x18\x03 \x01(\t\";\n\x12\x44\x61tabinderTemplate\x12%\n\ndatabinder\x18\x01 \x03(\x0b\x32\x11.types.Databinder\"S\n\x11\x42lobStorageConfig\x12\x13\n\x0b\x61\x63\x63ountName\x18\x01 \x01(\t\x12\x12\n\naccountKey\x18\x02 \x01(\t\x12\x15\n\rcontainerName\x18\x03 \x01(\t\"S\n\x08S3Config\x12\x10\n\x08\x61\x63\x63\x65ssId\x18\x01 \x01(\t\x12\x11\n\taccessKey\x18\x02 \x01(\t\x12\x0e\n\x06region\x18\x03 \x01(\t\x12\x12\n\nbucketName\x18\x04 \x01(\t\"e\n\x0bInputConfig\x12\x33\n\x11\x62lobStorageConfig\x18\x01 \x01(\x0b\x32\x18.types.BlobStorageConfig\x12!\n\x08s3Config\x18\x02 \x01(\x0b\x32\x0f.types.S3Config\"\xb3\x01\n\x0cScanTemplate\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\'\n\x0binputConfig\x18\x02 \x01(\x0b\x32\x12.types.InputConfig\x12\x16\n\x0eminProbability\x18\x03 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x04 \x01(\t\x12\x1b\n\x13\x61nonymizeTemplateId\x18\x05 \x01(\t\x12\x1c\n\x14\x64\x61tabinderTemplateId\x18\x06 \x01(\t\"i\n\x0bJobTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\x12\x16\n\x0escanTemplateId\x18\x06 \x01(\t\",\n\x07Trigger\x12!\n\x08schedule\x18\x01 \x01(\x0b\x32\x0f.types.Schedule\",\n\x08Schedule\x12 \n\x18recurrencePeriodDuration\x18\x01 \x01(\tb\x06proto3')
   ,
   dependencies=[common__pb2.DESCRIPTOR,])
 
@@ -190,6 +190,13 @@ _TRANSFORMATION = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='hashValue', full_name='types.Transformation.hashValue', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -202,8 +209,8 @@ _TRANSFORMATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=388,
-  serialized_end=506,
+  serialized_start=389,
+  serialized_end=544,
 )
 
 
@@ -233,8 +240,8 @@ _REPLACEVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=508,
-  serialized_end=540,
+  serialized_start=546,
+  serialized_end=578,
 )
 
 
@@ -257,8 +264,32 @@ _REDACTVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=542,
-  serialized_end=555,
+  serialized_start=580,
+  serialized_end=593,
+)
+
+
+_HASHVALUE = _descriptor.Descriptor(
+  name='HashValue',
+  full_name='types.HashValue',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=595,
+  serialized_end=606,
 )
 
 
@@ -302,8 +333,8 @@ _DATABINDER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=557,
-  serialized_end=632,
+  serialized_start=608,
+  serialized_end=683,
 )
 
 
@@ -333,8 +364,8 @@ _DATABINDERTEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=634,
-  serialized_end=693,
+  serialized_start=685,
+  serialized_end=744,
 )
 
 
@@ -378,8 +409,8 @@ _BLOBSTORAGECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=695,
-  serialized_end=778,
+  serialized_start=746,
+  serialized_end=829,
 )
 
 
@@ -430,8 +461,8 @@ _S3CONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=780,
-  serialized_end=863,
+  serialized_start=831,
+  serialized_end=914,
 )
 
 
@@ -468,56 +499,139 @@ _INPUTCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=865,
-  serialized_end=966,
+  serialized_start=916,
+  serialized_end=1017,
 )
 
 
-_SCANNERTEMPLATE = _descriptor.Descriptor(
-  name='ScannerTemplate',
-  full_name='types.ScannerTemplate',
+_SCANTEMPLATE = _descriptor.Descriptor(
+  name='ScanTemplate',
+  full_name='types.ScanTemplate',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='kind', full_name='types.ScannerTemplate.kind', index=0,
+      name='kind', full_name='types.ScanTemplate.kind', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='inputConfig', full_name='types.ScannerTemplate.inputConfig', index=1,
+      name='inputConfig', full_name='types.ScanTemplate.inputConfig', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='minProbability', full_name='types.ScannerTemplate.minProbability', index=2,
+      name='minProbability', full_name='types.ScanTemplate.minProbability', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='analyzeTemplate', full_name='types.ScannerTemplate.analyzeTemplate', index=3,
-      number=4, type=11, cpp_type=10, label=1,
+      name='analyzeTemplateId', full_name='types.ScanTemplate.analyzeTemplateId', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='anonymizeTemplateId', full_name='types.ScanTemplate.anonymizeTemplateId', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='databinderTemplateId', full_name='types.ScanTemplate.databinderTemplateId', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1020,
+  serialized_end=1199,
+)
+
+
+_JOBTEMPLATE = _descriptor.Descriptor(
+  name='JobTemplate',
+  full_name='types.JobTemplate',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='types.JobTemplate.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='description', full_name='types.JobTemplate.description', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='trigger', full_name='types.JobTemplate.trigger', index=2,
+      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='anonymizeTemplate', full_name='types.ScannerTemplate.anonymizeTemplate', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='scanTemplateId', full_name='types.JobTemplate.scanTemplateId', index=3,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1201,
+  serialized_end=1306,
+)
+
+
+_TRIGGER = _descriptor.Descriptor(
+  name='Trigger',
+  full_name='types.Trigger',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
     _descriptor.FieldDescriptor(
-      name='databinderTemplate', full_name='types.ScannerTemplate.databinderTemplate', index=5,
-      number=6, type=11, cpp_type=10, label=1,
+      name='schedule', full_name='types.Trigger.schedule', index=0,
+      number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -534,8 +648,39 @@ _SCANNERTEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=969,
-  serialized_end=1222,
+  serialized_start=1308,
+  serialized_end=1352,
+)
+
+
+_SCHEDULE = _descriptor.Descriptor(
+  name='Schedule',
+  full_name='types.Schedule',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='recurrencePeriodDuration', full_name='types.Schedule.recurrencePeriodDuration', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1354,
+  serialized_end=1398,
 )
 
 _ANALYZETEMPLATE.fields_by_name['fields'].message_type = common__pb2._FIELDTYPES
@@ -544,25 +689,29 @@ _FIELDTYPETRANSFORMATION.fields_by_name['fields'].message_type = common__pb2._FI
 _FIELDTYPETRANSFORMATION.fields_by_name['transformation'].message_type = _TRANSFORMATION
 _TRANSFORMATION.fields_by_name['replaceValue'].message_type = _REPLACEVALUE
 _TRANSFORMATION.fields_by_name['redactValue'].message_type = _REDACTVALUE
+_TRANSFORMATION.fields_by_name['hashValue'].message_type = _HASHVALUE
 _DATABINDERTEMPLATE.fields_by_name['databinder'].message_type = _DATABINDER
 _INPUTCONFIG.fields_by_name['blobStorageConfig'].message_type = _BLOBSTORAGECONFIG
 _INPUTCONFIG.fields_by_name['s3Config'].message_type = _S3CONFIG
-_SCANNERTEMPLATE.fields_by_name['inputConfig'].message_type = _INPUTCONFIG
-_SCANNERTEMPLATE.fields_by_name['analyzeTemplate'].message_type = _ANALYZETEMPLATE
-_SCANNERTEMPLATE.fields_by_name['anonymizeTemplate'].message_type = _ANONYMIZETEMPLATE
-_SCANNERTEMPLATE.fields_by_name['databinderTemplate'].message_type = _DATABINDERTEMPLATE
+_SCANTEMPLATE.fields_by_name['inputConfig'].message_type = _INPUTCONFIG
+_JOBTEMPLATE.fields_by_name['trigger'].message_type = _TRIGGER
+_TRIGGER.fields_by_name['schedule'].message_type = _SCHEDULE
 DESCRIPTOR.message_types_by_name['AnalyzeTemplate'] = _ANALYZETEMPLATE
 DESCRIPTOR.message_types_by_name['AnonymizeTemplate'] = _ANONYMIZETEMPLATE
 DESCRIPTOR.message_types_by_name['FieldTypeTransformation'] = _FIELDTYPETRANSFORMATION
 DESCRIPTOR.message_types_by_name['Transformation'] = _TRANSFORMATION
 DESCRIPTOR.message_types_by_name['ReplaceValue'] = _REPLACEVALUE
 DESCRIPTOR.message_types_by_name['RedactValue'] = _REDACTVALUE
+DESCRIPTOR.message_types_by_name['HashValue'] = _HASHVALUE
 DESCRIPTOR.message_types_by_name['Databinder'] = _DATABINDER
 DESCRIPTOR.message_types_by_name['DatabinderTemplate'] = _DATABINDERTEMPLATE
 DESCRIPTOR.message_types_by_name['BlobStorageConfig'] = _BLOBSTORAGECONFIG
 DESCRIPTOR.message_types_by_name['S3Config'] = _S3CONFIG
 DESCRIPTOR.message_types_by_name['InputConfig'] = _INPUTCONFIG
-DESCRIPTOR.message_types_by_name['ScannerTemplate'] = _SCANNERTEMPLATE
+DESCRIPTOR.message_types_by_name['ScanTemplate'] = _SCANTEMPLATE
+DESCRIPTOR.message_types_by_name['JobTemplate'] = _JOBTEMPLATE
+DESCRIPTOR.message_types_by_name['Trigger'] = _TRIGGER
+DESCRIPTOR.message_types_by_name['Schedule'] = _SCHEDULE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 AnalyzeTemplate = _reflection.GeneratedProtocolMessageType('AnalyzeTemplate', (_message.Message,), dict(
@@ -607,6 +756,13 @@ RedactValue = _reflection.GeneratedProtocolMessageType('RedactValue', (_message.
   ))
 _sym_db.RegisterMessage(RedactValue)
 
+HashValue = _reflection.GeneratedProtocolMessageType('HashValue', (_message.Message,), dict(
+  DESCRIPTOR = _HASHVALUE,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.HashValue)
+  ))
+_sym_db.RegisterMessage(HashValue)
+
 Databinder = _reflection.GeneratedProtocolMessageType('Databinder', (_message.Message,), dict(
   DESCRIPTOR = _DATABINDER,
   __module__ = 'template_pb2'
@@ -642,12 +798,33 @@ InputConfig = _reflection.GeneratedProtocolMessageType('InputConfig', (_message.
   ))
 _sym_db.RegisterMessage(InputConfig)
 
-ScannerTemplate = _reflection.GeneratedProtocolMessageType('ScannerTemplate', (_message.Message,), dict(
-  DESCRIPTOR = _SCANNERTEMPLATE,
+ScanTemplate = _reflection.GeneratedProtocolMessageType('ScanTemplate', (_message.Message,), dict(
+  DESCRIPTOR = _SCANTEMPLATE,
   __module__ = 'template_pb2'
-  # @@protoc_insertion_point(class_scope:types.ScannerTemplate)
+  # @@protoc_insertion_point(class_scope:types.ScanTemplate)
   ))
-_sym_db.RegisterMessage(ScannerTemplate)
+_sym_db.RegisterMessage(ScanTemplate)
+
+JobTemplate = _reflection.GeneratedProtocolMessageType('JobTemplate', (_message.Message,), dict(
+  DESCRIPTOR = _JOBTEMPLATE,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.JobTemplate)
+  ))
+_sym_db.RegisterMessage(JobTemplate)
+
+Trigger = _reflection.GeneratedProtocolMessageType('Trigger', (_message.Message,), dict(
+  DESCRIPTOR = _TRIGGER,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.Trigger)
+  ))
+_sym_db.RegisterMessage(Trigger)
+
+Schedule = _reflection.GeneratedProtocolMessageType('Schedule', (_message.Message,), dict(
+  DESCRIPTOR = _SCHEDULE,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.Schedule)
+  ))
+_sym_db.RegisterMessage(Schedule)
 
 
 # @@protoc_insertion_point(module_scope)

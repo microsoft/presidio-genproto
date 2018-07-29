@@ -8,6 +8,7 @@ package types;
 message AnalyzeApiRequest {
   string text = 1;
   string analyzeTemplateId = 2;
+  AnalyzeTemplate analyzeTemplate = 3;
 }
 
 
