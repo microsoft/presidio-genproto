@@ -25,11 +25,11 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // AnonymizeApiRequest represents the request to the API HTTP service
 type AnonymizeApiRequest struct {
-	Text                 string             `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
-	AnalyzeTemplateId    string             `protobuf:"bytes,2,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
-	AnonymizeTemplateId  string             `protobuf:"bytes,3,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId,omitempty"`
-	AnalyzeTemplate      *AnalyzeTemplate   `protobuf:"bytes,4,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
-	AnonymizeTemplate    *AnonymizeTemplate `protobuf:"bytes,5,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate,omitempty"`
+	Text                 string             `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
+	AnalyzeTemplateId    string             `protobuf:"bytes,2,opt,name=analyzeTemplateId" json:"analyzeTemplateId,omitempty"`
+	AnonymizeTemplateId  string             `protobuf:"bytes,3,opt,name=anonymizeTemplateId" json:"anonymizeTemplateId,omitempty"`
+	AnalyzeTemplate      *AnalyzeTemplate   `protobuf:"bytes,4,opt,name=analyzeTemplate" json:"analyzeTemplate,omitempty"`
+	AnonymizeTemplate    *AnonymizeTemplate `protobuf:"bytes,5,opt,name=anonymizeTemplate" json:"anonymizeTemplate,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
 	XXX_sizecache        int32              `json:"-"`
@@ -96,9 +96,9 @@ func (m *AnonymizeApiRequest) GetAnonymizeTemplate() *AnonymizeTemplate {
 
 // AnonymizeRequest represents the request to the anonymize service via GRPC
 type AnonymizeRequest struct {
-	Text                 string             `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
-	Template             *AnonymizeTemplate `protobuf:"bytes,2,opt,name=template,proto3" json:"template,omitempty"`
-	AnalyzeResults       []*AnalyzeResult   `protobuf:"bytes,3,rep,name=analyzeResults,proto3" json:"analyzeResults,omitempty"`
+	Text                 string             `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
+	Template             *AnonymizeTemplate `protobuf:"bytes,2,opt,name=template" json:"template,omitempty"`
+	AnalyzeResults       []*AnalyzeResult   `protobuf:"bytes,3,rep,name=analyzeResults" json:"analyzeResults,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
 	XXX_sizecache        int32              `json:"-"`
@@ -151,7 +151,7 @@ func (m *AnonymizeRequest) GetAnalyzeResults() []*AnalyzeResult {
 
 // AnonymizeResponse represents the anonymize service response
 type AnonymizeResponse struct {
-	Text                 string   `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	Text                 string   `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`

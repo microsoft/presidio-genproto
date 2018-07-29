@@ -14,15 +14,16 @@ _sym_db = _symbol_database.Default()
 
 
 import template_pb2 as template__pb2
+import scan_pb2 as scan__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='job.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\tjob.proto\x12\x05types\x1a\x0etemplate.proto\"{\n\nJobRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\x12)\n\x0cscanTemplate\x18\x04 \x01(\x0b\x32\x13.types.ScanTemplate\"\r\n\x0bJobResponse2>\n\nJobService\x12\x30\n\x05\x41pply\x12\x11.types.JobRequest\x1a\x12.types.JobResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\tjob.proto\x12\x05types\x1a\x0etemplate.proto\x1a\nscan.proto\"y\n\nJobRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\x12\'\n\x0bscanRequest\x18\x04 \x01(\x0b\x32\x12.types.ScanRequest\"\r\n\x0bJobResponse2>\n\nJobService\x12\x30\n\x05\x41pply\x12\x11.types.JobRequest\x1a\x12.types.JobResponse\"\x00\x62\x06proto3')
   ,
-  dependencies=[template__pb2.DESCRIPTOR,])
+  dependencies=[template__pb2.DESCRIPTOR,scan__pb2.DESCRIPTOR,])
 
 
 
@@ -56,7 +57,7 @@ _JOBREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='scanTemplate', full_name='types.JobRequest.scanTemplate', index=3,
+      name='scanRequest', full_name='types.JobRequest.scanRequest', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -74,8 +75,8 @@ _JOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=36,
-  serialized_end=159,
+  serialized_start=48,
+  serialized_end=169,
 )
 
 
@@ -98,12 +99,12 @@ _JOBRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=161,
-  serialized_end=174,
+  serialized_start=171,
+  serialized_end=184,
 )
 
 _JOBREQUEST.fields_by_name['trigger'].message_type = template__pb2._TRIGGER
-_JOBREQUEST.fields_by_name['scanTemplate'].message_type = template__pb2._SCANTEMPLATE
+_JOBREQUEST.fields_by_name['scanRequest'].message_type = scan__pb2._SCANREQUEST
 DESCRIPTOR.message_types_by_name['JobRequest'] = _JOBREQUEST
 DESCRIPTOR.message_types_by_name['JobResponse'] = _JOBRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -130,8 +131,8 @@ _JOBSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=176,
-  serialized_end=238,
+  serialized_start=186,
+  serialized_end=248,
   methods=[
   _descriptor.MethodDescriptor(
     name='Apply',

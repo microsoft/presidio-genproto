@@ -20,7 +20,7 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // AnalyzeTemplate represents the analyze service template definition
 type AnalyzeTemplate struct {
-	Fields               []*FieldTypes `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields,omitempty"`
+	Fields               []*FieldTypes `protobuf:"bytes,1,rep,name=fields" json:"fields,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
 	XXX_unrecognized     []byte        `json:"-"`
 	XXX_sizecache        int32         `json:"-"`
@@ -30,7 +30,7 @@ func (m *AnalyzeTemplate) Reset()         { *m = AnalyzeTemplate{} }
 func (m *AnalyzeTemplate) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeTemplate) ProtoMessage()    {}
 func (*AnalyzeTemplate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{0}
+	return fileDescriptor_template_854300c901169bb6, []int{0}
 }
 func (m *AnalyzeTemplate) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeTemplate.Unmarshal(m, b)
@@ -59,12 +59,12 @@ func (m *AnalyzeTemplate) GetFields() []*FieldTypes {
 
 // AnonymizeTemplate represents the anonymize service template definition
 type AnonymizeTemplate struct {
-	Name                     string                     `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	DisplayName              string                     `protobuf:"bytes,2,opt,name=displayName,proto3" json:"displayName,omitempty"`
-	Description              string                     `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	CreateTime               string                     `protobuf:"bytes,4,opt,name=createTime,proto3" json:"createTime,omitempty"`
-	ModifiedTime             string                     `protobuf:"bytes,5,opt,name=modifiedTime,proto3" json:"modifiedTime,omitempty"`
-	FieldTypeTransformations []*FieldTypeTransformation `protobuf:"bytes,6,rep,name=fieldTypeTransformations,proto3" json:"fieldTypeTransformations,omitempty"`
+	Name                     string                     `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	DisplayName              string                     `protobuf:"bytes,2,opt,name=displayName" json:"displayName,omitempty"`
+	Description              string                     `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	CreateTime               string                     `protobuf:"bytes,4,opt,name=createTime" json:"createTime,omitempty"`
+	ModifiedTime             string                     `protobuf:"bytes,5,opt,name=modifiedTime" json:"modifiedTime,omitempty"`
+	FieldTypeTransformations []*FieldTypeTransformation `protobuf:"bytes,6,rep,name=fieldTypeTransformations" json:"fieldTypeTransformations,omitempty"`
 	XXX_NoUnkeyedLiteral     struct{}                   `json:"-"`
 	XXX_unrecognized         []byte                     `json:"-"`
 	XXX_sizecache            int32                      `json:"-"`
@@ -74,7 +74,7 @@ func (m *AnonymizeTemplate) Reset()         { *m = AnonymizeTemplate{} }
 func (m *AnonymizeTemplate) String() string { return proto.CompactTextString(m) }
 func (*AnonymizeTemplate) ProtoMessage()    {}
 func (*AnonymizeTemplate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{1}
+	return fileDescriptor_template_854300c901169bb6, []int{1}
 }
 func (m *AnonymizeTemplate) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnonymizeTemplate.Unmarshal(m, b)
@@ -138,8 +138,8 @@ func (m *AnonymizeTemplate) GetFieldTypeTransformations() []*FieldTypeTransforma
 
 // FieldTypeTransformation represents the transformation for array of fields types
 type FieldTypeTransformation struct {
-	Fields               []*FieldTypes   `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields,omitempty"`
-	Transformation       *Transformation `protobuf:"bytes,2,opt,name=transformation,proto3" json:"transformation,omitempty"`
+	Fields               []*FieldTypes   `protobuf:"bytes,1,rep,name=fields" json:"fields,omitempty"`
+	Transformation       *Transformation `protobuf:"bytes,2,opt,name=transformation" json:"transformation,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
 	XXX_unrecognized     []byte          `json:"-"`
 	XXX_sizecache        int32           `json:"-"`
@@ -149,7 +149,7 @@ func (m *FieldTypeTransformation) Reset()         { *m = FieldTypeTransformation
 func (m *FieldTypeTransformation) String() string { return proto.CompactTextString(m) }
 func (*FieldTypeTransformation) ProtoMessage()    {}
 func (*FieldTypeTransformation) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{2}
+	return fileDescriptor_template_854300c901169bb6, []int{2}
 }
 func (m *FieldTypeTransformation) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_FieldTypeTransformation.Unmarshal(m, b)
@@ -185,12 +185,11 @@ func (m *FieldTypeTransformation) GetTransformation() *Transformation {
 
 // Transformation represents the transformation type
 type Transformation struct {
-	NewValue             string        `protobuf:"bytes,1,opt,name=newValue,proto3" json:"newValue,omitempty"`
-	ReplaceValue         *ReplaceValue `protobuf:"bytes,2,opt,name=replaceValue,proto3" json:"replaceValue,omitempty"`
-	RedactValue          *RedactValue  `protobuf:"bytes,3,opt,name=redactValue,proto3" json:"redactValue,omitempty"`
-	HashValue            *HashValue    `protobuf:"bytes,4,opt,name=hashValue,proto3" json:"hashValue,omitempty"`
-	MaskValue            *MaskValue    `protobuf:"bytes,5,opt,name=maskValue,proto3" json:"maskValue,omitempty"`
-	MaskImage            *MaskImage    `protobuf:"bytes,6,opt,name=maskImage,proto3" json:"maskImage,omitempty"`
+	ReplaceValue         *ReplaceValue `protobuf:"bytes,2,opt,name=replaceValue" json:"replaceValue,omitempty"`
+	RedactValue          *RedactValue  `protobuf:"bytes,3,opt,name=redactValue" json:"redactValue,omitempty"`
+	HashValue            *HashValue    `protobuf:"bytes,4,opt,name=hashValue" json:"hashValue,omitempty"`
+	MaskValue            *MaskValue    `protobuf:"bytes,5,opt,name=maskValue" json:"maskValue,omitempty"`
+	MaskImage            *MaskImage    `protobuf:"bytes,6,opt,name=maskImage" json:"maskImage,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
 	XXX_unrecognized     []byte        `json:"-"`
 	XXX_sizecache        int32         `json:"-"`
@@ -200,7 +199,7 @@ func (m *Transformation) Reset()         { *m = Transformation{} }
 func (m *Transformation) String() string { return proto.CompactTextString(m) }
 func (*Transformation) ProtoMessage()    {}
 func (*Transformation) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{3}
+	return fileDescriptor_template_854300c901169bb6, []int{3}
 }
 func (m *Transformation) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Transformation.Unmarshal(m, b)
@@ -219,13 +218,6 @@ func (m *Transformation) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_Transformation proto.InternalMessageInfo
-
-func (m *Transformation) GetNewValue() string {
-	if m != nil {
-		return m.NewValue
-	}
-	return ""
-}
 
 func (m *Transformation) GetReplaceValue() *ReplaceValue {
 	if m != nil {
@@ -263,7 +255,7 @@ func (m *Transformation) GetMaskImage() *MaskImage {
 }
 
 type ReplaceValue struct {
-	NewValue             string   `protobuf:"bytes,1,opt,name=newValue,proto3" json:"newValue,omitempty"`
+	NewValue             string   `protobuf:"bytes,1,opt,name=newValue" json:"newValue,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -273,7 +265,7 @@ func (m *ReplaceValue) Reset()         { *m = ReplaceValue{} }
 func (m *ReplaceValue) String() string { return proto.CompactTextString(m) }
 func (*ReplaceValue) ProtoMessage()    {}
 func (*ReplaceValue) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{4}
+	return fileDescriptor_template_854300c901169bb6, []int{4}
 }
 func (m *ReplaceValue) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ReplaceValue.Unmarshal(m, b)
@@ -310,7 +302,7 @@ func (m *RedactValue) Reset()         { *m = RedactValue{} }
 func (m *RedactValue) String() string { return proto.CompactTextString(m) }
 func (*RedactValue) ProtoMessage()    {}
 func (*RedactValue) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{5}
+	return fileDescriptor_template_854300c901169bb6, []int{5}
 }
 func (m *RedactValue) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_RedactValue.Unmarshal(m, b)
@@ -340,7 +332,7 @@ func (m *HashValue) Reset()         { *m = HashValue{} }
 func (m *HashValue) String() string { return proto.CompactTextString(m) }
 func (*HashValue) ProtoMessage()    {}
 func (*HashValue) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{6}
+	return fileDescriptor_template_854300c901169bb6, []int{6}
 }
 func (m *HashValue) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_HashValue.Unmarshal(m, b)
@@ -361,9 +353,9 @@ func (m *HashValue) XXX_DiscardUnknown() {
 var xxx_messageInfo_HashValue proto.InternalMessageInfo
 
 type MaskValue struct {
-	MaskingCharacter     string   `protobuf:"bytes,1,opt,name=maskingCharacter,proto3" json:"maskingCharacter,omitempty"`
-	CharsToMask          int32    `protobuf:"varint,2,opt,name=charsToMask,proto3" json:"charsToMask,omitempty"`
-	FromEnd              bool     `protobuf:"varint,3,opt,name=fromEnd,proto3" json:"fromEnd,omitempty"`
+	MaskingCharacter     string   `protobuf:"bytes,1,opt,name=maskingCharacter" json:"maskingCharacter,omitempty"`
+	CharsToMask          int32    `protobuf:"varint,2,opt,name=charsToMask" json:"charsToMask,omitempty"`
+	FromEnd              bool     `protobuf:"varint,3,opt,name=fromEnd" json:"fromEnd,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -373,7 +365,7 @@ func (m *MaskValue) Reset()         { *m = MaskValue{} }
 func (m *MaskValue) String() string { return proto.CompactTextString(m) }
 func (*MaskValue) ProtoMessage()    {}
 func (*MaskValue) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{7}
+	return fileDescriptor_template_854300c901169bb6, []int{7}
 }
 func (m *MaskValue) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_MaskValue.Unmarshal(m, b)
@@ -415,8 +407,8 @@ func (m *MaskValue) GetFromEnd() bool {
 }
 
 type MaskImage struct {
-	ImageLocations       *ImageLocations `protobuf:"bytes,1,opt,name=imageLocations,proto3" json:"imageLocations,omitempty"`
-	ImageToMaskBase64    string          `protobuf:"bytes,2,opt,name=imageToMaskBase64,proto3" json:"imageToMaskBase64,omitempty"`
+	ImageLocations       *ImageLocations `protobuf:"bytes,1,opt,name=imageLocations" json:"imageLocations,omitempty"`
+	ImageToMaskBase64    string          `protobuf:"bytes,2,opt,name=imageToMaskBase64" json:"imageToMaskBase64,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
 	XXX_unrecognized     []byte          `json:"-"`
 	XXX_sizecache        int32           `json:"-"`
@@ -426,7 +418,7 @@ func (m *MaskImage) Reset()         { *m = MaskImage{} }
 func (m *MaskImage) String() string { return proto.CompactTextString(m) }
 func (*MaskImage) ProtoMessage()    {}
 func (*MaskImage) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{8}
+	return fileDescriptor_template_854300c901169bb6, []int{8}
 }
 func (m *MaskImage) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_MaskImage.Unmarshal(m, b)
@@ -461,9 +453,9 @@ func (m *MaskImage) GetImageToMaskBase64() string {
 }
 
 type Databinder struct {
-	BindType             string   `protobuf:"bytes,1,opt,name=bindType,proto3" json:"bindType,omitempty"`
-	ConnectionString     string   `protobuf:"bytes,2,opt,name=connectionString,proto3" json:"connectionString,omitempty"`
-	TableName            string   `protobuf:"bytes,3,opt,name=tableName,proto3" json:"tableName,omitempty"`
+	BindType             string   `protobuf:"bytes,1,opt,name=bindType" json:"bindType,omitempty"`
+	ConnectionString     string   `protobuf:"bytes,2,opt,name=connectionString" json:"connectionString,omitempty"`
+	TableName            string   `protobuf:"bytes,3,opt,name=tableName" json:"tableName,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -473,7 +465,7 @@ func (m *Databinder) Reset()         { *m = Databinder{} }
 func (m *Databinder) String() string { return proto.CompactTextString(m) }
 func (*Databinder) ProtoMessage()    {}
 func (*Databinder) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{9}
+	return fileDescriptor_template_854300c901169bb6, []int{9}
 }
 func (m *Databinder) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Databinder.Unmarshal(m, b)
@@ -516,7 +508,7 @@ func (m *Databinder) GetTableName() string {
 
 // DatabinderTemplate represents the analyzer service outputs definition
 type DatabinderTemplate struct {
-	Databinder           []*Databinder `protobuf:"bytes,1,rep,name=databinder,proto3" json:"databinder,omitempty"`
+	Databinder           []*Databinder `protobuf:"bytes,1,rep,name=databinder" json:"databinder,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
 	XXX_unrecognized     []byte        `json:"-"`
 	XXX_sizecache        int32         `json:"-"`
@@ -526,7 +518,7 @@ func (m *DatabinderTemplate) Reset()         { *m = DatabinderTemplate{} }
 func (m *DatabinderTemplate) String() string { return proto.CompactTextString(m) }
 func (*DatabinderTemplate) ProtoMessage()    {}
 func (*DatabinderTemplate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{10}
+	return fileDescriptor_template_854300c901169bb6, []int{10}
 }
 func (m *DatabinderTemplate) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DatabinderTemplate.Unmarshal(m, b)
@@ -554,9 +546,9 @@ func (m *DatabinderTemplate) GetDatabinder() []*Databinder {
 }
 
 type BlobStorageConfig struct {
-	AccountName          string   `protobuf:"bytes,1,opt,name=accountName,proto3" json:"accountName,omitempty"`
-	AccountKey           string   `protobuf:"bytes,2,opt,name=accountKey,proto3" json:"accountKey,omitempty"`
-	ContainerName        string   `protobuf:"bytes,3,opt,name=containerName,proto3" json:"containerName,omitempty"`
+	AccountName          string   `protobuf:"bytes,1,opt,name=accountName" json:"accountName,omitempty"`
+	AccountKey           string   `protobuf:"bytes,2,opt,name=accountKey" json:"accountKey,omitempty"`
+	ContainerName        string   `protobuf:"bytes,3,opt,name=containerName" json:"containerName,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -566,7 +558,7 @@ func (m *BlobStorageConfig) Reset()         { *m = BlobStorageConfig{} }
 func (m *BlobStorageConfig) String() string { return proto.CompactTextString(m) }
 func (*BlobStorageConfig) ProtoMessage()    {}
 func (*BlobStorageConfig) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{11}
+	return fileDescriptor_template_854300c901169bb6, []int{11}
 }
 func (m *BlobStorageConfig) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_BlobStorageConfig.Unmarshal(m, b)
@@ -608,10 +600,10 @@ func (m *BlobStorageConfig) GetContainerName() string {
 }
 
 type S3Config struct {
-	AccessId             string   `protobuf:"bytes,1,opt,name=accessId,proto3" json:"accessId,omitempty"`
-	AccessKey            string   `protobuf:"bytes,2,opt,name=accessKey,proto3" json:"accessKey,omitempty"`
-	Region               string   `protobuf:"bytes,3,opt,name=region,proto3" json:"region,omitempty"`
-	BucketName           string   `protobuf:"bytes,4,opt,name=bucketName,proto3" json:"bucketName,omitempty"`
+	AccessId             string   `protobuf:"bytes,1,opt,name=accessId" json:"accessId,omitempty"`
+	AccessKey            string   `protobuf:"bytes,2,opt,name=accessKey" json:"accessKey,omitempty"`
+	Region               string   `protobuf:"bytes,3,opt,name=region" json:"region,omitempty"`
+	BucketName           string   `protobuf:"bytes,4,opt,name=bucketName" json:"bucketName,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -621,7 +613,7 @@ func (m *S3Config) Reset()         { *m = S3Config{} }
 func (m *S3Config) String() string { return proto.CompactTextString(m) }
 func (*S3Config) ProtoMessage()    {}
 func (*S3Config) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{12}
+	return fileDescriptor_template_854300c901169bb6, []int{12}
 }
 func (m *S3Config) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_S3Config.Unmarshal(m, b)
@@ -670,8 +662,8 @@ func (m *S3Config) GetBucketName() string {
 }
 
 type InputConfig struct {
-	BlobStorageConfig    *BlobStorageConfig `protobuf:"bytes,1,opt,name=blobStorageConfig,proto3" json:"blobStorageConfig,omitempty"`
-	S3Config             *S3Config          `protobuf:"bytes,2,opt,name=s3Config,proto3" json:"s3Config,omitempty"`
+	BlobStorageConfig    *BlobStorageConfig `protobuf:"bytes,1,opt,name=blobStorageConfig" json:"blobStorageConfig,omitempty"`
+	S3Config             *S3Config          `protobuf:"bytes,2,opt,name=s3Config" json:"s3Config,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
 	XXX_sizecache        int32              `json:"-"`
@@ -681,7 +673,7 @@ func (m *InputConfig) Reset()         { *m = InputConfig{} }
 func (m *InputConfig) String() string { return proto.CompactTextString(m) }
 func (*InputConfig) ProtoMessage()    {}
 func (*InputConfig) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{13}
+	return fileDescriptor_template_854300c901169bb6, []int{13}
 }
 func (m *InputConfig) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_InputConfig.Unmarshal(m, b)
@@ -715,13 +707,285 @@ func (m *InputConfig) GetS3Config() *S3Config {
 	return nil
 }
 
+type StreamConfig struct {
+	KafkaConfig          *KafkaConfig `protobuf:"bytes,1,opt,name=kafkaConfig" json:"kafkaConfig,omitempty"`
+	EhConfig             *EHConfig    `protobuf:"bytes,2,opt,name=ehConfig" json:"ehConfig,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
+	XXX_unrecognized     []byte       `json:"-"`
+	XXX_sizecache        int32        `json:"-"`
+}
+
+func (m *StreamConfig) Reset()         { *m = StreamConfig{} }
+func (m *StreamConfig) String() string { return proto.CompactTextString(m) }
+func (*StreamConfig) ProtoMessage()    {}
+func (*StreamConfig) Descriptor() ([]byte, []int) {
+	return fileDescriptor_template_854300c901169bb6, []int{14}
+}
+func (m *StreamConfig) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StreamConfig.Unmarshal(m, b)
+}
+func (m *StreamConfig) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StreamConfig.Marshal(b, m, deterministic)
+}
+func (dst *StreamConfig) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StreamConfig.Merge(dst, src)
+}
+func (m *StreamConfig) XXX_Size() int {
+	return xxx_messageInfo_StreamConfig.Size(m)
+}
+func (m *StreamConfig) XXX_DiscardUnknown() {
+	xxx_messageInfo_StreamConfig.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StreamConfig proto.InternalMessageInfo
+
+func (m *StreamConfig) GetKafkaConfig() *KafkaConfig {
+	if m != nil {
+		return m.KafkaConfig
+	}
+	return nil
+}
+
+func (m *StreamConfig) GetEhConfig() *EHConfig {
+	if m != nil {
+		return m.EhConfig
+	}
+	return nil
+}
+
+type KafkaConfig struct {
+	Address              string   `protobuf:"bytes,1,opt,name=address" json:"address,omitempty"`
+	Topic                string   `protobuf:"bytes,2,opt,name=topic" json:"topic,omitempty"`
+	PartitionCount       int32    `protobuf:"varint,3,opt,name=partitionCount" json:"partitionCount,omitempty"`
+	SaslUsername         string   `protobuf:"bytes,4,opt,name=saslUsername" json:"saslUsername,omitempty"`
+	SaslPassword         string   `protobuf:"bytes,5,opt,name=saslPassword" json:"saslPassword,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *KafkaConfig) Reset()         { *m = KafkaConfig{} }
+func (m *KafkaConfig) String() string { return proto.CompactTextString(m) }
+func (*KafkaConfig) ProtoMessage()    {}
+func (*KafkaConfig) Descriptor() ([]byte, []int) {
+	return fileDescriptor_template_854300c901169bb6, []int{15}
+}
+func (m *KafkaConfig) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_KafkaConfig.Unmarshal(m, b)
+}
+func (m *KafkaConfig) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_KafkaConfig.Marshal(b, m, deterministic)
+}
+func (dst *KafkaConfig) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_KafkaConfig.Merge(dst, src)
+}
+func (m *KafkaConfig) XXX_Size() int {
+	return xxx_messageInfo_KafkaConfig.Size(m)
+}
+func (m *KafkaConfig) XXX_DiscardUnknown() {
+	xxx_messageInfo_KafkaConfig.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_KafkaConfig proto.InternalMessageInfo
+
+func (m *KafkaConfig) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
+func (m *KafkaConfig) GetTopic() string {
+	if m != nil {
+		return m.Topic
+	}
+	return ""
+}
+
+func (m *KafkaConfig) GetPartitionCount() int32 {
+	if m != nil {
+		return m.PartitionCount
+	}
+	return 0
+}
+
+func (m *KafkaConfig) GetSaslUsername() string {
+	if m != nil {
+		return m.SaslUsername
+	}
+	return ""
+}
+
+func (m *KafkaConfig) GetSaslPassword() string {
+	if m != nil {
+		return m.SaslPassword
+	}
+	return ""
+}
+
+type EHConfig struct {
+	EhNamespace          string   `protobuf:"bytes,1,opt,name=ehNamespace" json:"ehNamespace,omitempty"`
+	EhName               string   `protobuf:"bytes,2,opt,name=ehName" json:"ehName,omitempty"`
+	EhConnectionString   string   `protobuf:"bytes,3,opt,name=ehConnectionString" json:"ehConnectionString,omitempty"`
+	EhKeyName            string   `protobuf:"bytes,4,opt,name=ehKeyName" json:"ehKeyName,omitempty"`
+	EhKeyValue           string   `protobuf:"bytes,5,opt,name=ehKeyValue" json:"ehKeyValue,omitempty"`
+	PartitionCount       int32    `protobuf:"varint,6,opt,name=partitionCount" json:"partitionCount,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *EHConfig) Reset()         { *m = EHConfig{} }
+func (m *EHConfig) String() string { return proto.CompactTextString(m) }
+func (*EHConfig) ProtoMessage()    {}
+func (*EHConfig) Descriptor() ([]byte, []int) {
+	return fileDescriptor_template_854300c901169bb6, []int{16}
+}
+func (m *EHConfig) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_EHConfig.Unmarshal(m, b)
+}
+func (m *EHConfig) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_EHConfig.Marshal(b, m, deterministic)
+}
+func (dst *EHConfig) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_EHConfig.Merge(dst, src)
+}
+func (m *EHConfig) XXX_Size() int {
+	return xxx_messageInfo_EHConfig.Size(m)
+}
+func (m *EHConfig) XXX_DiscardUnknown() {
+	xxx_messageInfo_EHConfig.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_EHConfig proto.InternalMessageInfo
+
+func (m *EHConfig) GetEhNamespace() string {
+	if m != nil {
+		return m.EhNamespace
+	}
+	return ""
+}
+
+func (m *EHConfig) GetEhName() string {
+	if m != nil {
+		return m.EhName
+	}
+	return ""
+}
+
+func (m *EHConfig) GetEhConnectionString() string {
+	if m != nil {
+		return m.EhConnectionString
+	}
+	return ""
+}
+
+func (m *EHConfig) GetEhKeyName() string {
+	if m != nil {
+		return m.EhKeyName
+	}
+	return ""
+}
+
+func (m *EHConfig) GetEhKeyValue() string {
+	if m != nil {
+		return m.EhKeyValue
+	}
+	return ""
+}
+
+func (m *EHConfig) GetPartitionCount() int32 {
+	if m != nil {
+		return m.PartitionCount
+	}
+	return 0
+}
+
+type StreamTemplate struct {
+	Kind                 string        `protobuf:"bytes,1,opt,name=kind" json:"kind,omitempty"`
+	InputConfig          *StreamConfig `protobuf:"bytes,2,opt,name=inputConfig" json:"inputConfig,omitempty"`
+	MinProbability       string        `protobuf:"bytes,3,opt,name=minProbability" json:"minProbability,omitempty"`
+	AnalyzeTemplateId    string        `protobuf:"bytes,4,opt,name=analyzeTemplateId" json:"analyzeTemplateId,omitempty"`
+	AnonymizeTemplateId  string        `protobuf:"bytes,5,opt,name=anonymizeTemplateId" json:"anonymizeTemplateId,omitempty"`
+	DatabinderTemplateId string        `protobuf:"bytes,6,opt,name=databinderTemplateId" json:"databinderTemplateId,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
+	XXX_unrecognized     []byte        `json:"-"`
+	XXX_sizecache        int32         `json:"-"`
+}
+
+func (m *StreamTemplate) Reset()         { *m = StreamTemplate{} }
+func (m *StreamTemplate) String() string { return proto.CompactTextString(m) }
+func (*StreamTemplate) ProtoMessage()    {}
+func (*StreamTemplate) Descriptor() ([]byte, []int) {
+	return fileDescriptor_template_854300c901169bb6, []int{17}
+}
+func (m *StreamTemplate) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StreamTemplate.Unmarshal(m, b)
+}
+func (m *StreamTemplate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StreamTemplate.Marshal(b, m, deterministic)
+}
+func (dst *StreamTemplate) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StreamTemplate.Merge(dst, src)
+}
+func (m *StreamTemplate) XXX_Size() int {
+	return xxx_messageInfo_StreamTemplate.Size(m)
+}
+func (m *StreamTemplate) XXX_DiscardUnknown() {
+	xxx_messageInfo_StreamTemplate.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StreamTemplate proto.InternalMessageInfo
+
+func (m *StreamTemplate) GetKind() string {
+	if m != nil {
+		return m.Kind
+	}
+	return ""
+}
+
+func (m *StreamTemplate) GetInputConfig() *StreamConfig {
+	if m != nil {
+		return m.InputConfig
+	}
+	return nil
+}
+
+func (m *StreamTemplate) GetMinProbability() string {
+	if m != nil {
+		return m.MinProbability
+	}
+	return ""
+}
+
+func (m *StreamTemplate) GetAnalyzeTemplateId() string {
+	if m != nil {
+		return m.AnalyzeTemplateId
+	}
+	return ""
+}
+
+func (m *StreamTemplate) GetAnonymizeTemplateId() string {
+	if m != nil {
+		return m.AnonymizeTemplateId
+	}
+	return ""
+}
+
+func (m *StreamTemplate) GetDatabinderTemplateId() string {
+	if m != nil {
+		return m.DatabinderTemplateId
+	}
+	return ""
+}
+
 type ScanTemplate struct {
-	Kind                 string       `protobuf:"bytes,1,opt,name=kind,proto3" json:"kind,omitempty"`
-	InputConfig          *InputConfig `protobuf:"bytes,2,opt,name=inputConfig,proto3" json:"inputConfig,omitempty"`
-	MinProbability       string       `protobuf:"bytes,3,opt,name=minProbability,proto3" json:"minProbability,omitempty"`
-	AnalyzeTemplateId    string       `protobuf:"bytes,4,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
-	AnonymizeTemplateId  string       `protobuf:"bytes,5,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId,omitempty"`
-	DatabinderTemplateId string       `protobuf:"bytes,6,opt,name=databinderTemplateId,proto3" json:"databinderTemplateId,omitempty"`
+	Kind                 string       `protobuf:"bytes,1,opt,name=kind" json:"kind,omitempty"`
+	InputConfig          *InputConfig `protobuf:"bytes,2,opt,name=inputConfig" json:"inputConfig,omitempty"`
+	MinProbability       string       `protobuf:"bytes,3,opt,name=minProbability" json:"minProbability,omitempty"`
+	AnalyzeTemplateId    string       `protobuf:"bytes,4,opt,name=analyzeTemplateId" json:"analyzeTemplateId,omitempty"`
+	AnonymizeTemplateId  string       `protobuf:"bytes,5,opt,name=anonymizeTemplateId" json:"anonymizeTemplateId,omitempty"`
+	DatabinderTemplateId string       `protobuf:"bytes,6,opt,name=databinderTemplateId" json:"databinderTemplateId,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
 	XXX_unrecognized     []byte       `json:"-"`
 	XXX_sizecache        int32        `json:"-"`
@@ -731,7 +995,7 @@ func (m *ScanTemplate) Reset()         { *m = ScanTemplate{} }
 func (m *ScanTemplate) String() string { return proto.CompactTextString(m) }
 func (*ScanTemplate) ProtoMessage()    {}
 func (*ScanTemplate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{14}
+	return fileDescriptor_template_854300c901169bb6, []int{18}
 }
 func (m *ScanTemplate) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ScanTemplate.Unmarshal(m, b)
@@ -794,10 +1058,11 @@ func (m *ScanTemplate) GetDatabinderTemplateId() string {
 }
 
 type JobTemplate struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Description          string   `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
-	Trigger              *Trigger `protobuf:"bytes,3,opt,name=trigger,proto3" json:"trigger,omitempty"`
-	ScanTemplateId       string   `protobuf:"bytes,6,opt,name=scanTemplateId,proto3" json:"scanTemplateId,omitempty"`
+	Name                 string   `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	Description          string   `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	Trigger              *Trigger `protobuf:"bytes,3,opt,name=trigger" json:"trigger,omitempty"`
+	ScanTemplateId       string   `protobuf:"bytes,4,opt,name=scanTemplateId" json:"scanTemplateId,omitempty"`
+	StreamTemplateId     string   `protobuf:"bytes,5,opt,name=streamTemplateId" json:"streamTemplateId,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -807,7 +1072,7 @@ func (m *JobTemplate) Reset()         { *m = JobTemplate{} }
 func (m *JobTemplate) String() string { return proto.CompactTextString(m) }
 func (*JobTemplate) ProtoMessage()    {}
 func (*JobTemplate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{15}
+	return fileDescriptor_template_854300c901169bb6, []int{19}
 }
 func (m *JobTemplate) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_JobTemplate.Unmarshal(m, b)
@@ -855,8 +1120,15 @@ func (m *JobTemplate) GetScanTemplateId() string {
 	return ""
 }
 
+func (m *JobTemplate) GetStreamTemplateId() string {
+	if m != nil {
+		return m.StreamTemplateId
+	}
+	return ""
+}
+
 type Trigger struct {
-	Schedule             *Schedule `protobuf:"bytes,1,opt,name=schedule,proto3" json:"schedule,omitempty"`
+	Schedule             *Schedule `protobuf:"bytes,1,opt,name=schedule" json:"schedule,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
 	XXX_unrecognized     []byte    `json:"-"`
 	XXX_sizecache        int32     `json:"-"`
@@ -866,7 +1138,7 @@ func (m *Trigger) Reset()         { *m = Trigger{} }
 func (m *Trigger) String() string { return proto.CompactTextString(m) }
 func (*Trigger) ProtoMessage()    {}
 func (*Trigger) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{16}
+	return fileDescriptor_template_854300c901169bb6, []int{20}
 }
 func (m *Trigger) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Trigger.Unmarshal(m, b)
@@ -894,7 +1166,7 @@ func (m *Trigger) GetSchedule() *Schedule {
 }
 
 type Schedule struct {
-	RecurrencePeriodDuration string   `protobuf:"bytes,1,opt,name=recurrencePeriodDuration,proto3" json:"recurrencePeriodDuration,omitempty"`
+	RecurrencePeriodDuration string   `protobuf:"bytes,1,opt,name=recurrencePeriodDuration" json:"recurrencePeriodDuration,omitempty"`
 	XXX_NoUnkeyedLiteral     struct{} `json:"-"`
 	XXX_unrecognized         []byte   `json:"-"`
 	XXX_sizecache            int32    `json:"-"`
@@ -904,7 +1176,7 @@ func (m *Schedule) Reset()         { *m = Schedule{} }
 func (m *Schedule) String() string { return proto.CompactTextString(m) }
 func (*Schedule) ProtoMessage()    {}
 func (*Schedule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{17}
+	return fileDescriptor_template_854300c901169bb6, []int{21}
 }
 func (m *Schedule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Schedule.Unmarshal(m, b)
@@ -932,13 +1204,13 @@ func (m *Schedule) GetRecurrencePeriodDuration() string {
 }
 
 type ImageWord struct {
-	XLocation            string   `protobuf:"bytes,1,opt,name=XLocation,proto3" json:"XLocation,omitempty"`
-	Width                string   `protobuf:"bytes,2,opt,name=Width,proto3" json:"Width,omitempty"`
-	Height               string   `protobuf:"bytes,3,opt,name=Height,proto3" json:"Height,omitempty"`
-	YLocation            string   `protobuf:"bytes,4,opt,name=YLocation,proto3" json:"YLocation,omitempty"`
-	Text                 string   `protobuf:"bytes,5,opt,name=Text,proto3" json:"Text,omitempty"`
-	StartPosition        int32    `protobuf:"varint,6,opt,name=startPosition,proto3" json:"startPosition,omitempty"`
-	EndPosition          int32    `protobuf:"varint,7,opt,name=endPosition,proto3" json:"endPosition,omitempty"`
+	XLocation            string   `protobuf:"bytes,1,opt,name=XLocation" json:"XLocation,omitempty"`
+	Width                string   `protobuf:"bytes,2,opt,name=Width" json:"Width,omitempty"`
+	Height               string   `protobuf:"bytes,3,opt,name=Height" json:"Height,omitempty"`
+	YLocation            string   `protobuf:"bytes,4,opt,name=YLocation" json:"YLocation,omitempty"`
+	Text                 string   `protobuf:"bytes,5,opt,name=Text" json:"Text,omitempty"`
+	StartPosition        int32    `protobuf:"varint,6,opt,name=startPosition" json:"startPosition,omitempty"`
+	EndPosition          int32    `protobuf:"varint,7,opt,name=endPosition" json:"endPosition,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -948,7 +1220,7 @@ func (m *ImageWord) Reset()         { *m = ImageWord{} }
 func (m *ImageWord) String() string { return proto.CompactTextString(m) }
 func (*ImageWord) ProtoMessage()    {}
 func (*ImageWord) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{18}
+	return fileDescriptor_template_854300c901169bb6, []int{22}
 }
 func (m *ImageWord) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ImageWord.Unmarshal(m, b)
@@ -1018,8 +1290,8 @@ func (m *ImageWord) GetEndPosition() int32 {
 }
 
 type ImageLocations struct {
-	Words                []*ImageWord `protobuf:"bytes,1,rep,name=Words,proto3" json:"Words,omitempty"`
-	ImageText            string       `protobuf:"bytes,2,opt,name=ImageText,proto3" json:"ImageText,omitempty"`
+	Words                []*ImageWord `protobuf:"bytes,1,rep,name=Words" json:"Words,omitempty"`
+	ImageText            string       `protobuf:"bytes,2,opt,name=ImageText" json:"ImageText,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
 	XXX_unrecognized     []byte       `json:"-"`
 	XXX_sizecache        int32        `json:"-"`
@@ -1029,7 +1301,7 @@ func (m *ImageLocations) Reset()         { *m = ImageLocations{} }
 func (m *ImageLocations) String() string { return proto.CompactTextString(m) }
 func (*ImageLocations) ProtoMessage()    {}
 func (*ImageLocations) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_a0ba1d08d50bcd65, []int{19}
+	return fileDescriptor_template_854300c901169bb6, []int{23}
 }
 func (m *ImageLocations) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ImageLocations.Unmarshal(m, b)
@@ -1078,6 +1350,10 @@ func init() {
 	proto.RegisterType((*BlobStorageConfig)(nil), "types.BlobStorageConfig")
 	proto.RegisterType((*S3Config)(nil), "types.S3Config")
 	proto.RegisterType((*InputConfig)(nil), "types.InputConfig")
+	proto.RegisterType((*StreamConfig)(nil), "types.StreamConfig")
+	proto.RegisterType((*KafkaConfig)(nil), "types.KafkaConfig")
+	proto.RegisterType((*EHConfig)(nil), "types.EHConfig")
+	proto.RegisterType((*StreamTemplate)(nil), "types.StreamTemplate")
 	proto.RegisterType((*ScanTemplate)(nil), "types.ScanTemplate")
 	proto.RegisterType((*JobTemplate)(nil), "types.JobTemplate")
 	proto.RegisterType((*Trigger)(nil), "types.Trigger")
@@ -1086,70 +1362,83 @@ func init() {
 	proto.RegisterType((*ImageLocations)(nil), "types.ImageLocations")
 }
 
-func init() { proto.RegisterFile("template.proto", fileDescriptor_template_a0ba1d08d50bcd65) }
+func init() { proto.RegisterFile("template.proto", fileDescriptor_template_854300c901169bb6) }
 
-var fileDescriptor_template_a0ba1d08d50bcd65 = []byte{
-	// 992 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x56, 0x5d, 0x8f, 0x1b, 0x35,
-	0x14, 0x55, 0xb2, 0x9b, 0x6c, 0x72, 0x93, 0xa6, 0x1b, 0xb7, 0xc0, 0x68, 0x85, 0xaa, 0x95, 0x85,
-	0xaa, 0xa5, 0xa0, 0x15, 0x6c, 0xab, 0x22, 0x21, 0x78, 0xe8, 0x07, 0x4b, 0xc3, 0x47, 0xb5, 0xf2,
-	0x46, 0x2d, 0xf0, 0xe6, 0x78, 0x9c, 0xc4, 0xda, 0x19, 0x3b, 0xf2, 0x38, 0xa2, 0x01, 0x9e, 0xe0,
-	0x91, 0x57, 0xf8, 0x15, 0xfc, 0x1a, 0xfe, 0x11, 0xb2, 0xc7, 0x33, 0xe3, 0x99, 0xd9, 0x05, 0xf1,
-	0x66, 0x9f, 0x7b, 0xae, 0xaf, 0xef, 0xb1, 0xe7, 0x78, 0x60, 0x62, 0x78, 0xba, 0x49, 0xa8, 0xe1,
-	0xa7, 0x1b, 0xad, 0x8c, 0x42, 0x3d, 0xb3, 0xdb, 0xf0, 0xec, 0x68, 0xcc, 0x54, 0x9a, 0x2a, 0x99,
-	0x83, 0xf8, 0x33, 0xb8, 0xfd, 0x44, 0xd2, 0x64, 0xf7, 0x13, 0x9f, 0x7b, 0x36, 0x7a, 0x1f, 0xfa,
-	0x4b, 0xc1, 0x93, 0x38, 0x8b, 0x3a, 0xc7, 0x7b, 0x27, 0xa3, 0xb3, 0xe9, 0xa9, 0x4b, 0x3c, 0x3d,
-	0xb7, 0xe0, 0xdc, 0x0e, 0x89, 0x27, 0xe0, 0xdf, 0xbb, 0x30, 0x7d, 0x22, 0x95, 0xdc, 0xa5, 0x22,
-	0x58, 0x00, 0xc1, 0xbe, 0xa4, 0x29, 0x8f, 0x3a, 0xc7, 0x9d, 0x93, 0x21, 0x71, 0x63, 0x74, 0x0c,
-	0xa3, 0x58, 0x64, 0x9b, 0x84, 0xee, 0x5e, 0xda, 0x50, 0xd7, 0x85, 0x42, 0xc8, 0x31, 0x78, 0xc6,
-	0xb4, 0xd8, 0x18, 0xa1, 0x64, 0xb4, 0xe7, 0x19, 0x15, 0x84, 0xee, 0x01, 0x30, 0xcd, 0xa9, 0xe1,
-	0x73, 0x91, 0xf2, 0x68, 0xdf, 0x11, 0x02, 0x04, 0x61, 0x18, 0xa7, 0x2a, 0x16, 0x4b, 0xc1, 0x63,
-	0xc7, 0xe8, 0x39, 0x46, 0x0d, 0x43, 0x3f, 0x40, 0xb4, 0x2c, 0xfa, 0x98, 0x6b, 0x2a, 0xb3, 0xa5,
-	0xd2, 0x29, 0xb5, 0xcb, 0x67, 0x51, 0xdf, 0xb5, 0x7b, 0xaf, 0xd9, 0x6e, 0x9d, 0x46, 0x6e, 0xcc,
-	0xc7, 0xbf, 0x75, 0xe0, 0x9d, 0x1b, 0xb2, 0xfe, 0x87, 0xa8, 0xe8, 0x73, 0x98, 0x98, 0x5a, 0xb2,
-	0x53, 0x6b, 0x74, 0xf6, 0x96, 0x4f, 0x69, 0xec, 0xa7, 0x41, 0xc6, 0x7f, 0x75, 0x61, 0xd2, 0x28,
-	0x7e, 0x04, 0x03, 0xc9, 0x7f, 0x7c, 0x45, 0x93, 0x6d, 0x71, 0x28, 0xe5, 0x1c, 0x7d, 0x02, 0x63,
-	0xcd, 0x37, 0x09, 0x65, 0x3c, 0x8f, 0xe7, 0xb5, 0xee, 0xf8, 0x5a, 0x24, 0x08, 0x91, 0x1a, 0x11,
-	0x3d, 0x82, 0x91, 0xe6, 0x31, 0x65, 0x26, 0xcf, 0xdb, 0x73, 0x79, 0xa8, 0xcc, 0x2b, 0x23, 0x24,
-	0xa4, 0xa1, 0x53, 0x18, 0xae, 0x69, 0xb6, 0xce, 0x73, 0xf6, 0x5d, 0xce, 0xa1, 0xcf, 0x79, 0x51,
-	0xe0, 0xa4, 0xa2, 0x58, 0x7e, 0x4a, 0xb3, 0xab, 0x9c, 0xdf, 0xab, 0xf1, 0xbf, 0x2d, 0x70, 0x52,
-	0x51, 0x0a, 0xfe, 0x2c, 0xa5, 0x2b, 0x1e, 0xf5, 0x5b, 0x7c, 0x87, 0x93, 0x8a, 0x82, 0x1f, 0xc0,
-	0x38, 0xec, 0xf1, 0xdf, 0xa4, 0xc2, 0xb7, 0x60, 0x14, 0xf4, 0x85, 0x47, 0x30, 0x2c, 0xb7, 0x8c,
-	0x33, 0x18, 0x96, 0xfb, 0x41, 0x0f, 0xe0, 0xd0, 0x56, 0x10, 0x72, 0xf5, 0x6c, 0x4d, 0x35, 0x65,
-	0x86, 0x6b, 0xbf, 0x58, 0x0b, 0xb7, 0xd7, 0x9e, 0xad, 0xa9, 0xce, 0xe6, 0xca, 0xe6, 0x3b, 0xf9,
-	0x7b, 0x24, 0x84, 0x50, 0x04, 0x07, 0x4b, 0xad, 0xd2, 0x2f, 0x64, 0xec, 0x44, 0x1e, 0x90, 0x62,
-	0x8a, 0xdf, 0xe4, 0x45, 0x5d, 0x27, 0xf6, 0xda, 0x08, 0x3b, 0xf8, 0x46, 0x31, 0x7f, 0x9f, 0x3b,
-	0xb5, 0x6b, 0x33, 0xab, 0x05, 0x49, 0x83, 0x8c, 0x3e, 0x84, 0xa9, 0x43, 0xf2, 0xa2, 0x4f, 0x69,
-	0xc6, 0x1f, 0x3f, 0xf2, 0x9f, 0x69, 0x3b, 0x80, 0x35, 0xc0, 0x73, 0x6a, 0xe8, 0x42, 0xc8, 0x98,
-	0x6b, 0x2b, 0x9a, 0x1d, 0xd9, 0x6b, 0x5c, 0x88, 0x56, 0xcc, 0xad, 0x16, 0x4c, 0x49, 0xc9, 0x99,
-	0x2d, 0x73, 0x69, 0xb4, 0x90, 0x2b, 0xbf, 0x6c, 0x0b, 0x47, 0xef, 0xc2, 0xd0, 0xd0, 0x45, 0xc2,
-	0x9d, 0x45, 0xe4, 0x06, 0x50, 0x01, 0xf8, 0x4b, 0x40, 0x55, 0xcd, 0xd2, 0x6c, 0x3e, 0x06, 0x88,
-	0x4b, 0xb4, 0xf1, 0x71, 0x55, 0x74, 0x12, 0x90, 0xf0, 0xcf, 0x30, 0x7d, 0x9a, 0xa8, 0xc5, 0xa5,
-	0x51, 0x9a, 0xae, 0xf8, 0x33, 0x25, 0x97, 0x62, 0x65, 0xcf, 0x81, 0x32, 0xa6, 0xb6, 0xd2, 0xbc,
-	0xac, 0xbc, 0x2b, 0x84, 0xac, 0xfd, 0xf8, 0xe9, 0xd7, 0x7c, 0xe7, 0x7b, 0x08, 0x10, 0xf4, 0x1e,
-	0xdc, 0x62, 0x4a, 0x1a, 0x2a, 0x24, 0xd7, 0x41, 0x07, 0x75, 0x10, 0xff, 0x02, 0x83, 0xcb, 0x87,
-	0xbe, 0xe6, 0x11, 0x0c, 0x28, 0x63, 0x3c, 0xcb, 0x66, 0x71, 0xa1, 0x5b, 0x31, 0xb7, 0x5a, 0xe4,
-	0xe3, 0xaa, 0x58, 0x05, 0xa0, 0xb7, 0xa1, 0xaf, 0xf9, 0xaa, 0xf2, 0x49, 0x3f, 0xb3, 0x7b, 0x5c,
-	0x6c, 0xd9, 0x15, 0xcf, 0x9b, 0xf0, 0x16, 0x59, 0x21, 0xf8, 0xd7, 0x0e, 0x8c, 0x66, 0x72, 0xb3,
-	0x35, 0x7e, 0x07, 0xe7, 0x30, 0x5d, 0x34, 0xa5, 0xf0, 0xf7, 0x26, 0xf2, 0x22, 0xb6, 0xa4, 0x22,
-	0xed, 0x14, 0xf4, 0x01, 0x0c, 0x32, 0xdf, 0x95, 0x77, 0x90, 0xdb, 0x3e, 0xbd, 0x68, 0x96, 0x94,
-	0x04, 0xfc, 0x47, 0x17, 0xc6, 0x97, 0x8c, 0xca, 0xf0, 0xc1, 0xb8, 0x12, 0xb2, 0xd0, 0xc0, 0x8d,
-	0xad, 0xbd, 0x88, 0x6a, 0xa3, 0x7e, 0xd1, 0xc2, 0x5e, 0x82, 0x16, 0x48, 0x48, 0x43, 0xf7, 0x61,
-	0x92, 0x0a, 0x79, 0xa1, 0xd5, 0x82, 0x2e, 0x44, 0x22, 0xcc, 0xce, 0xeb, 0xd3, 0x40, 0xed, 0x6d,
-	0xa7, 0xf5, 0x67, 0x6f, 0x16, 0x7b, 0xb9, 0xda, 0x01, 0xf4, 0x11, 0xdc, 0xa1, 0xcd, 0x57, 0x6e,
-	0x16, 0xfb, 0xf7, 0xe5, 0xba, 0x10, 0x3a, 0x83, 0xbb, 0x71, 0xeb, 0xae, 0xce, 0x62, 0xe7, 0x48,
-	0x43, 0x72, 0x6d, 0x0c, 0xff, 0xd9, 0x81, 0xd1, 0x57, 0x6a, 0xf1, 0x9f, 0xcf, 0x68, 0xf0, 0x48,
-	0x76, 0xdb, 0x8f, 0xe4, 0x09, 0x1c, 0x18, 0x2d, 0x56, 0x2b, 0xae, 0xbd, 0x25, 0x4f, 0xca, 0x67,
-	0xc3, 0xa1, 0xa4, 0x08, 0x5b, 0xad, 0xb2, 0xe0, 0x14, 0xca, 0xdd, 0x35, 0x50, 0xfc, 0x18, 0x0e,
-	0x7c, 0xae, 0x3b, 0x66, 0xb6, 0xe6, 0xf1, 0x36, 0xe1, 0xfe, 0x96, 0x94, 0xc7, 0xec, 0x61, 0x52,
-	0x12, 0xf0, 0x39, 0x0c, 0x0a, 0x14, 0x7d, 0x0a, 0x91, 0xe6, 0x6c, 0xab, 0x35, 0x97, 0x8c, 0x5f,
-	0x70, 0x2d, 0x54, 0xfc, 0x7c, 0xab, 0xf3, 0xd7, 0x2d, 0xef, 0xef, 0xc6, 0x38, 0xfe, 0xbb, 0x03,
-	0x43, 0x67, 0x5e, 0xaf, 0x95, 0x76, 0xdf, 0xc5, 0x77, 0x85, 0x6b, 0xf9, 0xd4, 0x0a, 0x40, 0x77,
-	0xa1, 0xf7, 0x5a, 0xc4, 0x66, 0xed, 0x95, 0xc9, 0x27, 0xf6, 0x6b, 0x79, 0xc1, 0xc5, 0x6a, 0x6d,
-	0x8a, 0xaf, 0x25, 0x9f, 0xd9, 0xb5, 0xbe, 0x2f, 0xd7, 0xca, 0x4f, 0xbf, 0x02, 0xac, 0xfe, 0x73,
-	0xfe, 0xc6, 0xf8, 0x63, 0x76, 0x63, 0xfb, 0x8d, 0x67, 0x86, 0x6a, 0x73, 0xa1, 0x32, 0xe1, 0xb2,
-	0xfa, 0xce, 0xaf, 0xeb, 0xa0, 0x3d, 0x25, 0x2e, 0xe3, 0x92, 0x73, 0x90, 0x7b, 0x7a, 0x00, 0xe1,
-	0x57, 0x30, 0xa9, 0xfb, 0x31, 0xba, 0x0f, 0x3d, 0xdb, 0x5f, 0xf1, 0x7f, 0x70, 0x18, 0xba, 0xb6,
-	0x0d, 0x90, 0x3c, 0x6c, 0xf7, 0xec, 0x30, 0xb7, 0x35, 0xef, 0x0b, 0x25, 0xb0, 0xe8, 0xbb, 0xbf,
-	0xba, 0x87, 0xff, 0x04, 0x00, 0x00, 0xff, 0xff, 0x2b, 0x92, 0xc3, 0x42, 0xfc, 0x09, 0x00, 0x00,
+var fileDescriptor_template_854300c901169bb6 = []byte{
+	// 1193 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xdc, 0x57, 0x51, 0x8f, 0x1b, 0x35,
+	0x10, 0x56, 0xd2, 0x26, 0x97, 0x4c, 0xd2, 0xb4, 0xe7, 0x16, 0x88, 0x2a, 0x54, 0x55, 0x16, 0xaa,
+	0x8e, 0x82, 0x4e, 0x70, 0x3d, 0x8a, 0x84, 0xe0, 0xa1, 0xbd, 0xf6, 0xb8, 0x70, 0x50, 0x9d, 0x7c,
+	0xa1, 0x05, 0xde, 0x9c, 0x5d, 0x27, 0xb1, 0x2e, 0x6b, 0x07, 0xdb, 0x51, 0x1b, 0xe0, 0x09, 0x1e,
+	0x79, 0xe0, 0x05, 0x89, 0x5f, 0xc1, 0x8f, 0xe0, 0x27, 0xf0, 0xca, 0xaf, 0x41, 0xf6, 0xda, 0xbb,
+	0xde, 0x4d, 0x0e, 0xc4, 0x2b, 0x6f, 0x3b, 0xdf, 0x7c, 0xe3, 0xf1, 0x8c, 0xc7, 0xe3, 0x59, 0x18,
+	0x18, 0x96, 0x2d, 0x17, 0xd4, 0xb0, 0xfd, 0xa5, 0x92, 0x46, 0xa2, 0x96, 0x59, 0x2f, 0x99, 0xbe,
+	0xdd, 0x4f, 0x64, 0x96, 0x49, 0x91, 0x83, 0xf8, 0x63, 0xb8, 0xfe, 0x48, 0xd0, 0xc5, 0xfa, 0x3b,
+	0x36, 0xf6, 0x6c, 0xf4, 0x36, 0xb4, 0xa7, 0x9c, 0x2d, 0x52, 0x3d, 0x6c, 0xdc, 0xbd, 0xb2, 0xd7,
+	0x3b, 0xd8, 0xdd, 0x77, 0x86, 0xfb, 0xc7, 0x16, 0x1c, 0xdb, 0x4f, 0xe2, 0x09, 0xf8, 0xe7, 0x26,
+	0xec, 0x3e, 0x12, 0x52, 0xac, 0x33, 0x1e, 0x2d, 0x80, 0xe0, 0xaa, 0xa0, 0x19, 0x1b, 0x36, 0xee,
+	0x36, 0xf6, 0xba, 0xc4, 0x7d, 0xa3, 0xbb, 0xd0, 0x4b, 0xb9, 0x5e, 0x2e, 0xe8, 0xfa, 0x99, 0x55,
+	0x35, 0x9d, 0x2a, 0x86, 0x1c, 0x83, 0xe9, 0x44, 0xf1, 0xa5, 0xe1, 0x52, 0x0c, 0xaf, 0x78, 0x46,
+	0x09, 0xa1, 0x3b, 0x00, 0x89, 0x62, 0xd4, 0xb0, 0x31, 0xcf, 0xd8, 0xf0, 0xaa, 0x23, 0x44, 0x08,
+	0xc2, 0xd0, 0xcf, 0x64, 0xca, 0xa7, 0x9c, 0xa5, 0x8e, 0xd1, 0x72, 0x8c, 0x0a, 0x86, 0xbe, 0x81,
+	0xe1, 0x34, 0xc4, 0x31, 0x56, 0x54, 0xe8, 0xa9, 0x54, 0x19, 0xb5, 0xcb, 0xeb, 0x61, 0xdb, 0x85,
+	0x7b, 0xa7, 0x1e, 0x6e, 0x95, 0x46, 0x2e, 0xb5, 0xc7, 0x3f, 0x35, 0xe0, 0x8d, 0x4b, 0xac, 0xfe,
+	0x43, 0x52, 0xd1, 0x27, 0x30, 0x30, 0x15, 0x63, 0x97, 0xad, 0xde, 0xc1, 0x6b, 0xde, 0xa4, 0xb6,
+	0x9f, 0x1a, 0x19, 0xff, 0xd2, 0x84, 0x41, 0xcd, 0xf9, 0x87, 0xd0, 0x57, 0x6c, 0xb9, 0xa0, 0x09,
+	0x7b, 0x4e, 0x17, 0x2b, 0xe6, 0xd7, 0xbb, 0xe9, 0xd7, 0x23, 0x91, 0x8a, 0x54, 0x88, 0xe8, 0x10,
+	0x7a, 0x8a, 0xa5, 0x34, 0x31, 0xb9, 0xdd, 0x15, 0x67, 0x87, 0x0a, 0xbb, 0x42, 0x43, 0x62, 0x1a,
+	0xda, 0x87, 0xee, 0x9c, 0xea, 0x79, 0x6e, 0x73, 0xd5, 0xd9, 0xdc, 0xf0, 0x36, 0x27, 0x01, 0x27,
+	0x25, 0xc5, 0xf2, 0x33, 0xaa, 0x2f, 0x72, 0x7e, 0xab, 0xc2, 0xff, 0x22, 0xe0, 0xa4, 0xa4, 0x04,
+	0xfe, 0x28, 0xa3, 0x33, 0x36, 0x6c, 0x6f, 0xf0, 0x1d, 0x4e, 0x4a, 0x0a, 0xbe, 0x0f, 0xfd, 0x38,
+	0x46, 0x74, 0x1b, 0x3a, 0x82, 0xbd, 0xcc, 0xdd, 0xe5, 0x35, 0x5a, 0xc8, 0xf8, 0x1a, 0xf4, 0xa2,
+	0xb8, 0x70, 0x0f, 0xba, 0xc5, 0x96, 0xb1, 0x86, 0x6e, 0xb1, 0x1f, 0x74, 0x1f, 0x6e, 0x58, 0x0f,
+	0x5c, 0xcc, 0x8e, 0xe6, 0x54, 0xd1, 0xc4, 0x30, 0xe5, 0x17, 0xdb, 0xc0, 0x6d, 0x69, 0x27, 0x73,
+	0xaa, 0xf4, 0x58, 0x5a, 0x7b, 0x97, 0xfe, 0x16, 0x89, 0x21, 0x34, 0x84, 0x9d, 0xa9, 0x92, 0xd9,
+	0x53, 0x91, 0xba, 0x24, 0x77, 0x48, 0x10, 0xf1, 0xab, 0xdc, 0xa9, 0x8b, 0xc4, 0x96, 0x06, 0xb7,
+	0x1f, 0x9f, 0xcb, 0xc4, 0xd7, 0x6c, 0xa3, 0x52, 0x1a, 0xa3, 0x8a, 0x92, 0xd4, 0xc8, 0xe8, 0x5d,
+	0xd8, 0x75, 0x48, 0xee, 0xf4, 0x31, 0xd5, 0xec, 0xe1, 0xa1, 0xbf, 0x8a, 0x9b, 0x0a, 0xac, 0x00,
+	0x9e, 0x50, 0x43, 0x27, 0x5c, 0xa4, 0x4c, 0xd9, 0xa4, 0xd9, 0x2f, 0x5b, 0xaa, 0x21, 0x69, 0x41,
+	0xb6, 0xb9, 0x48, 0xa4, 0x10, 0x2c, 0xb1, 0x6e, 0xce, 0x8d, 0xe2, 0x62, 0xe6, 0x97, 0xdd, 0xc0,
+	0xd1, 0x9b, 0xd0, 0x35, 0x74, 0xb2, 0x60, 0xae, 0x0d, 0xe4, 0x97, 0xbc, 0x04, 0xf0, 0xa7, 0x80,
+	0x4a, 0x9f, 0x45, 0x43, 0x79, 0x1f, 0x20, 0x2d, 0xd0, 0xda, 0x05, 0x2a, 0xe9, 0x24, 0x22, 0xe1,
+	0xef, 0x61, 0xf7, 0xf1, 0x42, 0x4e, 0xce, 0x8d, 0x54, 0x74, 0xc6, 0x8e, 0xa4, 0x98, 0xf2, 0x99,
+	0x3d, 0x07, 0x9a, 0x24, 0x72, 0x25, 0xcc, 0xb3, 0xb2, 0x3f, 0xc5, 0x90, 0x6d, 0x31, 0x5e, 0x3c,
+	0x65, 0x6b, 0x1f, 0x43, 0x84, 0xa0, 0xb7, 0xe0, 0x5a, 0x22, 0x85, 0xa1, 0x5c, 0x30, 0x15, 0x45,
+	0x50, 0x05, 0xf1, 0x0f, 0xd0, 0x39, 0x7f, 0xe0, 0x7d, 0xde, 0x86, 0x0e, 0x4d, 0x12, 0xa6, 0xf5,
+	0x28, 0x0d, 0x79, 0x0b, 0xb2, 0xcd, 0x45, 0xfe, 0x5d, 0x3a, 0x2b, 0x01, 0xf4, 0x3a, 0xb4, 0x15,
+	0x9b, 0x95, 0xbd, 0xd0, 0x4b, 0x76, 0x8f, 0x93, 0x55, 0x72, 0xc1, 0xf2, 0x20, 0x7c, 0x1b, 0x2c,
+	0x11, 0xfc, 0x63, 0x03, 0x7a, 0x23, 0xb1, 0x5c, 0x19, 0xbf, 0x83, 0x63, 0xd8, 0x9d, 0xd4, 0x53,
+	0xe1, 0xeb, 0x66, 0xe8, 0x93, 0xb8, 0x91, 0x2a, 0xb2, 0x69, 0x82, 0xde, 0x81, 0x8e, 0xf6, 0x51,
+	0xf9, 0x0e, 0x72, 0xdd, 0x9b, 0x87, 0x60, 0x49, 0x41, 0xc0, 0xdf, 0x42, 0xff, 0xdc, 0x28, 0x46,
+	0x33, 0x6f, 0x7c, 0x08, 0xbd, 0x0b, 0x3a, 0xbd, 0xa0, 0x15, 0xf7, 0xa1, 0x93, 0x9c, 0x96, 0x1a,
+	0x12, 0xd3, 0xac, 0x4b, 0x36, 0xdf, 0xea, 0xf2, 0xe9, 0x49, 0x70, 0x19, 0x08, 0xf8, 0xf7, 0x06,
+	0xf4, 0xa2, 0x95, 0xec, 0x9d, 0xa2, 0x69, 0xaa, 0x98, 0xd6, 0x3e, 0xf1, 0x41, 0x44, 0xb7, 0xa0,
+	0x65, 0xe4, 0x92, 0x27, 0x3e, 0xe7, 0xb9, 0x80, 0xee, 0xc1, 0x60, 0x49, 0x95, 0xe1, 0xb6, 0x58,
+	0x8f, 0xec, 0x81, 0xbb, 0xbc, 0xb7, 0x48, 0x0d, 0xb5, 0xcf, 0x8c, 0xa6, 0x7a, 0xf1, 0xa5, 0x66,
+	0x4a, 0x94, 0x27, 0x50, 0xc1, 0x02, 0xe7, 0x8c, 0x6a, 0xfd, 0x52, 0xaa, 0x34, 0x3c, 0x45, 0x31,
+	0x86, 0xff, 0x6a, 0x40, 0x27, 0x84, 0x61, 0x4b, 0x93, 0xcd, 0xed, 0xf1, 0xe9, 0x25, 0x4d, 0x8a,
+	0xd2, 0x8c, 0x20, 0x5b, 0x0e, 0xb9, 0xe8, 0x77, 0xed, 0x25, 0xb4, 0x0f, 0xc8, 0xa5, 0xa0, 0x7a,
+	0xfd, 0xf2, 0x92, 0xd9, 0xa2, 0xb1, 0x45, 0xc7, 0xe6, 0xa7, 0x6c, 0x1d, 0x55, 0x4f, 0x09, 0xd8,
+	0xe2, 0x72, 0x42, 0xd9, 0x8c, 0xbb, 0x24, 0x42, 0xb6, 0x24, 0xa9, 0xbd, 0x2d, 0x49, 0xf8, 0xb7,
+	0x26, 0x0c, 0xf2, 0x02, 0x88, 0xc7, 0x82, 0x0b, 0x2e, 0xc2, 0x2d, 0x70, 0xdf, 0xe8, 0x03, 0xe8,
+	0xf1, 0xb2, 0x54, 0x6b, 0x0f, 0x53, 0x5c, 0x40, 0x24, 0xe6, 0xd9, 0x5d, 0x64, 0x5c, 0x9c, 0x29,
+	0x39, 0xa1, 0x13, 0xbe, 0xe0, 0x66, 0xed, 0xe3, 0xad, 0xa1, 0xb6, 0xe1, 0xd1, 0xea, 0x74, 0x33,
+	0x4a, 0x7d, 0xcc, 0x9b, 0x0a, 0xf4, 0x1e, 0xdc, 0xa4, 0xf5, 0x61, 0x66, 0x14, 0xce, 0x6e, 0x9b,
+	0x0a, 0x1d, 0xc0, 0xad, 0x74, 0xa3, 0x5d, 0x8d, 0x52, 0x97, 0x93, 0x2e, 0xd9, 0xaa, 0xc3, 0xbf,
+	0x36, 0xa1, 0x7f, 0x9e, 0x50, 0xf1, 0x8f, 0x79, 0x39, 0xdc, 0x96, 0x97, 0x70, 0x5d, 0xa2, 0xcb,
+	0xfd, 0xff, 0x49, 0xcb, 0x1f, 0x0d, 0xe8, 0x7d, 0x26, 0x27, 0xff, 0x3a, 0x44, 0x46, 0x23, 0x62,
+	0x73, 0x73, 0x44, 0xdc, 0x83, 0x1d, 0xa3, 0xf8, 0x6c, 0xc6, 0x94, 0x1f, 0x56, 0x06, 0xc5, 0xd0,
+	0xe4, 0x50, 0x12, 0xd4, 0x36, 0x57, 0x3a, 0x3a, 0x85, 0x22, 0x01, 0x35, 0xd4, 0xbe, 0x6d, 0xba,
+	0x52, 0xc7, 0x45, 0xe8, 0x1b, 0x38, 0x7e, 0x08, 0x3b, 0xde, 0x8f, 0x6b, 0x96, 0xc9, 0x9c, 0xa5,
+	0xab, 0x05, 0xf3, 0xcd, 0xae, 0x68, 0x96, 0x1e, 0x26, 0x05, 0x01, 0x1f, 0x43, 0x27, 0xa0, 0xe8,
+	0x23, 0x18, 0x2a, 0x96, 0xac, 0x94, 0x62, 0x22, 0x61, 0x67, 0x4c, 0x71, 0x99, 0x3e, 0x59, 0xa9,
+	0x7c, 0x0e, 0xcc, 0x73, 0x71, 0xa9, 0x1e, 0xff, 0xd9, 0x80, 0xae, 0x1b, 0x01, 0x5e, 0x48, 0xe5,
+	0x5e, 0x97, 0xaf, 0xc2, 0xdb, 0xef, 0x4d, 0x4b, 0xc0, 0xf6, 0xc0, 0x17, 0x3c, 0x35, 0xf3, 0xd0,
+	0x03, 0x9d, 0x60, 0x9b, 0xcc, 0x09, 0xe3, 0xb3, 0xb9, 0x09, 0x6f, 0x4e, 0x2e, 0xd9, 0xb5, 0xbe,
+	0x2e, 0xd6, 0xf2, 0x4d, 0xa3, 0x00, 0xec, 0x59, 0x8d, 0xd9, 0x2b, 0xe3, 0xf3, 0xe2, 0xbe, 0xed,
+	0x4b, 0xa9, 0x0d, 0x55, 0xe6, 0x4c, 0x6a, 0xd7, 0x16, 0x7c, 0x9f, 0xa8, 0x82, 0xae, 0xed, 0x89,
+	0xb4, 0xe0, 0xec, 0xe4, 0x93, 0x51, 0x04, 0xe1, 0xe7, 0x30, 0xa8, 0x4e, 0x35, 0xe8, 0x1e, 0xb4,
+	0x6c, 0x7c, 0x61, 0x92, 0xbe, 0x11, 0xcf, 0x3e, 0x56, 0x41, 0x72, 0xb5, 0xdd, 0xb3, 0xc3, 0xdc,
+	0xd6, 0xfc, 0xeb, 0x5a, 0x00, 0x93, 0xb6, 0xfb, 0xff, 0x79, 0xf0, 0x77, 0x00, 0x00, 0x00, 0xff,
+	0xff, 0x9b, 0x33, 0xbf, 0x8c, 0x26, 0x0d, 0x00, 0x00,
 }

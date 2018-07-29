@@ -24,10 +24,10 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type JobRequest struct {
-	Name                 string       `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Description          string       `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
-	Trigger              *Trigger     `protobuf:"bytes,3,opt,name=trigger,proto3" json:"trigger,omitempty"`
-	ScanRequest          *ScanRequest `protobuf:"bytes,4,opt,name=scanRequest,proto3" json:"scanRequest,omitempty"`
+	Name                 string       `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	Description          string       `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
+	Trigger              *Trigger     `protobuf:"bytes,3,opt,name=trigger" json:"trigger,omitempty"`
+	ScanRequest          *ScanRequest `protobuf:"bytes,4,opt,name=scanRequest" json:"scanRequest,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
 	XXX_unrecognized     []byte       `json:"-"`
 	XXX_sizecache        int32        `json:"-"`

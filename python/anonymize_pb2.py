@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='anonymize.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0f\x61nonymize.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\"[\n\x13\x41nonymizeApiRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x02 \x01(\t\x12\x1b\n\x13\x61nonymizeTemplateId\x18\x03 \x01(\t\"z\n\x10\x41nonymizeRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12*\n\x08template\x18\x02 \x01(\x0b\x32\x18.types.AnonymizeTemplate\x12,\n\x0e\x61nalyzeResults\x18\x03 \x03(\x0b\x32\x14.types.AnalyzeResult\"!\n\x11\x41nonymizeResponse\x12\x0c\n\x04text\x18\x01 \x01(\t2P\n\x10\x41nonymizeService\x12<\n\x05\x41pply\x12\x17.types.AnonymizeRequest\x1a\x18.types.AnonymizeResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0f\x61nonymize.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\"\xc1\x01\n\x13\x41nonymizeApiRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x02 \x01(\t\x12\x1b\n\x13\x61nonymizeTemplateId\x18\x03 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x04 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x33\n\x11\x61nonymizeTemplate\x18\x05 \x01(\x0b\x32\x18.types.AnonymizeTemplate\"z\n\x10\x41nonymizeRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12*\n\x08template\x18\x02 \x01(\x0b\x32\x18.types.AnonymizeTemplate\x12,\n\x0e\x61nalyzeResults\x18\x03 \x03(\x0b\x32\x14.types.AnalyzeResult\"!\n\x11\x41nonymizeResponse\x12\x0c\n\x04text\x18\x01 \x01(\t2P\n\x10\x41nonymizeService\x12<\n\x05\x41pply\x12\x17.types.AnonymizeRequest\x1a\x18.types.AnonymizeResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[common__pb2.DESCRIPTOR,template__pb2.DESCRIPTOR,])
 
@@ -56,6 +56,20 @@ _ANONYMIZEAPIREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='analyzeTemplate', full_name='types.AnonymizeApiRequest.analyzeTemplate', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='anonymizeTemplate', full_name='types.AnonymizeApiRequest.anonymizeTemplate', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -68,8 +82,8 @@ _ANONYMIZEAPIREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=56,
-  serialized_end=147,
+  serialized_start=57,
+  serialized_end=250,
 )
 
 
@@ -113,8 +127,8 @@ _ANONYMIZEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=149,
-  serialized_end=271,
+  serialized_start=252,
+  serialized_end=374,
 )
 
 
@@ -144,10 +158,12 @@ _ANONYMIZERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=273,
-  serialized_end=306,
+  serialized_start=376,
+  serialized_end=409,
 )
 
+_ANONYMIZEAPIREQUEST.fields_by_name['analyzeTemplate'].message_type = template__pb2._ANALYZETEMPLATE
+_ANONYMIZEAPIREQUEST.fields_by_name['anonymizeTemplate'].message_type = template__pb2._ANONYMIZETEMPLATE
 _ANONYMIZEREQUEST.fields_by_name['template'].message_type = template__pb2._ANONYMIZETEMPLATE
 _ANONYMIZEREQUEST.fields_by_name['analyzeResults'].message_type = common__pb2._ANALYZERESULT
 DESCRIPTOR.message_types_by_name['AnonymizeApiRequest'] = _ANONYMIZEAPIREQUEST
@@ -184,8 +200,8 @@ _ANONYMIZESERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=308,
-  serialized_end=388,
+  serialized_start=411,
+  serialized_end=491,
   methods=[
   _descriptor.MethodDescriptor(
     name='Apply',

@@ -37,15 +37,30 @@
     - [DatabinderRequest](#types.DatabinderRequest)
     - [DatabinderResponse](#types.DatabinderResponse)
   
+    - [DataBinderTypesEnum](#types.DataBinderTypesEnum)
   
   
     - [DatabinderService](#types.DatabinderService)
   
 
 - [job.proto](#job.proto)
-    - [Job](#types.Job)
-    - [Schedule](#types.Schedule)
-    - [Trigger](#types.Trigger)
+    - [JobRequest](#types.JobRequest)
+    - [JobResponse](#types.JobResponse)
+  
+  
+  
+    - [JobService](#types.JobService)
+  
+
+- [scan.proto](#scan.proto)
+    - [ScanRequest](#types.ScanRequest)
+  
+  
+  
+  
+
+- [stream.proto](#stream.proto)
+    - [StreamRequest](#types.StreamRequest)
   
   
   
@@ -54,10 +69,28 @@
 - [template.proto](#template.proto)
     - [AnalyzeTemplate](#types.AnalyzeTemplate)
     - [AnonymizeTemplate](#types.AnonymizeTemplate)
+    - [BlobStorageConfig](#types.BlobStorageConfig)
+    - [Databinder](#types.Databinder)
+    - [DatabinderTemplate](#types.DatabinderTemplate)
+    - [EHConfig](#types.EHConfig)
     - [FieldTypeTransformation](#types.FieldTypeTransformation)
+    - [HashValue](#types.HashValue)
+    - [ImageLocations](#types.ImageLocations)
+    - [ImageWord](#types.ImageWord)
+    - [InputConfig](#types.InputConfig)
+    - [JobTemplate](#types.JobTemplate)
+    - [KafkaConfig](#types.KafkaConfig)
+    - [MaskImage](#types.MaskImage)
+    - [MaskValue](#types.MaskValue)
     - [RedactValue](#types.RedactValue)
     - [ReplaceValue](#types.ReplaceValue)
+    - [S3Config](#types.S3Config)
+    - [ScanTemplate](#types.ScanTemplate)
+    - [Schedule](#types.Schedule)
+    - [StreamConfig](#types.StreamConfig)
+    - [StreamTemplate](#types.StreamTemplate)
     - [Transformation](#types.Transformation)
+    - [Trigger](#types.Trigger)
   
   
   
@@ -84,6 +117,7 @@ AnalyzeApiRequest represents the request to the API HTTP service
 | ----- | ---- | ----- | ----------- |
 | text | [string](#string) |  |  |
 | analyzeTemplateId | [string](#string) |  |  |
+| analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  |  |
 
 
 
@@ -159,6 +193,8 @@ AnonymizeApiRequest represents the request to the API HTTP service
 | text | [string](#string) |  |  |
 | analyzeTemplateId | [string](#string) |  |  |
 | anonymizeTemplateId | [string](#string) |  |  |
+| analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  |  |
+| anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  |  |
 
 
 
@@ -268,9 +304,6 @@ AnonymizeResponse represents the anonymize service response
 | start | [sint32](#sint32) |  |  |
 | end | [sint32](#sint32) |  |  |
 | length | [sint32](#sint32) |  |  |
-| newStart | [sint32](#sint32) |  | Not used in the template |
-| newEnd | [sint32](#sint32) |  | Not used in the template |
-| newLength | [sint32](#sint32) |  | Not used in the template |
 
 
 
@@ -346,6 +379,26 @@ DatabinderResponse represents the response from the data-binder service via GRPC
 
  
 
+
+<a name="types.DataBinderTypesEnum"/>
+
+### DataBinderTypesEnum
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| mysql | 0 |  |
+| mssql | 1 |  |
+| postgres | 2 |  |
+| sqlite3 | 3 |  |
+| oracle | 4 |  |
+| kafka | 5 |  |
+| eventhub | 6 |  |
+| s3 | 7 |  |
+| azureblob | 8 |  |
+| googlestorage | 9 |  |
+
+
  
 
  
@@ -359,6 +412,7 @@ DatabinderResponse represents the response from the data-binder service via GRPC
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | Apply | [DatabinderRequest](#types.DatabinderRequest) | [DatabinderResponse](#types.DatabinderRequest) |  |
+| Init | [DatabinderTemplate](#types.DatabinderTemplate) | [DatabinderResponse](#types.DatabinderTemplate) |  |
 
  
 
@@ -371,9 +425,9 @@ DatabinderResponse represents the response from the data-binder service via GRPC
 
 
 
-<a name="types.Job"/>
+<a name="types.JobRequest"/>
 
-### Job
+### JobRequest
 
 
 
@@ -382,36 +436,99 @@ DatabinderResponse represents the response from the data-binder service via GRPC
 | name | [string](#string) |  |  |
 | description | [string](#string) |  |  |
 | trigger | [Trigger](#types.Trigger) |  |  |
+| scanRequest | [ScanRequest](#types.ScanRequest) |  |  |
 
 
 
 
 
 
-<a name="types.Schedule"/>
+<a name="types.JobResponse"/>
 
-### Schedule
+### JobResponse
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="types.JobService"/>
+
+### JobService
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| Apply | [JobRequest](#types.JobRequest) | [JobResponse](#types.JobRequest) |  |
+
+ 
+
+
+
+<a name="scan.proto"/>
+<p align="right"><a href="#top">Top</a></p>
+
+## scan.proto
+
+
+
+<a name="types.ScanRequest"/>
+
+### ScanRequest
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| recurrencePeriodDuration | [string](#string) |  |  |
+| kind | [string](#string) |  |  |
+| inputConfig | [InputConfig](#types.InputConfig) |  |  |
+| minProbability | [string](#string) |  |  |
+| analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  |  |
+| anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  |  |
+| databinderTemplate | [DatabinderTemplate](#types.DatabinderTemplate) |  |  |
 
 
 
 
 
+ 
 
-<a name="types.Trigger"/>
+ 
 
-### Trigger
+ 
+
+ 
+
+
+
+<a name="stream.proto"/>
+<p align="right"><a href="#top">Top</a></p>
+
+## stream.proto
+
+
+
+<a name="types.StreamRequest"/>
+
+### StreamRequest
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| schedule | [Schedule](#types.Schedule) |  |  |
+| kind | [string](#string) |  |  |
+| inputConfig | [StreamConfig](#types.StreamConfig) |  |  |
+| minProbability | [string](#string) |  |  |
+| analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  |  |
+| anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  |  |
+| databinderTemplate | [DatabinderTemplate](#types.DatabinderTemplate) |  |  |
 
 
 
@@ -469,6 +586,75 @@ AnonymizeTemplate represents the anonymize service template definition
 
 
 
+<a name="types.BlobStorageConfig"/>
+
+### BlobStorageConfig
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| accountName | [string](#string) |  |  |
+| accountKey | [string](#string) |  |  |
+| containerName | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.Databinder"/>
+
+### Databinder
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| bindType | [string](#string) |  |  |
+| connectionString | [string](#string) |  |  |
+| tableName | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.DatabinderTemplate"/>
+
+### DatabinderTemplate
+DatabinderTemplate represents the analyzer service outputs definition
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| databinder | [Databinder](#types.Databinder) | repeated |  |
+
+
+
+
+
+
+<a name="types.EHConfig"/>
+
+### EHConfig
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ehNamespace | [string](#string) |  |  |
+| ehName | [string](#string) |  |  |
+| ehConnectionString | [string](#string) |  |  |
+| ehKeyName | [string](#string) |  |  |
+| ehKeyValue | [string](#string) |  |  |
+| partitionCount | [int32](#int32) |  |  |
+
+
+
+
+
+
 <a name="types.FieldTypeTransformation"/>
 
 ### FieldTypeTransformation
@@ -479,6 +665,140 @@ FieldTypeTransformation represents the transformation for array of fields types
 | ----- | ---- | ----- | ----------- |
 | fields | [FieldTypes](#types.FieldTypes) | repeated |  |
 | transformation | [Transformation](#types.Transformation) |  |  |
+
+
+
+
+
+
+<a name="types.HashValue"/>
+
+### HashValue
+
+
+
+
+
+
+
+<a name="types.ImageLocations"/>
+
+### ImageLocations
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| Words | [ImageWord](#types.ImageWord) | repeated |  |
+| ImageText | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.ImageWord"/>
+
+### ImageWord
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| XLocation | [string](#string) |  |  |
+| Width | [string](#string) |  |  |
+| Height | [string](#string) |  |  |
+| YLocation | [string](#string) |  |  |
+| Text | [string](#string) |  |  |
+| startPosition | [int32](#int32) |  |  |
+| endPosition | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="types.InputConfig"/>
+
+### InputConfig
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| blobStorageConfig | [BlobStorageConfig](#types.BlobStorageConfig) |  |  |
+| s3Config | [S3Config](#types.S3Config) |  |  |
+
+
+
+
+
+
+<a name="types.JobTemplate"/>
+
+### JobTemplate
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+| trigger | [Trigger](#types.Trigger) |  |  |
+| scanTemplateId | [string](#string) |  |  |
+| streamTemplateId | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.KafkaConfig"/>
+
+### KafkaConfig
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  |  |
+| topic | [string](#string) |  |  |
+| partitionCount | [int32](#int32) |  |  |
+| saslUsername | [string](#string) |  |  |
+| saslPassword | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.MaskImage"/>
+
+### MaskImage
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| imageLocations | [ImageLocations](#types.ImageLocations) |  |  |
+| imageToMaskBase64 | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.MaskValue"/>
+
+### MaskValue
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| maskingCharacter | [string](#string) |  |  |
+| charsToMask | [int32](#int32) |  |  |
+| fromEnd | [bool](#bool) |  |  |
 
 
 
@@ -510,6 +830,95 @@ FieldTypeTransformation represents the transformation for array of fields types
 
 
 
+<a name="types.S3Config"/>
+
+### S3Config
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| accessId | [string](#string) |  |  |
+| accessKey | [string](#string) |  |  |
+| region | [string](#string) |  |  |
+| bucketName | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.ScanTemplate"/>
+
+### ScanTemplate
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| kind | [string](#string) |  |  |
+| inputConfig | [InputConfig](#types.InputConfig) |  |  |
+| minProbability | [string](#string) |  |  |
+| analyzeTemplateId | [string](#string) |  |  |
+| anonymizeTemplateId | [string](#string) |  |  |
+| databinderTemplateId | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.Schedule"/>
+
+### Schedule
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| recurrencePeriodDuration | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.StreamConfig"/>
+
+### StreamConfig
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| kafkaConfig | [KafkaConfig](#types.KafkaConfig) |  |  |
+| ehConfig | [EHConfig](#types.EHConfig) |  |  |
+
+
+
+
+
+
+<a name="types.StreamTemplate"/>
+
+### StreamTemplate
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| kind | [string](#string) |  |  |
+| inputConfig | [StreamConfig](#types.StreamConfig) |  |  |
+| minProbability | [string](#string) |  |  |
+| analyzeTemplateId | [string](#string) |  |  |
+| anonymizeTemplateId | [string](#string) |  |  |
+| databinderTemplateId | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="types.Transformation"/>
 
 ### Transformation
@@ -518,9 +927,26 @@ Transformation represents the transformation type
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| newValue | [string](#string) |  | Not used in the template |
 | replaceValue | [ReplaceValue](#types.ReplaceValue) |  |  |
 | redactValue | [RedactValue](#types.RedactValue) |  |  |
+| hashValue | [HashValue](#types.HashValue) |  |  |
+| maskValue | [MaskValue](#types.MaskValue) |  |  |
+| maskImage | [MaskImage](#types.MaskImage) |  |  |
+
+
+
+
+
+
+<a name="types.Trigger"/>
+
+### Trigger
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| schedule | [Schedule](#types.Schedule) |  |  |
 
 
 

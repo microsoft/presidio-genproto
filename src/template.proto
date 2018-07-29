@@ -84,6 +84,37 @@ message InputConfig {
   S3Config s3Config = 2;
 }
 
+message StreamConfig {
+  KafkaConfig kafkaConfig = 1;
+  EHConfig ehConfig = 2;
+}
+
+message KafkaConfig {
+  string address = 1;
+  string topic = 2;
+  int32 partitionCount = 3;
+  string saslUsername = 4;
+  string saslPassword = 5;
+}
+
+message EHConfig {
+  string ehNamespace = 1;
+  string ehName = 2;
+  string ehConnectionString = 3;
+  string ehKeyName = 4;
+  string ehKeyValue = 5;
+  int32 partitionCount = 6;
+}
+
+message StreamTemplate {
+  string kind = 1;
+  StreamConfig inputConfig = 2;
+  string minProbability = 3;
+  string analyzeTemplateId = 4;
+  string anonymizeTemplateId = 5;
+  string databinderTemplateId = 6;
+}
+
 message ScanTemplate {
     string kind = 1;
     InputConfig inputConfig = 2;
@@ -97,7 +128,8 @@ message JobTemplate {
     string name = 1;
     string description = 2;
     Trigger trigger = 3;
-    string scanTemplateId = 6;
+    string scanTemplateId = 4;
+    string streamTemplateId = 5;
 }
 
 message Trigger {
@@ -114,8 +146,8 @@ message ImageWord {
 	string Height     = 3;
 	string YLocation  = 4;
 	string Text    = 5;
-    int32 startPosition = 6;
-    int32 endPosition = 7;
+  int32 startPosition = 6;
+  int32 endPosition = 7;
 }
 
 message ImageLocations  {

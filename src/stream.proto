@@ -1,0 +1,13 @@
+syntax = "proto3";
+import "template.proto";
+
+package types;
+
+message StreamRequest {
+    string kind = 1;
+    StreamConfig inputConfig = 2;
+    string minProbability = 3;
+    AnalyzeTemplate analyzeTemplate = 4;
+    AnonymizeTemplate anonymizeTemplate = 5;
+    DatabinderTemplate databinderTemplate = 6;
+}

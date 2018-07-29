@@ -26,4 +26,9 @@ enum DataBinderTypesEnum{
     postgres = 2;
     sqlite3 = 3;
     oracle = 4;
+    kafka = 5;
+    eventhub = 6;
+    s3 = 7;
+    azureblob = 8;
+    googlestorage = 9;
 }
