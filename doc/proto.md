@@ -524,7 +524,7 @@ DatabinderResponse represents the response from the data-binder service via GRPC
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | kind | [string](#string) |  |  |
-| inputConfig | [StreamConfig](#types.StreamConfig) |  |  |
+| streamConfig | [StreamConfig](#types.StreamConfig) |  |  |
 | minProbability | [string](#string) |  |  |
 | analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  |  |
 | anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  |  |
@@ -908,7 +908,7 @@ FieldTypeTransformation represents the transformation for array of fields types
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | kind | [string](#string) |  |  |
-| inputConfig | [StreamConfig](#types.StreamConfig) |  |  |
+| streamConfig | [StreamConfig](#types.StreamConfig) |  |  |
 | minProbability | [string](#string) |  |  |
 | analyzeTemplateId | [string](#string) |  |  |
 | anonymizeTemplateId | [string](#string) |  |  |

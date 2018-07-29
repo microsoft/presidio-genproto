@@ -5,7 +5,7 @@ package types;
 
 message StreamRequest {
     string kind = 1;
-    StreamConfig inputConfig = 2;
+    StreamConfig streamConfig = 2;
     string minProbability = 3;
     AnalyzeTemplate analyzeTemplate = 4;
     AnonymizeTemplate anonymizeTemplate = 5;
