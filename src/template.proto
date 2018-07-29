@@ -27,7 +27,6 @@ message FieldTypeTransformation {
 
 /* Transformation represents the transformation type */
 message Transformation {
-  string newValue = 1; // Not used in the template 
   ReplaceValue replaceValue = 2;
   RedactValue redactValue = 3;
 }
