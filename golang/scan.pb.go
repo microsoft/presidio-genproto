@@ -19,12 +19,12 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type ScanRequest struct {
-	Kind                 string              `protobuf:"bytes,1,opt,name=kind" json:"kind,omitempty"`
-	InputConfig          *InputConfig        `protobuf:"bytes,2,opt,name=inputConfig" json:"inputConfig,omitempty"`
-	MinProbability       string              `protobuf:"bytes,3,opt,name=minProbability" json:"minProbability,omitempty"`
-	AnalyzeTemplate      *AnalyzeTemplate    `protobuf:"bytes,4,opt,name=analyzeTemplate" json:"analyzeTemplate,omitempty"`
-	AnonymizeTemplate    *AnonymizeTemplate  `protobuf:"bytes,5,opt,name=anonymizeTemplate" json:"anonymizeTemplate,omitempty"`
-	DatabinderTemplate   *DatabinderTemplate `protobuf:"bytes,6,opt,name=databinderTemplate" json:"databinderTemplate,omitempty"`
+	Kind                 string              `protobuf:"bytes,1,opt,name=kind,proto3" json:"kind,omitempty"`
+	InputConfig          *InputConfig        `protobuf:"bytes,2,opt,name=inputConfig,proto3" json:"inputConfig,omitempty"`
+	MinProbability       string              `protobuf:"bytes,3,opt,name=minProbability,proto3" json:"minProbability,omitempty"`
+	AnalyzeTemplate      *AnalyzeTemplate    `protobuf:"bytes,4,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
+	AnonymizeTemplate    *AnonymizeTemplate  `protobuf:"bytes,5,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate,omitempty"`
+	DatabinderTemplate   *DatabinderTemplate `protobuf:"bytes,6,opt,name=databinderTemplate,proto3" json:"databinderTemplate,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
 	XXX_unrecognized     []byte              `json:"-"`
 	XXX_sizecache        int32               `json:"-"`
