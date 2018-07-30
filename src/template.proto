@@ -55,10 +55,15 @@ message MaskImage {
     string imageToMaskBase64 =2;
 }
 
+message DBConfig {
+    string connectionString = 2;
+    string tableName = 3;
+}
+
 message Databinder {
   string bindType = 1;
-  string connectionString = 2;
-  string tableName = 3;
+  DBConfig dbConfig = 2;
+  CloudStorageConfig cloudStorageConfig = 3;
 }
 
 /* DatabinderTemplate represents the analyzer service outputs definition */
@@ -79,7 +84,7 @@ message S3Config {
     string bucketName = 4;
 }
 
-message InputConfig {
+message CloudStorageConfig {
   BlobStorageConfig blobStorageConfig = 1;
   S3Config s3Config = 2;
 }
@@ -117,7 +122,7 @@ message StreamTemplate {
 
 message ScanTemplate {
     string kind = 1;
-    InputConfig inputConfig = 2;
+    CloudStorageConfig cloudStorageConfig = 2;
     string minProbability = 3;
     string analyzeTemplateId = 4;
     string anonymizeTemplateId = 5;
