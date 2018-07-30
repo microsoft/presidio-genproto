@@ -124,6 +124,13 @@ message ScanTemplate {
     string databinderTemplateId = 6;
 }
 
+message CronJobTemplate {
+    string name = 1;
+    string description = 2;
+    Trigger trigger = 3;
+    string scanTemplateId = 4;
+}
+
 message JobTemplate {
     string name = 1;
     string description = 2;
