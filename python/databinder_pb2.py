@@ -16,15 +16,16 @@ _sym_db = _symbol_database.Default()
 
 import common_pb2 as common__pb2
 import template_pb2 as template__pb2
+import anonymize_pb2 as anonymize__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='databinder.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x10\x64\x61tabinder.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\"h\n\x11\x44\x61tabinderRequest\x12,\n\x0e\x61nalyzeResults\x18\x01 \x03(\x0b\x32\x14.types.AnalyzeResult\x12\x17\n\x0f\x61nonymizeResult\x18\x02 \x01(\t\x12\x0c\n\x04path\x18\x03 \x01(\t\"\x14\n\x12\x44\x61tabinderResponse*\x95\x01\n\x13\x44\x61taBinderTypesEnum\x12\t\n\x05mysql\x10\x00\x12\t\n\x05mssql\x10\x01\x12\x0c\n\x08postgres\x10\x02\x12\x0b\n\x07sqlite3\x10\x03\x12\n\n\x06oracle\x10\x04\x12\t\n\x05kafka\x10\x05\x12\x0c\n\x08\x65venthub\x10\x06\x12\x06\n\x02s3\x10\x07\x12\r\n\tazureblob\x10\x08\x12\x11\n\rgooglestorage\x10\t2\x93\x01\n\x11\x44\x61tabinderService\x12>\n\x05\x41pply\x12\x18.types.DatabinderRequest\x1a\x19.types.DatabinderResponse\"\x00\x12>\n\x04Init\x12\x19.types.DatabinderTemplate\x1a\x19.types.DatabinderResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x10\x64\x61tabinder.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\x1a\x0f\x61nonymize.proto\"\x82\x01\n\x11\x44\x61tabinderRequest\x12,\n\x0e\x61nalyzeResults\x18\x01 \x03(\x0b\x32\x14.types.AnalyzeResult\x12\x31\n\x0f\x61nonymizeResult\x18\x02 \x01(\x0b\x32\x18.types.AnonymizeResponse\x12\x0c\n\x04path\x18\x03 \x01(\t\"\x14\n\x12\x44\x61tabinderResponse*\x95\x01\n\x13\x44\x61taBinderTypesEnum\x12\t\n\x05mysql\x10\x00\x12\t\n\x05mssql\x10\x01\x12\x0c\n\x08postgres\x10\x02\x12\x0b\n\x07sqlite3\x10\x03\x12\n\n\x06oracle\x10\x04\x12\t\n\x05kafka\x10\x05\x12\x0c\n\x08\x65venthub\x10\x06\x12\x06\n\x02s3\x10\x07\x12\r\n\tazureblob\x10\x08\x12\x11\n\rgooglestorage\x10\t2\x93\x01\n\x11\x44\x61tabinderService\x12>\n\x05\x41pply\x12\x18.types.DatabinderRequest\x1a\x19.types.DatabinderResponse\"\x00\x12>\n\x04Init\x12\x19.types.DatabinderTemplate\x1a\x19.types.DatabinderResponse\"\x00\x62\x06proto3')
   ,
-  dependencies=[common__pb2.DESCRIPTOR,template__pb2.DESCRIPTOR,])
+  dependencies=[common__pb2.DESCRIPTOR,template__pb2.DESCRIPTOR,anonymize__pb2.DESCRIPTOR,])
 
 _DATABINDERTYPESENUM = _descriptor.EnumDescriptor(
   name='DataBinderTypesEnum',
@@ -75,8 +76,8 @@ _DATABINDERTYPESENUM = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=186,
-  serialized_end=335,
+  serialized_start=230,
+  serialized_end=379,
 )
 _sym_db.RegisterEnumDescriptor(_DATABINDERTYPESENUM)
 
@@ -110,8 +111,8 @@ _DATABINDERREQUEST = _descriptor.Descriptor(
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='anonymizeResult', full_name='types.DatabinderRequest.anonymizeResult', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
@@ -134,8 +135,8 @@ _DATABINDERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=57,
-  serialized_end=161,
+  serialized_start=75,
+  serialized_end=205,
 )
 
 
@@ -158,11 +159,12 @@ _DATABINDERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=163,
-  serialized_end=183,
+  serialized_start=207,
+  serialized_end=227,
 )
 
 _DATABINDERREQUEST.fields_by_name['analyzeResults'].message_type = common__pb2._ANALYZERESULT
+_DATABINDERREQUEST.fields_by_name['anonymizeResult'].message_type = anonymize__pb2._ANONYMIZERESPONSE
 DESCRIPTOR.message_types_by_name['DatabinderRequest'] = _DATABINDERREQUEST
 DESCRIPTOR.message_types_by_name['DatabinderResponse'] = _DATABINDERRESPONSE
 DESCRIPTOR.enum_types_by_name['DataBinderTypesEnum'] = _DATABINDERTYPESENUM
@@ -190,8 +192,8 @@ _DATABINDERSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=338,
-  serialized_end=485,
+  serialized_start=382,
+  serialized_end=529,
   methods=[
   _descriptor.MethodDescriptor(
     name='Apply',

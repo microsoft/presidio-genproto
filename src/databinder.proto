@@ -1,13 +1,14 @@
 syntax = "proto3";
 import "common.proto";
 import "template.proto";
+import "anonymize.proto";
 
 package types;
 
 /* DatabinderRequest represents the request to the data-binder service via GRPC */
 message DatabinderRequest {
     repeated AnalyzeResult analyzeResults = 1;
-    string anonymizeResult = 2;
+    AnonymizeResponse anonymizeResult = 2;
     string path = 3;
 }
 
