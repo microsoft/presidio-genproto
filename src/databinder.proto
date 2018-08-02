@@ -16,10 +16,13 @@ message DatabinderRequest {
 message DatabinderResponse {
 }
 
+message CompletionMessage {
+}
+
 service DatabinderService {
   rpc Apply (DatabinderRequest) returns (DatabinderResponse) {}
   rpc Init (DatabinderTemplate) returns (DatabinderResponse) {}
-
+  rpc Completion (CompletionMessage) returns (DatabinderResponse) {}
 }
 
 enum DataBinderTypesEnum{

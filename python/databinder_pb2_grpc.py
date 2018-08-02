@@ -25,6 +25,11 @@ class DatabinderServiceStub(object):
         request_serializer=template__pb2.DatabinderTemplate.SerializeToString,
         response_deserializer=databinder__pb2.DatabinderResponse.FromString,
         )
+    self.Completion = channel.unary_unary(
+        '/types.DatabinderService/Completion',
+        request_serializer=databinder__pb2.CompletionMessage.SerializeToString,
+        response_deserializer=databinder__pb2.DatabinderResponse.FromString,
+        )
 
 
 class DatabinderServiceServicer(object):
@@ -45,6 +50,13 @@ class DatabinderServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def Completion(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_DatabinderServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -56,6 +68,11 @@ def add_DatabinderServiceServicer_to_server(servicer, server):
       'Init': grpc.unary_unary_rpc_method_handler(
           servicer.Init,
           request_deserializer=template__pb2.DatabinderTemplate.FromString,
+          response_serializer=databinder__pb2.DatabinderResponse.SerializeToString,
+      ),
+      'Completion': grpc.unary_unary_rpc_method_handler(
+          servicer.Completion,
+          request_deserializer=databinder__pb2.CompletionMessage.FromString,
           response_serializer=databinder__pb2.DatabinderResponse.SerializeToString,
       ),
   }
