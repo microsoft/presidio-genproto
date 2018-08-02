@@ -61,17 +61,15 @@ message DBConfig {
 }
 
 message Databinder {
-  // bind type should be deprecate soon. - 
-  string bindType = 1;
-  DBConfig dbConfig = 2;
-  CloudStorageConfig cloudStorageConfig = 3;
-  string analyzerKind = 4;
-  string anonymizerKind = 5;
+  DBConfig dbConfig = 1;
+  CloudStorageConfig cloudStorageConfig = 2;
 }
 
 /* DatabinderTemplate represents the analyzer service outputs definition */
 message DatabinderTemplate {
-  repeated Databinder databinder = 1;
+  string analyzerKind = 1;
+  string anonymizerKind = 2;
+  Databinder databinder = 3;
 }
 
 message BlobStorageConfig {
