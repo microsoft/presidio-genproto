@@ -83,6 +83,7 @@ message S3Config {
     string accessKey = 2;
     string region = 3;
     string bucketName = 4;
+    string endpoint = 5;
 }
 
 message CloudStorageConfig {
