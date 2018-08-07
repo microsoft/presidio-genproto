@@ -126,9 +126,6 @@ message ScanTemplate {
     string kind = 1;
     CloudStorageConfig cloudStorageConfig = 2;
     string minProbability = 3;
-    string analyzeTemplateId = 4;
-    string anonymizeTemplateId = 5;
-    string databinderTemplateId = 6;
 }
 
 message CronJobTemplate {
@@ -136,6 +133,9 @@ message CronJobTemplate {
     string description = 2;
     Trigger trigger = 3;
     string scanTemplateId = 4;
+    string analyzeTemplateId = 5;
+    string anonymizeTemplateId = 6;
+    string databinderTemplateId = 7;
 }
 
 message JobTemplate {
