@@ -1,0 +1,22 @@
+syntax = "proto3";
+package types;
+import "template.proto";
+import "scan.proto";
+
+message CronJobApiRequest {
+    string CronJobTemplateId = 1;
+}
+
+message CronJobRequest {
+    string name = 1;
+    string description = 2;
+    Trigger trigger = 3;
+    ScanRequest scanRequest = 4;
+}
+
+message CronJobResponse {
+}
+
+service CronJobService {
+  rpc Apply (CronJobRequest) returns (CronJobResponse) {}
+}

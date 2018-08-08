@@ -8,6 +8,7 @@ package types;
 message AnalyzeApiRequest {
   string text = 1;
   string analyzeTemplateId = 2;
+  /* Optional parameter for running the analyzer without creating a template */
   AnalyzeTemplate analyzeTemplate = 3;
 }
 

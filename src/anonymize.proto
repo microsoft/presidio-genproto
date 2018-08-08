@@ -9,7 +9,9 @@ message AnonymizeApiRequest {
   string text = 1;
   string analyzeTemplateId = 2;
   string anonymizeTemplateId = 3;
+  /* Optional parameter for running the analyzer without creating a template */
   AnalyzeTemplate analyzeTemplate = 4;
+  /* Optional parameter for running the anonymizer without creating a template */
   AnonymizeTemplate anonymizeTemplate = 5;
 }
 

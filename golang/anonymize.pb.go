@@ -25,11 +25,13 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // AnonymizeApiRequest represents the request to the API HTTP service
 type AnonymizeApiRequest struct {
-	Text                 string             `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
-	AnalyzeTemplateId    string             `protobuf:"bytes,2,opt,name=analyzeTemplateId" json:"analyzeTemplateId,omitempty"`
-	AnonymizeTemplateId  string             `protobuf:"bytes,3,opt,name=anonymizeTemplateId" json:"anonymizeTemplateId,omitempty"`
-	AnalyzeTemplate      *AnalyzeTemplate   `protobuf:"bytes,4,opt,name=analyzeTemplate" json:"analyzeTemplate,omitempty"`
-	AnonymizeTemplate    *AnonymizeTemplate `protobuf:"bytes,5,opt,name=anonymizeTemplate" json:"anonymizeTemplate,omitempty"`
+	Text                string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	AnalyzeTemplateId   string `protobuf:"bytes,2,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
+	AnonymizeTemplateId string `protobuf:"bytes,3,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId,omitempty"`
+	// Optional parameter for running the analyzer without creating a template
+	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,4,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
+	// Optional parameter for running the anonymizer without creating a template
+	AnonymizeTemplate    *AnonymizeTemplate `protobuf:"bytes,5,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
 	XXX_sizecache        int32              `json:"-"`
@@ -39,7 +41,7 @@ func (m *AnonymizeApiRequest) Reset()         { *m = AnonymizeApiRequest{} }
 func (m *AnonymizeApiRequest) String() string { return proto.CompactTextString(m) }
 func (*AnonymizeApiRequest) ProtoMessage()    {}
 func (*AnonymizeApiRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_anonymize_0071d4a443a1279f, []int{0}
+	return fileDescriptor_anonymize_cdc3d704bb1dbd60, []int{0}
 }
 func (m *AnonymizeApiRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnonymizeApiRequest.Unmarshal(m, b)
@@ -96,9 +98,9 @@ func (m *AnonymizeApiRequest) GetAnonymizeTemplate() *AnonymizeTemplate {
 
 // AnonymizeRequest represents the request to the anonymize service via GRPC
 type AnonymizeRequest struct {
-	Text                 string             `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
-	Template             *AnonymizeTemplate `protobuf:"bytes,2,opt,name=template" json:"template,omitempty"`
-	AnalyzeResults       []*AnalyzeResult   `protobuf:"bytes,3,rep,name=analyzeResults" json:"analyzeResults,omitempty"`
+	Text                 string             `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	Template             *AnonymizeTemplate `protobuf:"bytes,2,opt,name=template,proto3" json:"template,omitempty"`
+	AnalyzeResults       []*AnalyzeResult   `protobuf:"bytes,3,rep,name=analyzeResults,proto3" json:"analyzeResults,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
 	XXX_sizecache        int32              `json:"-"`
@@ -108,7 +110,7 @@ func (m *AnonymizeRequest) Reset()         { *m = AnonymizeRequest{} }
 func (m *AnonymizeRequest) String() string { return proto.CompactTextString(m) }
 func (*AnonymizeRequest) ProtoMessage()    {}
 func (*AnonymizeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_anonymize_0071d4a443a1279f, []int{1}
+	return fileDescriptor_anonymize_cdc3d704bb1dbd60, []int{1}
 }
 func (m *AnonymizeRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnonymizeRequest.Unmarshal(m, b)
@@ -151,7 +153,7 @@ func (m *AnonymizeRequest) GetAnalyzeResults() []*AnalyzeResult {
 
 // AnonymizeResponse represents the anonymize service response
 type AnonymizeResponse struct {
-	Text                 string   `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
+	Text                 string   `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -161,7 +163,7 @@ func (m *AnonymizeResponse) Reset()         { *m = AnonymizeResponse{} }
 func (m *AnonymizeResponse) String() string { return proto.CompactTextString(m) }
 func (*AnonymizeResponse) ProtoMessage()    {}
 func (*AnonymizeResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_anonymize_0071d4a443a1279f, []int{2}
+	return fileDescriptor_anonymize_cdc3d704bb1dbd60, []int{2}
 }
 func (m *AnonymizeResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnonymizeResponse.Unmarshal(m, b)
@@ -266,9 +268,9 @@ var _AnonymizeService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "anonymize.proto",
 }
 
-func init() { proto.RegisterFile("anonymize.proto", fileDescriptor_anonymize_0071d4a443a1279f) }
+func init() { proto.RegisterFile("anonymize.proto", fileDescriptor_anonymize_cdc3d704bb1dbd60) }
 
-var fileDescriptor_anonymize_0071d4a443a1279f = []byte{
+var fileDescriptor_anonymize_cdc3d704bb1dbd60 = []byte{
 	// 285 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x92, 0x41, 0x4f, 0x83, 0x40,
 	0x10, 0x85, 0xa5, 0x14, 0xa3, 0x5b, 0x53, 0xed, 0xd4, 0xe8, 0x86, 0x13, 0xe1, 0x22, 0x07, 0x43,

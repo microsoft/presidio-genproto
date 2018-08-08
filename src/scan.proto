@@ -5,7 +5,7 @@ package types;
 
 message ScanRequest {
     string kind = 1;
-    InputConfig inputConfig = 2;
+    CloudStorageConfig cloudStorageConfig = 2;
     string minProbability = 3;
     AnalyzeTemplate analyzeTemplate = 4;
     AnonymizeTemplate anonymizeTemplate = 5;

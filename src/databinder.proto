@@ -1,23 +1,28 @@
 syntax = "proto3";
 import "common.proto";
 import "template.proto";
+import "anonymize.proto";
 
 package types;
 
 /* DatabinderRequest represents the request to the data-binder service via GRPC */
 message DatabinderRequest {
     repeated AnalyzeResult analyzeResults = 1;
-    string path = 2;
+    AnonymizeResponse anonymizeResult = 2;
+    string path = 3;
 }
 
 /* DatabinderResponse represents the response from the data-binder service via GRPC */
 message DatabinderResponse {
 }
 
+message CompletionMessage {
+}
+
 service DatabinderService {
   rpc Apply (DatabinderRequest) returns (DatabinderResponse) {}
   rpc Init (DatabinderTemplate) returns (DatabinderResponse) {}
-
+  rpc Completion (CompletionMessage) returns (DatabinderResponse) {}
 }
 
 enum DataBinderTypesEnum{

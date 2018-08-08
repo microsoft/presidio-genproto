@@ -55,15 +55,21 @@ message MaskImage {
     string imageToMaskBase64 =2;
 }
 
+message DBConfig {
+    string connectionString = 2;
+    string tableName = 3;
+}
+
 message Databinder {
-  string bindType = 1;
-  string connectionString = 2;
-  string tableName = 3;
+  DBConfig dbConfig = 1;
+  CloudStorageConfig cloudStorageConfig = 2;
 }
 
 /* DatabinderTemplate represents the analyzer service outputs definition */
 message DatabinderTemplate {
-  repeated Databinder databinder = 1;
+  string analyzerKind = 1;
+  string anonymizerKind = 2;
+  Databinder databinder = 3;
 }
 
 message BlobStorageConfig {
@@ -77,9 +83,10 @@ message S3Config {
     string accessKey = 2;
     string region = 3;
     string bucketName = 4;
+    string endpoint = 5;
 }
 
-message InputConfig {
+message CloudStorageConfig {
   BlobStorageConfig blobStorageConfig = 1;
   S3Config s3Config = 2;
 }
@@ -125,11 +132,18 @@ message StreamTemplate {
 
 message ScanTemplate {
     string kind = 1;
-    InputConfig inputConfig = 2;
+    CloudStorageConfig cloudStorageConfig = 2;
     string minProbability = 3;
-    string analyzeTemplateId = 4;
-    string anonymizeTemplateId = 5;
-    string databinderTemplateId = 6;
+}
+
+message CronJobTemplate {
+    string name = 1;
+    string description = 2;
+    Trigger trigger = 3;
+    string scanTemplateId = 4;
+    string analyzeTemplateId = 5;
+    string anonymizeTemplateId = 6;
+    string databinderTemplateId = 7;
 }
 
 message JobTemplate {
