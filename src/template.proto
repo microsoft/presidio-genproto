@@ -106,6 +106,14 @@ message EHConfig {
   int32 partitionCount = 6;
 }
 
+message KinesisConfig {
+  string aWsSecretAccessKey= 1;
+  string aWsRegion= 2;
+  string aWsSecretKey = 3;
+  string redisUrl = 4;
+  string streamName = 5;
+}
+
 message StreamTemplate {
   string kind = 1;
   StreamConfig streamConfig = 2;
