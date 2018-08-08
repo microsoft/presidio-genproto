@@ -84,8 +84,8 @@ func (FieldTypesEnum) EnumDescriptor() ([]byte, []int) {
 }
 
 type FieldTypes struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	LanguageCode         string   `protobuf:"bytes,2,opt,name=languageCode,proto3" json:"languageCode,omitempty"`
+	Name                 string   `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	LanguageCode         string   `protobuf:"bytes,2,opt,name=languageCode" json:"languageCode,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -130,10 +130,10 @@ func (m *FieldTypes) GetLanguageCode() string {
 }
 
 type AnalyzeResult struct {
-	Text                 string      `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
-	Field                *FieldTypes `protobuf:"bytes,2,opt,name=field,proto3" json:"field,omitempty"`
-	Probability          float32     `protobuf:"fixed32,3,opt,name=probability,proto3" json:"probability,omitempty"`
-	Location             *Location   `protobuf:"bytes,4,opt,name=location,proto3" json:"location,omitempty"`
+	Text                 string      `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
+	Field                *FieldTypes `protobuf:"bytes,2,opt,name=field" json:"field,omitempty"`
+	Probability          float32     `protobuf:"fixed32,3,opt,name=probability" json:"probability,omitempty"`
+	Location             *Location   `protobuf:"bytes,4,opt,name=location" json:"location,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
 	XXX_unrecognized     []byte      `json:"-"`
 	XXX_sizecache        int32       `json:"-"`
@@ -192,9 +192,9 @@ func (m *AnalyzeResult) GetLocation() *Location {
 }
 
 type Location struct {
-	Start                int32    `protobuf:"zigzag32,1,opt,name=start,proto3" json:"start,omitempty"`
-	End                  int32    `protobuf:"zigzag32,2,opt,name=end,proto3" json:"end,omitempty"`
-	Length               int32    `protobuf:"zigzag32,3,opt,name=length,proto3" json:"length,omitempty"`
+	Start                int32    `protobuf:"zigzag32,1,opt,name=start" json:"start,omitempty"`
+	End                  int32    `protobuf:"zigzag32,2,opt,name=end" json:"end,omitempty"`
+	Length               int32    `protobuf:"zigzag32,3,opt,name=length" json:"length,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`

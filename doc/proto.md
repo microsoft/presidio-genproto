@@ -33,7 +33,18 @@
   
   
 
+- [cronjob.proto](#cronjob.proto)
+    - [CronJobApiRequest](#types.CronJobApiRequest)
+    - [CronJobRequest](#types.CronJobRequest)
+    - [CronJobResponse](#types.CronJobResponse)
+  
+  
+  
+    - [CronJobService](#types.CronJobService)
+  
+
 - [databinder.proto](#databinder.proto)
+    - [CompletionMessage](#types.CompletionMessage)
     - [DatabinderRequest](#types.DatabinderRequest)
     - [DatabinderResponse](#types.DatabinderResponse)
   
@@ -41,15 +52,6 @@
   
   
     - [DatabinderService](#types.DatabinderService)
-  
-
-- [job.proto](#job.proto)
-    - [JobRequest](#types.JobRequest)
-    - [JobResponse](#types.JobResponse)
-  
-  
-  
-    - [JobService](#types.JobService)
   
 
 - [scan.proto](#scan.proto)
@@ -70,6 +72,9 @@
     - [AnalyzeTemplate](#types.AnalyzeTemplate)
     - [AnonymizeTemplate](#types.AnonymizeTemplate)
     - [BlobStorageConfig](#types.BlobStorageConfig)
+    - [CloudStorageConfig](#types.CloudStorageConfig)
+    - [CronJobTemplate](#types.CronJobTemplate)
+    - [DBConfig](#types.DBConfig)
     - [Databinder](#types.Databinder)
     - [DatabinderTemplate](#types.DatabinderTemplate)
     - [EHConfig](#types.EHConfig)
@@ -77,9 +82,9 @@
     - [HashValue](#types.HashValue)
     - [ImageLocations](#types.ImageLocations)
     - [ImageWord](#types.ImageWord)
-    - [InputConfig](#types.InputConfig)
     - [JobTemplate](#types.JobTemplate)
     - [KafkaConfig](#types.KafkaConfig)
+    - [KinesisConfig](#types.KinesisConfig)
     - [MaskImage](#types.MaskImage)
     - [MaskValue](#types.MaskValue)
     - [RedactValue](#types.RedactValue)
@@ -117,7 +122,7 @@ AnalyzeApiRequest represents the request to the API HTTP service
 | ----- | ---- | ----- | ----------- |
 | text | [string](#string) |  |  |
 | analyzeTemplateId | [string](#string) |  |  |
-| analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  |  |
+| analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  | Optional parameter for running the analyzer without creating a template |
 
 
 
@@ -193,8 +198,8 @@ AnonymizeApiRequest represents the request to the API HTTP service
 | text | [string](#string) |  |  |
 | analyzeTemplateId | [string](#string) |  |  |
 | anonymizeTemplateId | [string](#string) |  |  |
-| analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  |  |
-| anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  |  |
+| analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  | Optional parameter for running the analyzer without creating a template |
+| anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  | Optional parameter for running the anonymizer without creating a template |
 
 
 
@@ -345,10 +350,89 @@ AnonymizeResponse represents the anonymize service response
 
 
 
+<a name="cronjob.proto"/>
+<p align="right"><a href="#top">Top</a></p>
+
+## cronjob.proto
+
+
+
+<a name="types.CronJobApiRequest"/>
+
+### CronJobApiRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| CronJobTemplateId | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.CronJobRequest"/>
+
+### CronJobRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+| trigger | [Trigger](#types.Trigger) |  |  |
+| scanRequest | [ScanRequest](#types.ScanRequest) |  |  |
+
+
+
+
+
+
+<a name="types.CronJobResponse"/>
+
+### CronJobResponse
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="types.CronJobService"/>
+
+### CronJobService
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| Apply | [CronJobRequest](#types.CronJobRequest) | [CronJobResponse](#types.CronJobRequest) |  |
+
+ 
+
+
+
 <a name="databinder.proto"/>
 <p align="right"><a href="#top">Top</a></p>
 
 ## databinder.proto
+
+
+
+<a name="types.CompletionMessage"/>
+
+### CompletionMessage
+
+
+
+
 
 
 
@@ -361,6 +445,7 @@ DatabinderRequest represents the request to the data-binder service via GRPC
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | analyzeResults | [AnalyzeResult](#types.AnalyzeResult) | repeated |  |
+| anonymizeResult | [AnonymizeResponse](#types.AnonymizeResponse) |  |  |
 | path | [string](#string) |  |  |
 
 
@@ -394,9 +479,10 @@ DatabinderResponse represents the response from the data-binder service via GRPC
 | oracle | 4 |  |
 | kafka | 5 |  |
 | eventhub | 6 |  |
-| s3 | 7 |  |
-| azureblob | 8 |  |
-| googlestorage | 9 |  |
+| kinesis | 7 |  |
+| s3 | 8 |  |
+| azureblob | 9 |  |
+| googlestorage | 10 |  |
 
 
  
@@ -413,60 +499,7 @@ DatabinderResponse represents the response from the data-binder service via GRPC
 | ----------- | ------------ | ------------- | ------------|
 | Apply | [DatabinderRequest](#types.DatabinderRequest) | [DatabinderResponse](#types.DatabinderRequest) |  |
 | Init | [DatabinderTemplate](#types.DatabinderTemplate) | [DatabinderResponse](#types.DatabinderTemplate) |  |
-
- 
-
-
-
-<a name="job.proto"/>
-<p align="right"><a href="#top">Top</a></p>
-
-## job.proto
-
-
-
-<a name="types.JobRequest"/>
-
-### JobRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| name | [string](#string) |  |  |
-| description | [string](#string) |  |  |
-| trigger | [Trigger](#types.Trigger) |  |  |
-| scanRequest | [ScanRequest](#types.ScanRequest) |  |  |
-
-
-
-
-
-
-<a name="types.JobResponse"/>
-
-### JobResponse
-
-
-
-
-
-
- 
-
- 
-
- 
-
-
-<a name="types.JobService"/>
-
-### JobService
-
-
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
-| Apply | [JobRequest](#types.JobRequest) | [JobResponse](#types.JobRequest) |  |
+| Completion | [CompletionMessage](#types.CompletionMessage) | [DatabinderResponse](#types.CompletionMessage) |  |
 
  
 
@@ -488,7 +521,7 @@ DatabinderResponse represents the response from the data-binder service via GRPC
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | kind | [string](#string) |  |  |
-| inputConfig | [InputConfig](#types.InputConfig) |  |  |
+| cloudStorageConfig | [CloudStorageConfig](#types.CloudStorageConfig) |  |  |
 | minProbability | [string](#string) |  |  |
 | analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  |  |
 | anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  |  |
@@ -603,6 +636,59 @@ AnonymizeTemplate represents the anonymize service template definition
 
 
 
+<a name="types.CloudStorageConfig"/>
+
+### CloudStorageConfig
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| blobStorageConfig | [BlobStorageConfig](#types.BlobStorageConfig) |  |  |
+| s3Config | [S3Config](#types.S3Config) |  |  |
+
+
+
+
+
+
+<a name="types.CronJobTemplate"/>
+
+### CronJobTemplate
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  |  |
+| description | [string](#string) |  |  |
+| trigger | [Trigger](#types.Trigger) |  |  |
+| scanTemplateId | [string](#string) |  |  |
+| analyzeTemplateId | [string](#string) |  |  |
+| anonymizeTemplateId | [string](#string) |  |  |
+| databinderTemplateId | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.DBConfig"/>
+
+### DBConfig
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| connectionString | [string](#string) |  |  |
+| tableName | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="types.Databinder"/>
 
 ### Databinder
@@ -611,9 +697,8 @@ AnonymizeTemplate represents the anonymize service template definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| bindType | [string](#string) |  |  |
-| connectionString | [string](#string) |  |  |
-| tableName | [string](#string) |  |  |
+| dbConfig | [DBConfig](#types.DBConfig) |  |  |
+| cloudStorageConfig | [CloudStorageConfig](#types.CloudStorageConfig) |  |  |
 
 
 
@@ -628,7 +713,9 @@ DatabinderTemplate represents the analyzer service outputs definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| databinder | [Databinder](#types.Databinder) | repeated |  |
+| analyzerKind | [string](#string) |  |  |
+| anonymizerKind | [string](#string) |  |  |
+| databinder | [Databinder](#types.Databinder) |  |  |
 
 
 
@@ -718,22 +805,6 @@ FieldTypeTransformation represents the transformation for array of fields types
 
 
 
-<a name="types.InputConfig"/>
-
-### InputConfig
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| blobStorageConfig | [BlobStorageConfig](#types.BlobStorageConfig) |  |  |
-| s3Config | [S3Config](#types.S3Config) |  |  |
-
-
-
-
-
-
 <a name="types.JobTemplate"/>
 
 ### JobTemplate
@@ -766,6 +837,25 @@ FieldTypeTransformation represents the transformation for array of fields types
 | partitionCount | [int32](#int32) |  |  |
 | saslUsername | [string](#string) |  |  |
 | saslPassword | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="types.KinesisConfig"/>
+
+### KinesisConfig
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| aWsSecretAccessKey | [string](#string) |  |  |
+| aWsRegion | [string](#string) |  |  |
+| aWsSecretKey | [string](#string) |  |  |
+| redisUrl | [string](#string) |  |  |
+| streamName | [string](#string) |  |  |
 
 
 
@@ -842,6 +932,7 @@ FieldTypeTransformation represents the transformation for array of fields types
 | accessKey | [string](#string) |  |  |
 | region | [string](#string) |  |  |
 | bucketName | [string](#string) |  |  |
+| endpoint | [string](#string) |  |  |
 
 
 
@@ -857,11 +948,8 @@ FieldTypeTransformation represents the transformation for array of fields types
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | kind | [string](#string) |  |  |
-| inputConfig | [InputConfig](#types.InputConfig) |  |  |
+| cloudStorageConfig | [CloudStorageConfig](#types.CloudStorageConfig) |  |  |
 | minProbability | [string](#string) |  |  |
-| analyzeTemplateId | [string](#string) |  |  |
-| anonymizeTemplateId | [string](#string) |  |  |
-| databinderTemplateId | [string](#string) |  |  |
 
 
 
