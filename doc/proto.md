@@ -43,15 +43,15 @@
     - [CronJobService](#types.CronJobService)
   
 
-- [databinder.proto](#databinder.proto)
+- [datasink.proto](#datasink.proto)
     - [CompletionMessage](#types.CompletionMessage)
-    - [DatabinderRequest](#types.DatabinderRequest)
-    - [DatabinderResponse](#types.DatabinderResponse)
+    - [DatasinkRequest](#types.DatasinkRequest)
+    - [DatasinkResponse](#types.DatasinkResponse)
   
-    - [DataBinderTypesEnum](#types.DataBinderTypesEnum)
+    - [DatasinkTypesEnum](#types.DatasinkTypesEnum)
   
   
-    - [DatabinderService](#types.DatabinderService)
+    - [DatasinkService](#types.DatasinkService)
   
 
 - [scan.proto](#scan.proto)
@@ -75,8 +75,8 @@
     - [CloudStorageConfig](#types.CloudStorageConfig)
     - [CronJobTemplate](#types.CronJobTemplate)
     - [DBConfig](#types.DBConfig)
-    - [Databinder](#types.Databinder)
-    - [DatabinderTemplate](#types.DatabinderTemplate)
+    - [Datasink](#types.Datasink)
+    - [DatasinkTemplate](#types.DatasinkTemplate)
     - [EHConfig](#types.EHConfig)
     - [FieldTypeTransformation](#types.FieldTypeTransformation)
     - [HashValue](#types.HashValue)
@@ -419,10 +419,10 @@ AnonymizeResponse represents the anonymize service response
 
 
 
-<a name="databinder.proto"/>
+<a name="datasink.proto"/>
 <p align="right"><a href="#top">Top</a></p>
 
-## databinder.proto
+## datasink.proto
 
 
 
@@ -436,10 +436,10 @@ AnonymizeResponse represents the anonymize service response
 
 
 
-<a name="types.DatabinderRequest"/>
+<a name="types.DatasinkRequest"/>
 
-### DatabinderRequest
-DatabinderRequest represents the request to the data-binder service via GRPC
+### DatasinkRequest
+DatasinkRequest represents the request to the data-sink service via GRPC
 
 
 | Field | Type | Label | Description |
@@ -453,10 +453,10 @@ DatabinderRequest represents the request to the data-binder service via GRPC
 
 
 
-<a name="types.DatabinderResponse"/>
+<a name="types.DatasinkResponse"/>
 
-### DatabinderResponse
-DatabinderResponse represents the response from the data-binder service via GRPC
+### DatasinkResponse
+DatasinkResponse represents the response from the data-sink service via GRPC
 
 
 
@@ -465,9 +465,9 @@ DatabinderResponse represents the response from the data-binder service via GRPC
  
 
 
-<a name="types.DataBinderTypesEnum"/>
+<a name="types.DatasinkTypesEnum"/>
 
-### DataBinderTypesEnum
+### DatasinkTypesEnum
 
 
 | Name | Number | Description |
@@ -490,16 +490,16 @@ DatabinderResponse represents the response from the data-binder service via GRPC
  
 
 
-<a name="types.DatabinderService"/>
+<a name="types.DatasinkService"/>
 
-### DatabinderService
+### DatasinkService
 
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| Apply | [DatabinderRequest](#types.DatabinderRequest) | [DatabinderResponse](#types.DatabinderRequest) |  |
-| Init | [DatabinderTemplate](#types.DatabinderTemplate) | [DatabinderResponse](#types.DatabinderTemplate) |  |
-| Completion | [CompletionMessage](#types.CompletionMessage) | [DatabinderResponse](#types.CompletionMessage) |  |
+| Apply | [DatasinkRequest](#types.DatasinkRequest) | [DatasinkResponse](#types.DatasinkRequest) |  |
+| Init | [DatasinkTemplate](#types.DatasinkTemplate) | [DatasinkResponse](#types.DatasinkTemplate) |  |
+| Completion | [CompletionMessage](#types.CompletionMessage) | [DatasinkResponse](#types.CompletionMessage) |  |
 
  
 
@@ -525,7 +525,7 @@ DatabinderResponse represents the response from the data-binder service via GRPC
 | minProbability | [string](#string) |  |  |
 | analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  |  |
 | anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  |  |
-| databinderTemplate | [DatabinderTemplate](#types.DatabinderTemplate) |  |  |
+| datasinkTemplate | [DatasinkTemplate](#types.DatasinkTemplate) |  |  |
 
 
 
@@ -561,7 +561,7 @@ DatabinderResponse represents the response from the data-binder service via GRPC
 | minProbability | [string](#string) |  |  |
 | analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  |  |
 | anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  |  |
-| databinderTemplate | [DatabinderTemplate](#types.DatabinderTemplate) |  |  |
+| datasinkTemplate | [DatasinkTemplate](#types.DatasinkTemplate) |  |  |
 
 
 
@@ -666,7 +666,7 @@ AnonymizeTemplate represents the anonymize service template definition
 | scanTemplateId | [string](#string) |  |  |
 | analyzeTemplateId | [string](#string) |  |  |
 | anonymizeTemplateId | [string](#string) |  |  |
-| databinderTemplateId | [string](#string) |  |  |
+| datasinkTemplateId | [string](#string) |  |  |
 
 
 
@@ -689,9 +689,9 @@ AnonymizeTemplate represents the anonymize service template definition
 
 
 
-<a name="types.Databinder"/>
+<a name="types.Datasink"/>
 
-### Databinder
+### Datasink
 
 
 
@@ -705,17 +705,17 @@ AnonymizeTemplate represents the anonymize service template definition
 
 
 
-<a name="types.DatabinderTemplate"/>
+<a name="types.DatasinkTemplate"/>
 
-### DatabinderTemplate
-DatabinderTemplate represents the analyzer service outputs definition
+### DatasinkTemplate
+DatasinkTemplate represents the analyzer service outputs definition
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | analyzerKind | [string](#string) |  |  |
 | anonymizerKind | [string](#string) |  |  |
-| databinder | [Databinder](#types.Databinder) |  |  |
+| datasink | [Datasink](#types.Datasink) |  |  |
 
 
 
@@ -1000,7 +1000,7 @@ FieldTypeTransformation represents the transformation for array of fields types
 | minProbability | [string](#string) |  |  |
 | analyzeTemplateId | [string](#string) |  |  |
 | anonymizeTemplateId | [string](#string) |  |  |
-| databinderTemplateId | [string](#string) |  |  |
+| datasinkTemplateId | [string](#string) |  |  |
 
 
 

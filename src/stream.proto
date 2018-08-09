@@ -9,5 +9,5 @@ message StreamRequest {
     string minProbability = 3;
     AnalyzeTemplate analyzeTemplate = 4;
     AnonymizeTemplate anonymizeTemplate = 5;
-    DatabinderTemplate databinderTemplate = 6;
+    DatasinkTemplate datasinkTemplate = 6;
 }
