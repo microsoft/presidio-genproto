@@ -1,0 +1,40 @@
+syntax = "proto3";
+import "common.proto";
+import "template.proto";
+import "anonymize.proto";
+
+package types;
+
+/* DatasinkRequest represents the request to the data-sink service via GRPC */
+message DatasinkRequest {
+    repeated AnalyzeResult analyzeResults = 1;
+    AnonymizeResponse anonymizeResult = 2;
+    string path = 3;
+}
+
+/* DatasinkResponse represents the response from the data-sink service via GRPC */
+message DatasinkResponse {
+}
+
+message CompletionMessage {
+}
+
+service DatasinkService {
+  rpc Apply (DatasinkRequest) returns (DatasinkResponse) {}
+  rpc Init (DatasinkTemplate) returns (DatasinkResponse) {}
+  rpc Completion (CompletionMessage) returns (DatasinkResponse) {}
+}
+
+enum DatasinkTypesEnum{
+    mysql = 0;
+    mssql = 1;
+    postgres = 2;
+    sqlite3 = 3;
+    oracle = 4;
+    kafka = 5;
+    eventhub = 6;
+    kinesis = 7;
+    s3 = 8;
+    azureblob = 9;
+    googlestorage = 10;
+}
