@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='stream.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0cstream.proto\x12\x05types\x1a\x0etemplate.proto\"\xfd\x01\n\rStreamRequest\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12)\n\x0cstreamConfig\x18\x02 \x01(\x0b\x32\x13.types.StreamConfig\x12\x16\n\x0eminProbability\x18\x03 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x04 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x33\n\x11\x61nonymizeTemplate\x18\x05 \x01(\x0b\x32\x18.types.AnonymizeTemplate\x12\x35\n\x12\x64\x61tabinderTemplate\x18\x06 \x01(\x0b\x32\x19.types.DatabinderTemplateb\x06proto3')
+  serialized_pb=_b('\n\x0cstream.proto\x12\x05types\x1a\x0etemplate.proto\"\xf9\x01\n\rStreamRequest\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12)\n\x0cstreamConfig\x18\x02 \x01(\x0b\x32\x13.types.StreamConfig\x12\x16\n\x0eminProbability\x18\x03 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x04 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x33\n\x11\x61nonymizeTemplate\x18\x05 \x01(\x0b\x32\x18.types.AnonymizeTemplate\x12\x31\n\x10\x64\x61taSyncTemplate\x18\x06 \x01(\x0b\x32\x17.types.DataSyncTemplateb\x06proto3')
   ,
   dependencies=[template__pb2.DESCRIPTOR,])
 
@@ -70,7 +70,7 @@ _STREAMREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='databinderTemplate', full_name='types.StreamRequest.databinderTemplate', index=5,
+      name='dataSyncTemplate', full_name='types.StreamRequest.dataSyncTemplate', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -89,13 +89,13 @@ _STREAMREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=40,
-  serialized_end=293,
+  serialized_end=289,
 )
 
 _STREAMREQUEST.fields_by_name['streamConfig'].message_type = template__pb2._STREAMCONFIG
 _STREAMREQUEST.fields_by_name['analyzeTemplate'].message_type = template__pb2._ANALYZETEMPLATE
 _STREAMREQUEST.fields_by_name['anonymizeTemplate'].message_type = template__pb2._ANONYMIZETEMPLATE
-_STREAMREQUEST.fields_by_name['databinderTemplate'].message_type = template__pb2._DATABINDERTEMPLATE
+_STREAMREQUEST.fields_by_name['dataSyncTemplate'].message_type = template__pb2._DATASYNCTEMPLATE
 DESCRIPTOR.message_types_by_name['StreamRequest'] = _STREAMREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

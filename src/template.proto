@@ -60,16 +60,16 @@ message DBConfig {
     string tableName = 3;
 }
 
-message Databinder {
+message DataSync {
   DBConfig dbConfig = 1;
   CloudStorageConfig cloudStorageConfig = 2;
 }
 
-/* DatabinderTemplate represents the analyzer service outputs definition */
-message DatabinderTemplate {
+/* DataSyncTemplate represents the analyzer service outputs definition */
+message DataSyncTemplate {
   string analyzerKind = 1;
   string anonymizerKind = 2;
-  Databinder databinder = 3;
+  DataSync dataSync = 3;
 }
 
 message BlobStorageConfig {
@@ -119,7 +119,7 @@ message StreamTemplate {
   string minProbability = 3;
   string analyzeTemplateId = 4;
   string anonymizeTemplateId = 5;
-  string databinderTemplateId = 6;
+  string dataSyncTemplateId = 6;
 }
 
 message ScanTemplate {
@@ -135,7 +135,7 @@ message CronJobTemplate {
     string scanTemplateId = 4;
     string analyzeTemplateId = 5;
     string anonymizeTemplateId = 6;
-    string databinderTemplateId = 7;
+    string dataSyncTemplateId = 7;
 }
 
 message JobTemplate {

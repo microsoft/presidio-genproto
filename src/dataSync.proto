@@ -1,0 +1,39 @@
+syntax = "proto3";
+import "common.proto";
+import "template.proto";
+import "anonymize.proto";
+
+package types;
+
+/* DataSyncRequest represents the request to the data-sync service via GRPC */
+message DataSyncRequest {
+    repeated AnalyzeResult analyzeResults = 1;
+    AnonymizeResponse anonymizeResult = 2;
+    string path = 3;
+}
+
+/* DataSyncResponse represents the response from the data-sync service via GRPC */
+message DataSyncResponse {
+}
+
+message CompletionMessage {
+}
+
+service DataSyncService {
+  rpc Apply (DataSyncRequest) returns (DataSyncResponse) {}
+  rpc Init (DataSyncTemplate) returns (DataSyncResponse) {}
+  rpc Completion (CompletionMessage) returns (DataSyncResponse) {}
+}
+
+enum DataSyncTypesEnum{
+    mysql = 0;
+    mssql = 1;
+    postgres = 2;
+    sqlite3 = 3;
+    oracle = 4;
+    kafka = 5;
+    eventhub = 6;
+    s3 = 7;
+    azureblob = 8;
+    googlestorage = 9;
+}
