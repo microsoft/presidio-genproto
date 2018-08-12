@@ -87,9 +87,16 @@ message S3Config {
     string endpoint = 5;
 }
 
+message GoogleStorageConfig {
+    string json = 1;
+    string projectId = 2;
+    string scopes = 3;
+}
+
 message CloudStorageConfig {
   BlobStorageConfig blobStorageConfig = 1;
   S3Config s3Config = 2;
+  GoogleStorageConfig GoogleStorageConfig = 3; 
 }
 
 message StreamConfig {
