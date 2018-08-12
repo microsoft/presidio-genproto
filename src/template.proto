@@ -63,6 +63,7 @@ message DBConfig {
 message Datasink {
   DBConfig dbConfig = 1;
   CloudStorageConfig cloudStorageConfig = 2;
+  StreamConfig streamConfig = 3;
 }
 
 /* DatasinkTemplate represents the analyzer service outputs definition */
@@ -94,6 +95,7 @@ message CloudStorageConfig {
 message StreamConfig {
   KafkaConfig kafkaConfig = 1;
   EHConfig ehConfig = 2;
+  KinesisConfig kinesisConfig = 3;
 }
 
 message KafkaConfig {
