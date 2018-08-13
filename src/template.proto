@@ -91,6 +91,7 @@ message GoogleStorageConfig {
     string json = 1;
     string projectId = 2;
     string scopes = 3;
+    string bucketName = 4;
 }
 
 message CloudStorageConfig {
