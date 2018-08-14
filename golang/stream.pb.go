@@ -18,23 +18,30 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
+// StreamRequest represents the request to the stream service via GRPC
 type StreamRequest struct {
-	Kind                 string             `protobuf:"bytes,1,opt,name=kind,proto3" json:"kind,omitempty"`
-	StreamConfig         *StreamConfig      `protobuf:"bytes,2,opt,name=streamConfig,proto3" json:"streamConfig,omitempty"`
-	MinProbability       string             `protobuf:"bytes,3,opt,name=minProbability,proto3" json:"minProbability,omitempty"`
-	AnalyzeTemplate      *AnalyzeTemplate   `protobuf:"bytes,4,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
-	AnonymizeTemplate    *AnonymizeTemplate `protobuf:"bytes,5,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate,omitempty"`
-	DatasinkTemplate     *DatasinkTemplate  `protobuf:"bytes,6,opt,name=datasinkTemplate,proto3" json:"datasinkTemplate,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
-	XXX_unrecognized     []byte             `json:"-"`
-	XXX_sizecache        int32              `json:"-"`
+	// The scanner input kind
+	Kind string `protobuf:"bytes,1,opt,name=kind,proto3" json:"kind,omitempty"`
+	// The stream configuration for scanning streams such as Azure EventHub, Kafka and Kinesis
+	StreamConfig *StreamConfig `protobuf:"bytes,2,opt,name=streamConfig,proto3" json:"streamConfig,omitempty"`
+	// The minProbability will filter results which has lower certainty than the provided value.
+	MinProbability string `protobuf:"bytes,3,opt,name=minProbability,proto3" json:"minProbability,omitempty"`
+	// The analyzer template configures the fields to analyze
+	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,4,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
+	// The anonymizer template configures how to anonymize the sensitive data [optional]
+	AnonymizeTemplate *AnonymizeTemplate `protobuf:"bytes,5,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate,omitempty"`
+	// The datasinkTemplate configures the output destination of the analyzer/anonymizer results
+	DatasinkTemplate     *DatasinkTemplate `protobuf:"bytes,6,opt,name=datasinkTemplate,proto3" json:"datasinkTemplate,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *StreamRequest) Reset()         { *m = StreamRequest{} }
 func (m *StreamRequest) String() string { return proto.CompactTextString(m) }
 func (*StreamRequest) ProtoMessage()    {}
 func (*StreamRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_stream_61d2b608124f1127, []int{0}
+	return fileDescriptor_stream_618904af0445e701, []int{0}
 }
 func (m *StreamRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_StreamRequest.Unmarshal(m, b)
@@ -100,9 +107,9 @@ func init() {
 	proto.RegisterType((*StreamRequest)(nil), "types.StreamRequest")
 }
 
-func init() { proto.RegisterFile("stream.proto", fileDescriptor_stream_61d2b608124f1127) }
+func init() { proto.RegisterFile("stream.proto", fileDescriptor_stream_618904af0445e701) }
 
-var fileDescriptor_stream_61d2b608124f1127 = []byte{
+var fileDescriptor_stream_618904af0445e701 = []byte{
 	// 225 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x29, 0x2e, 0x29, 0x4a,
 	0x4d, 0xcc, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2d, 0xa9, 0x2c, 0x48, 0x2d, 0x96,

@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='cronjob.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\rcronjob.proto\x12\x05types\x1a\x0etemplate.proto\x1a\nscan.proto\".\n\x11\x43ronJobApiRequest\x12\x19\n\x11\x43ronJobTemplateId\x18\x01 \x01(\t\"}\n\x0e\x43ronJobRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\x12\'\n\x0bscanRequest\x18\x04 \x01(\x0b\x32\x12.types.ScanRequest\"\x11\n\x0f\x43ronJobResponse2J\n\x0e\x43ronJobService\x12\x38\n\x05\x41pply\x12\x15.types.CronJobRequest\x1a\x16.types.CronJobResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\rcronjob.proto\x12\x05types\x1a\x0etemplate.proto\x1a\nscan.proto\".\n\x11\x43ronJobApiRequest\x12\x19\n\x11\x43ronJobTemplateId\x18\x01 \x01(\t\"o\n\x0e\x43ronJobRequest\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12\x1f\n\x07trigger\x18\x02 \x01(\x0b\x32\x0e.types.Trigger\x12\'\n\x0bscanRequest\x18\x03 \x01(\x0b\x32\x12.types.ScanRequest\"\x11\n\x0f\x43ronJobResponse2J\n\x0e\x43ronJobService\x12\x38\n\x05\x41pply\x12\x15.types.CronJobRequest\x1a\x16.types.CronJobResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[template__pb2.DESCRIPTOR,scan__pb2.DESCRIPTOR,])
 
@@ -67,29 +67,22 @@ _CRONJOBREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='types.CronJobRequest.name', index=0,
+      name='description', full_name='types.CronJobRequest.description', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='description', full_name='types.CronJobRequest.description', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='trigger', full_name='types.CronJobRequest.trigger', index=2,
-      number=3, type=11, cpp_type=10, label=1,
+      name='trigger', full_name='types.CronJobRequest.trigger', index=1,
+      number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='scanRequest', full_name='types.CronJobRequest.scanRequest', index=3,
-      number=4, type=11, cpp_type=10, label=1,
+      name='scanRequest', full_name='types.CronJobRequest.scanRequest', index=2,
+      number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -107,7 +100,7 @@ _CRONJOBREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=100,
-  serialized_end=225,
+  serialized_end=211,
 )
 
 
@@ -130,8 +123,8 @@ _CRONJOBRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=227,
-  serialized_end=244,
+  serialized_start=213,
+  serialized_end=230,
 )
 
 _CRONJOBREQUEST.fields_by_name['trigger'].message_type = template__pb2._TRIGGER
@@ -170,8 +163,8 @@ _CRONJOBSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=246,
-  serialized_end=320,
+  serialized_start=232,
+  serialized_end=306,
   methods=[
   _descriptor.MethodDescriptor(
     name='Apply',

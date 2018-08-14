@@ -5,8 +5,8 @@ import cronjob_pb2 as cronjob__pb2
 
 
 class CronJobServiceStub(object):
-  # missing associated documentation comment in .proto file
-  pass
+  """The CronJob Service is a service that triggers a new cronjob for scanning a given storage periodcallly 
+  """
 
   def __init__(self, channel):
     """Constructor.
@@ -22,12 +22,12 @@ class CronJobServiceStub(object):
 
 
 class CronJobServiceServicer(object):
-  # missing associated documentation comment in .proto file
-  pass
+  """The CronJob Service is a service that triggers a new cronjob for scanning a given storage periodcallly 
+  """
 
   def Apply(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """Apply method will trigger a new scanning cron job and will return if it was triggered successfully
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')

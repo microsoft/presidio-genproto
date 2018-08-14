@@ -7,8 +7,11 @@ package types;
 
 /* DatasinkRequest represents the request to the data-sink service via GRPC */
 message DatasinkRequest {
+    // Array of the analyzed results
     repeated AnalyzeResult analyzeResults = 1;
+    // The anonymized text
     AnonymizeResponse anonymizeResult = 2;
+    // The path where the anonymized text is located
     string path = 3;
 }
 
@@ -16,15 +19,21 @@ message DatasinkRequest {
 message DatasinkResponse {
 }
 
+/* CompletionMessage represents an indication to the data sink service that the scanning job is done service via GRPC */
 message CompletionMessage {
 }
 
+// The data sink service represents the service for writing the results of the analyzing and anonymizng service.
 service DatasinkService {
+  // Apply method will execute on the given request and return whether the result where written successfully to the destination
   rpc Apply (DatasinkRequest) returns (DatasinkResponse) {}
+  // Init the data sink service with the provided data sink template
   rpc Init (DatasinkTemplate) returns (DatasinkResponse) {}
+  // Completion method for indicating that the scanning job is done
   rpc Completion (CompletionMessage) returns (DatasinkResponse) {}
 }
 
+// The data sink supported destenation types
 enum DatasinkTypesEnum{
     mysql = 0;
     mssql = 1;

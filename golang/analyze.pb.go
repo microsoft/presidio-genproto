@@ -25,9 +25,11 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // AnalyzeApiRequest represents the request to the API HTTP service
 type AnalyzeApiRequest struct {
-	Text              string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	// The text to analyze
+	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	// The analyze template id - that hold the analyze configuration
 	AnalyzeTemplateId string `protobuf:"bytes,2,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
-	// Optional parameter for running the analyzer without creating a template
+	// Optional parameter for running the analyze service without creating a template
 	AnalyzeTemplate      *AnalyzeTemplate `protobuf:"bytes,3,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
 	XXX_unrecognized     []byte           `json:"-"`
@@ -38,7 +40,7 @@ func (m *AnalyzeApiRequest) Reset()         { *m = AnalyzeApiRequest{} }
 func (m *AnalyzeApiRequest) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeApiRequest) ProtoMessage()    {}
 func (*AnalyzeApiRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_analyze_7d01b2c901212ba3, []int{0}
+	return fileDescriptor_analyze_43fecf05adb39b11, []int{0}
 }
 func (m *AnalyzeApiRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeApiRequest.Unmarshal(m, b)
@@ -81,19 +83,23 @@ func (m *AnalyzeApiRequest) GetAnalyzeTemplate() *AnalyzeTemplate {
 
 // AnalyzeRequest represents the request to the analyze service via GRPC
 type AnalyzeRequest struct {
-	Text                 string           `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
-	AnalyzeTemplate      *AnalyzeTemplate `protobuf:"bytes,2,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
-	MinProbability       string           `protobuf:"bytes,3,opt,name=minProbability,proto3" json:"minProbability,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+	// The text to analyze
+	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	// The analyze template, which configures which sensitive data should be analyzed
+	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,2,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
+	// The analyze service defines a degree of certainty (0 to 1) for each result.
+	// The minProbability will filter results which has lower certainty than the provided value.
+	MinProbability       string   `protobuf:"bytes,3,opt,name=minProbability,proto3" json:"minProbability,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *AnalyzeRequest) Reset()         { *m = AnalyzeRequest{} }
 func (m *AnalyzeRequest) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeRequest) ProtoMessage()    {}
 func (*AnalyzeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_analyze_7d01b2c901212ba3, []int{1}
+	return fileDescriptor_analyze_43fecf05adb39b11, []int{1}
 }
 func (m *AnalyzeRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeRequest.Unmarshal(m, b)
@@ -136,6 +142,7 @@ func (m *AnalyzeRequest) GetMinProbability() string {
 
 // AnalyzeResponse represents the analyze service response
 type AnalyzeResponse struct {
+	// Array of the analyze results finding
 	AnalyzeResults       []*AnalyzeResult `protobuf:"bytes,1,rep,name=analyzeResults,proto3" json:"analyzeResults,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
 	XXX_unrecognized     []byte           `json:"-"`
@@ -146,7 +153,7 @@ func (m *AnalyzeResponse) Reset()         { *m = AnalyzeResponse{} }
 func (m *AnalyzeResponse) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeResponse) ProtoMessage()    {}
 func (*AnalyzeResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_analyze_7d01b2c901212ba3, []int{2}
+	return fileDescriptor_analyze_43fecf05adb39b11, []int{2}
 }
 func (m *AnalyzeResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeResponse.Unmarshal(m, b)
@@ -191,6 +198,7 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type AnalyzeServiceClient interface {
+	// Apply method will execute on the given request and return the analyze response with the sensitive text findings
 	Apply(ctx context.Context, in *AnalyzeRequest, opts ...grpc.CallOption) (*AnalyzeResponse, error)
 }
 
@@ -213,6 +221,7 @@ func (c *analyzeServiceClient) Apply(ctx context.Context, in *AnalyzeRequest, op
 
 // AnalyzeServiceServer is the server API for AnalyzeService service.
 type AnalyzeServiceServer interface {
+	// Apply method will execute on the given request and return the analyze response with the sensitive text findings
 	Apply(context.Context, *AnalyzeRequest) (*AnalyzeResponse, error)
 }
 
@@ -251,9 +260,9 @@ var _AnalyzeService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "analyze.proto",
 }
 
-func init() { proto.RegisterFile("analyze.proto", fileDescriptor_analyze_7d01b2c901212ba3) }
+func init() { proto.RegisterFile("analyze.proto", fileDescriptor_analyze_43fecf05adb39b11) }
 
-var fileDescriptor_analyze_7d01b2c901212ba3 = []byte{
+var fileDescriptor_analyze_43fecf05adb39b11 = []byte{
 	// 262 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4d, 0xcc, 0x4b, 0xcc,
 	0xa9, 0xac, 0x4a, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2d, 0xa9, 0x2c, 0x48, 0x2d,

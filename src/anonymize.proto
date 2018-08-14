@@ -4,29 +4,38 @@ import "template.proto";
 
 package types;
 
-/* AnonymizeApiRequest represents the request to the API HTTP service */
+// AnonymizeApiRequest represents the request to the API HTTP service 
 message AnonymizeApiRequest {
+  // The text to anonymize
   string text = 1;
+  // The analyze template id - anonymization is done according to analyzing results. 
+  // One of analyzeTemplateId or analyzeTemplate have to be configured.
   string analyzeTemplateId = 2;
+  // The anonymize template id - represents the anonymize configuration, which fields to anonymize and how.
   string anonymizeTemplateId = 3;
-  /* Optional parameter for running the analyzer without creating a template */
+  // Optional parameter for running the analyzer without creating a template.
   AnalyzeTemplate analyzeTemplate = 4;
-  /* Optional parameter for running the anonymizer without creating a template */
+  // Optional parameter for running the anonymizer without creating a template. 
   AnonymizeTemplate anonymizeTemplate = 5;
 }
 
-/* AnonymizeRequest represents the request to the anonymize service via GRPC */
+// AnonymizeRequest represents the request to the anonymize service via GRPC 
 message AnonymizeRequest {
+  // The text to anonymize
   string text = 1;
+  // The anonymize template represent the anonymize configuration, which fields to anonymize and how
   AnonymizeTemplate template = 2;
   repeated AnalyzeResult analyzeResults = 3;
 }
 
-/* AnonymizeResponse represents the anonymize service response */
+// AnonymizeResponse represents the anonymize service response 
 message AnonymizeResponse {
+  // The anonymized text
   string text = 1;
 }
 
+// The Anonymize Service is a service that anonymizes a given the text using predefined analyzers fields and anonymize configurations.
 service AnonymizeService {
+  // Apply method will execute on the given request and return the anonymize response with the sensitive text anonymized
   rpc Apply (AnonymizeRequest) returns (AnonymizeResponse) {}
 }

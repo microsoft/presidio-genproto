@@ -6,8 +6,8 @@ import template_pb2 as template__pb2
 
 
 class DatasinkServiceStub(object):
-  # missing associated documentation comment in .proto file
-  pass
+  """The data sink service represents the service for writing the results of the analyzing and anonymizng service.
+  """
 
   def __init__(self, channel):
     """Constructor.
@@ -33,26 +33,26 @@ class DatasinkServiceStub(object):
 
 
 class DatasinkServiceServicer(object):
-  # missing associated documentation comment in .proto file
-  pass
+  """The data sink service represents the service for writing the results of the analyzing and anonymizng service.
+  """
 
   def Apply(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """Apply method will execute on the given request and return whether the result where written successfully to the destination
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def Init(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """Init the data sink service with the provided data sink template
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
   def Completion(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
+    """Completion method for indicating that the scanning job is done
+    """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')

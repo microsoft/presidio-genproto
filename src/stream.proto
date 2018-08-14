@@ -3,11 +3,18 @@ import "template.proto";
 
 package types;
 
+// StreamRequest represents the request to the stream service via GRPC
 message StreamRequest {
+    // The scanner input kind
     string kind = 1;
+    // The stream configuration for scanning streams such as Azure EventHub, Kafka and Kinesis
     StreamConfig streamConfig = 2;
+    // The minProbability will filter results which has lower certainty than the provided value.
     string minProbability = 3;
+    // The analyzer template configures the fields to analyze
     AnalyzeTemplate analyzeTemplate = 4;
+    // The anonymizer template configures how to anonymize the sensitive data [optional]
     AnonymizeTemplate anonymizeTemplate = 5;
+    // The datasinkTemplate configures the output destination of the analyzer/anonymizer results
     DatasinkTemplate datasinkTemplate = 6;
 }

@@ -18,19 +18,26 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-// AnalyzeTemplate represents the analyze service template definition
+// AnalyzeTemplate represents the template definition of the Analyze service- for analyzing sensitive text.
 type AnalyzeTemplate struct {
-	Fields               []*FieldTypes `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	// Array of the fields to analyze
+	Fields []*FieldTypes `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields,omitempty"`
+	// Template description
+	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	// Template Creation date
+	CreateTime string `protobuf:"bytes,3,opt,name=createTime,proto3" json:"createTime,omitempty"`
+	// Template modification date
+	ModifiedTime         string   `protobuf:"bytes,4,opt,name=modifiedTime,proto3" json:"modifiedTime,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *AnalyzeTemplate) Reset()         { *m = AnalyzeTemplate{} }
 func (m *AnalyzeTemplate) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeTemplate) ProtoMessage()    {}
 func (*AnalyzeTemplate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{0}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{0}
 }
 func (m *AnalyzeTemplate) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeTemplate.Unmarshal(m, b)
@@ -57,14 +64,37 @@ func (m *AnalyzeTemplate) GetFields() []*FieldTypes {
 	return nil
 }
 
-// AnonymizeTemplate represents the anonymize service template definition
+func (m *AnalyzeTemplate) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *AnalyzeTemplate) GetCreateTime() string {
+	if m != nil {
+		return m.CreateTime
+	}
+	return ""
+}
+
+func (m *AnalyzeTemplate) GetModifiedTime() string {
+	if m != nil {
+		return m.ModifiedTime
+	}
+	return ""
+}
+
+// AnonymizeTemplate represents the template definition of the Anonymize service for anonymizying the sensitive data
 type AnonymizeTemplate struct {
-	Name                     string                     `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	DisplayName              string                     `protobuf:"bytes,2,opt,name=displayName,proto3" json:"displayName,omitempty"`
-	Description              string                     `protobuf:"bytes,3,opt,name=description,proto3" json:"description,omitempty"`
-	CreateTime               string                     `protobuf:"bytes,4,opt,name=createTime,proto3" json:"createTime,omitempty"`
-	ModifiedTime             string                     `protobuf:"bytes,5,opt,name=modifiedTime,proto3" json:"modifiedTime,omitempty"`
-	FieldTypeTransformations []*FieldTypeTransformation `protobuf:"bytes,6,rep,name=fieldTypeTransformations,proto3" json:"fieldTypeTransformations,omitempty"`
+	// Template description
+	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
+	// Template Creation date
+	CreateTime string `protobuf:"bytes,2,opt,name=createTime,proto3" json:"createTime,omitempty"`
+	// Template modification date
+	ModifiedTime string `protobuf:"bytes,3,opt,name=modifiedTime,proto3" json:"modifiedTime,omitempty"`
+	// FieldTypeTransformation represents the transformation for an array of fields types
+	FieldTypeTransformations []*FieldTypeTransformation `protobuf:"bytes,4,rep,name=fieldTypeTransformations,proto3" json:"fieldTypeTransformations,omitempty"`
 	XXX_NoUnkeyedLiteral     struct{}                   `json:"-"`
 	XXX_unrecognized         []byte                     `json:"-"`
 	XXX_sizecache            int32                      `json:"-"`
@@ -74,7 +104,7 @@ func (m *AnonymizeTemplate) Reset()         { *m = AnonymizeTemplate{} }
 func (m *AnonymizeTemplate) String() string { return proto.CompactTextString(m) }
 func (*AnonymizeTemplate) ProtoMessage()    {}
 func (*AnonymizeTemplate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{1}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{1}
 }
 func (m *AnonymizeTemplate) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnonymizeTemplate.Unmarshal(m, b)
@@ -93,20 +123,6 @@ func (m *AnonymizeTemplate) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_AnonymizeTemplate proto.InternalMessageInfo
-
-func (m *AnonymizeTemplate) GetName() string {
-	if m != nil {
-		return m.Name
-	}
-	return ""
-}
-
-func (m *AnonymizeTemplate) GetDisplayName() string {
-	if m != nil {
-		return m.DisplayName
-	}
-	return ""
-}
 
 func (m *AnonymizeTemplate) GetDescription() string {
 	if m != nil {
@@ -136,9 +152,11 @@ func (m *AnonymizeTemplate) GetFieldTypeTransformations() []*FieldTypeTransforma
 	return nil
 }
 
-// FieldTypeTransformation represents the transformation for array of fields types
+// FieldTypeTransformation represents the transformation for an array of fields types
 type FieldTypeTransformation struct {
-	Fields               []*FieldTypes   `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields,omitempty"`
+	// The array of field types
+	Fields []*FieldTypes `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields,omitempty"`
+	// The transformation for the array of fields
 	Transformation       *Transformation `protobuf:"bytes,2,opt,name=transformation,proto3" json:"transformation,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
 	XXX_unrecognized     []byte          `json:"-"`
@@ -149,7 +167,7 @@ func (m *FieldTypeTransformation) Reset()         { *m = FieldTypeTransformation
 func (m *FieldTypeTransformation) String() string { return proto.CompactTextString(m) }
 func (*FieldTypeTransformation) ProtoMessage()    {}
 func (*FieldTypeTransformation) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{2}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{2}
 }
 func (m *FieldTypeTransformation) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_FieldTypeTransformation.Unmarshal(m, b)
@@ -183,23 +201,26 @@ func (m *FieldTypeTransformation) GetTransformation() *Transformation {
 	return nil
 }
 
-// Transformation represents the transformation type
+// Transformation represents the transformation types - how the sensitive text will change
 type Transformation struct {
-	ReplaceValue         *ReplaceValue `protobuf:"bytes,2,opt,name=replaceValue,proto3" json:"replaceValue,omitempty"`
-	RedactValue          *RedactValue  `protobuf:"bytes,3,opt,name=redactValue,proto3" json:"redactValue,omitempty"`
-	HashValue            *HashValue    `protobuf:"bytes,4,opt,name=hashValue,proto3" json:"hashValue,omitempty"`
-	MaskValue            *MaskValue    `protobuf:"bytes,5,opt,name=maskValue,proto3" json:"maskValue,omitempty"`
-	MaskImage            *MaskImage    `protobuf:"bytes,6,opt,name=maskImage,proto3" json:"maskImage,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	// Relace the text with the defined value
+	ReplaceValue *ReplaceValue `protobuf:"bytes,2,opt,name=replaceValue,proto3" json:"replaceValue,omitempty"`
+	// Redact the text
+	RedactValue *RedactValue `protobuf:"bytes,3,opt,name=redactValue,proto3" json:"redactValue,omitempty"`
+	// Hashes the text
+	HashValue *HashValue `protobuf:"bytes,4,opt,name=hashValue,proto3" json:"hashValue,omitempty"`
+	// Mask n characters of the text
+	MaskValue            *MaskValue `protobuf:"bytes,5,opt,name=maskValue,proto3" json:"maskValue,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}   `json:"-"`
+	XXX_unrecognized     []byte     `json:"-"`
+	XXX_sizecache        int32      `json:"-"`
 }
 
 func (m *Transformation) Reset()         { *m = Transformation{} }
 func (m *Transformation) String() string { return proto.CompactTextString(m) }
 func (*Transformation) ProtoMessage()    {}
 func (*Transformation) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{3}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{3}
 }
 func (m *Transformation) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Transformation.Unmarshal(m, b)
@@ -247,14 +268,12 @@ func (m *Transformation) GetMaskValue() *MaskValue {
 	return nil
 }
 
-func (m *Transformation) GetMaskImage() *MaskImage {
-	if m != nil {
-		return m.MaskImage
-	}
-	return nil
-}
-
+// Replace the value with the given new value.
+// For example: We met in Seattle.
+// new value: <Location>
+// replace to 'We met in <Location>'
 type ReplaceValue struct {
+	// The value to replace
 	NewValue             string   `protobuf:"bytes,1,opt,name=newValue,proto3" json:"newValue,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -265,7 +284,7 @@ func (m *ReplaceValue) Reset()         { *m = ReplaceValue{} }
 func (m *ReplaceValue) String() string { return proto.CompactTextString(m) }
 func (*ReplaceValue) ProtoMessage()    {}
 func (*ReplaceValue) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{4}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{4}
 }
 func (m *ReplaceValue) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ReplaceValue.Unmarshal(m, b)
@@ -292,6 +311,7 @@ func (m *ReplaceValue) GetNewValue() string {
 	return ""
 }
 
+// Redacts the given value. For example We met in Seattle would change to 'We me in '.
 type RedactValue struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -302,7 +322,7 @@ func (m *RedactValue) Reset()         { *m = RedactValue{} }
 func (m *RedactValue) String() string { return proto.CompactTextString(m) }
 func (*RedactValue) ProtoMessage()    {}
 func (*RedactValue) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{5}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{5}
 }
 func (m *RedactValue) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_RedactValue.Unmarshal(m, b)
@@ -322,6 +342,7 @@ func (m *RedactValue) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_RedactValue proto.InternalMessageInfo
 
+// Uses cryptographich hash on the given value with FNV-1 hash.
 type HashValue struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -332,7 +353,7 @@ func (m *HashValue) Reset()         { *m = HashValue{} }
 func (m *HashValue) String() string { return proto.CompactTextString(m) }
 func (*HashValue) ProtoMessage()    {}
 func (*HashValue) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{6}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{6}
 }
 func (m *HashValue) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_HashValue.Unmarshal(m, b)
@@ -352,9 +373,16 @@ func (m *HashValue) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_HashValue proto.InternalMessageInfo
 
+// Mask the given value with the selected characters.
+// For example: my credit card number is 4961-2765-5327-5913
+// maskingCharacter: '*', chars to mask: 9, fromEnd: true
+// Will output:  my credit card number is 4961-2765-*********
 type MaskValue struct {
-	MaskingCharacter     string   `protobuf:"bytes,1,opt,name=maskingCharacter,proto3" json:"maskingCharacter,omitempty"`
-	CharsToMask          int32    `protobuf:"varint,2,opt,name=charsToMask,proto3" json:"charsToMask,omitempty"`
+	// the masking char
+	MaskingCharacter string `protobuf:"bytes,1,opt,name=maskingCharacter,proto3" json:"maskingCharacter,omitempty"`
+	// number of chars to mask
+	CharsToMask int32 `protobuf:"varint,2,opt,name=charsToMask,proto3" json:"charsToMask,omitempty"`
+	// Should start masking from end
 	FromEnd              bool     `protobuf:"varint,3,opt,name=fromEnd,proto3" json:"fromEnd,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -365,7 +393,7 @@ func (m *MaskValue) Reset()         { *m = MaskValue{} }
 func (m *MaskValue) String() string { return proto.CompactTextString(m) }
 func (*MaskValue) ProtoMessage()    {}
 func (*MaskValue) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{7}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{7}
 }
 func (m *MaskValue) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_MaskValue.Unmarshal(m, b)
@@ -406,54 +434,12 @@ func (m *MaskValue) GetFromEnd() bool {
 	return false
 }
 
-type MaskImage struct {
-	ImageLocations       *ImageLocations `protobuf:"bytes,1,opt,name=imageLocations,proto3" json:"imageLocations,omitempty"`
-	ImageToMaskBase64    string          `protobuf:"bytes,2,opt,name=imageToMaskBase64,proto3" json:"imageToMaskBase64,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
-}
-
-func (m *MaskImage) Reset()         { *m = MaskImage{} }
-func (m *MaskImage) String() string { return proto.CompactTextString(m) }
-func (*MaskImage) ProtoMessage()    {}
-func (*MaskImage) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{8}
-}
-func (m *MaskImage) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_MaskImage.Unmarshal(m, b)
-}
-func (m *MaskImage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_MaskImage.Marshal(b, m, deterministic)
-}
-func (dst *MaskImage) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MaskImage.Merge(dst, src)
-}
-func (m *MaskImage) XXX_Size() int {
-	return xxx_messageInfo_MaskImage.Size(m)
-}
-func (m *MaskImage) XXX_DiscardUnknown() {
-	xxx_messageInfo_MaskImage.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MaskImage proto.InternalMessageInfo
-
-func (m *MaskImage) GetImageLocations() *ImageLocations {
-	if m != nil {
-		return m.ImageLocations
-	}
-	return nil
-}
-
-func (m *MaskImage) GetImageToMaskBase64() string {
-	if m != nil {
-		return m.ImageToMaskBase64
-	}
-	return ""
-}
-
+// DBConfig represents the Database configuration - the DB connection string and the table name
+// Supported database: mssql, mysql, sqlite3, postgreSQL, oracle
 type DBConfig struct {
-	ConnectionString     string   `protobuf:"bytes,2,opt,name=connectionString,proto3" json:"connectionString,omitempty"`
+	// The database connection string
+	ConnectionString string `protobuf:"bytes,2,opt,name=connectionString,proto3" json:"connectionString,omitempty"`
+	// The table name
 	TableName            string   `protobuf:"bytes,3,opt,name=tableName,proto3" json:"tableName,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -464,7 +450,7 @@ func (m *DBConfig) Reset()         { *m = DBConfig{} }
 func (m *DBConfig) String() string { return proto.CompactTextString(m) }
 func (*DBConfig) ProtoMessage()    {}
 func (*DBConfig) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{9}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{8}
 }
 func (m *DBConfig) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DBConfig.Unmarshal(m, b)
@@ -498,20 +484,24 @@ func (m *DBConfig) GetTableName() string {
 	return ""
 }
 
+// Datasink represents the configuration for storing the scanner output to the selected destination such as cloud storage, database, etc.
 type Datasink struct {
-	DbConfig             *DBConfig           `protobuf:"bytes,1,opt,name=dbConfig,proto3" json:"dbConfig,omitempty"`
-	CloudStorageConfig   *CloudStorageConfig `protobuf:"bytes,2,opt,name=cloudStorageConfig,proto3" json:"cloudStorageConfig,omitempty"`
-	StreamConfig         *StreamConfig       `protobuf:"bytes,3,opt,name=streamConfig,proto3" json:"streamConfig,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
-	XXX_unrecognized     []byte              `json:"-"`
-	XXX_sizecache        int32               `json:"-"`
+	// The database configuration
+	DbConfig *DBConfig `protobuf:"bytes,1,opt,name=dbConfig,proto3" json:"dbConfig,omitempty"`
+	// The cloud storage configuration
+	CloudStorageConfig *CloudStorageConfig `protobuf:"bytes,2,opt,name=cloudStorageConfig,proto3" json:"cloudStorageConfig,omitempty"`
+	// The stream configuration
+	StreamConfig         *StreamConfig `protobuf:"bytes,3,opt,name=streamConfig,proto3" json:"streamConfig,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
+	XXX_unrecognized     []byte        `json:"-"`
+	XXX_sizecache        int32         `json:"-"`
 }
 
 func (m *Datasink) Reset()         { *m = Datasink{} }
 func (m *Datasink) String() string { return proto.CompactTextString(m) }
 func (*Datasink) ProtoMessage()    {}
 func (*Datasink) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{10}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{9}
 }
 func (m *Datasink) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Datasink.Unmarshal(m, b)
@@ -552,10 +542,14 @@ func (m *Datasink) GetStreamConfig() *StreamConfig {
 	return nil
 }
 
-// DatasinkTemplate represents the analyzer service outputs definition
+// DatasinkTemplate represents the scanner service outputs definition.
 type DatasinkTemplate struct {
-	AnalyzerKind         string    `protobuf:"bytes,1,opt,name=analyzerKind,proto3" json:"analyzerKind,omitempty"`
-	AnonymizerKind       string    `protobuf:"bytes,2,opt,name=anonymizerKind,proto3" json:"anonymizerKind,omitempty"`
+	// analyzer output kind - supported types defined in DatasinkTypesEnum
+	AnalyzerKind string `protobuf:"bytes,1,opt,name=analyzerKind,proto3" json:"analyzerKind,omitempty"`
+	// anonymizer output kind - supported types defined in DatasinkTypesEnum
+	AnonymizerKind string `protobuf:"bytes,2,opt,name=anonymizerKind,proto3" json:"anonymizerKind,omitempty"`
+	// Datasink represents represents the configuration for storing the scanner output.
+	// Needs to be configured corresponding the selected analyzer/anonymizer types
 	Datasink             *Datasink `protobuf:"bytes,3,opt,name=datasink,proto3" json:"datasink,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
 	XXX_unrecognized     []byte    `json:"-"`
@@ -566,7 +560,7 @@ func (m *DatasinkTemplate) Reset()         { *m = DatasinkTemplate{} }
 func (m *DatasinkTemplate) String() string { return proto.CompactTextString(m) }
 func (*DatasinkTemplate) ProtoMessage()    {}
 func (*DatasinkTemplate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{11}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{10}
 }
 func (m *DatasinkTemplate) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DatasinkTemplate.Unmarshal(m, b)
@@ -607,9 +601,13 @@ func (m *DatasinkTemplate) GetDatasink() *Datasink {
 	return nil
 }
 
+// Azure Blob Storage configuration
 type BlobStorageConfig struct {
-	AccountName          string   `protobuf:"bytes,1,opt,name=accountName,proto3" json:"accountName,omitempty"`
-	AccountKey           string   `protobuf:"bytes,2,opt,name=accountKey,proto3" json:"accountKey,omitempty"`
+	// Azure account name
+	AccountName string `protobuf:"bytes,1,opt,name=accountName,proto3" json:"accountName,omitempty"`
+	// Azure account key
+	AccountKey string `protobuf:"bytes,2,opt,name=accountKey,proto3" json:"accountKey,omitempty"`
+	// The blob storage container Name
 	ContainerName        string   `protobuf:"bytes,3,opt,name=containerName,proto3" json:"containerName,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -620,7 +618,7 @@ func (m *BlobStorageConfig) Reset()         { *m = BlobStorageConfig{} }
 func (m *BlobStorageConfig) String() string { return proto.CompactTextString(m) }
 func (*BlobStorageConfig) ProtoMessage()    {}
 func (*BlobStorageConfig) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{12}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{11}
 }
 func (m *BlobStorageConfig) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_BlobStorageConfig.Unmarshal(m, b)
@@ -661,11 +659,17 @@ func (m *BlobStorageConfig) GetContainerName() string {
 	return ""
 }
 
+// AWS S3 configuration
 type S3Config struct {
-	AccessId             string   `protobuf:"bytes,1,opt,name=accessId,proto3" json:"accessId,omitempty"`
-	AccessKey            string   `protobuf:"bytes,2,opt,name=accessKey,proto3" json:"accessKey,omitempty"`
-	Region               string   `protobuf:"bytes,3,opt,name=region,proto3" json:"region,omitempty"`
-	BucketName           string   `protobuf:"bytes,4,opt,name=bucketName,proto3" json:"bucketName,omitempty"`
+	// The access id
+	AccessId string `protobuf:"bytes,1,opt,name=accessId,proto3" json:"accessId,omitempty"`
+	// The access key
+	AccessKey string `protobuf:"bytes,2,opt,name=accessKey,proto3" json:"accessKey,omitempty"`
+	// The region
+	Region string `protobuf:"bytes,3,opt,name=region,proto3" json:"region,omitempty"`
+	// The bucket name
+	BucketName string `protobuf:"bytes,4,opt,name=bucketName,proto3" json:"bucketName,omitempty"`
+	// The s3 endpoint
 	Endpoint             string   `protobuf:"bytes,5,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -676,7 +680,7 @@ func (m *S3Config) Reset()         { *m = S3Config{} }
 func (m *S3Config) String() string { return proto.CompactTextString(m) }
 func (*S3Config) ProtoMessage()    {}
 func (*S3Config) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{13}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{12}
 }
 func (m *S3Config) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_S3Config.Unmarshal(m, b)
@@ -731,10 +735,15 @@ func (m *S3Config) GetEndpoint() string {
 	return ""
 }
 
+// Represents the Google Storage configuration
 type GoogleStorageConfig struct {
-	Json                 string   `protobuf:"bytes,1,opt,name=json,proto3" json:"json,omitempty"`
-	ProjectId            string   `protobuf:"bytes,2,opt,name=projectId,proto3" json:"projectId,omitempty"`
-	Scopes               string   `protobuf:"bytes,3,opt,name=scopes,proto3" json:"scopes,omitempty"`
+	// The json
+	Json string `protobuf:"bytes,1,opt,name=json,proto3" json:"json,omitempty"`
+	// The project id
+	ProjectId string `protobuf:"bytes,2,opt,name=projectId,proto3" json:"projectId,omitempty"`
+	// The scopes authentication [there are different scopes, which you can find here https://cloud.google.com/storage/docs/authentication]
+	Scopes string `protobuf:"bytes,3,opt,name=scopes,proto3" json:"scopes,omitempty"`
+	// The bucket name
 	BucketName           string   `protobuf:"bytes,4,opt,name=bucketName,proto3" json:"bucketName,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -745,7 +754,7 @@ func (m *GoogleStorageConfig) Reset()         { *m = GoogleStorageConfig{} }
 func (m *GoogleStorageConfig) String() string { return proto.CompactTextString(m) }
 func (*GoogleStorageConfig) ProtoMessage()    {}
 func (*GoogleStorageConfig) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{14}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{13}
 }
 func (m *GoogleStorageConfig) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GoogleStorageConfig.Unmarshal(m, b)
@@ -793,9 +802,13 @@ func (m *GoogleStorageConfig) GetBucketName() string {
 	return ""
 }
 
+// Represents the cloud storage config - supported storage: Azure blob storage, AWS S3, Google storage
 type CloudStorageConfig struct {
-	BlobStorageConfig    *BlobStorageConfig   `protobuf:"bytes,1,opt,name=blobStorageConfig,proto3" json:"blobStorageConfig,omitempty"`
-	S3Config             *S3Config            `protobuf:"bytes,2,opt,name=s3Config,proto3" json:"s3Config,omitempty"`
+	// The azure blob storage config
+	BlobStorageConfig *BlobStorageConfig `protobuf:"bytes,1,opt,name=blobStorageConfig,proto3" json:"blobStorageConfig,omitempty"`
+	// The s3 config
+	S3Config *S3Config `protobuf:"bytes,2,opt,name=s3Config,proto3" json:"s3Config,omitempty"`
+	// The google storage config
 	GoogleStorageConfig  *GoogleStorageConfig `protobuf:"bytes,3,opt,name=GoogleStorageConfig,json=googleStorageConfig,proto3" json:"GoogleStorageConfig,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
@@ -806,7 +819,7 @@ func (m *CloudStorageConfig) Reset()         { *m = CloudStorageConfig{} }
 func (m *CloudStorageConfig) String() string { return proto.CompactTextString(m) }
 func (*CloudStorageConfig) ProtoMessage()    {}
 func (*CloudStorageConfig) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{15}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{14}
 }
 func (m *CloudStorageConfig) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CloudStorageConfig.Unmarshal(m, b)
@@ -847,9 +860,13 @@ func (m *CloudStorageConfig) GetGoogleStorageConfig() *GoogleStorageConfig {
 	return nil
 }
 
+// Represents the streams configuration
 type StreamConfig struct {
-	KafkaConfig          *KafkaConfig   `protobuf:"bytes,1,opt,name=kafkaConfig,proto3" json:"kafkaConfig,omitempty"`
-	EhConfig             *EHConfig      `protobuf:"bytes,2,opt,name=ehConfig,proto3" json:"ehConfig,omitempty"`
+	// The kafka configuration
+	KafkaConfig *KafkaConfig `protobuf:"bytes,1,opt,name=kafkaConfig,proto3" json:"kafkaConfig,omitempty"`
+	// The Azure Event Hub configuration
+	EhConfig *EHConfig `protobuf:"bytes,2,opt,name=ehConfig,proto3" json:"ehConfig,omitempty"`
+	// The Kinesis configuration
 	KinesisConfig        *KinesisConfig `protobuf:"bytes,3,opt,name=kinesisConfig,proto3" json:"kinesisConfig,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
 	XXX_unrecognized     []byte         `json:"-"`
@@ -860,7 +877,7 @@ func (m *StreamConfig) Reset()         { *m = StreamConfig{} }
 func (m *StreamConfig) String() string { return proto.CompactTextString(m) }
 func (*StreamConfig) ProtoMessage()    {}
 func (*StreamConfig) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{16}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{15}
 }
 func (m *StreamConfig) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_StreamConfig.Unmarshal(m, b)
@@ -901,11 +918,17 @@ func (m *StreamConfig) GetKinesisConfig() *KinesisConfig {
 	return nil
 }
 
+// The Kafka configuration
 type KafkaConfig struct {
-	Address              string   `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
-	Topic                string   `protobuf:"bytes,2,opt,name=topic,proto3" json:"topic,omitempty"`
-	PartitionCount       int32    `protobuf:"varint,3,opt,name=partitionCount,proto3" json:"partitionCount,omitempty"`
-	SaslUsername         string   `protobuf:"bytes,4,opt,name=saslUsername,proto3" json:"saslUsername,omitempty"`
+	// Kafka address
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	// Kafka topic
+	Topic string `protobuf:"bytes,2,opt,name=topic,proto3" json:"topic,omitempty"`
+	// Number of partitions
+	PartitionCount int32 `protobuf:"varint,3,opt,name=partitionCount,proto3" json:"partitionCount,omitempty"`
+	// SASL authentication user name
+	SaslUsername string `protobuf:"bytes,4,opt,name=saslUsername,proto3" json:"saslUsername,omitempty"`
+	// SASL authentication password
 	SaslPassword         string   `protobuf:"bytes,5,opt,name=saslPassword,proto3" json:"saslPassword,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -916,7 +939,7 @@ func (m *KafkaConfig) Reset()         { *m = KafkaConfig{} }
 func (m *KafkaConfig) String() string { return proto.CompactTextString(m) }
 func (*KafkaConfig) ProtoMessage()    {}
 func (*KafkaConfig) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{17}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{16}
 }
 func (m *KafkaConfig) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_KafkaConfig.Unmarshal(m, b)
@@ -971,12 +994,19 @@ func (m *KafkaConfig) GetSaslPassword() string {
 	return ""
 }
 
+// Azure EventHub configuration
 type EHConfig struct {
-	EhNamespace          string   `protobuf:"bytes,1,opt,name=ehNamespace,proto3" json:"ehNamespace,omitempty"`
-	EhName               string   `protobuf:"bytes,2,opt,name=ehName,proto3" json:"ehName,omitempty"`
-	EhConnectionString   string   `protobuf:"bytes,3,opt,name=ehConnectionString,proto3" json:"ehConnectionString,omitempty"`
-	EhKeyName            string   `protobuf:"bytes,4,opt,name=ehKeyName,proto3" json:"ehKeyName,omitempty"`
-	EhKeyValue           string   `protobuf:"bytes,5,opt,name=ehKeyValue,proto3" json:"ehKeyValue,omitempty"`
+	// EventHub namespace
+	EhNamespace string `protobuf:"bytes,1,opt,name=ehNamespace,proto3" json:"ehNamespace,omitempty"`
+	// EventHub name
+	EhName string `protobuf:"bytes,2,opt,name=ehName,proto3" json:"ehName,omitempty"`
+	// Eventhub connection string
+	EhConnectionString string `protobuf:"bytes,3,opt,name=ehConnectionString,proto3" json:"ehConnectionString,omitempty"`
+	// Eventhub key name (a key name and a key value can provided instead of the full connection string)
+	EhKeyName string `protobuf:"bytes,4,opt,name=ehKeyName,proto3" json:"ehKeyName,omitempty"`
+	// Eventhub key value
+	EhKeyValue string `protobuf:"bytes,5,opt,name=ehKeyValue,proto3" json:"ehKeyValue,omitempty"`
+	// Number of partitions
 	PartitionCount       int32    `protobuf:"varint,6,opt,name=partitionCount,proto3" json:"partitionCount,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -987,7 +1017,7 @@ func (m *EHConfig) Reset()         { *m = EHConfig{} }
 func (m *EHConfig) String() string { return proto.CompactTextString(m) }
 func (*EHConfig) ProtoMessage()    {}
 func (*EHConfig) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{18}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{17}
 }
 func (m *EHConfig) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_EHConfig.Unmarshal(m, b)
@@ -1049,11 +1079,17 @@ func (m *EHConfig) GetPartitionCount() int32 {
 	return 0
 }
 
+// The Kinesis cinfiguration
 type KinesisConfig struct {
-	AWsSecretAccessKey   string   `protobuf:"bytes,1,opt,name=aWsSecretAccessKey,proto3" json:"aWsSecretAccessKey,omitempty"`
-	AWsRegion            string   `protobuf:"bytes,2,opt,name=aWsRegion,proto3" json:"aWsRegion,omitempty"`
-	AWsSecretKey         string   `protobuf:"bytes,3,opt,name=aWsSecretKey,proto3" json:"aWsSecretKey,omitempty"`
-	RedisUrl             string   `protobuf:"bytes,4,opt,name=redisUrl,proto3" json:"redisUrl,omitempty"`
+	// AWS secret access key
+	AwsAccessKeyId string `protobuf:"bytes,1,opt,name=awsAccessKeyId,proto3" json:"awsAccessKeyId,omitempty"`
+	// AWS secret region
+	AwsRegion string `protobuf:"bytes,2,opt,name=awsRegion,proto3" json:"awsRegion,omitempty"`
+	// AWS secret secret key
+	AwsSecretAccessKey string `protobuf:"bytes,3,opt,name=awsSecretAccessKey,proto3" json:"awsSecretAccessKey,omitempty"`
+	// The Redis url
+	RedisUrl string `protobuf:"bytes,4,opt,name=redisUrl,proto3" json:"redisUrl,omitempty"`
+	// The stream name
 	StreamName           string   `protobuf:"bytes,5,opt,name=streamName,proto3" json:"streamName,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -1064,7 +1100,7 @@ func (m *KinesisConfig) Reset()         { *m = KinesisConfig{} }
 func (m *KinesisConfig) String() string { return proto.CompactTextString(m) }
 func (*KinesisConfig) ProtoMessage()    {}
 func (*KinesisConfig) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{19}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{18}
 }
 func (m *KinesisConfig) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_KinesisConfig.Unmarshal(m, b)
@@ -1084,23 +1120,23 @@ func (m *KinesisConfig) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_KinesisConfig proto.InternalMessageInfo
 
-func (m *KinesisConfig) GetAWsSecretAccessKey() string {
+func (m *KinesisConfig) GetAwsAccessKeyId() string {
 	if m != nil {
-		return m.AWsSecretAccessKey
+		return m.AwsAccessKeyId
 	}
 	return ""
 }
 
-func (m *KinesisConfig) GetAWsRegion() string {
+func (m *KinesisConfig) GetAwsRegion() string {
 	if m != nil {
-		return m.AWsRegion
+		return m.AwsRegion
 	}
 	return ""
 }
 
-func (m *KinesisConfig) GetAWsSecretKey() string {
+func (m *KinesisConfig) GetAwsSecretAccessKey() string {
 	if m != nil {
-		return m.AWsSecretKey
+		return m.AwsSecretAccessKey
 	}
 	return ""
 }
@@ -1119,23 +1155,31 @@ func (m *KinesisConfig) GetStreamName() string {
 	return ""
 }
 
+// StreamTemplate represents the stream configuration for streaming data and analyzing/anonymizing it.
+// And sending the output to the selected destination
 type StreamTemplate struct {
-	Kind                 string        `protobuf:"bytes,1,opt,name=kind,proto3" json:"kind,omitempty"`
-	StreamConfig         *StreamConfig `protobuf:"bytes,2,opt,name=streamConfig,proto3" json:"streamConfig,omitempty"`
-	MinProbability       string        `protobuf:"bytes,3,opt,name=minProbability,proto3" json:"minProbability,omitempty"`
-	AnalyzeTemplateId    string        `protobuf:"bytes,4,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
-	AnonymizeTemplateId  string        `protobuf:"bytes,5,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId,omitempty"`
-	DatasinkTemplateId   string        `protobuf:"bytes,6,opt,name=datasinkTemplateId,proto3" json:"datasinkTemplateId,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
-	XXX_unrecognized     []byte        `json:"-"`
-	XXX_sizecache        int32         `json:"-"`
+	// The stream kind. Supported Kinds: EventHub, Kafka, Kinesis
+	Kind string `protobuf:"bytes,1,opt,name=kind,proto3" json:"kind,omitempty"`
+	// The selected stream configuration
+	StreamConfig *StreamConfig `protobuf:"bytes,2,opt,name=streamConfig,proto3" json:"streamConfig,omitempty"`
+	// The minProbability will filter results which has lower certainty than the provided value.
+	MinProbability string `protobuf:"bytes,3,opt,name=minProbability,proto3" json:"minProbability,omitempty"`
+	// The analyzer template id configures the fields to analyze
+	AnalyzeTemplateId string `protobuf:"bytes,4,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
+	// The anonymizer template id configures how to anonymize the sensitive data [optional]
+	AnonymizeTemplateId string `protobuf:"bytes,5,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId,omitempty"`
+	// The datasinkTemplateId configures the output destination of the analyzer/anonymizer results
+	DatasinkTemplateId   string   `protobuf:"bytes,6,opt,name=datasinkTemplateId,proto3" json:"datasinkTemplateId,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *StreamTemplate) Reset()         { *m = StreamTemplate{} }
 func (m *StreamTemplate) String() string { return proto.CompactTextString(m) }
 func (*StreamTemplate) ProtoMessage()    {}
 func (*StreamTemplate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{20}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{19}
 }
 func (m *StreamTemplate) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_StreamTemplate.Unmarshal(m, b)
@@ -1197,20 +1241,25 @@ func (m *StreamTemplate) GetDatasinkTemplateId() string {
 	return ""
 }
 
+// ScanTemplate represents the scan configuration for scanning data and analyzing/anonymizing it.
+// And sending the output to the selected destination
 type ScanTemplate struct {
-	Kind                 string              `protobuf:"bytes,1,opt,name=kind,proto3" json:"kind,omitempty"`
-	CloudStorageConfig   *CloudStorageConfig `protobuf:"bytes,2,opt,name=cloudStorageConfig,proto3" json:"cloudStorageConfig,omitempty"`
-	MinProbability       string              `protobuf:"bytes,3,opt,name=minProbability,proto3" json:"minProbability,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
-	XXX_unrecognized     []byte              `json:"-"`
-	XXX_sizecache        int32               `json:"-"`
+	// The input scan kind, supported kinds are: Azure blob storage, AWS S3, Google Storage
+	Kind string `protobuf:"bytes,1,opt,name=kind,proto3" json:"kind,omitempty"`
+	// The selected cloudstorage configuration
+	CloudStorageConfig *CloudStorageConfig `protobuf:"bytes,2,opt,name=cloudStorageConfig,proto3" json:"cloudStorageConfig,omitempty"`
+	// The minProbability will filter results which has lower certainty than the provided value.
+	MinProbability       string   `protobuf:"bytes,3,opt,name=minProbability,proto3" json:"minProbability,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *ScanTemplate) Reset()         { *m = ScanTemplate{} }
 func (m *ScanTemplate) String() string { return proto.CompactTextString(m) }
 func (*ScanTemplate) ProtoMessage()    {}
 func (*ScanTemplate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{21}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{20}
 }
 func (m *ScanTemplate) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ScanTemplate.Unmarshal(m, b)
@@ -1251,14 +1300,21 @@ func (m *ScanTemplate) GetMinProbability() string {
 	return ""
 }
 
+// The kuberenetes Cronjob template. Creates a time based scanning job scheduler that runs periodcally
+// on the selected time
 type CronJobTemplate struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Description          string   `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
-	Trigger              *Trigger `protobuf:"bytes,3,opt,name=trigger,proto3" json:"trigger,omitempty"`
-	ScanTemplateId       string   `protobuf:"bytes,4,opt,name=scanTemplateId,proto3" json:"scanTemplateId,omitempty"`
-	AnalyzeTemplateId    string   `protobuf:"bytes,5,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
-	AnonymizeTemplateId  string   `protobuf:"bytes,6,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId,omitempty"`
-	DatasinkTemplateId   string   `protobuf:"bytes,7,opt,name=datasinkTemplateId,proto3" json:"datasinkTemplateId,omitempty"`
+	// The job description
+	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
+	// The trigger for a new job to start
+	Trigger *Trigger `protobuf:"bytes,2,opt,name=trigger,proto3" json:"trigger,omitempty"`
+	// The scan template id configures job input source
+	ScanTemplateId string `protobuf:"bytes,3,opt,name=scanTemplateId,proto3" json:"scanTemplateId,omitempty"`
+	// The analyzer template id configures the fields to analyze
+	AnalyzeTemplateId string `protobuf:"bytes,4,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
+	// The anonymizer template id configures how to anonymize the sensitive data [optional]
+	AnonymizeTemplateId string `protobuf:"bytes,5,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId,omitempty"`
+	// The datasink template id configures the output destination of the analyzer/anonymizer results
+	DatasinkTemplateId   string   `protobuf:"bytes,6,opt,name=datasinkTemplateId,proto3" json:"datasinkTemplateId,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -1268,7 +1324,7 @@ func (m *CronJobTemplate) Reset()         { *m = CronJobTemplate{} }
 func (m *CronJobTemplate) String() string { return proto.CompactTextString(m) }
 func (*CronJobTemplate) ProtoMessage()    {}
 func (*CronJobTemplate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{22}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{21}
 }
 func (m *CronJobTemplate) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CronJobTemplate.Unmarshal(m, b)
@@ -1287,13 +1343,6 @@ func (m *CronJobTemplate) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_CronJobTemplate proto.InternalMessageInfo
-
-func (m *CronJobTemplate) GetName() string {
-	if m != nil {
-		return m.Name
-	}
-	return ""
-}
 
 func (m *CronJobTemplate) GetDescription() string {
 	if m != nil {
@@ -1337,12 +1386,12 @@ func (m *CronJobTemplate) GetDatasinkTemplateId() string {
 	return ""
 }
 
+// NOT IN USE
 type JobTemplate struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Description          string   `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
-	Trigger              *Trigger `protobuf:"bytes,3,opt,name=trigger,proto3" json:"trigger,omitempty"`
-	ScanTemplateId       string   `protobuf:"bytes,4,opt,name=scanTemplateId,proto3" json:"scanTemplateId,omitempty"`
-	StreamTemplateId     string   `protobuf:"bytes,5,opt,name=streamTemplateId,proto3" json:"streamTemplateId,omitempty"`
+	Description          string   `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
+	Trigger              *Trigger `protobuf:"bytes,2,opt,name=trigger,proto3" json:"trigger,omitempty"`
+	ScanTemplateId       string   `protobuf:"bytes,3,opt,name=scanTemplateId,proto3" json:"scanTemplateId,omitempty"`
+	StreamTemplateId     string   `protobuf:"bytes,4,opt,name=streamTemplateId,proto3" json:"streamTemplateId,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -1352,7 +1401,7 @@ func (m *JobTemplate) Reset()         { *m = JobTemplate{} }
 func (m *JobTemplate) String() string { return proto.CompactTextString(m) }
 func (*JobTemplate) ProtoMessage()    {}
 func (*JobTemplate) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{23}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{22}
 }
 func (m *JobTemplate) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_JobTemplate.Unmarshal(m, b)
@@ -1371,13 +1420,6 @@ func (m *JobTemplate) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_JobTemplate proto.InternalMessageInfo
-
-func (m *JobTemplate) GetName() string {
-	if m != nil {
-		return m.Name
-	}
-	return ""
-}
 
 func (m *JobTemplate) GetDescription() string {
 	if m != nil {
@@ -1407,7 +1449,9 @@ func (m *JobTemplate) GetStreamTemplateId() string {
 	return ""
 }
 
+// Trigger defines the trigger for a new job to start
 type Trigger struct {
+	// Defines the job schedule
 	Schedule             *Schedule `protobuf:"bytes,1,opt,name=schedule,proto3" json:"schedule,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
 	XXX_unrecognized     []byte    `json:"-"`
@@ -1418,7 +1462,7 @@ func (m *Trigger) Reset()         { *m = Trigger{} }
 func (m *Trigger) String() string { return proto.CompactTextString(m) }
 func (*Trigger) ProtoMessage()    {}
 func (*Trigger) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{24}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{23}
 }
 func (m *Trigger) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Trigger.Unmarshal(m, b)
@@ -1445,18 +1489,20 @@ func (m *Trigger) GetSchedule() *Schedule {
 	return nil
 }
 
+// Defines the job schedule
 type Schedule struct {
-	RecurrencePeriodDuration string   `protobuf:"bytes,1,opt,name=recurrencePeriodDuration,proto3" json:"recurrencePeriodDuration,omitempty"`
-	XXX_NoUnkeyedLiteral     struct{} `json:"-"`
-	XXX_unrecognized         []byte   `json:"-"`
-	XXX_sizecache            int32    `json:"-"`
+	// The recurrence period of the job, set as a cron expression
+	RecurrencePeriod     string   `protobuf:"bytes,1,opt,name=recurrencePeriod,proto3" json:"recurrencePeriod,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *Schedule) Reset()         { *m = Schedule{} }
 func (m *Schedule) String() string { return proto.CompactTextString(m) }
 func (*Schedule) ProtoMessage()    {}
 func (*Schedule) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{25}
+	return fileDescriptor_template_d86dd5b7531f8eef, []int{24}
 }
 func (m *Schedule) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Schedule.Unmarshal(m, b)
@@ -1476,141 +1522,9 @@ func (m *Schedule) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_Schedule proto.InternalMessageInfo
 
-func (m *Schedule) GetRecurrencePeriodDuration() string {
+func (m *Schedule) GetRecurrencePeriod() string {
 	if m != nil {
-		return m.RecurrencePeriodDuration
-	}
-	return ""
-}
-
-type ImageWord struct {
-	XLocation            string   `protobuf:"bytes,1,opt,name=XLocation,json=xLocation,proto3" json:"XLocation,omitempty"`
-	Width                string   `protobuf:"bytes,2,opt,name=Width,json=width,proto3" json:"Width,omitempty"`
-	Height               string   `protobuf:"bytes,3,opt,name=Height,json=height,proto3" json:"Height,omitempty"`
-	YLocation            string   `protobuf:"bytes,4,opt,name=YLocation,json=yLocation,proto3" json:"YLocation,omitempty"`
-	Text                 string   `protobuf:"bytes,5,opt,name=Text,json=text,proto3" json:"Text,omitempty"`
-	StartPosition        int32    `protobuf:"varint,6,opt,name=startPosition,proto3" json:"startPosition,omitempty"`
-	EndPosition          int32    `protobuf:"varint,7,opt,name=endPosition,proto3" json:"endPosition,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *ImageWord) Reset()         { *m = ImageWord{} }
-func (m *ImageWord) String() string { return proto.CompactTextString(m) }
-func (*ImageWord) ProtoMessage()    {}
-func (*ImageWord) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{26}
-}
-func (m *ImageWord) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ImageWord.Unmarshal(m, b)
-}
-func (m *ImageWord) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ImageWord.Marshal(b, m, deterministic)
-}
-func (dst *ImageWord) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ImageWord.Merge(dst, src)
-}
-func (m *ImageWord) XXX_Size() int {
-	return xxx_messageInfo_ImageWord.Size(m)
-}
-func (m *ImageWord) XXX_DiscardUnknown() {
-	xxx_messageInfo_ImageWord.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ImageWord proto.InternalMessageInfo
-
-func (m *ImageWord) GetXLocation() string {
-	if m != nil {
-		return m.XLocation
-	}
-	return ""
-}
-
-func (m *ImageWord) GetWidth() string {
-	if m != nil {
-		return m.Width
-	}
-	return ""
-}
-
-func (m *ImageWord) GetHeight() string {
-	if m != nil {
-		return m.Height
-	}
-	return ""
-}
-
-func (m *ImageWord) GetYLocation() string {
-	if m != nil {
-		return m.YLocation
-	}
-	return ""
-}
-
-func (m *ImageWord) GetText() string {
-	if m != nil {
-		return m.Text
-	}
-	return ""
-}
-
-func (m *ImageWord) GetStartPosition() int32 {
-	if m != nil {
-		return m.StartPosition
-	}
-	return 0
-}
-
-func (m *ImageWord) GetEndPosition() int32 {
-	if m != nil {
-		return m.EndPosition
-	}
-	return 0
-}
-
-type ImageLocations struct {
-	Words                []*ImageWord `protobuf:"bytes,1,rep,name=Words,json=words,proto3" json:"Words,omitempty"`
-	ImageText            string       `protobuf:"bytes,2,opt,name=ImageText,json=imageText,proto3" json:"ImageText,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
-	XXX_unrecognized     []byte       `json:"-"`
-	XXX_sizecache        int32        `json:"-"`
-}
-
-func (m *ImageLocations) Reset()         { *m = ImageLocations{} }
-func (m *ImageLocations) String() string { return proto.CompactTextString(m) }
-func (*ImageLocations) ProtoMessage()    {}
-func (*ImageLocations) Descriptor() ([]byte, []int) {
-	return fileDescriptor_template_9187a7370d71f3b8, []int{27}
-}
-func (m *ImageLocations) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ImageLocations.Unmarshal(m, b)
-}
-func (m *ImageLocations) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ImageLocations.Marshal(b, m, deterministic)
-}
-func (dst *ImageLocations) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ImageLocations.Merge(dst, src)
-}
-func (m *ImageLocations) XXX_Size() int {
-	return xxx_messageInfo_ImageLocations.Size(m)
-}
-func (m *ImageLocations) XXX_DiscardUnknown() {
-	xxx_messageInfo_ImageLocations.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ImageLocations proto.InternalMessageInfo
-
-func (m *ImageLocations) GetWords() []*ImageWord {
-	if m != nil {
-		return m.Words
-	}
-	return nil
-}
-
-func (m *ImageLocations) GetImageText() string {
-	if m != nil {
-		return m.ImageText
+		return m.RecurrencePeriod
 	}
 	return ""
 }
@@ -1624,7 +1538,6 @@ func init() {
 	proto.RegisterType((*RedactValue)(nil), "types.RedactValue")
 	proto.RegisterType((*HashValue)(nil), "types.HashValue")
 	proto.RegisterType((*MaskValue)(nil), "types.MaskValue")
-	proto.RegisterType((*MaskImage)(nil), "types.MaskImage")
 	proto.RegisterType((*DBConfig)(nil), "types.DBConfig")
 	proto.RegisterType((*Datasink)(nil), "types.Datasink")
 	proto.RegisterType((*DatasinkTemplate)(nil), "types.DatasinkTemplate")
@@ -1642,103 +1555,87 @@ func init() {
 	proto.RegisterType((*JobTemplate)(nil), "types.JobTemplate")
 	proto.RegisterType((*Trigger)(nil), "types.Trigger")
 	proto.RegisterType((*Schedule)(nil), "types.Schedule")
-	proto.RegisterType((*ImageWord)(nil), "types.ImageWord")
-	proto.RegisterType((*ImageLocations)(nil), "types.ImageLocations")
 }
 
-func init() { proto.RegisterFile("template.proto", fileDescriptor_template_9187a7370d71f3b8) }
+func init() { proto.RegisterFile("template.proto", fileDescriptor_template_d86dd5b7531f8eef) }
 
-var fileDescriptor_template_9187a7370d71f3b8 = []byte{
-	// 1444 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x58, 0xcf, 0x6e, 0x1b, 0x37,
-	0x13, 0xc7, 0xda, 0x96, 0x2c, 0x8d, 0x6c, 0xc5, 0xa6, 0xf3, 0x7d, 0x55, 0x8d, 0x22, 0x30, 0x88,
-	0x22, 0x48, 0xd3, 0xc2, 0x28, 0x92, 0x20, 0x05, 0x82, 0xf6, 0x90, 0x38, 0x49, 0xa3, 0x3a, 0x0d,
-	0x0c, 0x5a, 0x89, 0xdb, 0xde, 0xa8, 0x5d, 0x4a, 0x62, 0xb4, 0x22, 0x05, 0x92, 0x42, 0xac, 0xf6,
-	0xd0, 0x43, 0x8f, 0x39, 0xf4, 0x14, 0xa0, 0xaf, 0xd0, 0x43, 0x9f, 0xa0, 0xe8, 0xa1, 0x8f, 0xd0,
-	0x53, 0x81, 0x3e, 0x4d, 0x41, 0x2e, 0xb9, 0x7f, 0x24, 0xb9, 0x49, 0x80, 0x1e, 0x7a, 0xdb, 0xf9,
-	0xcd, 0x6f, 0xc8, 0x99, 0xe1, 0x70, 0x48, 0x2e, 0xb4, 0x0d, 0x9b, 0x4c, 0x53, 0x6a, 0xd8, 0xe1,
-	0x54, 0x49, 0x23, 0x51, 0xcd, 0xcc, 0xa7, 0x4c, 0xef, 0x6f, 0xc5, 0x72, 0x32, 0x91, 0x22, 0x03,
-	0xf1, 0xa7, 0x70, 0xe9, 0xae, 0xa0, 0xe9, 0xfc, 0x5b, 0xd6, 0xf3, 0x6c, 0xf4, 0x01, 0xd4, 0x07,
-	0x9c, 0xa5, 0x89, 0xee, 0x44, 0x07, 0xeb, 0xd7, 0x5a, 0x37, 0x76, 0x0f, 0x9d, 0xe1, 0xe1, 0x43,
-	0x0b, 0xf6, 0xec, 0x27, 0xf1, 0x04, 0xfc, 0x72, 0x0d, 0x76, 0xef, 0x0a, 0x29, 0xe6, 0x13, 0x5e,
-	0x1a, 0x00, 0xc1, 0x86, 0xa0, 0x13, 0xd6, 0x89, 0x0e, 0xa2, 0x6b, 0x4d, 0xe2, 0xbe, 0xd1, 0x01,
-	0xb4, 0x12, 0xae, 0xa7, 0x29, 0x9d, 0x3f, 0xb1, 0xaa, 0x35, 0xa7, 0x2a, 0x43, 0x8e, 0xc1, 0x74,
-	0xac, 0xf8, 0xd4, 0x70, 0x29, 0x3a, 0xeb, 0x9e, 0x51, 0x40, 0xe8, 0x0a, 0x40, 0xac, 0x18, 0x35,
-	0xac, 0xc7, 0x27, 0xac, 0xb3, 0xe1, 0x08, 0x25, 0x04, 0x61, 0xd8, 0x9a, 0xc8, 0x84, 0x0f, 0x38,
-	0x4b, 0x1c, 0xa3, 0xe6, 0x18, 0x15, 0x0c, 0x7d, 0x03, 0x9d, 0x41, 0x88, 0xa3, 0xa7, 0xa8, 0xd0,
-	0x03, 0xa9, 0x26, 0xd4, 0x0e, 0xaf, 0x3b, 0x75, 0x17, 0xee, 0x95, 0xc5, 0x70, 0xab, 0x34, 0x72,
-	0xa1, 0x3d, 0xfe, 0x21, 0x82, 0x77, 0x2e, 0xb0, 0x7a, 0x8b, 0xa4, 0xa2, 0xcf, 0xa0, 0x6d, 0x2a,
-	0xc6, 0x2e, 0x5b, 0xad, 0x1b, 0xff, 0xf3, 0x26, 0x0b, 0xfe, 0x2c, 0x90, 0xf1, 0x8f, 0x6b, 0xd0,
-	0x5e, 0x98, 0xfc, 0x13, 0xd8, 0x52, 0x6c, 0x9a, 0xd2, 0x98, 0x3d, 0xa3, 0xe9, 0x8c, 0xf9, 0xf1,
-	0xf6, 0xfc, 0x78, 0xa4, 0xa4, 0x22, 0x15, 0x22, 0xba, 0x05, 0x2d, 0xc5, 0x12, 0x1a, 0x9b, 0xcc,
-	0x6e, 0xdd, 0xd9, 0xa1, 0xdc, 0x2e, 0xd7, 0x90, 0x32, 0x0d, 0x1d, 0x42, 0x73, 0x44, 0xf5, 0x28,
-	0xb3, 0xd9, 0x70, 0x36, 0x3b, 0xde, 0xe6, 0x51, 0xc0, 0x49, 0x41, 0xb1, 0xfc, 0x09, 0xd5, 0xe3,
-	0x8c, 0x5f, 0xab, 0xf0, 0xbf, 0x0c, 0x38, 0x29, 0x28, 0x81, 0xdf, 0x9d, 0xd0, 0x21, 0xeb, 0xd4,
-	0x97, 0xf8, 0x0e, 0x27, 0x05, 0x05, 0x5f, 0x87, 0xad, 0x72, 0x8c, 0x68, 0x1f, 0x1a, 0x82, 0xbd,
-	0xc8, 0xa6, 0xcb, 0x6a, 0x34, 0x97, 0xf1, 0x36, 0xb4, 0x4a, 0x71, 0xe1, 0x16, 0x34, 0x73, 0x97,
-	0xb1, 0x86, 0x66, 0xee, 0x0f, 0xba, 0x0e, 0x3b, 0x76, 0x06, 0x2e, 0x86, 0x47, 0x23, 0xaa, 0x68,
-	0x6c, 0x98, 0xf2, 0x83, 0x2d, 0xe1, 0xb6, 0xb4, 0xe3, 0x11, 0x55, 0xba, 0x27, 0xad, 0xbd, 0x4b,
-	0x7f, 0x8d, 0x94, 0x21, 0xd4, 0x81, 0xcd, 0x81, 0x92, 0x93, 0x07, 0x22, 0x71, 0x49, 0x6e, 0x90,
-	0x20, 0xe2, 0xf3, 0x6c, 0x52, 0x17, 0x89, 0x2d, 0x0d, 0x6e, 0x3f, 0x1e, 0xcb, 0xd8, 0xd7, 0x6c,
-	0x54, 0x29, 0x8d, 0x6e, 0x45, 0x49, 0x16, 0xc8, 0xe8, 0x23, 0xd8, 0x75, 0x48, 0x36, 0xe9, 0x3d,
-	0xaa, 0xd9, 0xed, 0x5b, 0x7e, 0x2b, 0x2e, 0x2b, 0x70, 0x0f, 0x1a, 0xf7, 0xef, 0x1d, 0x49, 0x31,
-	0xe0, 0x43, 0x1b, 0x6d, 0x2c, 0x85, 0x60, 0xb1, 0x1d, 0xe8, 0xd4, 0x28, 0x2e, 0x86, 0xde, 0x70,
-	0x09, 0x47, 0xef, 0x41, 0xd3, 0xd0, 0x7e, 0xca, 0xdc, 0x46, 0xcf, 0xb6, 0x71, 0x01, 0xe0, 0x5f,
-	0x23, 0x68, 0xdc, 0xa7, 0x86, 0x6a, 0x2e, 0xc6, 0xe8, 0x43, 0x68, 0x24, 0xfd, 0x6c, 0x0a, 0x1f,
-	0xc9, 0x25, 0x1f, 0x49, 0x98, 0x99, 0xe4, 0x04, 0xd4, 0x05, 0x14, 0xa7, 0x72, 0x96, 0x9c, 0x1a,
-	0xa9, 0xe8, 0x90, 0x79, 0xb3, 0xac, 0x96, 0xdf, 0xf5, 0x66, 0x47, 0x4b, 0x04, 0xb2, 0xc2, 0xc8,
-	0x6e, 0x08, 0x6d, 0x14, 0xa3, 0x13, 0x3f, 0xc8, 0x7a, 0x65, 0x43, 0x9c, 0x96, 0x54, 0xa4, 0x42,
-	0xc4, 0x2f, 0x23, 0xd8, 0x09, 0xde, 0xe7, 0xfd, 0x0e, 0xc3, 0x16, 0xcd, 0x7a, 0xa8, 0x3a, 0xe6,
-	0x22, 0xf1, 0x65, 0x50, 0xc1, 0xd0, 0x55, 0x68, 0xd3, 0xd0, 0x28, 0x33, 0x56, 0x96, 0xbe, 0x05,
-	0xd4, 0x65, 0xc4, 0x8f, 0xef, 0xbd, 0xca, 0x33, 0xe2, 0x61, 0x92, 0x13, 0xf0, 0x77, 0xb0, 0x7b,
-	0x2f, 0x95, 0xfd, 0x6a, 0x6c, 0x07, 0xd0, 0xa2, 0x71, 0x2c, 0x67, 0xc2, 0x3c, 0x29, 0x9a, 0x70,
-	0x19, 0xb2, 0x7d, 0xd4, 0x8b, 0xc7, 0x6c, 0xee, 0xfd, 0x28, 0x21, 0xe8, 0x7d, 0xd8, 0x8e, 0xa5,
-	0x30, 0x94, 0x0b, 0xa6, 0x4a, 0x8b, 0x58, 0x05, 0xf1, 0x4f, 0x11, 0x34, 0x4e, 0x6f, 0xfa, 0x49,
-	0xf7, 0xa1, 0x41, 0xe3, 0x98, 0x69, 0xdd, 0x0d, 0xe1, 0xe7, 0xb2, 0xad, 0x87, 0xec, 0xbb, 0x98,
-	0xad, 0x00, 0xd0, 0xff, 0xa1, 0xae, 0xd8, 0xb0, 0xe8, 0xf8, 0x5e, 0xb2, 0x4e, 0xf6, 0x67, 0xf1,
-	0x98, 0x65, 0x51, 0xf8, 0x66, 0x5f, 0x20, 0x76, 0x46, 0x26, 0x92, 0xa9, 0xe4, 0xc2, 0xf8, 0x46,
-	0x9f, 0xcb, 0xf8, 0x7b, 0xd8, 0xfb, 0x5c, 0xca, 0x61, 0xca, 0xaa, 0x99, 0x41, 0xb0, 0xf1, 0x5c,
-	0x4b, 0x11, 0xce, 0x25, 0xfb, 0x6d, 0x9d, 0x9b, 0x2a, 0xf9, 0x9c, 0xc5, 0xa6, 0x1b, 0x96, 0xa4,
-	0x00, 0xac, 0x73, 0x3a, 0x96, 0x53, 0xa6, 0x83, 0x73, 0x99, 0xf4, 0x3a, 0xe7, 0xf0, 0x9f, 0x11,
-	0xa0, 0xe5, 0x52, 0x44, 0x0f, 0x61, 0xb7, 0xbf, 0xb8, 0x5e, 0xbe, 0xee, 0x3b, 0x7e, 0x95, 0x97,
-	0xd6, 0x93, 0x2c, 0x9b, 0xd8, 0x22, 0xd1, 0x37, 0x2b, 0xf5, 0x1f, 0x8a, 0x24, 0x2c, 0x08, 0xc9,
-	0x09, 0xe8, 0xf1, 0xca, 0x64, 0xf8, 0xe2, 0xda, 0xf7, 0x76, 0x2b, 0x18, 0x64, 0x6f, 0xb8, 0x0c,
-	0xe2, 0x5f, 0x22, 0xd8, 0x2a, 0xef, 0x0f, 0x7b, 0x44, 0x8c, 0xe9, 0x60, 0x4c, 0x2b, 0xd1, 0x84,
-	0x23, 0xe2, 0xb8, 0xd0, 0x90, 0x32, 0xcd, 0x46, 0xc0, 0x46, 0x2b, 0x23, 0x78, 0xf0, 0x28, 0x44,
-	0x10, 0x08, 0xe8, 0x0e, 0x6c, 0x8f, 0xb9, 0x60, 0x9a, 0xeb, 0x8a, 0xef, 0x97, 0xc3, 0x24, 0x65,
-	0x1d, 0xa9, 0x52, 0xad, 0xbf, 0xad, 0x92, 0x17, 0xb6, 0xd1, 0xd2, 0x24, 0x51, 0x4c, 0x6b, 0x5f,
-	0x06, 0x41, 0x44, 0x97, 0xa1, 0x66, 0xe4, 0x94, 0xc7, 0xbe, 0x0a, 0x32, 0xc1, 0xee, 0xdb, 0x29,
-	0x55, 0x86, 0xdb, 0xfe, 0x76, 0x64, 0x37, 0x88, 0x9b, 0xbc, 0x46, 0x16, 0x50, 0xdb, 0x03, 0x34,
-	0xd5, 0xe9, 0x53, 0xcd, 0x94, 0x28, 0x6a, 0xa2, 0x82, 0x05, 0xce, 0x09, 0xd5, 0xfa, 0x85, 0x54,
-	0x49, 0xb8, 0x9f, 0x94, 0x31, 0xfc, 0x57, 0x04, 0x8d, 0x90, 0x02, 0xbb, 0x95, 0xd9, 0xc8, 0x16,
-	0x94, 0x9e, 0xd2, 0x38, 0xdf, 0xca, 0x25, 0xc8, 0x16, 0x68, 0x26, 0x7a, 0xaf, 0xbd, 0x84, 0x0e,
-	0x01, 0xb9, 0xf4, 0x55, 0x3b, 0x76, 0x56, 0xc4, 0x2b, 0x34, 0x76, 0x1b, 0xb0, 0xd1, 0x31, 0x9b,
-	0x97, 0xea, 0xb9, 0x00, 0x6c, 0xb9, 0x3b, 0xa1, 0x38, 0xa1, 0x9b, 0xa4, 0x84, 0xac, 0x48, 0x52,
-	0x7d, 0x55, 0x92, 0xf0, 0x6f, 0x11, 0x6c, 0x57, 0x56, 0xcb, 0xfa, 0x49, 0xcf, 0xf4, 0x29, 0x8b,
-	0x15, 0x33, 0x77, 0xf3, 0x26, 0x91, 0x05, 0xba, 0x42, 0xe3, 0x7a, 0xc9, 0x99, 0x26, 0x59, 0xc3,
-	0x08, 0xbd, 0x24, 0x00, 0xae, 0x11, 0x07, 0x1b, 0x3b, 0xce, 0xba, 0x6f, 0xc4, 0x25, 0xcc, 0xf6,
-	0x0d, 0xc5, 0x12, 0xae, 0x9f, 0xaa, 0xd4, 0x07, 0x9a, 0xcb, 0x36, 0xce, 0xac, 0xdb, 0xbb, 0x34,
-	0xf8, 0x38, 0x0b, 0x04, 0xbf, 0x5a, 0x83, 0x76, 0x56, 0xfc, 0xe5, 0xbb, 0xee, 0xb8, 0xe8, 0xf9,
-	0xee, 0x7b, 0xe9, 0x74, 0x59, 0x7b, 0xc3, 0xd3, 0xc5, 0xe6, 0x71, 0xc2, 0xc5, 0x89, 0x92, 0x7d,
-	0xda, 0xe7, 0x29, 0x37, 0x21, 0x82, 0x05, 0xd4, 0x9e, 0xe3, 0xb4, 0x7a, 0x69, 0xef, 0x26, 0x3e,
-	0x98, 0x65, 0x05, 0xfa, 0x18, 0xf6, 0xe8, 0xe2, 0x1d, 0xbd, 0x1b, 0xaa, 0x6f, 0x95, 0xca, 0xae,
-	0x4a, 0xb2, 0x70, 0xc8, 0x75, 0x13, 0xb7, 0xa6, 0x4d, 0xb2, 0x42, 0x83, 0x5f, 0xd9, 0xa6, 0x10,
-	0x53, 0xf1, 0x8f, 0x59, 0xf9, 0x17, 0x8f, 0xef, 0x37, 0xcc, 0x13, 0xfe, 0x79, 0x0d, 0x2e, 0x1d,
-	0x29, 0x29, 0xbe, 0x90, 0xfd, 0xd7, 0x3e, 0x4e, 0x4a, 0x4f, 0x8f, 0xb5, 0xe5, 0xa7, 0xc7, 0x35,
-	0xd8, 0x34, 0x8a, 0x0f, 0x87, 0x4c, 0xf9, 0xe6, 0xd3, 0xce, 0x2f, 0xe3, 0x0e, 0x25, 0x41, 0x6d,
-	0x7d, 0xd3, 0xa5, 0x54, 0xe4, 0x0b, 0xb3, 0x80, 0xae, 0x5e, 0xc3, 0xda, 0x5b, 0xae, 0x61, 0xfd,
-	0x6d, 0xd7, 0x70, 0xf3, 0xc2, 0x35, 0xfc, 0x3d, 0x82, 0xd6, 0x7f, 0x31, 0x4f, 0xd7, 0x61, 0x47,
-	0x57, 0xb6, 0x5c, 0x9e, 0xa6, 0x25, 0x1c, 0xdf, 0x86, 0x4d, 0x3f, 0x8f, 0x3b, 0x22, 0xe3, 0x11,
-	0x4b, 0x66, 0x29, 0x5b, 0xb8, 0x59, 0x9e, 0x7a, 0x98, 0xe4, 0x04, 0xfc, 0x10, 0x1a, 0x01, 0x45,
-	0x77, 0xa0, 0xa3, 0x58, 0x3c, 0x53, 0x8a, 0x89, 0x98, 0x9d, 0x30, 0xc5, 0x65, 0x72, 0x7f, 0xa6,
-	0xb2, 0x77, 0x58, 0x96, 0x8b, 0x0b, 0xf5, 0xf8, 0x8f, 0x08, 0x9a, 0xee, 0x0a, 0x7e, 0x26, 0x95,
-	0xbb, 0xf7, 0x7c, 0x15, 0xee, 0xde, 0xde, 0xb4, 0x79, 0x1e, 0x00, 0x7b, 0xdc, 0x9c, 0xf1, 0xc4,
-	0x8c, 0xc2, 0x71, 0xf3, 0xc2, 0x0a, 0xb6, 0x9f, 0x3f, 0x62, 0x7c, 0x38, 0x32, 0xe1, 0xc2, 0x31,
-	0x72, 0x92, 0x1d, 0xeb, 0xeb, 0x7c, 0x2c, 0xdf, 0x9f, 0xe7, 0xf9, 0x58, 0x08, 0x36, 0x7a, 0xec,
-	0x3c, 0xdc, 0x83, 0x36, 0x0c, 0x3b, 0x37, 0xf6, 0x12, 0xa7, 0x0d, 0x55, 0xe6, 0x44, 0x6a, 0xd7,
-	0x81, 0x7d, 0x4b, 0xae, 0x82, 0xee, 0x84, 0x11, 0x49, 0xce, 0xd9, 0xcc, 0x5e, 0x26, 0x25, 0x08,
-	0x3f, 0x83, 0x76, 0xf5, 0x55, 0x81, 0xae, 0x42, 0xcd, 0xc6, 0x17, 0x5e, 0xb2, 0x3b, 0xe5, 0xb7,
-	0x87, 0x55, 0x90, 0x9a, 0x3d, 0xc9, 0xb4, 0xf5, 0xd9, 0x61, 0xce, 0x35, 0xdf, 0xab, 0x79, 0x00,
-	0xfa, 0x75, 0xf7, 0xff, 0xe1, 0xe6, 0xdf, 0x01, 0x00, 0x00, 0xff, 0xff, 0xaa, 0xb5, 0x02, 0x2d,
-	0xa6, 0x10, 0x00, 0x00,
+var fileDescriptor_template_d86dd5b7531f8eef = []byte{
+	// 1229 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x57, 0x4d, 0x6f, 0x1b, 0xc5,
+	0x1b, 0xd7, 0xe6, 0xad, 0xf6, 0x63, 0xc7, 0x4d, 0x26, 0xfd, 0xff, 0x31, 0x11, 0xaa, 0xa2, 0x11,
+	0x42, 0xa5, 0xa0, 0x08, 0x25, 0xa8, 0x48, 0x48, 0x1c, 0xd2, 0xb4, 0xa5, 0x26, 0x80, 0xa2, 0xb1,
+	0xcb, 0x81, 0xdb, 0x78, 0x76, 0x6c, 0x4f, 0xbd, 0x9e, 0xb1, 0x66, 0xd6, 0x8a, 0x02, 0x07, 0x0e,
+	0x1c, 0x39, 0x57, 0xe2, 0xcc, 0x9d, 0x4f, 0xc0, 0x89, 0x0f, 0x81, 0x90, 0xb8, 0xf0, 0x55, 0xd0,
+	0xcc, 0xce, 0xec, 0xab, 0x4b, 0x5a, 0x09, 0x09, 0x6e, 0x7e, 0x7e, 0xf3, 0x7b, 0xf6, 0x79, 0x9d,
+	0xdf, 0xae, 0xa1, 0x97, 0xf2, 0xc5, 0x32, 0xa1, 0x29, 0x3f, 0x5e, 0x6a, 0x95, 0x2a, 0xb4, 0x9d,
+	0x5e, 0x2f, 0xb9, 0x39, 0xec, 0x32, 0xb5, 0x58, 0x28, 0x99, 0x81, 0xf8, 0xa7, 0x08, 0x6e, 0x9f,
+	0x49, 0x9a, 0x5c, 0x7f, 0xc3, 0x47, 0x9e, 0x8e, 0xde, 0x85, 0x9d, 0x89, 0xe0, 0x49, 0x6c, 0xfa,
+	0xd1, 0xd1, 0xe6, 0xbd, 0xce, 0xc9, 0xfe, 0xb1, 0xf3, 0x3c, 0x7e, 0x62, 0xc1, 0x91, 0xfd, 0x49,
+	0x3c, 0x01, 0x1d, 0x41, 0x27, 0xe6, 0x86, 0x69, 0xb1, 0x4c, 0x85, 0x92, 0xfd, 0x8d, 0xa3, 0xe8,
+	0x5e, 0x9b, 0x94, 0x21, 0x74, 0x17, 0x80, 0x69, 0x4e, 0x53, 0x3e, 0x12, 0x0b, 0xde, 0xdf, 0x74,
+	0x84, 0x12, 0x82, 0x30, 0x74, 0x17, 0x2a, 0x16, 0x13, 0xc1, 0x63, 0xc7, 0xd8, 0x72, 0x8c, 0x0a,
+	0x86, 0x7f, 0x8b, 0x60, 0xff, 0x4c, 0x2a, 0x79, 0xbd, 0x10, 0xa5, 0x34, 0x6b, 0xb1, 0xa3, 0x9b,
+	0x62, 0x6f, 0xdc, 0x18, 0x7b, 0xb3, 0x19, 0x1b, 0x7d, 0x0d, 0xfd, 0x49, 0xa8, 0x7b, 0xa4, 0xa9,
+	0x34, 0x13, 0xa5, 0x17, 0xd4, 0x3e, 0xde, 0xf4, 0xb7, 0x5c, 0x7b, 0xee, 0xd6, 0xdb, 0x53, 0xa5,
+	0x91, 0x97, 0xfa, 0xe3, 0xef, 0x23, 0x78, 0xe3, 0x25, 0x5e, 0xaf, 0x33, 0x84, 0x4f, 0xa0, 0x97,
+	0x56, 0x9c, 0x5d, 0xa9, 0x9d, 0x93, 0xff, 0x79, 0x97, 0x5a, 0x3e, 0x35, 0x32, 0xfe, 0x33, 0x82,
+	0x5e, 0x2d, 0xf8, 0x47, 0xd0, 0xd5, 0x7c, 0x99, 0x50, 0xc6, 0xbf, 0xa2, 0xc9, 0x8a, 0xfb, 0xe7,
+	0x1d, 0xf8, 0xe7, 0x91, 0xd2, 0x11, 0xa9, 0x10, 0xd1, 0x87, 0xd0, 0xd1, 0x3c, 0xa6, 0x2c, 0xcd,
+	0xfc, 0x36, 0x9d, 0x1f, 0xca, 0xfd, 0xf2, 0x13, 0x52, 0xa6, 0xa1, 0x63, 0x68, 0xcf, 0xa8, 0x99,
+	0x65, 0x3e, 0x5b, 0xce, 0x67, 0xcf, 0xfb, 0x3c, 0x0d, 0x38, 0x29, 0x28, 0x96, 0xbf, 0xa0, 0x66,
+	0x9e, 0xf1, 0xb7, 0x2b, 0xfc, 0x2f, 0x02, 0x4e, 0x0a, 0x0a, 0xbe, 0x0f, 0xdd, 0x72, 0xce, 0xe8,
+	0x10, 0x5a, 0x92, 0x5f, 0x65, 0xee, 0xd9, 0xda, 0xe4, 0x36, 0xde, 0x85, 0x4e, 0x29, 0x4f, 0xdc,
+	0x81, 0x76, 0x9e, 0x02, 0x36, 0xd0, 0xce, 0x9f, 0x8f, 0xee, 0xc3, 0x9e, 0x8d, 0x20, 0xe4, 0xf4,
+	0x7c, 0x46, 0x35, 0x65, 0x29, 0xd7, 0xfe, 0x61, 0x0d, 0xdc, 0xae, 0x2a, 0x9b, 0x51, 0x6d, 0x46,
+	0xca, 0xfa, 0xbb, 0x76, 0x6e, 0x93, 0x32, 0x84, 0xfa, 0x70, 0x6b, 0xa2, 0xd5, 0xe2, 0xb1, 0x8c,
+	0x5d, 0xd3, 0x5a, 0x24, 0x98, 0x78, 0x04, 0xad, 0x47, 0x0f, 0xcf, 0x95, 0x9c, 0x88, 0xa9, 0x8d,
+	0xc9, 0x94, 0x94, 0x9c, 0xd9, 0x29, 0x0d, 0x53, 0x2d, 0xe4, 0xd4, 0xaf, 0x75, 0x03, 0x47, 0x6f,
+	0x41, 0x3b, 0xa5, 0xe3, 0x84, 0x7f, 0x49, 0xf3, 0xcd, 0x2e, 0x00, 0xfc, 0x4b, 0x04, 0xad, 0x47,
+	0x34, 0xa5, 0x46, 0xc8, 0x39, 0x7a, 0x0f, 0x5a, 0xf1, 0x38, 0x0b, 0xe1, 0x4a, 0xe8, 0x9c, 0xdc,
+	0xf6, 0xed, 0x0c, 0x91, 0x49, 0x4e, 0x40, 0x03, 0x40, 0x2c, 0x51, 0xab, 0x78, 0x98, 0x2a, 0x4d,
+	0xa7, 0xdc, 0xbb, 0x65, 0x1b, 0xf2, 0xa6, 0x77, 0x3b, 0x6f, 0x10, 0xc8, 0x1a, 0x27, 0xbb, 0x66,
+	0x26, 0xd5, 0x9c, 0x2e, 0xfc, 0x43, 0x36, 0x2b, 0x6b, 0x36, 0x2c, 0x1d, 0x91, 0x0a, 0x11, 0xff,
+	0x10, 0xc1, 0x5e, 0xc8, 0x3e, 0xd7, 0x03, 0x0c, 0x5d, 0x9a, 0x29, 0x99, 0xbe, 0x10, 0x32, 0xf6,
+	0xc3, 0xa8, 0x60, 0xe8, 0x1d, 0xe8, 0xd1, 0x20, 0x24, 0x19, 0x2b, 0x6b, 0x5f, 0x0d, 0x75, 0x1d,
+	0xf1, 0xcf, 0xf7, 0x59, 0xe5, 0x1d, 0xf1, 0x30, 0xc9, 0x09, 0xf8, 0x5b, 0xd8, 0x7f, 0x98, 0xa8,
+	0x71, 0xb5, 0xb6, 0x23, 0xe8, 0x50, 0xc6, 0xd4, 0x4a, 0xa6, 0x6e, 0x00, 0x5e, 0x9d, 0x4a, 0x90,
+	0x55, 0x27, 0x6f, 0x5e, 0xf0, 0xeb, 0xa0, 0x4e, 0x05, 0x82, 0xde, 0x86, 0x5d, 0xa6, 0x64, 0x4a,
+	0x85, 0xe4, 0xba, 0x34, 0xc4, 0x2a, 0x88, 0x7f, 0x8c, 0xa0, 0x35, 0x3c, 0xf5, 0x41, 0x0f, 0xa1,
+	0x45, 0x19, 0xe3, 0xc6, 0x0c, 0x42, 0xf9, 0xb9, 0x6d, 0xf7, 0x21, 0xfb, 0x5d, 0x44, 0x2b, 0x00,
+	0xf4, 0x7f, 0xd8, 0xd1, 0x7c, 0x6a, 0xb5, 0x23, 0x8b, 0xe2, 0x2d, 0x9b, 0xe4, 0x78, 0xc5, 0xe6,
+	0x3c, 0xab, 0x22, 0x13, 0xe7, 0x12, 0x62, 0x23, 0x72, 0x19, 0x2f, 0x95, 0x90, 0xa9, 0xbb, 0x89,
+	0x6d, 0x92, 0xdb, 0xf8, 0x3b, 0x38, 0xf8, 0x54, 0xa9, 0x69, 0xc2, 0xab, 0x9d, 0x41, 0xb0, 0xf5,
+	0xdc, 0xe4, 0x82, 0xed, 0x7e, 0xdb, 0xe4, 0x96, 0x5a, 0x3d, 0xe7, 0x2c, 0x1d, 0x84, 0x91, 0x14,
+	0x80, 0x4d, 0xce, 0x30, 0xb5, 0xe4, 0x26, 0x24, 0x97, 0x59, 0x37, 0x25, 0x87, 0x7f, 0x8f, 0x00,
+	0x35, 0x57, 0x11, 0x3d, 0x81, 0xfd, 0x71, 0x7d, 0x5e, 0x7e, 0xef, 0xfb, 0x7e, 0xca, 0x8d, 0x79,
+	0x92, 0xa6, 0x8b, 0x5d, 0x12, 0x73, 0x5a, 0xd9, 0xff, 0xb0, 0x24, 0x61, 0x20, 0x24, 0x27, 0xa0,
+	0xcf, 0xd7, 0x36, 0xc3, 0x2f, 0xd7, 0xa1, 0xf7, 0x5b, 0xc3, 0x20, 0x07, 0xd3, 0x26, 0x88, 0x7f,
+	0x8e, 0xa0, 0x5b, 0xbe, 0x1f, 0x56, 0x78, 0xe7, 0x74, 0x32, 0xa7, 0x95, 0x6a, 0x82, 0xf0, 0x5e,
+	0x14, 0x27, 0xa4, 0x4c, 0xb3, 0x15, 0xf0, 0xd9, 0xda, 0x0a, 0x1e, 0x3f, 0x0d, 0x15, 0x04, 0x02,
+	0xfa, 0x18, 0x76, 0xe7, 0x42, 0x72, 0x23, 0x4c, 0x25, 0xf7, 0x3b, 0x21, 0x48, 0xf9, 0x8c, 0x54,
+	0xa9, 0x36, 0xdf, 0x4e, 0x29, 0x0b, 0x2b, 0x77, 0x34, 0x8e, 0x35, 0x37, 0xc6, 0xaf, 0x41, 0x30,
+	0xd1, 0x1d, 0xd8, 0x4e, 0xd5, 0x52, 0x30, 0xbf, 0x05, 0x99, 0x61, 0xef, 0xed, 0x92, 0xea, 0x54,
+	0x58, 0x7d, 0x3b, 0xb7, 0x17, 0xc4, 0x05, 0xdf, 0x26, 0x35, 0xd4, 0x6a, 0x80, 0xa1, 0x26, 0x79,
+	0x66, 0xb8, 0x96, 0xc5, 0x4e, 0x54, 0xb0, 0xc0, 0xb9, 0xa4, 0xc6, 0x5c, 0x29, 0x1d, 0xfb, 0xb5,
+	0xad, 0x60, 0xf8, 0x8f, 0x08, 0x5a, 0xa1, 0x05, 0xf6, 0x2a, 0xf3, 0x99, 0x5d, 0x28, 0xb3, 0xa4,
+	0x2c, 0xbf, 0xca, 0x25, 0xc8, 0x2e, 0x68, 0x66, 0xfa, 0xac, 0xbd, 0x85, 0x8e, 0x01, 0xb9, 0xf6,
+	0x55, 0x15, 0x3b, 0x5b, 0xe2, 0x35, 0x27, 0xf6, 0x1a, 0xf0, 0xd9, 0x05, 0xbf, 0x2e, 0xed, 0x73,
+	0x01, 0xd8, 0x75, 0x77, 0x46, 0xf1, 0xde, 0x6b, 0x93, 0x12, 0xb2, 0xa6, 0x49, 0x3b, 0xeb, 0x9a,
+	0x84, 0x7f, 0x8d, 0x60, 0xb7, 0x32, 0x2d, 0x27, 0x8b, 0x57, 0xe6, 0x2c, 0xa8, 0x41, 0xae, 0x1e,
+	0x35, 0xd4, 0x69, 0xc8, 0x95, 0x21, 0x99, 0x50, 0x04, 0x0d, 0x09, 0x80, 0xad, 0x96, 0x5e, 0x99,
+	0x21, 0x67, 0x9a, 0xa7, 0xb9, 0x57, 0xa8, 0xb6, 0x79, 0x62, 0xb5, 0x43, 0xf3, 0x58, 0x98, 0x67,
+	0x3a, 0xf1, 0xc5, 0xe6, 0xb6, 0xad, 0x35, 0x53, 0x7c, 0xd7, 0x0a, 0x5f, 0x6b, 0x81, 0xe0, 0x17,
+	0x1b, 0xd0, 0xcb, 0x2e, 0x40, 0xae, 0xff, 0x08, 0xb6, 0xe6, 0x85, 0xee, 0xbb, 0xdf, 0x8d, 0x37,
+	0xcc, 0xc6, 0x2b, 0xbe, 0x61, 0x6c, 0x47, 0x16, 0x42, 0x5e, 0x6a, 0x35, 0xa6, 0x63, 0x91, 0x88,
+	0x34, 0xd4, 0x51, 0x43, 0xd1, 0xfb, 0xb0, 0x4f, 0xab, 0x9f, 0xcf, 0x83, 0xd8, 0x17, 0xd3, 0x3c,
+	0x40, 0x1f, 0xc0, 0x01, 0xad, 0x7f, 0xc7, 0x0e, 0xc2, 0x06, 0xae, 0x3b, 0xb2, 0x3d, 0x8d, 0x6b,
+	0x2f, 0xba, 0x41, 0xec, 0xe6, 0xda, 0x26, 0x6b, 0x4e, 0xf0, 0x0b, 0x2b, 0x0c, 0x8c, 0xca, 0xbf,
+	0xed, 0xca, 0x3f, 0xf8, 0x0a, 0x7f, 0xc5, 0x3e, 0xd9, 0x79, 0xdd, 0x3e, 0xd7, 0x4a, 0x7e, 0xa6,
+	0xc6, 0xaf, 0xf1, 0x01, 0x7f, 0x0f, 0x6e, 0xa5, 0x5a, 0x4c, 0xa7, 0x5c, 0xfb, 0xec, 0x7a, 0xf9,
+	0x27, 0xad, 0x43, 0x49, 0x38, 0xb6, 0x79, 0x98, 0x52, 0xd9, 0x83, 0x38, 0xe4, 0x51, 0x45, 0xff,
+	0x73, 0xf3, 0xb2, 0xc2, 0xf8, 0x6f, 0xf7, 0xe4, 0x3e, 0xec, 0x99, 0xca, 0x55, 0xca, 0x5b, 0xd2,
+	0xc0, 0xf1, 0x03, 0xb8, 0xe5, 0xe3, 0xb8, 0xd7, 0x1f, 0x9b, 0xf1, 0x78, 0x95, 0xf0, 0xda, 0x57,
+	0xe3, 0xd0, 0xc3, 0x24, 0x27, 0xe0, 0x07, 0xd0, 0x0a, 0xa8, 0x8d, 0xa7, 0x39, 0x5b, 0x69, 0xcd,
+	0x25, 0xe3, 0x97, 0x5c, 0x0b, 0x15, 0xd6, 0xb3, 0x81, 0x8f, 0x77, 0xdc, 0xdf, 0xd4, 0xd3, 0xbf,
+	0x02, 0x00, 0x00, 0xff, 0xff, 0xa1, 0x0a, 0x2a, 0xe7, 0xcd, 0x0e, 0x00, 0x00,
 }

@@ -4,29 +4,38 @@ import "template.proto";
 
 package types;
 
-/* AnalyzeApiRequest represents the request to the API HTTP service */
+// AnalyzeApiRequest represents the request to the API HTTP service 
 message AnalyzeApiRequest {
+  // The text to analyze
   string text = 1;
+  // The analyze template id - that hold the analyze configuration
   string analyzeTemplateId = 2;
-  /* Optional parameter for running the analyzer without creating a template */
+  // Optional parameter for running the analyze service without creating a template 
   AnalyzeTemplate analyzeTemplate = 3;
 }
 
 
-/* AnalyzeRequest represents the request to the analyze service via GRPC */
+// AnalyzeRequest represents the request to the analyze service via GRPC 
 message AnalyzeRequest {
+  // The text to analyze
   string text = 1;
+  // The analyze template, which configures which sensitive data should be analyzed
   AnalyzeTemplate analyzeTemplate = 2;
+  // The analyze service defines a degree of certainty (0 to 1) for each result. 
+  // The minProbability will filter results which has lower certainty than the provided value.
   string minProbability = 3;
 }
 
 
-/* AnalyzeResponse represents the analyze service response */
+// AnalyzeResponse represents the analyze service response
 message AnalyzeResponse{
+  // Array of the analyze results finding
   repeated AnalyzeResult analyzeResults = 1;
 }
 
-
+// The Analyze Service is a service that analyze a given the text using predefined analyzers fields to identify patterns, 
+// formats, and checksums with relevant context.
 service AnalyzeService {
+  // Apply method will execute on the given request and return the analyze response with the sensitive text findings
   rpc Apply (AnalyzeRequest) returns (AnalyzeResponse) {}
 }

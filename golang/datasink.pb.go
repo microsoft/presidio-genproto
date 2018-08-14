@@ -23,6 +23,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
+// The data sink supported destenation types
 type DatasinkTypesEnum int32
 
 const (
@@ -70,24 +71,27 @@ func (x DatasinkTypesEnum) String() string {
 	return proto.EnumName(DatasinkTypesEnum_name, int32(x))
 }
 func (DatasinkTypesEnum) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_datasink_87f89acb9c4e8d86, []int{0}
+	return fileDescriptor_datasink_f6dd47e2bb530188, []int{0}
 }
 
 // DatasinkRequest represents the request to the data-sink service via GRPC
 type DatasinkRequest struct {
-	AnalyzeResults       []*AnalyzeResult   `protobuf:"bytes,1,rep,name=analyzeResults,proto3" json:"analyzeResults,omitempty"`
-	AnonymizeResult      *AnonymizeResponse `protobuf:"bytes,2,opt,name=anonymizeResult,proto3" json:"anonymizeResult,omitempty"`
-	Path                 string             `protobuf:"bytes,3,opt,name=path,proto3" json:"path,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
-	XXX_unrecognized     []byte             `json:"-"`
-	XXX_sizecache        int32              `json:"-"`
+	// Array of the analyzed results
+	AnalyzeResults []*AnalyzeResult `protobuf:"bytes,1,rep,name=analyzeResults,proto3" json:"analyzeResults,omitempty"`
+	// The anonymized text
+	AnonymizeResult *AnonymizeResponse `protobuf:"bytes,2,opt,name=anonymizeResult,proto3" json:"anonymizeResult,omitempty"`
+	// The path where the anonymized text is located
+	Path                 string   `protobuf:"bytes,3,opt,name=path,proto3" json:"path,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *DatasinkRequest) Reset()         { *m = DatasinkRequest{} }
 func (m *DatasinkRequest) String() string { return proto.CompactTextString(m) }
 func (*DatasinkRequest) ProtoMessage()    {}
 func (*DatasinkRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_datasink_87f89acb9c4e8d86, []int{0}
+	return fileDescriptor_datasink_f6dd47e2bb530188, []int{0}
 }
 func (m *DatasinkRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DatasinkRequest.Unmarshal(m, b)
@@ -139,7 +143,7 @@ func (m *DatasinkResponse) Reset()         { *m = DatasinkResponse{} }
 func (m *DatasinkResponse) String() string { return proto.CompactTextString(m) }
 func (*DatasinkResponse) ProtoMessage()    {}
 func (*DatasinkResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_datasink_87f89acb9c4e8d86, []int{1}
+	return fileDescriptor_datasink_f6dd47e2bb530188, []int{1}
 }
 func (m *DatasinkResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DatasinkResponse.Unmarshal(m, b)
@@ -159,6 +163,7 @@ func (m *DatasinkResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_DatasinkResponse proto.InternalMessageInfo
 
+// CompletionMessage represents an indication to the data sink service that the scanning job is done service via GRPC
 type CompletionMessage struct {
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -169,7 +174,7 @@ func (m *CompletionMessage) Reset()         { *m = CompletionMessage{} }
 func (m *CompletionMessage) String() string { return proto.CompactTextString(m) }
 func (*CompletionMessage) ProtoMessage()    {}
 func (*CompletionMessage) Descriptor() ([]byte, []int) {
-	return fileDescriptor_datasink_87f89acb9c4e8d86, []int{2}
+	return fileDescriptor_datasink_f6dd47e2bb530188, []int{2}
 }
 func (m *CompletionMessage) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CompletionMessage.Unmarshal(m, b)
@@ -208,8 +213,11 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type DatasinkServiceClient interface {
+	// Apply method will execute on the given request and return whether the result where written successfully to the destination
 	Apply(ctx context.Context, in *DatasinkRequest, opts ...grpc.CallOption) (*DatasinkResponse, error)
+	// Init the data sink service with the provided data sink template
 	Init(ctx context.Context, in *DatasinkTemplate, opts ...grpc.CallOption) (*DatasinkResponse, error)
+	// Completion method for indicating that the scanning job is done
 	Completion(ctx context.Context, in *CompletionMessage, opts ...grpc.CallOption) (*DatasinkResponse, error)
 }
 
@@ -250,8 +258,11 @@ func (c *datasinkServiceClient) Completion(ctx context.Context, in *CompletionMe
 
 // DatasinkServiceServer is the server API for DatasinkService service.
 type DatasinkServiceServer interface {
+	// Apply method will execute on the given request and return whether the result where written successfully to the destination
 	Apply(context.Context, *DatasinkRequest) (*DatasinkResponse, error)
+	// Init the data sink service with the provided data sink template
 	Init(context.Context, *DatasinkTemplate) (*DatasinkResponse, error)
+	// Completion method for indicating that the scanning job is done
 	Completion(context.Context, *CompletionMessage) (*DatasinkResponse, error)
 }
 
@@ -334,9 +345,9 @@ var _DatasinkService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "datasink.proto",
 }
 
-func init() { proto.RegisterFile("datasink.proto", fileDescriptor_datasink_87f89acb9c4e8d86) }
+func init() { proto.RegisterFile("datasink.proto", fileDescriptor_datasink_f6dd47e2bb530188) }
 
-var fileDescriptor_datasink_87f89acb9c4e8d86 = []byte{
+var fileDescriptor_datasink_f6dd47e2bb530188 = []byte{
 	// 383 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x92, 0x3d, 0x6e, 0xdb, 0x40,
 	0x10, 0x85, 0x4d, 0xfd, 0xd9, 0x1c, 0xd9, 0xf2, 0x6a, 0x12, 0x24, 0x84, 0x2a, 0x41, 0x95, 0x90,

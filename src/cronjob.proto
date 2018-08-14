@@ -3,20 +3,27 @@ package types;
 import "template.proto";
 import "scan.proto";
 
+// CronJobApiRequest represents the request to the API HTTP service 
 message CronJobApiRequest {
+    // The scannert cron job template id
     string CronJobTemplateId = 1;
 }
 
+// CronJobRequest represents the request to the scheduler service via GRPC 
 message CronJobRequest {
-    string name = 1;
-    string description = 2;
-    Trigger trigger = 3;
-    ScanRequest scanRequest = 4;
+    // The cron job description
+    string description = 1;
+    // The trigger for a new job to start
+    Trigger trigger = 2;
+    // The scanner requeset that hold the scanning details
+    ScanRequest scanRequest = 3;
 }
 
 message CronJobResponse {
 }
 
+// The CronJob Service is a service that triggers a new cronjob for scanning a given storage periodcallly 
 service CronJobService {
+  // Apply method will trigger a new scanning cron job and will return if it was triggered successfully
   rpc Apply (CronJobRequest) returns (CronJobResponse) {}
 }

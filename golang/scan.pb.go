@@ -18,23 +18,30 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
+// ScanRequest represents the request to the scanner service via GRPC
 type ScanRequest struct {
-	Kind                 string              `protobuf:"bytes,1,opt,name=kind,proto3" json:"kind,omitempty"`
-	CloudStorageConfig   *CloudStorageConfig `protobuf:"bytes,2,opt,name=cloudStorageConfig,proto3" json:"cloudStorageConfig,omitempty"`
-	MinProbability       string              `protobuf:"bytes,3,opt,name=minProbability,proto3" json:"minProbability,omitempty"`
-	AnalyzeTemplate      *AnalyzeTemplate    `protobuf:"bytes,4,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
-	AnonymizeTemplate    *AnonymizeTemplate  `protobuf:"bytes,5,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate,omitempty"`
-	DatasinkTemplate     *DatasinkTemplate   `protobuf:"bytes,6,opt,name=datasinkTemplate,proto3" json:"datasinkTemplate,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
-	XXX_unrecognized     []byte              `json:"-"`
-	XXX_sizecache        int32               `json:"-"`
+	// The scanner input kind
+	Kind string `protobuf:"bytes,1,opt,name=kind,proto3" json:"kind,omitempty"`
+	// The cloud storage configuration for scanning cloud storage such as AzureBlobStorage, AWS S3 And Google Storage
+	CloudStorageConfig *CloudStorageConfig `protobuf:"bytes,2,opt,name=cloudStorageConfig,proto3" json:"cloudStorageConfig,omitempty"`
+	// The minProbability will filter results which has lower certainty than the provided value.
+	MinProbability string `protobuf:"bytes,3,opt,name=minProbability,proto3" json:"minProbability,omitempty"`
+	// The analyzer template configures the fields to analyze
+	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,4,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
+	// The anonymizer template configures how to anonymize the sensitive data [optional]
+	AnonymizeTemplate *AnonymizeTemplate `protobuf:"bytes,5,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate,omitempty"`
+	// The datasinkTemplate configures the output destination of the analyzer/anonymizer results
+	DatasinkTemplate     *DatasinkTemplate `protobuf:"bytes,6,opt,name=datasinkTemplate,proto3" json:"datasinkTemplate,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
+	XXX_unrecognized     []byte            `json:"-"`
+	XXX_sizecache        int32             `json:"-"`
 }
 
 func (m *ScanRequest) Reset()         { *m = ScanRequest{} }
 func (m *ScanRequest) String() string { return proto.CompactTextString(m) }
 func (*ScanRequest) ProtoMessage()    {}
 func (*ScanRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_scan_e9c77a6291101ace, []int{0}
+	return fileDescriptor_scan_63b0bbbedd3774ec, []int{0}
 }
 func (m *ScanRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ScanRequest.Unmarshal(m, b)
@@ -100,9 +107,9 @@ func init() {
 	proto.RegisterType((*ScanRequest)(nil), "types.ScanRequest")
 }
 
-func init() { proto.RegisterFile("scan.proto", fileDescriptor_scan_e9c77a6291101ace) }
+func init() { proto.RegisterFile("scan.proto", fileDescriptor_scan_63b0bbbedd3774ec) }
 
-var fileDescriptor_scan_e9c77a6291101ace = []byte{
+var fileDescriptor_scan_63b0bbbedd3774ec = []byte{
 	// 234 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x90, 0xcf, 0x4a, 0xc3, 0x40,
 	0x10, 0xc6, 0x49, 0x6d, 0x0b, 0x4e, 0xa1, 0xea, 0x1c, 0x74, 0xf5, 0x54, 0x3c, 0x48, 0x4f, 0x39,

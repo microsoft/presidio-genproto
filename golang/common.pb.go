@@ -18,6 +18,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
+// FieldTypes for Analyzing and Anonymizing
 type FieldTypesEnum int32
 
 const (
@@ -80,11 +81,14 @@ func (x FieldTypesEnum) String() string {
 	return proto.EnumName(FieldTypesEnum_name, int32(x))
 }
 func (FieldTypesEnum) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_common_b7ed14342eac292c, []int{0}
+	return fileDescriptor_common_4a31fac56cedd33e, []int{0}
 }
 
+// FieldType strucy
 type FieldTypes struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	// Field type name
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	// Field type language code
 	LanguageCode         string   `protobuf:"bytes,2,opt,name=languageCode,proto3" json:"languageCode,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -95,7 +99,7 @@ func (m *FieldTypes) Reset()         { *m = FieldTypes{} }
 func (m *FieldTypes) String() string { return proto.CompactTextString(m) }
 func (*FieldTypes) ProtoMessage()    {}
 func (*FieldTypes) Descriptor() ([]byte, []int) {
-	return fileDescriptor_common_b7ed14342eac292c, []int{0}
+	return fileDescriptor_common_4a31fac56cedd33e, []int{0}
 }
 func (m *FieldTypes) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_FieldTypes.Unmarshal(m, b)
@@ -129,21 +133,26 @@ func (m *FieldTypes) GetLanguageCode() string {
 	return ""
 }
 
+// AnalyzeResult represents the Analyze serivce findings
 type AnalyzeResult struct {
-	Text                 string      `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
-	Field                *FieldTypes `protobuf:"bytes,2,opt,name=field,proto3" json:"field,omitempty"`
-	Probability          float32     `protobuf:"fixed32,3,opt,name=probability,proto3" json:"probability,omitempty"`
-	Location             *Location   `protobuf:"bytes,4,opt,name=location,proto3" json:"location,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
-	XXX_unrecognized     []byte      `json:"-"`
-	XXX_sizecache        int32       `json:"-"`
+	// The sensitive text result
+	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	// The sensitive text type (supported types: FieldTypesEnum)
+	Field *FieldTypes `protobuf:"bytes,2,opt,name=field,proto3" json:"field,omitempty"`
+	// The certainty of the result
+	Probability float32 `protobuf:"fixed32,3,opt,name=probability,proto3" json:"probability,omitempty"`
+	// The loaction in the text of the finding
+	Location             *Location `protobuf:"bytes,4,opt,name=location,proto3" json:"location,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_unrecognized     []byte    `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
 }
 
 func (m *AnalyzeResult) Reset()         { *m = AnalyzeResult{} }
 func (m *AnalyzeResult) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeResult) ProtoMessage()    {}
 func (*AnalyzeResult) Descriptor() ([]byte, []int) {
-	return fileDescriptor_common_b7ed14342eac292c, []int{1}
+	return fileDescriptor_common_4a31fac56cedd33e, []int{1}
 }
 func (m *AnalyzeResult) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeResult.Unmarshal(m, b)
@@ -191,9 +200,13 @@ func (m *AnalyzeResult) GetLocation() *Location {
 	return nil
 }
 
+// The location in the text of the finding
 type Location struct {
-	Start                int32    `protobuf:"zigzag32,1,opt,name=start,proto3" json:"start,omitempty"`
-	End                  int32    `protobuf:"zigzag32,2,opt,name=end,proto3" json:"end,omitempty"`
+	// The location start
+	Start int32 `protobuf:"zigzag32,1,opt,name=start,proto3" json:"start,omitempty"`
+	// The location end
+	End int32 `protobuf:"zigzag32,2,opt,name=end,proto3" json:"end,omitempty"`
+	// The location length
 	Length               int32    `protobuf:"zigzag32,3,opt,name=length,proto3" json:"length,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -204,7 +217,7 @@ func (m *Location) Reset()         { *m = Location{} }
 func (m *Location) String() string { return proto.CompactTextString(m) }
 func (*Location) ProtoMessage()    {}
 func (*Location) Descriptor() ([]byte, []int) {
-	return fileDescriptor_common_b7ed14342eac292c, []int{2}
+	return fileDescriptor_common_4a31fac56cedd33e, []int{2}
 }
 func (m *Location) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Location.Unmarshal(m, b)
@@ -252,9 +265,9 @@ func init() {
 	proto.RegisterEnum("types.FieldTypesEnum", FieldTypesEnum_name, FieldTypesEnum_value)
 }
 
-func init() { proto.RegisterFile("common.proto", fileDescriptor_common_b7ed14342eac292c) }
+func init() { proto.RegisterFile("common.proto", fileDescriptor_common_4a31fac56cedd33e) }
 
-var fileDescriptor_common_b7ed14342eac292c = []byte{
+var fileDescriptor_common_4a31fac56cedd33e = []byte{
 	// 428 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x52, 0xcd, 0xae, 0xd2, 0x40,
 	0x18, 0xb5, 0xfc, 0xf3, 0xb5, 0xc0, 0xf4, 0x8b, 0x1a, 0x96, 0x84, 0x8d, 0x37, 0x9a, 0xb0, 0xd0,

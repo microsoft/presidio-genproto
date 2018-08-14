@@ -2,187 +2,273 @@ syntax = "proto3";
 import "common.proto";
 package types;
 
-/* AnalyzeTemplate represents the analyze service template definition */
+// AnalyzeTemplate represents the template definition of the Analyze service- for analyzing sensitive text.
 message AnalyzeTemplate {
+    // Array of the fields to analyze
     repeated FieldTypes fields = 1;
+    // Template description
+    string description = 2;
+    // Template Creation date
+    string createTime = 3;
+    // Template modification date
+    string modifiedTime = 4;
 }
 
 
-/* AnonymizeTemplate represents the anonymize service template definition */
+// AnonymizeTemplate represents the template definition of the Anonymize service for anonymizying the sensitive data 
 message AnonymizeTemplate {
-    string name = 1;
-    string displayName = 2;
-    string description = 3;
-    string createTime = 4;
-    string modifiedTime = 5;
-    repeated FieldTypeTransformation fieldTypeTransformations = 6;
+    // Template description
+    string description = 1;
+    // Template Creation date
+    string createTime = 2;
+    // Template modification date
+    string modifiedTime = 3;
+    // FieldTypeTransformation represents the transformation for an array of fields types
+    repeated FieldTypeTransformation fieldTypeTransformations = 4;
 }
 
-/* FieldTypeTransformation represents the transformation for array of fields types */
-message FieldTypeTransformation {
-  repeated FieldTypes fields = 1;
-  Transformation transformation = 2;
+// FieldTypeTransformation represents the transformation for an array of fields types
+message FieldTypeTransformation { 
+    // The array of field types  
+    repeated FieldTypes fields = 1;
+    // The transformation for the array of fields
+    Transformation transformation = 2;
 }
 
 
-/* Transformation represents the transformation type */
+// Transformation represents the transformation types - how the sensitive text will change
 message Transformation {
-  ReplaceValue replaceValue = 2;
-  RedactValue redactValue = 3;
-  HashValue hashValue = 4;
-  MaskValue maskValue = 5;
-  MaskImage maskImage = 6;
+    // Relace the text with the defined value
+    ReplaceValue replaceValue = 2;
+    // Redact the text 
+    RedactValue redactValue = 3;
+    // Hashes the text
+    HashValue hashValue = 4;
+    // Mask n characters of the text
+    MaskValue maskValue = 5;
 }
 
+// Replace the value with the given new value. 
+// For example: We met in Seattle.
+// new value: <Location>
+// replace to 'We met in <Location>'
 message ReplaceValue {
+  // The value to replace
   string newValue = 1;
 }
 
+// Redacts the given value. For example We met in Seattle would change to 'We me in '.
 message RedactValue {
 }
 
+// Uses cryptographich hash on the given value with FNV-1 hash.
 message HashValue {
 }
 
+// Mask the given value with the selected characters.
+// For example: my credit card number is 4961-2765-5327-5913
+// maskingCharacter: '*', chars to mask: 9, fromEnd: true
+// Will output:  my credit card number is 4961-2765-*********
 message MaskValue {
+    // the masking char
     string maskingCharacter = 1;
+    // number of chars to mask
     int32 charsToMask = 2;
+    // Should start masking from end
     bool fromEnd = 3;
 }
 
-message MaskImage {
-    ImageLocations imageLocations = 1; 
-    string imageToMaskBase64 =2;
-}
-
+// DBConfig represents the Database configuration - the DB connection string and the table name
+// Supported database: mssql, mysql, sqlite3, postgreSQL, oracle
 message DBConfig {
+    // The database connection string
     string connectionString = 2;
+    // The table name
     string tableName = 3;
 }
 
+// Datasink represents the configuration for storing the scanner output to the selected destination such as cloud storage, database, etc.
 message Datasink {
-  DBConfig dbConfig = 1;
-  CloudStorageConfig cloudStorageConfig = 2;
-  StreamConfig streamConfig = 3;
+    // The database configuration
+    DBConfig dbConfig = 1;
+    // The cloud storage configuration
+    CloudStorageConfig cloudStorageConfig = 2;
+    // The stream configuration
+    StreamConfig streamConfig = 3;
 }
 
-/* DatasinkTemplate represents the analyzer service outputs definition */
+// DatasinkTemplate represents the scanner service outputs definition.
 message DatasinkTemplate {
-  string analyzerKind = 1;
-  string anonymizerKind = 2;
-  Datasink datasink = 3;
+    // analyzer output kind - supported types defined in DatasinkTypesEnum
+    string analyzerKind = 1;
+    // anonymizer output kind - supported types defined in DatasinkTypesEnum
+    string anonymizerKind = 2;
+    // Datasink represents represents the configuration for storing the scanner output.
+    // Needs to be configured corresponding the selected analyzer/anonymizer types 
+    Datasink datasink = 3;
 }
 
+// Azure Blob Storage configuration
 message BlobStorageConfig {
+    // Azure account name
     string accountName = 1;
+    // Azure account key 
     string accountKey = 2;
+    // The blob storage container Name
     string containerName = 3;
 }
 
+// AWS S3 configuration
 message S3Config {
+    // The access id
     string accessId = 1;
+    // The access key
     string accessKey = 2;
+    // The region
     string region = 3;
+    // The bucket name
     string bucketName = 4;
+    // The s3 endpoint
     string endpoint = 5;
 }
 
+// Represents the Google Storage configuration
 message GoogleStorageConfig {
+    // The json
     string json = 1;
+    // The project id
     string projectId = 2;
+    // The scopes authentication [there are different scopes, which you can find here https://cloud.google.com/storage/docs/authentication]
     string scopes = 3;
+    // The bucket name
     string bucketName = 4;
 }
 
+// Represents the cloud storage config - supported storage: Azure blob storage, AWS S3, Google storage
 message CloudStorageConfig {
-  BlobStorageConfig blobStorageConfig = 1;
-  S3Config s3Config = 2;
-  GoogleStorageConfig GoogleStorageConfig = 3; 
+    // The azure blob storage config
+    BlobStorageConfig blobStorageConfig = 1;
+    // The s3 config
+    S3Config s3Config = 2;
+    // The google storage config
+    GoogleStorageConfig GoogleStorageConfig = 3; 
 }
 
+// Represents the streams configuration
 message StreamConfig {
-  KafkaConfig kafkaConfig = 1;
-  EHConfig ehConfig = 2;
-  KinesisConfig kinesisConfig = 3;
+    // The kafka configuration
+    KafkaConfig kafkaConfig = 1;
+    // The Azure Event Hub configuration
+    EHConfig ehConfig = 2;
+    // The Kinesis configuration
+    KinesisConfig kinesisConfig = 3;
 }
 
+// The Kafka configuration
 message KafkaConfig {
-  string address = 1;
-  string topic = 2;
-  int32 partitionCount = 3;
-  string saslUsername = 4;
-  string saslPassword = 5;
+    // Kafka address
+    string address = 1;
+    // Kafka topic
+    string topic = 2;
+    // Number of partitions
+    int32 partitionCount = 3;
+    // SASL authentication user name
+    string saslUsername = 4;
+    // SASL authentication password
+    string saslPassword = 5;
 }
 
+// Azure EventHub configuration
 message EHConfig {
-  string ehNamespace = 1;
-  string ehName = 2;
-  string ehConnectionString = 3;
-  string ehKeyName = 4;
-  string ehKeyValue = 5;
-  int32 partitionCount = 6;
+    // EventHub namespace
+    string ehNamespace = 1;
+    // EventHub name
+    string ehName = 2;
+    // Eventhub connection string
+    string ehConnectionString = 3;
+    // Eventhub key name (a key name and a key value can provided instead of the full connection string)
+    string ehKeyName = 4;
+    // Eventhub key value
+    string ehKeyValue = 5;
+    // Number of partitions
+    int32 partitionCount = 6;
 }
 
+// The Kinesis cinfiguration
 message KinesisConfig {
-  string aWsSecretAccessKey= 1;
-  string aWsRegion= 2;
-  string aWsSecretKey = 3;
-  string redisUrl = 4;
-  string streamName = 5;
+    // AWS secret access key 
+    string awsAccessKeyId = 1;
+    // AWS secret region
+    string awsRegion = 2;
+    // AWS secret secret key
+    string awsSecretAccessKey = 3;
+    // The Redis url
+    string redisUrl = 4;
+    // The stream name
+    string streamName = 5;
 }
 
+// StreamTemplate represents the stream configuration for streaming data and analyzing/anonymizing it.
+// And sending the output to the selected destination
 message StreamTemplate {
-  string kind = 1;
-  StreamConfig streamConfig = 2;
-  string minProbability = 3;
-  string analyzeTemplateId = 4;
-  string anonymizeTemplateId = 5;
-  string datasinkTemplateId = 6;
+    // The stream kind. Supported Kinds: EventHub, Kafka, Kinesis
+    string kind = 1;
+    // The selected stream configuration
+    StreamConfig streamConfig = 2;
+    // The minProbability will filter results which has lower certainty than the provided value.
+    string minProbability = 3;
+    // The analyzer template id configures the fields to analyze
+    string analyzeTemplateId = 4;
+    // The anonymizer template id configures how to anonymize the sensitive data [optional]
+    string anonymizeTemplateId = 5;
+    // The datasinkTemplateId configures the output destination of the analyzer/anonymizer results
+    string datasinkTemplateId = 6;
 }
 
+// ScanTemplate represents the scan configuration for scanning data and analyzing/anonymizing it.
+// And sending the output to the selected destination
 message ScanTemplate {
+    // The input scan kind, supported kinds are: Azure blob storage, AWS S3, Google Storage
     string kind = 1;
+    // The selected cloudstorage configuration
     CloudStorageConfig cloudStorageConfig = 2;
+    // The minProbability will filter results which has lower certainty than the provided value.
     string minProbability = 3;
 }
 
+// The kuberenetes Cronjob template. Creates a time based scanning job scheduler that runs periodcally
+// on the selected time
 message CronJobTemplate {
-    string name = 1;
-    string description = 2;
-    Trigger trigger = 3;
-    string scanTemplateId = 4;
-    string analyzeTemplateId = 5;
-    string anonymizeTemplateId = 6;
-    string datasinkTemplateId = 7;
+    // The job description
+    string description = 1;
+    // The trigger for a new job to start
+    Trigger trigger = 2;
+    // The scan template id configures job input source
+    string scanTemplateId = 3;
+    // The analyzer template id configures the fields to analyze
+    string analyzeTemplateId = 4;
+    // The anonymizer template id configures how to anonymize the sensitive data [optional]
+    string anonymizeTemplateId = 5;
+    // The datasink template id configures the output destination of the analyzer/anonymizer results
+    string datasinkTemplateId = 6;
 }
 
+// NOT IN USE 
 message JobTemplate {
-    string name = 1;
-    string description = 2;
-    Trigger trigger = 3;
-    string scanTemplateId = 4;
-    string streamTemplateId = 5;
+    string description = 1;
+    Trigger trigger = 2;
+    string scanTemplateId = 3;
+    string streamTemplateId = 4;
 }
 
+// Trigger defines the trigger for a new job to start
 message Trigger {
+    // Defines the job schedule
     Schedule schedule = 1;
 }
 
+// Defines the job schedule
 message Schedule {
-    string recurrencePeriodDuration = 1;
-}
-
-message ImageWord {
-	string XLocation  = 1;
-	string Width      = 2;
-	string Height     = 3;
-	string YLocation  = 4;
-	string Text    = 5;
-  int32 startPosition = 6;
-  int32 endPosition = 7;
-}
-
-message ImageLocations  {
-	repeated ImageWord Words  = 1;
-	string ImageText  = 2;
+    // The recurrence period of the job, set as a cron expression
+    string recurrencePeriod = 1;
 }
