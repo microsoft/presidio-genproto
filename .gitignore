@@ -1,0 +1,4 @@
+.vscode
+.pytest*
+.vs
+.DS_Store

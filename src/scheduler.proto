@@ -1,0 +1,49 @@
+syntax = "proto3";
+package types;
+import "stream.proto";
+import "scan.proto";
+import "template.proto";
+
+// ScannerCronJobApiRequest represents the request to the API HTTP service 
+message ScannerCronJobApiRequest {
+    // The scanner cron job template id
+    string ScannerCronJobTemplateId = 1;
+}
+
+// ScannerCronJobRequest represents the request to the scheduler service via GRPC 
+message ScannerCronJobRequest {
+    // The cron job description
+    string description = 1;
+    // The trigger for a new job to start
+    Trigger trigger = 2;
+    // The scanner requeset that hold the scanning details
+    ScanRequest scanRequest = 3;
+}
+
+message ScannerCronJobResponse {
+}
+
+// StreamsJobApiRequest represents the request to the API HTTP service 
+message StreamsJobApiRequest {
+    // The streams  job template id
+    string StreamsJobTemplateId = 1;
+}
+
+// StreamsJobRequest represents the request to the scheduler service via GRPC 
+message StreamsJobRequest {
+    // The cron job description
+    string description = 1;
+    // The streams requeset that hold the streaming details
+    StreamRequest streamsRequest = 2;
+}
+
+message StreamsJobResponse {
+}
+
+// The CronJob Service is a service that triggers a new cronjob for scanning a given storage periodcallly 
+service SchedulerService {
+  // ApplyStream method will trigger a new scanning cron job and will return if it was triggered successfully
+  rpc ApplyStream (StreamsJobRequest) returns (StreamsJobResponse) {}
+  // Apply method will trigger a new scanning cron job and will return if it was triggered successfully
+  rpc ApplyScan (ScannerCronJobRequest) returns (ScannerCronJobResponse) {}
+}

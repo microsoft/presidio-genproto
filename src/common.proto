@@ -1,0 +1,52 @@
+syntax = "proto3";
+package types;
+
+// FieldType strucy 
+message FieldTypes {
+  // Field type name
+  string name = 1;
+  // Field type language code
+  string languageCode = 2;
+}
+
+// FieldTypes for Analyzing and Anonymizing
+enum FieldTypesEnum{
+    CREDIT_CARD = 0;
+    CRYPTO = 1;
+    DATE_TIME = 2;
+    DOMAIN_NAME = 3;
+    EMAIL_ADDRESS = 4;
+    IBAN_CODE = 5;
+    IP_ADDRESS = 6;
+    NRP = 7;
+    LOCATION = 8;
+    PERSON = 9;
+    PHONE_NUMBER = 10;
+    US_BANK_NUMBER = 11;
+    US_DRIVER_LICENSE = 12;
+    US_ITIN = 13;
+    US_PASSPORT = 14;
+    US_SSN = 15;
+}
+
+// AnalyzeResult represents the Analyze serivce findings
+message AnalyzeResult {
+  // The sensitive text result
+  string text = 1;
+  // The sensitive text type (supported types: FieldTypesEnum)
+  FieldTypes field = 2;
+  // The certainty of the result
+  float probability = 3;
+  // The loaction in the text of the finding
+  Location location = 4;
+}
+
+// The location in the text of the finding
+message Location {
+  // The location start
+  sint32 start = 1;
+  // The location end
+  sint32 end = 2;
+  // The location length
+  sint32 length = 3;
+}
