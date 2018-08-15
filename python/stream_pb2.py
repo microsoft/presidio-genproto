@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='stream.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0cstream.proto\x12\x05types\x1a\x0etemplate.proto\"\xf9\x01\n\rStreamRequest\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12)\n\x0cstreamConfig\x18\x02 \x01(\x0b\x32\x13.types.StreamConfig\x12\x16\n\x0eminProbability\x18\x03 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x04 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x33\n\x11\x61nonymizeTemplate\x18\x05 \x01(\x0b\x32\x18.types.AnonymizeTemplate\x12\x31\n\x10\x64\x61tasinkTemplate\x18\x06 \x01(\x0b\x32\x17.types.DatasinkTemplateb\x06proto3')
+  serialized_pb=_b('\n\x0cstream.proto\x12\x05types\x1a\x0etemplate.proto\"\xd3\x01\n\rStreamRequest\x12)\n\x0cstreamConfig\x18\x01 \x01(\x0b\x32\x13.types.StreamConfig\x12/\n\x0f\x61nalyzeTemplate\x18\x02 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x33\n\x11\x61nonymizeTemplate\x18\x03 \x01(\x0b\x32\x18.types.AnonymizeTemplate\x12\x31\n\x10\x64\x61tasinkTemplate\x18\x04 \x01(\x0b\x32\x17.types.DatasinkTemplateb\x06proto3')
   ,
   dependencies=[template__pb2.DESCRIPTOR,])
 
@@ -35,43 +35,29 @@ _STREAMREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='kind', full_name='types.StreamRequest.kind', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='streamConfig', full_name='types.StreamRequest.streamConfig', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='streamConfig', full_name='types.StreamRequest.streamConfig', index=1,
+      name='analyzeTemplate', full_name='types.StreamRequest.analyzeTemplate', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='minProbability', full_name='types.StreamRequest.minProbability', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='anonymizeTemplate', full_name='types.StreamRequest.anonymizeTemplate', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='analyzeTemplate', full_name='types.StreamRequest.analyzeTemplate', index=3,
+      name='datasinkTemplate', full_name='types.StreamRequest.datasinkTemplate', index=3,
       number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='anonymizeTemplate', full_name='types.StreamRequest.anonymizeTemplate', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='datasinkTemplate', full_name='types.StreamRequest.datasinkTemplate', index=5,
-      number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -89,7 +75,7 @@ _STREAMREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=40,
-  serialized_end=289,
+  serialized_end=251,
 )
 
 _STREAMREQUEST.fields_by_name['streamConfig'].message_type = template__pb2._STREAMCONFIG

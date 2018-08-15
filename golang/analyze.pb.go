@@ -26,11 +26,11 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // AnalyzeApiRequest represents the request to the API HTTP service
 type AnalyzeApiRequest struct {
 	// The text to analyze
-	Text string `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
+	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
 	// The analyze template id - that hold the analyze configuration
-	AnalyzeTemplateId string `protobuf:"bytes,2,opt,name=analyzeTemplateId" json:"analyzeTemplateId,omitempty"`
+	AnalyzeTemplateId string `protobuf:"bytes,2,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
 	// Optional parameter for running the analyze service without creating a template
-	AnalyzeTemplate      *AnalyzeTemplate `protobuf:"bytes,3,opt,name=analyzeTemplate" json:"analyzeTemplate,omitempty"`
+	AnalyzeTemplate      *AnalyzeTemplate `protobuf:"bytes,3,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
 	XXX_unrecognized     []byte           `json:"-"`
 	XXX_sizecache        int32            `json:"-"`
@@ -40,7 +40,7 @@ func (m *AnalyzeApiRequest) Reset()         { *m = AnalyzeApiRequest{} }
 func (m *AnalyzeApiRequest) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeApiRequest) ProtoMessage()    {}
 func (*AnalyzeApiRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_analyze_43fecf05adb39b11, []int{0}
+	return fileDescriptor_analyze_69e0afe780ba2ba0, []int{0}
 }
 func (m *AnalyzeApiRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeApiRequest.Unmarshal(m, b)
@@ -84,22 +84,19 @@ func (m *AnalyzeApiRequest) GetAnalyzeTemplate() *AnalyzeTemplate {
 // AnalyzeRequest represents the request to the analyze service via GRPC
 type AnalyzeRequest struct {
 	// The text to analyze
-	Text string `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
+	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
 	// The analyze template, which configures which sensitive data should be analyzed
-	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,2,opt,name=analyzeTemplate" json:"analyzeTemplate,omitempty"`
-	// The analyze service defines a degree of certainty (0 to 1) for each result.
-	// The minProbability will filter results which has lower certainty than the provided value.
-	MinProbability       string   `protobuf:"bytes,3,opt,name=minProbability" json:"minProbability,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	AnalyzeTemplate      *AnalyzeTemplate `protobuf:"bytes,2,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
+	XXX_unrecognized     []byte           `json:"-"`
+	XXX_sizecache        int32            `json:"-"`
 }
 
 func (m *AnalyzeRequest) Reset()         { *m = AnalyzeRequest{} }
 func (m *AnalyzeRequest) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeRequest) ProtoMessage()    {}
 func (*AnalyzeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_analyze_43fecf05adb39b11, []int{1}
+	return fileDescriptor_analyze_69e0afe780ba2ba0, []int{1}
 }
 func (m *AnalyzeRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeRequest.Unmarshal(m, b)
@@ -133,17 +130,10 @@ func (m *AnalyzeRequest) GetAnalyzeTemplate() *AnalyzeTemplate {
 	return nil
 }
 
-func (m *AnalyzeRequest) GetMinProbability() string {
-	if m != nil {
-		return m.MinProbability
-	}
-	return ""
-}
-
 // AnalyzeResponse represents the analyze service response
 type AnalyzeResponse struct {
 	// Array of the analyze results finding
-	AnalyzeResults       []*AnalyzeResult `protobuf:"bytes,1,rep,name=analyzeResults" json:"analyzeResults,omitempty"`
+	AnalyzeResults       []*AnalyzeResult `protobuf:"bytes,1,rep,name=analyzeResults,proto3" json:"analyzeResults,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
 	XXX_unrecognized     []byte           `json:"-"`
 	XXX_sizecache        int32            `json:"-"`
@@ -153,7 +143,7 @@ func (m *AnalyzeResponse) Reset()         { *m = AnalyzeResponse{} }
 func (m *AnalyzeResponse) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeResponse) ProtoMessage()    {}
 func (*AnalyzeResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_analyze_43fecf05adb39b11, []int{2}
+	return fileDescriptor_analyze_69e0afe780ba2ba0, []int{2}
 }
 func (m *AnalyzeResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeResponse.Unmarshal(m, b)
@@ -260,10 +250,10 @@ var _AnalyzeService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "analyze.proto",
 }
 
-func init() { proto.RegisterFile("analyze.proto", fileDescriptor_analyze_43fecf05adb39b11) }
+func init() { proto.RegisterFile("analyze.proto", fileDescriptor_analyze_69e0afe780ba2ba0) }
 
-var fileDescriptor_analyze_43fecf05adb39b11 = []byte{
-	// 262 bytes of a gzipped FileDescriptorProto
+var fileDescriptor_analyze_69e0afe780ba2ba0 = []byte{
+	// 236 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4d, 0xcc, 0x4b, 0xcc,
 	0xa9, 0xac, 0x4a, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2d, 0xa9, 0x2c, 0x48, 0x2d,
 	0x96, 0xe2, 0x49, 0xce, 0xcf, 0xcd, 0xcd, 0xcf, 0x83, 0x08, 0x4a, 0xf1, 0x95, 0xa4, 0xe6, 0x16,
@@ -272,13 +262,11 @@ var fileDescriptor_analyze_43fecf05adb39b11 = []byte{
 	0x60, 0x54, 0x60, 0xd4, 0xe0, 0x0c, 0x02, 0xb3, 0x85, 0x74, 0xb8, 0x04, 0xa1, 0xe6, 0x87, 0x40,
 	0x8d, 0xf0, 0x4c, 0x91, 0x60, 0x02, 0x2b, 0xc0, 0x94, 0x10, 0x72, 0xe0, 0xe2, 0x47, 0x13, 0x94,
 	0x60, 0x56, 0x60, 0xd4, 0xe0, 0x36, 0x12, 0xd3, 0x03, 0x3b, 0x4b, 0xcf, 0x11, 0x55, 0x36, 0x08,
-	0x5d, 0xb9, 0x52, 0x1f, 0x23, 0x17, 0x1f, 0x54, 0x11, 0x3e, 0x67, 0x61, 0xb1, 0x88, 0x89, 0x24,
-	0x8b, 0x84, 0xd4, 0xb8, 0xf8, 0x72, 0x33, 0xf3, 0x02, 0x8a, 0xf2, 0x93, 0x12, 0x93, 0x32, 0x73,
-	0x32, 0x4b, 0x2a, 0xc1, 0x2e, 0xe5, 0x0c, 0x42, 0x13, 0x55, 0xf2, 0xe7, 0xe2, 0x87, 0xbb, 0xa7,
-	0xb8, 0x20, 0x3f, 0xaf, 0x38, 0x55, 0xc8, 0x86, 0x8b, 0x2f, 0x11, 0x2e, 0x54, 0x9a, 0x53, 0x52,
-	0x2c, 0xc1, 0xa8, 0xc0, 0xac, 0xc1, 0x6d, 0x24, 0x82, 0x6a, 0x37, 0x44, 0x32, 0x08, 0x4d, 0xad,
-	0x91, 0x17, 0xdc, 0x83, 0xc1, 0xa9, 0x45, 0x65, 0x99, 0xc9, 0xa9, 0x42, 0x16, 0x5c, 0xac, 0x8e,
-	0x05, 0x05, 0x39, 0x95, 0x42, 0xa2, 0xe8, 0x06, 0x80, 0x03, 0x40, 0x4a, 0x0c, 0xc3, 0x5c, 0xb0,
-	0x3b, 0x94, 0x18, 0x92, 0xd8, 0xc0, 0xd1, 0x69, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0x0e, 0xf9,
-	0x7c, 0x1b, 0x04, 0x02, 0x00, 0x00,
+	0x5d, 0xb9, 0x52, 0x1a, 0x17, 0x1f, 0x54, 0x0d, 0x3e, 0x57, 0x61, 0xb1, 0x87, 0x89, 0x34, 0x7b,
+	0xfc, 0xb9, 0xf8, 0xe1, 0xf6, 0x14, 0x17, 0xe4, 0xe7, 0x15, 0xa7, 0x0a, 0xd9, 0x70, 0xf1, 0x25,
+	0xc2, 0x85, 0x4a, 0x73, 0x4a, 0x8a, 0x25, 0x18, 0x15, 0x98, 0x35, 0xb8, 0x8d, 0x44, 0x50, 0xcd,
+	0x84, 0x48, 0x06, 0xa1, 0xa9, 0x35, 0xf2, 0x82, 0x3b, 0x3c, 0x38, 0xb5, 0xa8, 0x2c, 0x33, 0x39,
+	0x55, 0xc8, 0x82, 0x8b, 0xd5, 0xb1, 0xa0, 0x20, 0xa7, 0x52, 0x48, 0x14, 0xdd, 0x00, 0xb0, 0xc7,
+	0xa4, 0xc4, 0x30, 0xcc, 0x05, 0xbb, 0x43, 0x89, 0x21, 0x89, 0x0d, 0x1c, 0x4b, 0xc6, 0x80, 0x00,
+	0x00, 0x00, 0xff, 0xff, 0x80, 0x23, 0x32, 0xf4, 0xdb, 0x01, 0x00, 0x00,
 }

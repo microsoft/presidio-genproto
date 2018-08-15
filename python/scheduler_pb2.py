@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='scheduler.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fscheduler.proto\x12\x05types\x1a\x0cstream.proto\x1a\nscan.proto\x1a\x0etemplate.proto\"<\n\x18ScannerCronJobApiRequest\x12 \n\x18ScannerCronJobTemplateId\x18\x01 \x01(\t\"v\n\x15ScannerCronJobRequest\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12\x1f\n\x07trigger\x18\x02 \x01(\x0b\x32\x0e.types.Trigger\x12\'\n\x0bscanRequest\x18\x03 \x01(\x0b\x32\x12.types.ScanRequest\"\x18\n\x16ScannerCronJobResponse\"4\n\x14StreamsJobApiRequest\x12\x1c\n\x14StreamsJobTemplateId\x18\x01 \x01(\t\"V\n\x11StreamsJobRequest\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12,\n\x0estreamsRequest\x18\x02 \x01(\x0b\x32\x14.types.StreamRequest\"\x14\n\x12StreamsJobResponse2\xa4\x01\n\x10SchedulerService\x12\x44\n\x0b\x41pplyStream\x12\x18.types.StreamsJobRequest\x1a\x19.types.StreamsJobResponse\"\x00\x12J\n\tApplyScan\x12\x1c.types.ScannerCronJobRequest\x1a\x1d.types.ScannerCronJobResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0fscheduler.proto\x12\x05types\x1a\x0cstream.proto\x1a\nscan.proto\x1a\x0etemplate.proto\"y\n\x18ScannerCronJobApiRequest\x12 \n\x18ScannerCronJobTemplateId\x18\x01 \x01(\t\x12;\n\x15scannerCronJobRequest\x18\x02 \x01(\x0b\x32\x1c.types.ScannerCronJobRequest\"o\n\x15ScannerCronJobRequest\x12\x0c\n\x04Name\x18\x01 \x01(\t\x12\x1f\n\x07trigger\x18\x02 \x01(\x0b\x32\x0e.types.Trigger\x12\'\n\x0bscanRequest\x18\x03 \x01(\x0b\x32\x12.types.ScanRequest\"\x18\n\x16ScannerCronJobResponse\"b\n\x14StreamsJobApiRequest\x12\x1c\n\x14StreamsJobTemplateId\x18\x01 \x01(\t\x12,\n\x0estreamsRequest\x18\x02 \x01(\x0b\x32\x14.types.StreamRequest\"O\n\x11StreamsJobRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12,\n\x0estreamsRequest\x18\x02 \x01(\x0b\x32\x14.types.StreamRequest\"\x14\n\x12StreamsJobResponse2\xa4\x01\n\x10SchedulerService\x12\x44\n\x0b\x41pplyStream\x12\x18.types.StreamsJobRequest\x1a\x19.types.StreamsJobResponse\"\x00\x12J\n\tApplyScan\x12\x1c.types.ScannerCronJobRequest\x1a\x1d.types.ScannerCronJobResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[stream__pb2.DESCRIPTOR,scan__pb2.DESCRIPTOR,template__pb2.DESCRIPTOR,])
 
@@ -43,6 +43,13 @@ _SCANNERCRONJOBAPIREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='scannerCronJobRequest', full_name='types.ScannerCronJobApiRequest.scannerCronJobRequest', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -56,7 +63,7 @@ _SCANNERCRONJOBAPIREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=68,
-  serialized_end=128,
+  serialized_end=189,
 )
 
 
@@ -68,7 +75,7 @@ _SCANNERCRONJOBREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='description', full_name='types.ScannerCronJobRequest.description', index=0,
+      name='Name', full_name='types.ScannerCronJobRequest.Name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -100,8 +107,8 @@ _SCANNERCRONJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=130,
-  serialized_end=248,
+  serialized_start=191,
+  serialized_end=302,
 )
 
 
@@ -124,8 +131,8 @@ _SCANNERCRONJOBRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=250,
-  serialized_end=274,
+  serialized_start=304,
+  serialized_end=328,
 )
 
 
@@ -143,6 +150,13 @@ _STREAMSJOBAPIREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='streamsRequest', full_name='types.StreamsJobApiRequest.streamsRequest', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -155,8 +169,8 @@ _STREAMSJOBAPIREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=276,
-  serialized_end=328,
+  serialized_start=330,
+  serialized_end=428,
 )
 
 
@@ -168,7 +182,7 @@ _STREAMSJOBREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='description', full_name='types.StreamsJobRequest.description', index=0,
+      name='name', full_name='types.StreamsJobRequest.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -193,8 +207,8 @@ _STREAMSJOBREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=330,
-  serialized_end=416,
+  serialized_start=430,
+  serialized_end=509,
 )
 
 
@@ -217,12 +231,14 @@ _STREAMSJOBRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=418,
-  serialized_end=438,
+  serialized_start=511,
+  serialized_end=531,
 )
 
+_SCANNERCRONJOBAPIREQUEST.fields_by_name['scannerCronJobRequest'].message_type = _SCANNERCRONJOBREQUEST
 _SCANNERCRONJOBREQUEST.fields_by_name['trigger'].message_type = template__pb2._TRIGGER
 _SCANNERCRONJOBREQUEST.fields_by_name['scanRequest'].message_type = scan__pb2._SCANREQUEST
+_STREAMSJOBAPIREQUEST.fields_by_name['streamsRequest'].message_type = stream__pb2._STREAMREQUEST
 _STREAMSJOBREQUEST.fields_by_name['streamsRequest'].message_type = stream__pb2._STREAMREQUEST
 DESCRIPTOR.message_types_by_name['ScannerCronJobApiRequest'] = _SCANNERCRONJOBAPIREQUEST
 DESCRIPTOR.message_types_by_name['ScannerCronJobRequest'] = _SCANNERCRONJOBREQUEST
@@ -282,8 +298,8 @@ _SCHEDULERSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=441,
-  serialized_end=605,
+  serialized_start=534,
+  serialized_end=698,
   methods=[
   _descriptor.MethodDescriptor(
     name='ApplyStream',

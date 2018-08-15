@@ -25,12 +25,13 @@ message AnonymizeRequest {
   string text = 1;
   // The anonymize template represent the anonymize configuration, which fields to anonymize and how
   AnonymizeTemplate template = 2;
+  // The analyze result containing the field type and location of the sensetive data to be anonymized.
   repeated AnalyzeResult analyzeResults = 3;
 }
 
 // AnonymizeResponse represents the anonymize service response 
 message AnonymizeResponse {
-  // The anonymized text
+  // The text with the senstive fields anonymized
   string text = 1;
 }
 
