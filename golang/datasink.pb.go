@@ -77,11 +77,11 @@ func (DatasinkTypesEnum) EnumDescriptor() ([]byte, []int) {
 // DatasinkRequest represents the request to the data-sink service via GRPC
 type DatasinkRequest struct {
 	// Array of the analyzed results
-	AnalyzeResults []*AnalyzeResult `protobuf:"bytes,1,rep,name=analyzeResults" json:"analyzeResults,omitempty"`
+	AnalyzeResults []*AnalyzeResult `protobuf:"bytes,1,rep,name=analyzeResults,proto3" json:"analyzeResults,omitempty"`
 	// The anonymized text
-	AnonymizeResult *AnonymizeResponse `protobuf:"bytes,2,opt,name=anonymizeResult" json:"anonymizeResult,omitempty"`
+	AnonymizeResult *AnonymizeResponse `protobuf:"bytes,2,opt,name=anonymizeResult,proto3" json:"anonymizeResult,omitempty"`
 	// The path where the anonymized text is located
-	Path                 string   `protobuf:"bytes,3,opt,name=path" json:"path,omitempty"`
+	Path                 string   `protobuf:"bytes,3,opt,name=path,proto3" json:"path,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`

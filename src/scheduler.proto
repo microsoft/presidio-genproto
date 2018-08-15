@@ -6,17 +6,19 @@ import "template.proto";
 
 // ScannerCronJobApiRequest represents the request to the API HTTP service 
 message ScannerCronJobApiRequest {
-    // The scanner cron job template id
+    // The scanner cron job template id 
     string ScannerCronJobTemplateId = 1;
+    // The scanner cron job requeset represents the  the scanning job details [optional parameter]
+    ScannerCronJobRequest scannerCronJobRequest = 2;
 }
 
 // ScannerCronJobRequest represents the request to the scheduler service via GRPC 
 message ScannerCronJobRequest {
-    // The cron job description
-    string description = 1;
+    // Scanner cronjob name
+    string Name = 1;
     // The trigger for a new job to start
     Trigger trigger = 2;
-    // The scanner requeset that hold the scanning details
+    // The scanner request represents the scanning details
     ScanRequest scanRequest = 3;
 }
 
@@ -25,14 +27,16 @@ message ScannerCronJobResponse {
 
 // StreamsJobApiRequest represents the request to the API HTTP service 
 message StreamsJobApiRequest {
-    // The streams  job template id
+    // The streams job template id
     string StreamsJobTemplateId = 1;
+    // The streams request that contains the full streamsRequest
+    StreamRequest streamsRequest = 2;
 }
 
 // StreamsJobRequest represents the request to the scheduler service via GRPC 
 message StreamsJobRequest {
-    // The cron job description
-    string description = 1;
+    // The streams job name
+    string name = 1;
     // The streams requeset that hold the streaming details
     StreamRequest streamsRequest = 2;
 }
@@ -40,7 +44,7 @@ message StreamsJobRequest {
 message StreamsJobResponse {
 }
 
-// The CronJob Service is a service that triggers a new cronjob for scanning a given storage periodcallly 
+// The CronJob Service is a service that triggers a new cronjob for scanning a given storage periodcally 
 service SchedulerService {
   // ApplyStream method will trigger a new scanning cron job and will return if it was triggered successfully
   rpc ApplyStream (StreamsJobRequest) returns (StreamsJobResponse) {}

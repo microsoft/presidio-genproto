@@ -5,7 +5,7 @@ import scheduler_pb2 as scheduler__pb2
 
 
 class SchedulerServiceStub(object):
-  """The CronJob Service is a service that triggers a new cronjob for scanning a given storage periodcallly 
+  """The CronJob Service is a service that triggers a new cronjob for scanning a given storage periodcally 
   """
 
   def __init__(self, channel):
@@ -27,7 +27,7 @@ class SchedulerServiceStub(object):
 
 
 class SchedulerServiceServicer(object):
-  """The CronJob Service is a service that triggers a new cronjob for scanning a given storage periodcallly 
+  """The CronJob Service is a service that triggers a new cronjob for scanning a given storage periodcally 
   """
 
   def ApplyStream(self, request, context):

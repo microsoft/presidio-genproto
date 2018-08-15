@@ -7,6 +7,8 @@ message FieldTypes {
   string name = 1;
   // Field type language code
   string languageCode = 2;
+  // The minScore will filter results which has lower certainty than the provided value.
+  string minScore = 3;
 }
 
 // FieldTypes for Analyzing and Anonymizing

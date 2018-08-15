@@ -82,9 +82,11 @@ message MaskValue {
 // Supported database: mssql, mysql, sqlite3, postgreSQL, oracle
 message DBConfig {
     // The database connection string
-    string connectionString = 2;
+    string connectionString = 1;
     // The table name
-    string tableName = 3;
+    string tableName = 2;
+    // The database type
+    string type = 3;
 }
 
 // Datasink represents the configuration for storing the scanner output to the selected destination such as cloud storage, database, etc.
@@ -99,13 +101,15 @@ message Datasink {
 
 // DatasinkTemplate represents the scanner service outputs definition.
 message DatasinkTemplate {
-    // analyzer output kind - supported types defined in DatasinkTypesEnum
-    string analyzerKind = 1;
-    // anonymizer output kind - supported types defined in DatasinkTypesEnum
-    string anonymizerKind = 2;
-    // Datasink represents represents the configuration for storing the scanner output.
-    // Needs to be configured corresponding the selected analyzer/anonymizer types 
-    Datasink datasink = 3;
+    // Template description
+    string description = 1;
+    // Datasink represents the configuration for storing the scanner output.
+    // Datasink can output both of the analyze and anonymize results and to multiple outputs
+    // Supported outputs are CloudStorage: AWS S3, Azure Blob storage, Google Storage
+    // Streams: Azure EventHub, Kafka, Kinesis
+    // Database: MySql, SqlLite3, MSSQL, PostgreSQL
+    repeated Datasink analyzeDatasink = 2;
+    repeated Datasink anonymizeDatasink = 3;
 }
 
 // Azure Blob Storage configuration
@@ -162,6 +166,8 @@ message StreamConfig {
     EHConfig ehConfig = 2;
     // The Kinesis configuration
     KinesisConfig kinesisConfig = 3;
+    // Number of partitions if applicable
+    int32 partitionCount = 4;
 }
 
 // The Kafka configuration
@@ -209,48 +215,46 @@ message KinesisConfig {
 // StreamTemplate represents the stream configuration for streaming data and analyzing/anonymizing it.
 // And sending the output to the selected destination
 message StreamTemplate {
-    // The stream kind. Supported Kinds: EventHub, Kafka, Kinesis
-    string kind = 1;
+    // The job name
+    string name = 1;
+    // Template description
+    string description = 2;
     // The selected stream configuration
-    StreamConfig streamConfig = 2;
-    // The minProbability will filter results which has lower certainty than the provided value.
-    string minProbability = 3;
+    StreamConfig streamConfig = 3;
     // The analyzer template id configures the fields to analyze
     string analyzeTemplateId = 4;
     // The anonymizer template id configures how to anonymize the sensitive data [optional]
     string anonymizeTemplateId = 5;
     // The datasinkTemplateId configures the output destination of the analyzer/anonymizer results
     string datasinkTemplateId = 6;
-    // Number of partitions
-    int32 partitionCount = 7;
 }
 
 // ScanTemplate represents the scan configuration for scanning data and analyzing/anonymizing it.
 // And sending the output to the selected destination
 message ScanTemplate {
-    // The input scan kind, supported kinds are: Azure blob storage, AWS S3, Google Storage
-    string kind = 1;
-    // The selected cloudstorage configuration
+    // Template description
+    string description = 1;
+    // The selected cloud storage configuration
     CloudStorageConfig cloudStorageConfig = 2;
-    // The minProbability will filter results which has lower certainty than the provided value.
-    string minProbability = 3;
 }
 
 // The kuberenetes Cronjob template. Creates a time based scanning job scheduler that runs periodcally
 // on the selected time
 message ScannerCronJobTemplate {
+    // The job name
+    string name = 1;
     // The job description
-    string description = 1;
+    string description = 2;
     // The trigger for a new job to start
-    Trigger trigger = 2;
+    Trigger trigger = 3;
     // The scan template id configures job input source
-    string scanTemplateId = 3;
+    string scanTemplateId = 4;
     // The analyzer template id configures the fields to analyze
-    string analyzeTemplateId = 4;
+    string analyzeTemplateId = 5;
     // The anonymizer template id configures how to anonymize the sensitive data [optional]
-    string anonymizeTemplateId = 5;
+    string anonymizeTemplateId = 6;
     // The datasink template id configures the output destination of the analyzer/anonymizer results
-    string datasinkTemplateId = 6;
+    string datasinkTemplateId = 7;
 }
 
 // The kuberenetes job template. Creates a job that creates streams containers

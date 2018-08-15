@@ -21,9 +21,6 @@ message AnalyzeRequest {
   string text = 1;
   // The analyze template, which configures which sensitive data should be analyzed
   AnalyzeTemplate analyzeTemplate = 2;
-  // The analyze service defines a degree of certainty (0 to 1) for each result. 
-  // The minProbability will filter results which has lower certainty than the provided value.
-  string minProbability = 3;
 }
 
 

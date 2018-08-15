@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='scan.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\nscan.proto\x12\x05types\x1a\x0etemplate.proto\"\x83\x02\n\x0bScanRequest\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x35\n\x12\x63loudStorageConfig\x18\x02 \x01(\x0b\x32\x19.types.CloudStorageConfig\x12\x16\n\x0eminProbability\x18\x03 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x04 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x33\n\x11\x61nonymizeTemplate\x18\x05 \x01(\x0b\x32\x18.types.AnonymizeTemplate\x12\x31\n\x10\x64\x61tasinkTemplate\x18\x06 \x01(\x0b\x32\x17.types.DatasinkTemplateb\x06proto3')
+  serialized_pb=_b('\n\nscan.proto\x12\x05types\x1a\x0etemplate.proto\"\xd1\x01\n\x0bScanRequest\x12)\n\x0cscanTemplate\x18\x01 \x01(\x0b\x32\x13.types.ScanTemplate\x12/\n\x0f\x61nalyzeTemplate\x18\x02 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x33\n\x11\x61nonymizeTemplate\x18\x03 \x01(\x0b\x32\x18.types.AnonymizeTemplate\x12\x31\n\x10\x64\x61tasinkTemplate\x18\x04 \x01(\x0b\x32\x17.types.DatasinkTemplateb\x06proto3')
   ,
   dependencies=[template__pb2.DESCRIPTOR,])
 
@@ -35,43 +35,29 @@ _SCANREQUEST = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='kind', full_name='types.ScanRequest.kind', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='scanTemplate', full_name='types.ScanRequest.scanTemplate', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='cloudStorageConfig', full_name='types.ScanRequest.cloudStorageConfig', index=1,
+      name='analyzeTemplate', full_name='types.ScanRequest.analyzeTemplate', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='minProbability', full_name='types.ScanRequest.minProbability', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='anonymizeTemplate', full_name='types.ScanRequest.anonymizeTemplate', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='analyzeTemplate', full_name='types.ScanRequest.analyzeTemplate', index=3,
+      name='datasinkTemplate', full_name='types.ScanRequest.datasinkTemplate', index=3,
       number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='anonymizeTemplate', full_name='types.ScanRequest.anonymizeTemplate', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='datasinkTemplate', full_name='types.ScanRequest.datasinkTemplate', index=5,
-      number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -89,10 +75,10 @@ _SCANREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=38,
-  serialized_end=297,
+  serialized_end=247,
 )
 
-_SCANREQUEST.fields_by_name['cloudStorageConfig'].message_type = template__pb2._CLOUDSTORAGECONFIG
+_SCANREQUEST.fields_by_name['scanTemplate'].message_type = template__pb2._SCANTEMPLATE
 _SCANREQUEST.fields_by_name['analyzeTemplate'].message_type = template__pb2._ANALYZETEMPLATE
 _SCANREQUEST.fields_by_name['anonymizeTemplate'].message_type = template__pb2._ANONYMIZETEMPLATE
 _SCANREQUEST.fields_by_name['datasinkTemplate'].message_type = template__pb2._DATASINKTEMPLATE
