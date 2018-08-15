@@ -30,7 +30,7 @@ message StreamsJobApiRequest {
     // The streams job template id
     string StreamsJobTemplateId = 1;
     // The streams request that contains the full streamsRequest
-    StreamRequest streamsRequest = 2;
+    StreamsJobRequest streamsJobRequest = 2;
 }
 
 // StreamsJobRequest represents the request to the scheduler service via GRPC 

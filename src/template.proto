@@ -259,16 +259,18 @@ message ScannerCronJobTemplate {
 
 // The kuberenetes job template. Creates a job that creates streams containers
 message StreamsJobTemplate {
+    // The job name
+    string name = 1;
     // The job description
-    string description = 1;
+    string description = 2;
     // The scan template id configures job input source
-    string streamsTemplateId = 2;
+    string streamsTemplateId = 3;
     // The analyzer template id configures the fields to analyze
-    string analyzeTemplateId = 3;
+    string analyzeTemplateId = 4;
     // The anonymizer template id configures how to anonymize the sensitive data [optional]
-    string anonymizeTemplateId = 4;
+    string anonymizeTemplateId = 5;
     // The datasink template id configures the output destination of the analyzer/anonymizer results
-    string datasinkTemplateId = 5;
+    string datasinkTemplateId = 6;
 }
 
 // Trigger defines the trigger for a new job to start
