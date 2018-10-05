@@ -21,13 +21,13 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // ScanRequest represents the request to the scanner service via GRPC
 type ScanRequest struct {
 	// The scanTemplate configures the input source of the scanning
-	ScanTemplate *ScanTemplate `protobuf:"bytes,1,opt,name=scanTemplate,proto3" json:"scanTemplate,omitempty"`
+	ScanTemplate *ScanTemplate `protobuf:"bytes,1,opt,name=scanTemplate" json:"scanTemplate,omitempty"`
 	// The analyzer template configures the fields to analyze
-	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,2,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
+	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,2,opt,name=analyzeTemplate" json:"analyzeTemplate,omitempty"`
 	// The anonymizer template configures how to anonymize the sensitive data [optional]
-	AnonymizeTemplate *AnonymizeTemplate `protobuf:"bytes,3,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate,omitempty"`
+	AnonymizeTemplate *AnonymizeTemplate `protobuf:"bytes,3,opt,name=anonymizeTemplate" json:"anonymizeTemplate,omitempty"`
 	// The datasinkTemplate configures the output destination of the analyzer/anonymizer results
-	DatasinkTemplate     *DatasinkTemplate `protobuf:"bytes,4,opt,name=datasinkTemplate,proto3" json:"datasinkTemplate,omitempty"`
+	DatasinkTemplate     *DatasinkTemplate `protobuf:"bytes,4,opt,name=datasinkTemplate" json:"datasinkTemplate,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
 	XXX_sizecache        int32             `json:"-"`

@@ -26,11 +26,11 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // AnalyzeApiRequest represents the request to the API HTTP service
 type AnalyzeApiRequest struct {
 	// The text to analyze
-	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	Text string `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
 	// The analyze template id - that hold the analyze configuration
-	AnalyzeTemplateId string `protobuf:"bytes,2,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
+	AnalyzeTemplateId string `protobuf:"bytes,2,opt,name=analyzeTemplateId" json:"analyzeTemplateId,omitempty"`
 	// Optional parameter for running the analyze service without creating a template
-	AnalyzeTemplate      *AnalyzeTemplate `protobuf:"bytes,3,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
+	AnalyzeTemplate      *AnalyzeTemplate `protobuf:"bytes,3,opt,name=analyzeTemplate" json:"analyzeTemplate,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
 	XXX_unrecognized     []byte           `json:"-"`
 	XXX_sizecache        int32            `json:"-"`
@@ -84,9 +84,9 @@ func (m *AnalyzeApiRequest) GetAnalyzeTemplate() *AnalyzeTemplate {
 // AnalyzeRequest represents the request to the analyze service via GRPC
 type AnalyzeRequest struct {
 	// The text to analyze
-	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	Text string `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
 	// The analyze template, which configures which sensitive data should be analyzed
-	AnalyzeTemplate      *AnalyzeTemplate `protobuf:"bytes,2,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
+	AnalyzeTemplate      *AnalyzeTemplate `protobuf:"bytes,2,opt,name=analyzeTemplate" json:"analyzeTemplate,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
 	XXX_unrecognized     []byte           `json:"-"`
 	XXX_sizecache        int32            `json:"-"`
@@ -133,7 +133,7 @@ func (m *AnalyzeRequest) GetAnalyzeTemplate() *AnalyzeTemplate {
 // AnalyzeResponse represents the analyze service response
 type AnalyzeResponse struct {
 	// Array of the analyze results finding
-	AnalyzeResults       []*AnalyzeResult `protobuf:"bytes,1,rep,name=analyzeResults,proto3" json:"analyzeResults,omitempty"`
+	AnalyzeResults       []*AnalyzeResult `protobuf:"bytes,1,rep,name=analyzeResults" json:"analyzeResults,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
 	XXX_unrecognized     []byte           `json:"-"`
 	XXX_sizecache        int32            `json:"-"`

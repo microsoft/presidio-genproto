@@ -26,16 +26,16 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // AnonymizeApiRequest represents the request to the API HTTP service
 type AnonymizeApiRequest struct {
 	// The text to anonymize
-	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	Text string `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
 	// The analyze template id - anonymization is done according to analyzing results.
 	// One of analyzeTemplateId or analyzeTemplate have to be configured.
-	AnalyzeTemplateId string `protobuf:"bytes,2,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
+	AnalyzeTemplateId string `protobuf:"bytes,2,opt,name=analyzeTemplateId" json:"analyzeTemplateId,omitempty"`
 	// The anonymize template id - represents the anonymize configuration, which fields to anonymize and how.
-	AnonymizeTemplateId string `protobuf:"bytes,3,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId,omitempty"`
+	AnonymizeTemplateId string `protobuf:"bytes,3,opt,name=anonymizeTemplateId" json:"anonymizeTemplateId,omitempty"`
 	// Optional parameter for running the analyzer without creating a template.
-	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,4,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
+	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,4,opt,name=analyzeTemplate" json:"analyzeTemplate,omitempty"`
 	// Optional parameter for running the anonymizer without creating a template.
-	AnonymizeTemplate    *AnonymizeTemplate `protobuf:"bytes,5,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate,omitempty"`
+	AnonymizeTemplate    *AnonymizeTemplate `protobuf:"bytes,5,opt,name=anonymizeTemplate" json:"anonymizeTemplate,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
 	XXX_sizecache        int32              `json:"-"`
@@ -103,11 +103,11 @@ func (m *AnonymizeApiRequest) GetAnonymizeTemplate() *AnonymizeTemplate {
 // AnonymizeRequest represents the request to the anonymize service via GRPC
 type AnonymizeRequest struct {
 	// The text to anonymize
-	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	Text string `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
 	// The anonymize template represent the anonymize configuration, which fields to anonymize and how
-	Template *AnonymizeTemplate `protobuf:"bytes,2,opt,name=template,proto3" json:"template,omitempty"`
+	Template *AnonymizeTemplate `protobuf:"bytes,2,opt,name=template" json:"template,omitempty"`
 	// The analyze result containing the field type and location of the sensetive data to be anonymized.
-	AnalyzeResults       []*AnalyzeResult `protobuf:"bytes,3,rep,name=analyzeResults,proto3" json:"analyzeResults,omitempty"`
+	AnalyzeResults       []*AnalyzeResult `protobuf:"bytes,3,rep,name=analyzeResults" json:"analyzeResults,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
 	XXX_unrecognized     []byte           `json:"-"`
 	XXX_sizecache        int32            `json:"-"`
@@ -161,7 +161,7 @@ func (m *AnonymizeRequest) GetAnalyzeResults() []*AnalyzeResult {
 // AnonymizeResponse represents the anonymize service response
 type AnonymizeResponse struct {
 	// The text with the senstive fields anonymized
-	Text                 string   `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	Text                 string   `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`

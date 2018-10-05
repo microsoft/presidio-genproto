@@ -80,6 +80,7 @@
     - [Datasink](#types.Datasink)
     - [DatasinkTemplate](#types.DatasinkTemplate)
     - [EHConfig](#types.EHConfig)
+    - [FFIEncryptionValue](#types.FFIEncryptionValue)
     - [FieldTypeTransformation](#types.FieldTypeTransformation)
     - [GoogleStorageConfig](#types.GoogleStorageConfig)
     - [HashValue](#types.HashValue)
@@ -140,7 +141,6 @@ AnalyzeRequest represents the request to the analyze service via GRPC
 | ----- | ---- | ----- | ----------- |
 | text | [string](#string) |  | The text to analyze |
 | analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  | The analyze template, which configures which sensitive data should be analyzed |
-| minProbability | [string](#string) |  | The analyze service defines a degree of certainty (0 to 1) for each result. The minProbability will filter results which has lower certainty than the provided value. |
 
 
 
@@ -218,7 +218,7 @@ AnonymizeRequest represents the request to the anonymize service via GRPC
 | ----- | ---- | ----- | ----------- |
 | text | [string](#string) |  | The text to anonymize |
 | template | [AnonymizeTemplate](#types.AnonymizeTemplate) |  | The anonymize template represent the anonymize configuration, which fields to anonymize and how |
-| analyzeResults | [AnalyzeResult](#types.AnalyzeResult) | repeated |  |
+| analyzeResults | [AnalyzeResult](#types.AnalyzeResult) | repeated | The analyze result containing the field type and location of the sensetive data to be anonymized. |
 
 
 
@@ -233,7 +233,7 @@ AnonymizeResponse represents the anonymize service response
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| text | [string](#string) |  | The anonymized text |
+| text | [string](#string) |  | The text with the senstive fields anonymized |
 
 
 
@@ -294,6 +294,7 @@ FieldType strucy
 | ----- | ---- | ----- | ----------- |
 | name | [string](#string) |  | Field type name |
 | languageCode | [string](#string) |  | Field type language code |
+| minScore | [string](#string) |  | The minScore will filter results which has lower certainty than the provided value. |
 
 
 
@@ -453,9 +454,7 @@ ScanRequest represents the request to the scanner service via GRPC
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| kind | [string](#string) |  | The scanner input kind |
-| cloudStorageConfig | [CloudStorageConfig](#types.CloudStorageConfig) |  | The cloud storage configuration for scanning cloud storage such as AzureBlobStorage, AWS S3 And Google Storage |
-| minProbability | [string](#string) |  | The minProbability will filter results which has lower certainty than the provided value. |
+| scanTemplate | [ScanTemplate](#types.ScanTemplate) |  | The scanTemplate configures the input source of the scanning |
 | analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  | The analyzer template configures the fields to analyze |
 | anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  | The anonymizer template configures how to anonymize the sensitive data [optional] |
 | datasinkTemplate | [DatasinkTemplate](#types.DatasinkTemplate) |  | The datasinkTemplate configures the output destination of the analyzer/anonymizer results |
@@ -490,6 +489,7 @@ ScannerCronJobApiRequest represents the request to the API HTTP service
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | ScannerCronJobTemplateId | [string](#string) |  | The scanner cron job template id |
+| scannerCronJobRequest | [ScannerCronJobRequest](#types.ScannerCronJobRequest) |  | The scanner cron job requeset represents the the scanning job details [optional parameter] |
 
 
 
@@ -504,9 +504,9 @@ ScannerCronJobRequest represents the request to the scheduler service via GRPC
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| description | [string](#string) |  | The cron job description |
+| Name | [string](#string) |  | Scanner cronjob name |
 | trigger | [Trigger](#types.Trigger) |  | The trigger for a new job to start |
-| scanRequest | [ScanRequest](#types.ScanRequest) |  | The scanner requeset that hold the scanning details |
+| scanRequest | [ScanRequest](#types.ScanRequest) |  | The scanner request represents the scanning details |
 
 
 
@@ -532,6 +532,7 @@ StreamsJobApiRequest represents the request to the API HTTP service
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | StreamsJobTemplateId | [string](#string) |  | The streams job template id |
+| streamsJobRequest | [StreamsJobRequest](#types.StreamsJobRequest) |  | The streams request that contains the full streamsRequest |
 
 
 
@@ -546,7 +547,7 @@ StreamsJobRequest represents the request to the scheduler service via GRPC
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| description | [string](#string) |  | The cron job description |
+| name | [string](#string) |  | The streams job name |
 | streamsRequest | [StreamRequest](#types.StreamRequest) |  | The streams requeset that hold the streaming details |
 
 
@@ -573,7 +574,7 @@ StreamsJobRequest represents the request to the scheduler service via GRPC
 <a name="types.SchedulerService"/>
 
 ### SchedulerService
-The CronJob Service is a service that triggers a new cronjob for scanning a given storage periodcallly
+The CronJob Service is a service that triggers a new cronjob for scanning a given storage periodcally
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
@@ -599,9 +600,7 @@ StreamRequest represents the request to the stream service via GRPC
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| kind | [string](#string) |  | The scanner input kind |
 | streamConfig | [StreamConfig](#types.StreamConfig) |  | The stream configuration for scanning streams such as Azure EventHub, Kafka and Kinesis |
-| minProbability | [string](#string) |  | The minProbability will filter results which has lower certainty than the provided value. |
 | analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  | The analyzer template configures the fields to analyze |
 | anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  | The anonymizer template configures how to anonymize the sensitive data [optional] |
 | datasinkTemplate | [DatasinkTemplate](#types.DatasinkTemplate) |  | The datasinkTemplate configures the output destination of the analyzer/anonymizer results |
@@ -708,6 +707,7 @@ Supported database: mssql, mysql, sqlite3, postgreSQL, oracle
 | ----- | ---- | ----- | ----------- |
 | connectionString | [string](#string) |  | The database connection string |
 | tableName | [string](#string) |  | The table name |
+| type | [string](#string) |  | The database type |
 
 
 
@@ -739,9 +739,9 @@ DatasinkTemplate represents the scanner service outputs definition.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| analyzerKind | [string](#string) |  | analyzer output kind - supported types defined in DatasinkTypesEnum |
-| anonymizerKind | [string](#string) |  | anonymizer output kind - supported types defined in DatasinkTypesEnum |
-| datasink | [Datasink](#types.Datasink) |  | Datasink represents represents the configuration for storing the scanner output. Needs to be configured corresponding the selected analyzer/anonymizer types |
+| description | [string](#string) |  | Template description |
+| analyzeDatasink | [Datasink](#types.Datasink) | repeated | Datasink represents the configuration for storing the scanner output. Datasink can output both of the analyze and anonymize results and to multiple outputs Supported outputs are CloudStorage: AWS S3, Azure Blob storage, Google Storage Streams: Azure EventHub, Kafka, Kinesis Database: MySql, SqlLite3, MSSQL, PostgreSQL |
+| anonymizeDatasink | [Datasink](#types.Datasink) | repeated |  |
 
 
 
@@ -761,6 +761,26 @@ Azure EventHub configuration
 | ehConnectionString | [string](#string) |  | Eventhub connection string |
 | ehKeyName | [string](#string) |  | Eventhub key name (a key name and a key value can provided instead of the full connection string) |
 | ehKeyValue | [string](#string) |  | Eventhub key value |
+| storageAccountNameValue | [string](#string) |  | Storage account name value |
+| storageAccountKeyValue | [string](#string) |  | Storage account key value |
+| containerValue | [string](#string) |  | Storage container value |
+
+
+
+
+
+
+<a name="types.FFIEncryptionValue"/>
+
+### FFIEncryptionValue
+Encrypt the given value with FFI alogrithm to presereve detected value size.
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) |  | base64 encoded 128, 192, 256 size key |
+| tweak | [string](#string) |  | base64 encoded tweak. Size must be below 8 |
+| decrypt | [bool](#bool) |  | true to decrypt value |
 
 
 
@@ -804,7 +824,7 @@ Represents the Google Storage configuration
 <a name="types.HashValue"/>
 
 ### HashValue
-Uses cryptographich hash on the given value with FNV-1 hash.
+Uses cryptographich hash on the given value with SHA-256 hash.
 
 
 
@@ -925,9 +945,8 @@ And sending the output to the selected destination
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| kind | [string](#string) |  | The input scan kind, supported kinds are: Azure blob storage, AWS S3, Google Storage |
-| cloudStorageConfig | [CloudStorageConfig](#types.CloudStorageConfig) |  | The selected cloudstorage configuration |
-| minProbability | [string](#string) |  | The minProbability will filter results which has lower certainty than the provided value. |
+| description | [string](#string) |  | Template description |
+| cloudStorageConfig | [CloudStorageConfig](#types.CloudStorageConfig) |  | The selected cloud storage configuration |
 
 
 
@@ -943,6 +962,7 @@ on the selected time
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  | The job name |
 | description | [string](#string) |  | The job description |
 | trigger | [Trigger](#types.Trigger) |  | The trigger for a new job to start |
 | scanTemplateId | [string](#string) |  | The scan template id configures job input source |
@@ -981,6 +1001,7 @@ Represents the streams configuration
 | kafkaConfig | [KafkaConfig](#types.KafkaConfig) |  | The kafka configuration |
 | ehConfig | [EHConfig](#types.EHConfig) |  | The Azure Event Hub configuration |
 | kinesisConfig | [KinesisConfig](#types.KinesisConfig) |  | The Kinesis configuration |
+| partitionCount | [int32](#int32) |  | Number of partitions if applicable |
 
 
 
@@ -996,13 +1017,12 @@ And sending the output to the selected destination
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| kind | [string](#string) |  | The stream kind. Supported Kinds: EventHub, Kafka, Kinesis |
+| name | [string](#string) |  | The job name |
+| description | [string](#string) |  | Template description |
 | streamConfig | [StreamConfig](#types.StreamConfig) |  | The selected stream configuration |
-| minProbability | [string](#string) |  | The minProbability will filter results which has lower certainty than the provided value. |
 | analyzeTemplateId | [string](#string) |  | The analyzer template id configures the fields to analyze |
 | anonymizeTemplateId | [string](#string) |  | The anonymizer template id configures how to anonymize the sensitive data [optional] |
 | datasinkTemplateId | [string](#string) |  | The datasinkTemplateId configures the output destination of the analyzer/anonymizer results |
-| partitionCount | [int32](#int32) |  | Number of partitions |
 
 
 
@@ -1017,6 +1037,7 @@ The kuberenetes job template. Creates a job that creates streams containers
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  | The job name |
 | description | [string](#string) |  | The job description |
 | streamsTemplateId | [string](#string) |  | The scan template id configures job input source |
 | analyzeTemplateId | [string](#string) |  | The analyzer template id configures the fields to analyze |
@@ -1040,6 +1061,7 @@ Transformation represents the transformation types - how the sensitive text will
 | redactValue | [RedactValue](#types.RedactValue) |  | Redact the text |
 | hashValue | [HashValue](#types.HashValue) |  | Hashes the text |
 | maskValue | [MaskValue](#types.MaskValue) |  | Mask n characters of the text |
+| ffiEncryptionValue | [FFIEncryptionValue](#types.FFIEncryptionValue) |  | Encrypt the text |
 
 
 

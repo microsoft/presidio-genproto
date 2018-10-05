@@ -46,6 +46,8 @@ message Transformation {
     HashValue hashValue = 4;
     // Mask n characters of the text
     MaskValue maskValue = 5;
+    // Encrypt the text
+    FFIEncryptionValue ffiEncryptionValue = 6;
 }
 
 // Replace the value with the given new value. 
@@ -61,7 +63,7 @@ message ReplaceValue {
 message RedactValue {
 }
 
-// Uses cryptographich hash on the given value with FNV-1 hash.
+// Uses cryptographich hash on the given value with SHA-256 hash.
 message HashValue {
 }
 
@@ -76,6 +78,16 @@ message MaskValue {
     int32 charsToMask = 2;
     // Should start masking from end
     bool fromEnd = 3;
+}
+
+// Encrypt the given value with FFI alogrithm to presereve detected value size.
+message FFIEncryptionValue {
+    // base64 encoded 128, 192, 256 size key
+    string key = 1;
+    // base64 encoded tweak. Size must be below 8 
+    string tweak = 2;
+    // true to decrypt value
+    bool decrypt = 3;
 }
 
 // DBConfig represents the Database configuration - the DB connection string and the table name
@@ -194,6 +206,12 @@ message EHConfig {
     string ehKeyName = 4;
     // Eventhub key value
     string ehKeyValue = 5;
+    // Storage account name value
+    string storageAccountNameValue = 6;
+    // Storage account key value
+    string storageAccountKeyValue = 7;
+    // Storage container  value
+    string containerValue = 8;
 }
 
 // The Kinesis cinfiguration
@@ -259,16 +277,18 @@ message ScannerCronJobTemplate {
 
 // The kuberenetes job template. Creates a job that creates streams containers
 message StreamsJobTemplate {
+    // The job name
+    string name = 1;
     // The job description
-    string description = 1;
+    string description = 2;
     // The scan template id configures job input source
-    string streamsTemplateId = 2;
+    string streamsTemplateId = 3;
     // The analyzer template id configures the fields to analyze
-    string analyzeTemplateId = 3;
+    string analyzeTemplateId = 4;
     // The anonymizer template id configures how to anonymize the sensitive data [optional]
-    string anonymizeTemplateId = 4;
+    string anonymizeTemplateId = 5;
     // The datasink template id configures the output destination of the analyzer/anonymizer results
-    string datasinkTemplateId = 5;
+    string datasinkTemplateId = 6;
 }
 
 // Trigger defines the trigger for a new job to start
