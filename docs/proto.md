@@ -80,7 +80,7 @@
     - [Datasink](#types.Datasink)
     - [DatasinkTemplate](#types.DatasinkTemplate)
     - [EHConfig](#types.EHConfig)
-    - [FFIEncryptionValue](#types.FFIEncryptionValue)
+    - [FPEValue](#types.FPEValue)
     - [FieldTypeTransformation](#types.FieldTypeTransformation)
     - [GoogleStorageConfig](#types.GoogleStorageConfig)
     - [HashValue](#types.HashValue)
@@ -770,9 +770,9 @@ Azure EventHub configuration
 
 
 
-<a name="types.FFIEncryptionValue"/>
+<a name="types.FPEValue"/>
 
-### FFIEncryptionValue
+### FPEValue
 Encrypt the given value with FFI alogrithm to presereve detected value size.
 
 
@@ -1061,7 +1061,7 @@ Transformation represents the transformation types - how the sensitive text will
 | redactValue | [RedactValue](#types.RedactValue) |  | Redact the text |
 | hashValue | [HashValue](#types.HashValue) |  | Hashes the text |
 | maskValue | [MaskValue](#types.MaskValue) |  | Mask n characters of the text |
-| ffiEncryptionValue | [FFIEncryptionValue](#types.FFIEncryptionValue) |  | Encrypt the text |
+| fPEValue | [FPEValue](#types.FPEValue) |  | Encrypt/Decrypt the text |
 
 
 

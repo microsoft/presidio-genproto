@@ -46,8 +46,8 @@ message Transformation {
     HashValue hashValue = 4;
     // Mask n characters of the text
     MaskValue maskValue = 5;
-    // Encrypt the text
-    FFIEncryptionValue ffiEncryptionValue = 6;
+    // Encrypt/Decrypt the text
+    FPEValue fPEValue = 6;
 }
 
 // Replace the value with the given new value. 
@@ -81,7 +81,7 @@ message MaskValue {
 }
 
 // Encrypt the given value with FFI alogrithm to presereve detected value size.
-message FFIEncryptionValue {
+message FPEValue {
     // base64 encoded 128, 192, 256 size key
     string key = 1;
     // base64 encoded tweak. Size must be below 8 
