@@ -85,7 +85,6 @@
     - [GoogleStorageConfig](#types.GoogleStorageConfig)
     - [HashValue](#types.HashValue)
     - [KafkaConfig](#types.KafkaConfig)
-    - [KinesisConfig](#types.KinesisConfig)
     - [MaskValue](#types.MaskValue)
     - [RedactValue](#types.RedactValue)
     - [ReplaceValue](#types.ReplaceValue)
@@ -413,10 +412,9 @@ The data sink supported destenation types
 | oracle | 4 |  |
 | kafka | 5 |  |
 | eventhub | 6 |  |
-| kinesis | 7 |  |
-| s3 | 8 |  |
-| azureblob | 9 |  |
-| googlestorage | 10 |  |
+| s3 | 7 |  |
+| azureblob | 8 |  |
+| googlestorage | 9 |  |
 
 
  
@@ -600,7 +598,7 @@ StreamRequest represents the request to the stream service via GRPC
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| streamConfig | [StreamConfig](#types.StreamConfig) |  | The stream configuration for scanning streams such as Azure EventHub, Kafka and Kinesis |
+| streamConfig | [StreamConfig](#types.StreamConfig) |  | The stream configuration for scanning streams such as Azure EventHub and Kafka |
 | analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  | The analyzer template configures the fields to analyze |
 | anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  | The anonymizer template configures how to anonymize the sensitive data [optional] |
 | datasinkTemplate | [DatasinkTemplate](#types.DatasinkTemplate) |  | The datasinkTemplate configures the output destination of the analyzer/anonymizer results |
@@ -740,7 +738,7 @@ DatasinkTemplate represents the scanner service outputs definition.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | description | [string](#string) |  | Template description |
-| analyzeDatasink | [Datasink](#types.Datasink) | repeated | Datasink represents the configuration for storing the scanner output. Datasink can output both of the analyze and anonymize results and to multiple outputs Supported outputs are CloudStorage: AWS S3, Azure Blob storage, Google Storage Streams: Azure EventHub, Kafka, Kinesis Database: MySql, SqlLite3, MSSQL, PostgreSQL |
+| analyzeDatasink | [Datasink](#types.Datasink) | repeated | Datasink represents the configuration for storing the scanner output. Datasink can output both of the analyze and anonymize results and to multiple outputs Supported outputs are CloudStorage: AWS S3, Azure Blob storage, Google Storage Streams: Azure EventHub, Kafka Database: MySql, SqlLite3, MSSQL, PostgreSQL |
 | anonymizeDatasink | [Datasink](#types.Datasink) | repeated |  |
 
 
@@ -843,26 +841,6 @@ The Kafka configuration
 | topic | [string](#string) |  | Kafka topic |
 | saslUsername | [string](#string) |  | SASL authentication user name |
 | saslPassword | [string](#string) |  | SASL authentication password |
-
-
-
-
-
-
-<a name="types.KinesisConfig"/>
-
-### KinesisConfig
-The Kinesis cinfiguration
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| awsAccessKeyId | [string](#string) |  | AWS secret access key |
-| awsRegion | [string](#string) |  | AWS secret region |
-| awsSecretAccessKey | [string](#string) |  | AWS secret secret key |
-| redisUrl | [string](#string) |  | The Redis url |
-| streamName | [string](#string) |  | The stream name |
-| endpointAddress | [string](#string) |  | The endpoint address |
 
 
 
@@ -1000,7 +978,6 @@ Represents the streams configuration
 | ----- | ---- | ----- | ----------- |
 | kafkaConfig | [KafkaConfig](#types.KafkaConfig) |  | The kafka configuration |
 | ehConfig | [EHConfig](#types.EHConfig) |  | The Azure Event Hub configuration |
-| kinesisConfig | [KinesisConfig](#types.KinesisConfig) |  | The Kinesis configuration |
 | partitionCount | [int32](#int32) |  | Number of partitions if applicable |
 
 

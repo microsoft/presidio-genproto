@@ -20,7 +20,7 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // StreamRequest represents the request to the stream service via GRPC
 type StreamRequest struct {
-	// The stream configuration for scanning streams such as Azure EventHub, Kafka and Kinesis
+	// The stream configuration for scanning streams such as Azure EventHub and Kafka
 	StreamConfig *StreamConfig `protobuf:"bytes,1,opt,name=streamConfig" json:"streamConfig,omitempty"`
 	// The analyzer template configures the fields to analyze
 	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,2,opt,name=analyzeTemplate" json:"analyzeTemplate,omitempty"`
@@ -37,7 +37,7 @@ func (m *StreamRequest) Reset()         { *m = StreamRequest{} }
 func (m *StreamRequest) String() string { return proto.CompactTextString(m) }
 func (*StreamRequest) ProtoMessage()    {}
 func (*StreamRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_stream_677e071a9042c295, []int{0}
+	return fileDescriptor_stream_ee78de99a3818fe5, []int{0}
 }
 func (m *StreamRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_StreamRequest.Unmarshal(m, b)
@@ -89,9 +89,9 @@ func init() {
 	proto.RegisterType((*StreamRequest)(nil), "types.StreamRequest")
 }
 
-func init() { proto.RegisterFile("stream.proto", fileDescriptor_stream_677e071a9042c295) }
+func init() { proto.RegisterFile("stream.proto", fileDescriptor_stream_ee78de99a3818fe5) }
 
-var fileDescriptor_stream_677e071a9042c295 = []byte{
+var fileDescriptor_stream_ee78de99a3818fe5 = []byte{
 	// 184 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x29, 0x2e, 0x29, 0x4a,
 	0x4d, 0xcc, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2d, 0xa9, 0x2c, 0x48, 0x2d, 0x96,

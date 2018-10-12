@@ -5,7 +5,7 @@ package types;
 
 // StreamRequest represents the request to the stream service via GRPC
 message StreamRequest {
-    // The stream configuration for scanning streams such as Azure EventHub, Kafka and Kinesis
+    // The stream configuration for scanning streams such as Azure EventHub and Kafka
     StreamConfig streamConfig = 1;
     // The analyzer template configures the fields to analyze
     AnalyzeTemplate analyzeTemplate = 2;
