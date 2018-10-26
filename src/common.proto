@@ -29,6 +29,7 @@ enum FieldTypesEnum{
     US_ITIN = 13;
     US_PASSPORT = 14;
     US_SSN = 15;
+    UK_NHS = 16;
 }
 
 // AnalyzeResult represents the Analyze serivce findings
@@ -37,8 +38,8 @@ message AnalyzeResult {
   string text = 1;
   // The sensitive text type (supported types: FieldTypesEnum)
   FieldTypes field = 2;
-  // The certainty of the result
-  float probability = 3;
+  // The score of the result
+  float score = 3;
   // The loaction in the text of the finding
   Location location = 4;
 }
