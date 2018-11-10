@@ -118,7 +118,7 @@ message DatasinkTemplate {
     // Datasink represents the configuration for storing the scanner output.
     // Datasink can output both of the analyze and anonymize results and to multiple outputs
     // Supported outputs are CloudStorage: AWS S3, Azure Blob storage, Google Storage
-    // Streams: Azure EventHub, Kafka, Kinesis
+    // Streams: Azure EventHub, Kafka
     // Database: MySql, SqlLite3, MSSQL, PostgreSQL
     repeated Datasink analyzeDatasink = 2;
     repeated Datasink anonymizeDatasink = 3;
@@ -176,10 +176,8 @@ message StreamConfig {
     KafkaConfig kafkaConfig = 1;
     // The Azure Event Hub configuration
     EHConfig ehConfig = 2;
-    // The Kinesis configuration
-    KinesisConfig kinesisConfig = 3;
     // Number of partitions if applicable
-    int32 partitionCount = 4;
+    int32 partitionCount = 3;
 }
 
 // The Kafka configuration
@@ -212,22 +210,6 @@ message EHConfig {
     string storageAccountKeyValue = 7;
     // Storage container  value
     string containerValue = 8;
-}
-
-// The Kinesis cinfiguration
-message KinesisConfig {
-    // AWS secret access key 
-    string awsAccessKeyId = 1;
-    // AWS secret region
-    string awsRegion = 2;
-    // AWS secret secret key
-    string awsSecretAccessKey = 3;
-    // The Redis url
-    string redisUrl = 4;
-    // The stream name
-    string streamName = 5;
-    // The endpoint address 
-    string endpointAddress = 6;
 }
 
 // StreamTemplate represents the stream configuration for streaming data and analyzing/anonymizing it.

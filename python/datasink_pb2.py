@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='datasink.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0e\x64\x61tasink.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\x1a\x0f\x61nonymize.proto\"\x80\x01\n\x0f\x44\x61tasinkRequest\x12,\n\x0e\x61nalyzeResults\x18\x01 \x03(\x0b\x32\x14.types.AnalyzeResult\x12\x31\n\x0f\x61nonymizeResult\x18\x02 \x01(\x0b\x32\x18.types.AnonymizeResponse\x12\x0c\n\x04path\x18\x03 \x01(\t\"\x12\n\x10\x44\x61tasinkResponse\"\x13\n\x11\x43ompletionMessage*\xa0\x01\n\x11\x44\x61tasinkTypesEnum\x12\t\n\x05mysql\x10\x00\x12\t\n\x05mssql\x10\x01\x12\x0c\n\x08postgres\x10\x02\x12\x0b\n\x07sqlite3\x10\x03\x12\n\n\x06oracle\x10\x04\x12\t\n\x05kafka\x10\x05\x12\x0c\n\x08\x65venthub\x10\x06\x12\x0b\n\x07kinesis\x10\x07\x12\x06\n\x02s3\x10\x08\x12\r\n\tazureblob\x10\t\x12\x11\n\rgooglestorage\x10\n2\xcc\x01\n\x0f\x44\x61tasinkService\x12:\n\x05\x41pply\x12\x16.types.DatasinkRequest\x1a\x17.types.DatasinkResponse\"\x00\x12:\n\x04Init\x12\x17.types.DatasinkTemplate\x1a\x17.types.DatasinkResponse\"\x00\x12\x41\n\nCompletion\x12\x18.types.CompletionMessage\x1a\x17.types.DatasinkResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0e\x64\x61tasink.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\x1a\x0f\x61nonymize.proto\"\x80\x01\n\x0f\x44\x61tasinkRequest\x12,\n\x0e\x61nalyzeResults\x18\x01 \x03(\x0b\x32\x14.types.AnalyzeResult\x12\x31\n\x0f\x61nonymizeResult\x18\x02 \x01(\x0b\x32\x18.types.AnonymizeResponse\x12\x0c\n\x04path\x18\x03 \x01(\t\"\x12\n\x10\x44\x61tasinkResponse\"\x13\n\x11\x43ompletionMessage*\x93\x01\n\x11\x44\x61tasinkTypesEnum\x12\t\n\x05mysql\x10\x00\x12\t\n\x05mssql\x10\x01\x12\x0c\n\x08postgres\x10\x02\x12\x0b\n\x07sqlite3\x10\x03\x12\n\n\x06oracle\x10\x04\x12\t\n\x05kafka\x10\x05\x12\x0c\n\x08\x65venthub\x10\x06\x12\x06\n\x02s3\x10\x07\x12\r\n\tazureblob\x10\x08\x12\x11\n\rgooglestorage\x10\t2\xcc\x01\n\x0f\x44\x61tasinkService\x12:\n\x05\x41pply\x12\x16.types.DatasinkRequest\x1a\x17.types.DatasinkResponse\"\x00\x12:\n\x04Init\x12\x17.types.DatasinkTemplate\x1a\x17.types.DatasinkResponse\"\x00\x12\x41\n\nCompletion\x12\x18.types.CompletionMessage\x1a\x17.types.DatasinkResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[common__pb2.DESCRIPTOR,template__pb2.DESCRIPTOR,anonymize__pb2.DESCRIPTOR,])
 
@@ -62,26 +62,22 @@ _DATASINKTYPESENUM = _descriptor.EnumDescriptor(
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='kinesis', index=7, number=7,
+      name='s3', index=7, number=7,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='s3', index=8, number=8,
+      name='azureblob', index=8, number=8,
       options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='azureblob', index=9, number=9,
-      options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='googlestorage', index=10, number=10,
+      name='googlestorage', index=9, number=9,
       options=None,
       type=None),
   ],
   containing_type=None,
   options=None,
   serialized_start=245,
-  serialized_end=405,
+  serialized_end=392,
 )
 _sym_db.RegisterEnumDescriptor(_DATASINKTYPESENUM)
 
@@ -93,10 +89,9 @@ sqlite3 = 3
 oracle = 4
 kafka = 5
 eventhub = 6
-kinesis = 7
-s3 = 8
-azureblob = 9
-googlestorage = 10
+s3 = 7
+azureblob = 8
+googlestorage = 9
 
 
 
@@ -229,8 +224,8 @@ _DATASINKSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=408,
-  serialized_end=612,
+  serialized_start=395,
+  serialized_end=599,
   methods=[
   _descriptor.MethodDescriptor(
     name='Apply',

@@ -42,8 +42,7 @@ enum DatasinkTypesEnum{
     oracle = 4;
     kafka = 5;
     eventhub = 6;
-    kinesis = 7;
-    s3 = 8;
-    azureblob = 9;
-    googlestorage = 10;
+    s3 = 7;
+    azureblob = 8;
+    googlestorage = 9;
 }
