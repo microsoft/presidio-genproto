@@ -1,0 +1,41 @@
+resources:
+- repo: self
+queue:
+  name: Hosted Ubuntu 1604
+variables:
+  GOPATH: '$(system.defaultWorkingDirectory)/gopath'
+steps:
+- task: UsePythonVersion@0
+  displayName: 'Use Python 3.7'
+  inputs:
+    versionSpec: 3.7
+- bash: |
+   pip install grpcio-tools
+   pip install googleapis-common-protos
+   cd src
+   python -m grpc_tools.protoc -I . --python_out=../python --grpc_python_out=../python ./*.proto
+  displayName: 'Generate Python'
+- task: GoTool@0
+  displayName: 'Use Go 1.11'
+  inputs:
+    version: 1.11
+- task: Go@0
+  displayName: 'go get grpc'
+  inputs:
+    arguments: google.golang.org/grpc
+- task: Go@0
+  displayName: 'go get protobuf'
+  inputs:
+    arguments: github.com/golang/protobuf/...
+- bash: |
+   wget "https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip"
+   unzip "protoc-3.6.1-linux-x86_64.zip" -d $(GOPATH)
+   export PATH=$PATH:$(GOPATH)/bin
+   cd src
+   protoc -I . --go_out=plugins=grpc:../golang ./*.proto
+  displayName: 'Generate Go'
+
+
+
+
+
