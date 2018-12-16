@@ -275,7 +275,7 @@ AnalyzeResult represents the Analyze serivce findings
 | ----- | ---- | ----- | ----------- |
 | text | [string](#string) |  | The sensitive text result |
 | field | [FieldTypes](#types.FieldTypes) |  | The sensitive text type (supported types: FieldTypesEnum) |
-| probability | [float](#float) |  | The certainty of the result |
+| score | [float](#float) |  | The score of the result |
 | location | [Location](#types.Location) |  | The loaction in the text of the finding |
 
 
@@ -342,6 +342,7 @@ FieldTypes for Analyzing and Anonymizing
 | US_ITIN | 13 |  |
 | US_PASSPORT | 14 |  |
 | US_SSN | 15 |  |
+| UK_NHS | 16 |  |
 
 
  
