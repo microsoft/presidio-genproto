@@ -1,7 +1,7 @@
 Proto packages for Presidio API
 ===========================
 
-[![Build status](https://dev.azure.com/csedevil/Presidio-genproto/_apis/build/status/Presidio-genproto-CI)](https://dev.azure.com/csedevil/Presidio-genproto/_build/latest?definitionId=47)
+[![Build Status](https://dev.azure.com/csedevil/Presidio/_apis/build/status/Presidio-genproto?branchName=master)](https://dev.azure.com/csedevil/Presidio/_build/latest?definitionId=57?branchName=master)
 
 This repository contains the generated GO and Python packages for [Presidio](https://github.com/Microsoft/presidio) API, and the generated [gRPC](https://grpc.io) code necessary for interacting with Presidio's gRPC services
 APIs.
