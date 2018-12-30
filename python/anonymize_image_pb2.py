@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='anonymize-image.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x15\x61nonymize-image.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\"\xe8\x01\n\x18\x41nonymizeImageApiRequest\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x12\x11\n\timageType\x18\x02 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x03 \x01(\t\x12 \n\x18\x61nonymizeImageTemplateId\x18\x04 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x05 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12=\n\x16\x61nonymizeImageTemplate\x18\x06 \x01(\x0b\x32\x1d.types.AnonymizeImageTemplate\"\xd2\x01\n\x15\x41nonymizeImageRequest\x12\x1b\n\x05image\x18\x01 \x01(\x0b\x32\x0c.types.Image\x12/\n\x08template\x18\x02 \x01(\x0b\x32\x1d.types.AnonymizeImageTemplate\x12=\n\x16\x61nonymizeImageTypeEnum\x18\x03 \x01(\x0e\x32\x1d.types.AnonymizeImageTypeEnum\x12,\n\x0e\x61nalyzeResults\x18\x04 \x03(\x0b\x32\x14.types.AnalyzeResult\"5\n\x16\x41nonymizeImageResponse\x12\x1b\n\x05image\x18\x01 \x01(\x0b\x32\x0c.types.Image2_\n\x15\x41nonymizeImageService\x12\x46\n\x05\x41pply\x12\x1c.types.AnonymizeImageRequest\x1a\x1d.types.AnonymizeImageResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x15\x61nonymize-image.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\"\x99\x02\n\x18\x41nonymizeImageApiRequest\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\x0c\x12\x11\n\timageType\x18\x02 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x03 \x01(\t\x12 \n\x18\x61nonymizeImageTemplateId\x18\x04 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x05 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12=\n\x16\x61nonymizeImageTemplate\x18\x06 \x01(\x0b\x32\x1d.types.AnonymizeImageTemplate\x12/\n\rdetectionType\x18\x07 \x01(\x0e\x32\x18.types.DetectionTypeEnum\"\xc4\x01\n\x15\x41nonymizeImageRequest\x12\x1b\n\x05image\x18\x01 \x01(\x0b\x32\x0c.types.Image\x12/\n\x08template\x18\x02 \x01(\x0b\x32\x1d.types.AnonymizeImageTemplate\x12/\n\rdetectionType\x18\x03 \x01(\x0e\x32\x18.types.DetectionTypeEnum\x12,\n\x0e\x61nalyzeResults\x18\x04 \x03(\x0b\x32\x14.types.AnalyzeResult\"5\n\x16\x41nonymizeImageResponse\x12\x1b\n\x05image\x18\x01 \x01(\x0b\x32\x0c.types.Image2_\n\x15\x41nonymizeImageService\x12\x46\n\x05\x41pply\x12\x1c.types.AnonymizeImageRequest\x1a\x1d.types.AnonymizeImageResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[common__pb2.DESCRIPTOR,template__pb2.DESCRIPTOR,])
 
@@ -77,6 +77,13 @@ _ANONYMIZEIMAGEAPIREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='detectionType', full_name='types.AnonymizeImageApiRequest.detectionType', index=6,
+      number=7, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -90,7 +97,7 @@ _ANONYMIZEIMAGEAPIREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=63,
-  serialized_end=295,
+  serialized_end=344,
 )
 
 
@@ -116,7 +123,7 @@ _ANONYMIZEIMAGEREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='anonymizeImageTypeEnum', full_name='types.AnonymizeImageRequest.anonymizeImageTypeEnum', index=2,
+      name='detectionType', full_name='types.AnonymizeImageRequest.detectionType', index=2,
       number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -141,8 +148,8 @@ _ANONYMIZEIMAGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=298,
-  serialized_end=508,
+  serialized_start=347,
+  serialized_end=543,
 )
 
 
@@ -172,15 +179,16 @@ _ANONYMIZEIMAGERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=510,
-  serialized_end=563,
+  serialized_start=545,
+  serialized_end=598,
 )
 
 _ANONYMIZEIMAGEAPIREQUEST.fields_by_name['analyzeTemplate'].message_type = template__pb2._ANALYZETEMPLATE
 _ANONYMIZEIMAGEAPIREQUEST.fields_by_name['anonymizeImageTemplate'].message_type = template__pb2._ANONYMIZEIMAGETEMPLATE
+_ANONYMIZEIMAGEAPIREQUEST.fields_by_name['detectionType'].enum_type = common__pb2._DETECTIONTYPEENUM
 _ANONYMIZEIMAGEREQUEST.fields_by_name['image'].message_type = common__pb2._IMAGE
 _ANONYMIZEIMAGEREQUEST.fields_by_name['template'].message_type = template__pb2._ANONYMIZEIMAGETEMPLATE
-_ANONYMIZEIMAGEREQUEST.fields_by_name['anonymizeImageTypeEnum'].enum_type = common__pb2._ANONYMIZEIMAGETYPEENUM
+_ANONYMIZEIMAGEREQUEST.fields_by_name['detectionType'].enum_type = common__pb2._DETECTIONTYPEENUM
 _ANONYMIZEIMAGEREQUEST.fields_by_name['analyzeResults'].message_type = common__pb2._ANALYZERESULT
 _ANONYMIZEIMAGERESPONSE.fields_by_name['image'].message_type = common__pb2._IMAGE
 DESCRIPTOR.message_types_by_name['AnonymizeImageApiRequest'] = _ANONYMIZEIMAGEAPIREQUEST
@@ -217,8 +225,8 @@ _ANONYMIZEIMAGESERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=565,
-  serialized_end=660,
+  serialized_start=600,
+  serialized_end=695,
   methods=[
   _descriptor.MethodDescriptor(
     name='Apply',

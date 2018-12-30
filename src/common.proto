@@ -84,8 +84,8 @@ message Boundingbox {
 sint32 endPosition   = 7; 
 }
 
-// Anonymize image type
-enum AnonymizeImageTypeEnum{
+// Anonymize image detection type
+enum DetectionTypeEnum{
   OCR = 0;
   AZURE_OCR = 1;
   AZURE_FACE = 2;

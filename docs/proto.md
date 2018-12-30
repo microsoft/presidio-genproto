@@ -40,7 +40,7 @@
     - [Image](#types.Image)
     - [Location](#types.Location)
   
-    - [AnonymizeImageTypeEnum](#types.AnonymizeImageTypeEnum)
+    - [DetectionTypeEnum](#types.DetectionTypeEnum)
     - [FieldTypesEnum](#types.FieldTypesEnum)
   
   
@@ -228,6 +228,7 @@ AnonymizeApiRequest represents the request to the API HTTP service
 | anonymizeImageTemplateId | [string](#string) |  | The anonymize image template id - represents the anonymize configuration, which fields to anonymize and how. |
 | analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  | Optional parameter for running the analyzer without creating a template. |
 | anonymizeImageTemplate | [AnonymizeImageTemplate](#types.AnonymizeImageTemplate) |  | Optional parameter for running the anonymize image without creating a template. |
+| detectionType | [DetectionTypeEnum](#types.DetectionTypeEnum) |  | Anoymize image type detection OCR / Azure OCR / Azure Face |
 
 
 
@@ -244,7 +245,7 @@ AnonymizeRequest represents the request to the anonymize service via GRPC
 | ----- | ---- | ----- | ----------- |
 | image | [Image](#types.Image) |  | The Image to anonymize |
 | template | [AnonymizeImageTemplate](#types.AnonymizeImageTemplate) |  | The anonymize template represent the anonymize configuration, which fields to anonymize and how |
-| anonymizeImageTypeEnum | [AnonymizeImageTypeEnum](#types.AnonymizeImageTypeEnum) |  | Anoymize image type OCR / Azure OCR / Azure Face |
+| detectionType | [DetectionTypeEnum](#types.DetectionTypeEnum) |  | Anoymize image detection type OCR / Azure OCR / Azure Face |
 | analyzeResults | [AnalyzeResult](#types.AnalyzeResult) | repeated | The analyze result containing the field type and location of the sensetive data to be anonymized. |
 
 
@@ -463,10 +464,10 @@ The location in the text of the finding
  
 
 
-<a name="types.AnonymizeImageTypeEnum"/>
+<a name="types.DetectionTypeEnum"/>
 
-### AnonymizeImageTypeEnum
-Anonymize image type
+### DetectionTypeEnum
+Anonymize image detection type
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |

@@ -19,6 +19,8 @@ message AnonymizeImageApiRequest {
   AnalyzeTemplate analyzeTemplate = 5;
   // Optional parameter for running the anonymize image without creating a template. 
   AnonymizeImageTemplate anonymizeImageTemplate = 6;
+  // Anoymize image type detection OCR / Azure OCR / Azure Face
+  DetectionTypeEnum detectionType = 7;
 }
 
 // AnonymizeRequest represents the request to the anonymize service via GRPC 
@@ -27,8 +29,8 @@ message AnonymizeImageRequest {
   Image image = 1;
   // The anonymize template represent the anonymize configuration, which fields to anonymize and how
   AnonymizeImageTemplate template = 2;
-  // Anoymize image type  OCR / Azure OCR / Azure Face
-  AnonymizeImageTypeEnum anonymizeImageTypeEnum = 3;
+  // Anoymize image detection type  OCR / Azure OCR / Azure Face
+  DetectionTypeEnum detectionType = 3;
   // The analyze result containing the field type and location of the sensetive data to be anonymized.
   repeated AnalyzeResult analyzeResults = 4;
 }
