@@ -284,3 +284,40 @@ message Schedule {
     // The recurrence period of the job, set as a cron expression
     string recurrencePeriod = 1;
 }
+
+// AnonymizeImageTemplate represents the template definition of the Anonymize service for anonymizying the sensitive data 
+message AnonymizeImageTemplate {
+    // Template description
+    string description = 1;
+    // Template Creation date
+    string createTime = 2;
+    // Template modification date
+    string modifiedTime = 3;
+    // FieldTypeGraphic represents the graphics for an array of fields types
+    repeated FieldTypeGraphic fieldTypeGraphics= 4;
+}
+
+// FieldTypeGraphic represents the graphics for an array of fields types
+message FieldTypeGraphic { 
+    // The array of field types  
+    repeated FieldTypes fields = 1;
+    // The graphics for the array of fields
+    Graphic graphic = 2;
+}
+
+
+// Graphic represents how the sensitive content will be transforms
+message Graphic {
+    // Fill the bbox with a color
+    FillColorValue fillColorValue = 1;
+}
+
+// Fill the bbox with a color
+message FillColorValue {
+    // 0 - 255
+    double red = 1;
+    // 0 - 255
+    double green = 2;
+    // 0 - 255
+    double blue = 3;
+}

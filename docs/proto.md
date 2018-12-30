@@ -13,6 +13,16 @@
     - [AnalyzeService](#types.AnalyzeService)
   
 
+- [anonymize-image.proto](#anonymize-image.proto)
+    - [AnonymizeImageApiRequest](#types.AnonymizeImageApiRequest)
+    - [AnonymizeImageRequest](#types.AnonymizeImageRequest)
+    - [AnonymizeImageResponse](#types.AnonymizeImageResponse)
+  
+  
+  
+    - [AnonymizeImageService](#types.AnonymizeImageService)
+  
+
 - [anonymize.proto](#anonymize.proto)
     - [AnonymizeApiRequest](#types.AnonymizeApiRequest)
     - [AnonymizeRequest](#types.AnonymizeRequest)
@@ -25,9 +35,12 @@
 
 - [common.proto](#common.proto)
     - [AnalyzeResult](#types.AnalyzeResult)
+    - [Boundingbox](#types.Boundingbox)
     - [FieldTypes](#types.FieldTypes)
+    - [Image](#types.Image)
     - [Location](#types.Location)
   
+    - [AnonymizeImageTypeEnum](#types.AnonymizeImageTypeEnum)
     - [FieldTypesEnum](#types.FieldTypesEnum)
   
   
@@ -42,6 +55,15 @@
   
   
     - [DatasinkService](#types.DatasinkService)
+  
+
+- [ocr.proto](#ocr.proto)
+    - [OcrRequest](#types.OcrRequest)
+    - [OcrResponse](#types.OcrResponse)
+  
+  
+  
+    - [OcrService](#types.OcrService)
   
 
 - [scan.proto](#scan.proto)
@@ -73,6 +95,7 @@
 
 - [template.proto](#template.proto)
     - [AnalyzeTemplate](#types.AnalyzeTemplate)
+    - [AnonymizeImageTemplate](#types.AnonymizeImageTemplate)
     - [AnonymizeTemplate](#types.AnonymizeTemplate)
     - [BlobStorageConfig](#types.BlobStorageConfig)
     - [CloudStorageConfig](#types.CloudStorageConfig)
@@ -81,8 +104,11 @@
     - [DatasinkTemplate](#types.DatasinkTemplate)
     - [EHConfig](#types.EHConfig)
     - [FPEValue](#types.FPEValue)
+    - [FieldTypeGraphic](#types.FieldTypeGraphic)
     - [FieldTypeTransformation](#types.FieldTypeTransformation)
+    - [FillColorValue](#types.FillColorValue)
     - [GoogleStorageConfig](#types.GoogleStorageConfig)
+    - [Graphic](#types.Graphic)
     - [HashValue](#types.HashValue)
     - [KafkaConfig](#types.KafkaConfig)
     - [MaskValue](#types.MaskValue)
@@ -176,6 +202,85 @@ formats, and checksums with relevant context.
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | Apply | [AnalyzeRequest](#types.AnalyzeRequest) | [AnalyzeResponse](#types.AnalyzeRequest) | Apply method will execute on the given request and return the analyze response with the sensitive text findings |
+
+ 
+
+
+
+<a name="anonymize-image.proto"/>
+<p align="right"><a href="#top">Top</a></p>
+
+## anonymize-image.proto
+
+
+
+<a name="types.AnonymizeImageApiRequest"/>
+
+### AnonymizeImageApiRequest
+AnonymizeApiRequest represents the request to the API HTTP service
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| data | [bytes](#bytes) |  | The image data to anonymize in bytes format |
+| imageType | [string](#string) |  | The image type JPEG/PNG/TIFF |
+| analyzeTemplateId | [string](#string) |  | The analyze template id - anonymization is done according to analyzing results. One of analyzeTemplateId or analyzeTemplate have to be configured. |
+| anonymizeImageTemplateId | [string](#string) |  | The anonymize image template id - represents the anonymize configuration, which fields to anonymize and how. |
+| analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  | Optional parameter for running the analyzer without creating a template. |
+| anonymizeImageTemplate | [AnonymizeImageTemplate](#types.AnonymizeImageTemplate) |  | Optional parameter for running the anonymize image without creating a template. |
+
+
+
+
+
+
+<a name="types.AnonymizeImageRequest"/>
+
+### AnonymizeImageRequest
+AnonymizeRequest represents the request to the anonymize service via GRPC
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| image | [Image](#types.Image) |  | The Image to anonymize |
+| template | [AnonymizeImageTemplate](#types.AnonymizeImageTemplate) |  | The anonymize template represent the anonymize configuration, which fields to anonymize and how |
+| anonymizeImageTypeEnum | [AnonymizeImageTypeEnum](#types.AnonymizeImageTypeEnum) |  | Anoymize image type OCR / Azure OCR / Azure Face |
+| analyzeResults | [AnalyzeResult](#types.AnalyzeResult) | repeated | The analyze result containing the field type and location of the sensetive data to be anonymized. |
+
+
+
+
+
+
+<a name="types.AnonymizeImageResponse"/>
+
+### AnonymizeImageResponse
+AnonymizeResponse represents the anonymize service response
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| image | [Image](#types.Image) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="types.AnonymizeImageService"/>
+
+### AnonymizeImageService
+The Anonymize Service is a service that anonymizes a given the text using predefined analyzers fields and anonymize configurations.
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| Apply | [AnonymizeImageRequest](#types.AnonymizeImageRequest) | [AnonymizeImageResponse](#types.AnonymizeImageRequest) | Apply method will execute on the given request and return the anonymize response with the sensitive text anonymized |
 
  
 
@@ -283,6 +388,27 @@ AnalyzeResult represents the Analyze serivce findings
 
 
 
+<a name="types.Boundingbox"/>
+
+### Boundingbox
+Define an extracted bounding box text/image from images
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| xLocation | [float](#float) |  | Pixel X location of BBox |
+| width | [float](#float) |  | Width of BBox |
+| yLocation | [float](#float) |  | Pixel Y location of BBox |
+| height | [float](#float) |  | Height of BBox |
+| text | [string](#string) |  | Text in BBox |
+| startPosition | [sint32](#sint32) |  | Start position of char in text |
+| endPosition | [sint32](#sint32) |  | End position of char in text |
+
+
+
+
+
+
 <a name="types.FieldTypes"/>
 
 ### FieldTypes
@@ -294,6 +420,24 @@ FieldType strucy
 | name | [string](#string) |  | Field type name |
 | languageCode | [string](#string) |  | Field type language code |
 | minScore | [string](#string) |  | The minScore will filter results which has lower certainty than the provided value. |
+
+
+
+
+
+
+<a name="types.Image"/>
+
+### Image
+Define an image with extracted bounded boxes of text/image
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| data | [bytes](#bytes) |  | The image data in bytes |
+| imageType | [string](#string) |  | The image type JPEG/PNG/TIFF |
+| Boundingboxes | [Boundingbox](#types.Boundingbox) | repeated | Array of Boundingbox |
+| text | [string](#string) |  | Image Text |
 
 
 
@@ -317,6 +461,19 @@ The location in the text of the finding
 
 
  
+
+
+<a name="types.AnonymizeImageTypeEnum"/>
+
+### AnonymizeImageTypeEnum
+Anonymize image type
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OCR | 0 |  |
+| AZURE_OCR | 1 |  |
+| AZURE_FACE | 2 |  |
+
 
 
 <a name="types.FieldTypesEnum"/>
@@ -433,6 +590,62 @@ The data sink service represents the service for writing the results of the anal
 | Apply | [DatasinkRequest](#types.DatasinkRequest) | [DatasinkResponse](#types.DatasinkRequest) | Apply method will execute on the given request and return whether the result where written successfully to the destination |
 | Init | [DatasinkTemplate](#types.DatasinkTemplate) | [DatasinkResponse](#types.DatasinkTemplate) | Init the data sink service with the provided data sink template |
 | Completion | [CompletionMessage](#types.CompletionMessage) | [DatasinkResponse](#types.CompletionMessage) | Completion method for indicating that the scanning job is done |
+
+ 
+
+
+
+<a name="ocr.proto"/>
+<p align="right"><a href="#top">Top</a></p>
+
+## ocr.proto
+
+
+
+<a name="types.OcrRequest"/>
+
+### OcrRequest
+AnonymizeRequest represents the request to the anonymize service via GRPC
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| image | [Image](#types.Image) |  | The image to ocr |
+
+
+
+
+
+
+<a name="types.OcrResponse"/>
+
+### OcrResponse
+AnonymizeResponse represents the anonymize service response
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| image | [Image](#types.Image) |  | The image detected bboxes |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="types.OcrService"/>
+
+### OcrService
+The Anonymize Service is a service that anonymizes a given the text using predefined analyzers fields and anonymize configurations.
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| Apply | [OcrRequest](#types.OcrRequest) | [OcrResponse](#types.OcrRequest) | Apply method will execute on the given request and return the anonymize response with the sensitive text anonymized |
 
  
 
@@ -643,6 +856,24 @@ AnalyzeTemplate represents the template definition of the Analyze service- for a
 
 
 
+<a name="types.AnonymizeImageTemplate"/>
+
+### AnonymizeImageTemplate
+AnonymizeImageTemplate represents the template definition of the Anonymize service for anonymizying the sensitive data
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| description | [string](#string) |  | Template description |
+| createTime | [string](#string) |  | Template Creation date |
+| modifiedTime | [string](#string) |  | Template modification date |
+| fieldTypeGraphics | [FieldTypeGraphic](#types.FieldTypeGraphic) | repeated | FieldTypeGraphic represents the graphics for an array of fields types |
+
+
+
+
+
+
 <a name="types.AnonymizeTemplate"/>
 
 ### AnonymizeTemplate
@@ -786,6 +1017,22 @@ Encrypt the given value with FFI alogrithm to presereve detected value size.
 
 
 
+<a name="types.FieldTypeGraphic"/>
+
+### FieldTypeGraphic
+FieldTypeGraphic represents the graphics for an array of fields types
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| fields | [FieldTypes](#types.FieldTypes) | repeated | The array of field types |
+| graphic | [Graphic](#types.Graphic) |  | The graphics for the array of fields |
+
+
+
+
+
+
 <a name="types.FieldTypeTransformation"/>
 
 ### FieldTypeTransformation
@@ -796,6 +1043,23 @@ FieldTypeTransformation represents the transformation for an array of fields typ
 | ----- | ---- | ----- | ----------- |
 | fields | [FieldTypes](#types.FieldTypes) | repeated | The array of field types |
 | transformation | [Transformation](#types.Transformation) |  | The transformation for the array of fields |
+
+
+
+
+
+
+<a name="types.FillColorValue"/>
+
+### FillColorValue
+Fill the bbox with a color
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| red | [double](#double) |  | 0 - 255 |
+| green | [double](#double) |  | 0 - 255 |
+| blue | [double](#double) |  | 0 - 255 |
 
 
 
@@ -814,6 +1078,21 @@ Represents the Google Storage configuration
 | projectId | [string](#string) |  | The project id |
 | scopes | [string](#string) |  | The scopes authentication [there are different scopes, which you can find here https://cloud.google.com/storage/docs/authentication] |
 | bucketName | [string](#string) |  | The bucket name |
+
+
+
+
+
+
+<a name="types.Graphic"/>
+
+### Graphic
+Graphic represents how the sensitive content will be transforms
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| fillColorValue | [FillColorValue](#types.FillColorValue) |  | Fill the bbox with a color |
 
 
 
