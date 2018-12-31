@@ -16,7 +16,7 @@ message AnonymizeJsonApiRequest {
   // The anonymize template id - represents the anonymize configuration, which fields to anonymize and how.
   string anonymizeTemplateId = 4;
   // Optional parameter for running the json anonymizer without creating a schema template.
-  AnonymizeJsonTemplate anonymizeJsonTemplate = 5;
+  JsonSchemaTemplate jsonSchemaTemplate = 5;
   // Optional parameter for running the analyzer without creating a template.
   AnalyzeTemplate analyzeTemplate = 6;
   // Optional parameter for running the anonymizer without creating a template. 
