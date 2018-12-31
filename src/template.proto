@@ -285,7 +285,7 @@ message Schedule {
     string recurrencePeriod = 1;
 }
 
-// AnonymizeImageTemplate represents the template definition of the Anonymize service for anonymizying the sensitive data 
+// AnonymizeImageTemplate represents the template definition of the Anonymize image service
 message AnonymizeImageTemplate {
     // Template description
     string description = 1;

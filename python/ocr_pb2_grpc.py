@@ -5,7 +5,7 @@ import ocr_pb2 as ocr__pb2
 
 
 class OcrServiceStub(object):
-  """The Anonymize Service is a service that anonymizes a given the text using predefined analyzers fields and anonymize configurations.
+  """The Ocr Service is a service performing OCR on images
   """
 
   def __init__(self, channel):
@@ -22,7 +22,7 @@ class OcrServiceStub(object):
 
 
 class OcrServiceServicer(object):
-  """The Anonymize Service is a service that anonymizes a given the text using predefined analyzers fields and anonymize configurations.
+  """The Ocr Service is a service performing OCR on images
   """
 
   def Apply(self, request, context):

@@ -606,7 +606,7 @@ The data sink service represents the service for writing the results of the anal
 <a name="types.OcrRequest"/>
 
 ### OcrRequest
-AnonymizeRequest represents the request to the anonymize service via GRPC
+OcrRequest represents the request to the anonymize service via GRPC
 
 
 | Field | Type | Label | Description |
@@ -621,7 +621,7 @@ AnonymizeRequest represents the request to the anonymize service via GRPC
 <a name="types.OcrResponse"/>
 
 ### OcrResponse
-AnonymizeResponse represents the anonymize service response
+OcrResponse represents the anonymize service response
 
 
 | Field | Type | Label | Description |
@@ -642,7 +642,7 @@ AnonymizeResponse represents the anonymize service response
 <a name="types.OcrService"/>
 
 ### OcrService
-The Anonymize Service is a service that anonymizes a given the text using predefined analyzers fields and anonymize configurations.
+The Ocr Service is a service performing OCR on images
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
@@ -860,7 +860,7 @@ AnalyzeTemplate represents the template definition of the Analyze service- for a
 <a name="types.AnonymizeImageTemplate"/>
 
 ### AnonymizeImageTemplate
-AnonymizeImageTemplate represents the template definition of the Anonymize service for anonymizying the sensitive data
+AnonymizeImageTemplate represents the template definition of the Anonymize image service
 
 
 | Field | Type | Label | Description |

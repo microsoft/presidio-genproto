@@ -23,7 +23,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-// AnonymizeRequest represents the request to the anonymize service via GRPC
+// OcrRequest represents the request to the anonymize service via GRPC
 type OcrRequest struct {
 	// The image to ocr
 	Image                *Image   `protobuf:"bytes,1,opt,name=image,proto3" json:"image,omitempty"`
@@ -36,7 +36,7 @@ func (m *OcrRequest) Reset()         { *m = OcrRequest{} }
 func (m *OcrRequest) String() string { return proto.CompactTextString(m) }
 func (*OcrRequest) ProtoMessage()    {}
 func (*OcrRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ocr_8152835e0e824a33, []int{0}
+	return fileDescriptor_ocr_e17f88a6a2ce8524, []int{0}
 }
 func (m *OcrRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_OcrRequest.Unmarshal(m, b)
@@ -63,7 +63,7 @@ func (m *OcrRequest) GetImage() *Image {
 	return nil
 }
 
-// AnonymizeResponse represents the anonymize service response
+// OcrResponse represents the anonymize service response
 type OcrResponse struct {
 	// The image detected bboxes
 	Image                *Image   `protobuf:"bytes,1,opt,name=image,proto3" json:"image,omitempty"`
@@ -76,7 +76,7 @@ func (m *OcrResponse) Reset()         { *m = OcrResponse{} }
 func (m *OcrResponse) String() string { return proto.CompactTextString(m) }
 func (*OcrResponse) ProtoMessage()    {}
 func (*OcrResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_ocr_8152835e0e824a33, []int{1}
+	return fileDescriptor_ocr_e17f88a6a2ce8524, []int{1}
 }
 func (m *OcrResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_OcrResponse.Unmarshal(m, b)
@@ -182,9 +182,9 @@ var _OcrService_serviceDesc = grpc.ServiceDesc{
 	Metadata: "ocr.proto",
 }
 
-func init() { proto.RegisterFile("ocr.proto", fileDescriptor_ocr_8152835e0e824a33) }
+func init() { proto.RegisterFile("ocr.proto", fileDescriptor_ocr_e17f88a6a2ce8524) }
 
-var fileDescriptor_ocr_8152835e0e824a33 = []byte{
+var fileDescriptor_ocr_e17f88a6a2ce8524 = []byte{
 	// 147 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0xcc, 0x4f, 0x2e, 0xd2,
 	0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2d, 0xa9, 0x2c, 0x48, 0x2d, 0x96, 0xe2, 0x49, 0xce,
