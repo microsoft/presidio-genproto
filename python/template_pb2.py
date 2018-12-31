@@ -10,7 +10,7 @@ from google.protobuf import symbol_database as _symbol_database
 from google.protobuf import descriptor_pb2
 # @@protoc_insertion_point(imports)
 
-_sym_db = _symbol_database.Default()
+_sym_db = _symbol_database.Dadd json anonymizerefault()
 
 
 import common_pb2 as common__pb2
@@ -131,6 +131,58 @@ _ANONYMIZETEMPLATE = _descriptor.Descriptor(
 )
 
 
+_JSONSCHEMATEMPLATE = _descriptor.Descriptor(
+  name='JsonSchemaTemplate',
+  full_name='types.JsonSchemaTemplate',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='description', full_name='types.JsonSchemaTemplate.description', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='createTime', full_name='types.JsonSchemaTemplate.createTime', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='modifiedTime', full_name='types.JsonSchemaTemplate.modifiedTime', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='jsonSchema', full_name='types.JsonSchemaTemplate.jsonSchema', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=307,
+  serialized_end=410,
+)
+
+
 _FIELDTYPETRANSFORMATION = _descriptor.Descriptor(
   name='FieldTypeTransformation',
   full_name='types.FieldTypeTransformation',
@@ -164,8 +216,8 @@ _FIELDTYPETRANSFORMATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=307,
-  serialized_end=414,
+  serialized_start=412,
+  serialized_end=519,
 )
 
 
@@ -223,8 +275,8 @@ _TRANSFORMATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=417,
-  serialized_end=626,
+  serialized_start=522,
+  serialized_end=731,
 )
 
 
@@ -254,8 +306,8 @@ _REPLACEVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=628,
-  serialized_end=660,
+  serialized_start=733,
+  serialized_end=765,
 )
 
 
@@ -278,8 +330,8 @@ _REDACTVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=662,
-  serialized_end=675,
+  serialized_start=767,
+  serialized_end=780,
 )
 
 
@@ -302,8 +354,8 @@ _HASHVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=677,
-  serialized_end=688,
+  serialized_start=782,
+  serialized_end=793,
 )
 
 
@@ -347,8 +399,8 @@ _MASKVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=690,
-  serialized_end=765,
+  serialized_start=795,
+  serialized_end=870,
 )
 
 
@@ -392,8 +444,8 @@ _FPEVALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=767,
-  serialized_end=822,
+  serialized_start=872,
+  serialized_end=927,
 )
 
 
@@ -437,8 +489,8 @@ _DBCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=824,
-  serialized_end=893,
+  serialized_start=929,
+  serialized_end=998,
 )
 
 
@@ -482,8 +534,8 @@ _DATASINK = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=896,
-  serialized_end=1039,
+  serialized_start=1001,
+  serialized_end=1144,
 )
 
 
@@ -527,8 +579,8 @@ _DATASINKTEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1041,
-  serialized_end=1166,
+  serialized_start=1146,
+  serialized_end=1271,
 )
 
 
@@ -572,8 +624,8 @@ _BLOBSTORAGECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1168,
-  serialized_end=1251,
+  serialized_start=1273,
+  serialized_end=1356,
 )
 
 
@@ -631,8 +683,8 @@ _S3CONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1253,
-  serialized_end=1354,
+  serialized_start=1358,
+  serialized_end=1459,
 )
 
 
@@ -683,8 +735,8 @@ _GOOGLESTORAGECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1356,
-  serialized_end=1446,
+  serialized_start=1461,
+  serialized_end=1551,
 )
 
 
@@ -728,8 +780,8 @@ _CLOUDSTORAGECONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1449,
-  serialized_end=1614,
+  serialized_start=1554,
+  serialized_end=1719,
 )
 
 
@@ -773,8 +825,8 @@ _STREAMCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1616,
-  serialized_end=1730,
+  serialized_start=1721,
+  serialized_end=1835,
 )
 
 
@@ -825,8 +877,8 @@ _KAFKACONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1732,
-  serialized_end=1821,
+  serialized_start=1837,
+  serialized_end=1926,
 )
 
 
@@ -905,8 +957,8 @@ _EHCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1824,
-  serialized_end=2027,
+  serialized_start=1929,
+  serialized_end=2132,
 )
 
 
@@ -971,8 +1023,8 @@ _STREAMTEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2030,
-  serialized_end=2208,
+  serialized_start=2135,
+  serialized_end=2313,
 )
 
 
@@ -1009,8 +1061,8 @@ _SCANTEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2210,
-  serialized_end=2300,
+  serialized_start=2315,
+  serialized_end=2405,
 )
 
 
@@ -1082,8 +1134,8 @@ _SCANNERCRONJOBTEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2303,
-  serialized_end=2503,
+  serialized_start=2408,
+  serialized_end=2608,
 )
 
 
@@ -1148,8 +1200,8 @@ _STREAMSJOBTEMPLATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2506,
-  serialized_end=2672,
+  serialized_start=2611,
+  serialized_end=2777,
 )
 
 
@@ -1179,8 +1231,8 @@ _TRIGGER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2674,
-  serialized_end=2718,
+  serialized_start=2779,
+  serialized_end=2823,
 )
 
 
@@ -1210,8 +1262,8 @@ _SCHEDULE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2720,
-  serialized_end=2756,
+  serialized_start=2825,
+  serialized_end=2861,
 )
 
 
@@ -1409,6 +1461,7 @@ _FIELDTYPEGRAPHIC.fields_by_name['graphic'].message_type = _GRAPHIC
 _GRAPHIC.fields_by_name['fillColorValue'].message_type = _FILLCOLORVALUE
 DESCRIPTOR.message_types_by_name['AnalyzeTemplate'] = _ANALYZETEMPLATE
 DESCRIPTOR.message_types_by_name['AnonymizeTemplate'] = _ANONYMIZETEMPLATE
+DESCRIPTOR.message_types_by_name['JsonSchemaTemplate'] = _JSONSCHEMATEMPLATE
 DESCRIPTOR.message_types_by_name['FieldTypeTransformation'] = _FIELDTYPETRANSFORMATION
 DESCRIPTOR.message_types_by_name['Transformation'] = _TRANSFORMATION
 DESCRIPTOR.message_types_by_name['ReplaceValue'] = _REPLACEVALUE
@@ -1451,6 +1504,13 @@ AnonymizeTemplate = _reflection.GeneratedProtocolMessageType('AnonymizeTemplate'
   # @@protoc_insertion_point(class_scope:types.AnonymizeTemplate)
   ))
 _sym_db.RegisterMessage(AnonymizeTemplate)
+
+JsonSchemaTemplate = _reflection.GeneratedProtocolMessageType('JsonSchemaTemplate', (_message.Message,), dict(
+  DESCRIPTOR = _JSONSCHEMATEMPLATE,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.JsonSchemaTemplate)
+  ))
+_sym_db.RegisterMessage(JsonSchemaTemplate)
 
 FieldTypeTransformation = _reflection.GeneratedProtocolMessageType('FieldTypeTransformation', (_message.Message,), dict(
   DESCRIPTOR = _FIELDTYPETRANSFORMATION,
