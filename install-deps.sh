@@ -6,5 +6,6 @@ pip install googleapis-common-protos
 
 # Go
 go get -u google.golang.org/grpc
+go get -u github.com/golang/protobuf
 go get -u github.com/golang/protobuf/protoc-gen-go
 export PATH=$PATH:$GOPATH/bin

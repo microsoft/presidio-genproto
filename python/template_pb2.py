@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='template.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x0etemplate.proto\x12\x05types\x1a\x0c\x63ommon.proto\"s\n\x0f\x41nalyzeTemplate\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x12\n\ncreateTime\x18\x03 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x04 \x01(\t\"\x94\x01\n\x11\x41nonymizeTemplate\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12\x12\n\ncreateTime\x18\x02 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x03 \x01(\t\x12@\n\x18\x66ieldTypeTransformations\x18\x04 \x03(\x0b\x32\x1e.types.FieldTypeTransformation\"k\n\x17\x46ieldTypeTransformation\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\x12-\n\x0etransformation\x18\x02 \x01(\x0b\x32\x15.types.Transformation\"\xd1\x01\n\x0eTransformation\x12)\n\x0creplaceValue\x18\x02 \x01(\x0b\x32\x13.types.ReplaceValue\x12\'\n\x0bredactValue\x18\x03 \x01(\x0b\x32\x12.types.RedactValue\x12#\n\thashValue\x18\x04 \x01(\x0b\x32\x10.types.HashValue\x12#\n\tmaskValue\x18\x05 \x01(\x0b\x32\x10.types.MaskValue\x12!\n\x08\x66PEValue\x18\x06 \x01(\x0b\x32\x0f.types.FPEValue\" \n\x0cReplaceValue\x12\x10\n\x08newValue\x18\x01 \x01(\t\"\r\n\x0bRedactValue\"\x0b\n\tHashValue\"K\n\tMaskValue\x12\x18\n\x10maskingCharacter\x18\x01 \x01(\t\x12\x13\n\x0b\x63harsToMask\x18\x02 \x01(\x05\x12\x0f\n\x07\x66romEnd\x18\x03 \x01(\x08\"7\n\x08\x46PEValue\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05tweak\x18\x02 \x01(\t\x12\x0f\n\x07\x64\x65\x63rypt\x18\x03 \x01(\x08\"E\n\x08\x44\x42\x43onfig\x12\x18\n\x10\x63onnectionString\x18\x01 \x01(\t\x12\x11\n\ttableName\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\"\x8f\x01\n\x08\x44\x61tasink\x12!\n\x08\x64\x62\x43onfig\x18\x01 \x01(\x0b\x32\x0f.types.DBConfig\x12\x35\n\x12\x63loudStorageConfig\x18\x02 \x01(\x0b\x32\x19.types.CloudStorageConfig\x12)\n\x0cstreamConfig\x18\x03 \x01(\x0b\x32\x13.types.StreamConfig\"}\n\x10\x44\x61tasinkTemplate\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12(\n\x0f\x61nalyzeDatasink\x18\x02 \x03(\x0b\x32\x0f.types.Datasink\x12*\n\x11\x61nonymizeDatasink\x18\x03 \x03(\x0b\x32\x0f.types.Datasink\"S\n\x11\x42lobStorageConfig\x12\x13\n\x0b\x61\x63\x63ountName\x18\x01 \x01(\t\x12\x12\n\naccountKey\x18\x02 \x01(\t\x12\x15\n\rcontainerName\x18\x03 \x01(\t\"e\n\x08S3Config\x12\x10\n\x08\x61\x63\x63\x65ssId\x18\x01 \x01(\t\x12\x11\n\taccessKey\x18\x02 \x01(\t\x12\x0e\n\x06region\x18\x03 \x01(\t\x12\x12\n\nbucketName\x18\x04 \x01(\t\x12\x10\n\x08\x65ndpoint\x18\x05 \x01(\t\"Z\n\x13GoogleStorageConfig\x12\x0c\n\x04json\x18\x01 \x01(\t\x12\x11\n\tprojectId\x18\x02 \x01(\t\x12\x0e\n\x06scopes\x18\x03 \x01(\t\x12\x12\n\nbucketName\x18\x04 \x01(\t\"\xa5\x01\n\x12\x43loudStorageConfig\x12\x33\n\x11\x62lobStorageConfig\x18\x01 \x01(\x0b\x32\x18.types.BlobStorageConfig\x12!\n\x08s3Config\x18\x02 \x01(\x0b\x32\x0f.types.S3Config\x12\x37\n\x13GoogleStorageConfig\x18\x03 \x01(\x0b\x32\x1a.types.GoogleStorageConfig\"r\n\x0cStreamConfig\x12\'\n\x0bkafkaConfig\x18\x01 \x01(\x0b\x32\x12.types.KafkaConfig\x12!\n\x08\x65hConfig\x18\x02 \x01(\x0b\x32\x0f.types.EHConfig\x12\x16\n\x0epartitionCount\x18\x03 \x01(\x05\"Y\n\x0bKafkaConfig\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\r\n\x05topic\x18\x02 \x01(\t\x12\x14\n\x0csaslUsername\x18\x03 \x01(\t\x12\x14\n\x0csaslPassword\x18\x04 \x01(\t\"\xcb\x01\n\x08\x45HConfig\x12\x13\n\x0b\x65hNamespace\x18\x01 \x01(\t\x12\x0e\n\x06\x65hName\x18\x02 \x01(\t\x12\x1a\n\x12\x65hConnectionString\x18\x03 \x01(\t\x12\x11\n\tehKeyName\x18\x04 \x01(\t\x12\x12\n\nehKeyValue\x18\x05 \x01(\t\x12\x1f\n\x17storageAccountNameValue\x18\x06 \x01(\t\x12\x1e\n\x16storageAccountKeyValue\x18\x07 \x01(\t\x12\x16\n\x0e\x63ontainerValue\x18\x08 \x01(\t\"\xb2\x01\n\x0eStreamTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12)\n\x0cstreamConfig\x18\x03 \x01(\x0b\x32\x13.types.StreamConfig\x12\x19\n\x11\x61nalyzeTemplateId\x18\x04 \x01(\t\x12\x1b\n\x13\x61nonymizeTemplateId\x18\x05 \x01(\t\x12\x1a\n\x12\x64\x61tasinkTemplateId\x18\x06 \x01(\t\"Z\n\x0cScanTemplate\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12\x35\n\x12\x63loudStorageConfig\x18\x02 \x01(\x0b\x32\x19.types.CloudStorageConfig\"\xc8\x01\n\x16ScannerCronJobTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\x12\x16\n\x0escanTemplateId\x18\x04 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x05 \x01(\t\x12\x1b\n\x13\x61nonymizeTemplateId\x18\x06 \x01(\t\x12\x1a\n\x12\x64\x61tasinkTemplateId\x18\x07 \x01(\t\"\xa6\x01\n\x12StreamsJobTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x19\n\x11streamsTemplateId\x18\x03 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x04 \x01(\t\x12\x1b\n\x13\x61nonymizeTemplateId\x18\x05 \x01(\t\x12\x1a\n\x12\x64\x61tasinkTemplateId\x18\x06 \x01(\t\",\n\x07Trigger\x12!\n\x08schedule\x18\x01 \x01(\x0b\x32\x0f.types.Schedule\"$\n\x08Schedule\x12\x18\n\x10recurrencePeriod\x18\x01 \x01(\tb\x06proto3')
+  serialized_pb=_b('\n\x0etemplate.proto\x12\x05types\x1a\x0c\x63ommon.proto\"s\n\x0f\x41nalyzeTemplate\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x12\n\ncreateTime\x18\x03 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x04 \x01(\t\"\x94\x01\n\x11\x41nonymizeTemplate\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12\x12\n\ncreateTime\x18\x02 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x03 \x01(\t\x12@\n\x18\x66ieldTypeTransformations\x18\x04 \x03(\x0b\x32\x1e.types.FieldTypeTransformation\"k\n\x17\x46ieldTypeTransformation\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\x12-\n\x0etransformation\x18\x02 \x01(\x0b\x32\x15.types.Transformation\"\xd1\x01\n\x0eTransformation\x12)\n\x0creplaceValue\x18\x02 \x01(\x0b\x32\x13.types.ReplaceValue\x12\'\n\x0bredactValue\x18\x03 \x01(\x0b\x32\x12.types.RedactValue\x12#\n\thashValue\x18\x04 \x01(\x0b\x32\x10.types.HashValue\x12#\n\tmaskValue\x18\x05 \x01(\x0b\x32\x10.types.MaskValue\x12!\n\x08\x66PEValue\x18\x06 \x01(\x0b\x32\x0f.types.FPEValue\" \n\x0cReplaceValue\x12\x10\n\x08newValue\x18\x01 \x01(\t\"\r\n\x0bRedactValue\"\x0b\n\tHashValue\"K\n\tMaskValue\x12\x18\n\x10maskingCharacter\x18\x01 \x01(\t\x12\x13\n\x0b\x63harsToMask\x18\x02 \x01(\x05\x12\x0f\n\x07\x66romEnd\x18\x03 \x01(\x08\"7\n\x08\x46PEValue\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05tweak\x18\x02 \x01(\t\x12\x0f\n\x07\x64\x65\x63rypt\x18\x03 \x01(\x08\"E\n\x08\x44\x42\x43onfig\x12\x18\n\x10\x63onnectionString\x18\x01 \x01(\t\x12\x11\n\ttableName\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\"\x8f\x01\n\x08\x44\x61tasink\x12!\n\x08\x64\x62\x43onfig\x18\x01 \x01(\x0b\x32\x0f.types.DBConfig\x12\x35\n\x12\x63loudStorageConfig\x18\x02 \x01(\x0b\x32\x19.types.CloudStorageConfig\x12)\n\x0cstreamConfig\x18\x03 \x01(\x0b\x32\x13.types.StreamConfig\"}\n\x10\x44\x61tasinkTemplate\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12(\n\x0f\x61nalyzeDatasink\x18\x02 \x03(\x0b\x32\x0f.types.Datasink\x12*\n\x11\x61nonymizeDatasink\x18\x03 \x03(\x0b\x32\x0f.types.Datasink\"S\n\x11\x42lobStorageConfig\x12\x13\n\x0b\x61\x63\x63ountName\x18\x01 \x01(\t\x12\x12\n\naccountKey\x18\x02 \x01(\t\x12\x15\n\rcontainerName\x18\x03 \x01(\t\"e\n\x08S3Config\x12\x10\n\x08\x61\x63\x63\x65ssId\x18\x01 \x01(\t\x12\x11\n\taccessKey\x18\x02 \x01(\t\x12\x0e\n\x06region\x18\x03 \x01(\t\x12\x12\n\nbucketName\x18\x04 \x01(\t\x12\x10\n\x08\x65ndpoint\x18\x05 \x01(\t\"Z\n\x13GoogleStorageConfig\x12\x0c\n\x04json\x18\x01 \x01(\t\x12\x11\n\tprojectId\x18\x02 \x01(\t\x12\x0e\n\x06scopes\x18\x03 \x01(\t\x12\x12\n\nbucketName\x18\x04 \x01(\t\"\xa5\x01\n\x12\x43loudStorageConfig\x12\x33\n\x11\x62lobStorageConfig\x18\x01 \x01(\x0b\x32\x18.types.BlobStorageConfig\x12!\n\x08s3Config\x18\x02 \x01(\x0b\x32\x0f.types.S3Config\x12\x37\n\x13GoogleStorageConfig\x18\x03 \x01(\x0b\x32\x1a.types.GoogleStorageConfig\"r\n\x0cStreamConfig\x12\'\n\x0bkafkaConfig\x18\x01 \x01(\x0b\x32\x12.types.KafkaConfig\x12!\n\x08\x65hConfig\x18\x02 \x01(\x0b\x32\x0f.types.EHConfig\x12\x16\n\x0epartitionCount\x18\x03 \x01(\x05\"Y\n\x0bKafkaConfig\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\r\n\x05topic\x18\x02 \x01(\t\x12\x14\n\x0csaslUsername\x18\x03 \x01(\t\x12\x14\n\x0csaslPassword\x18\x04 \x01(\t\"\xcb\x01\n\x08\x45HConfig\x12\x13\n\x0b\x65hNamespace\x18\x01 \x01(\t\x12\x0e\n\x06\x65hName\x18\x02 \x01(\t\x12\x1a\n\x12\x65hConnectionString\x18\x03 \x01(\t\x12\x11\n\tehKeyName\x18\x04 \x01(\t\x12\x12\n\nehKeyValue\x18\x05 \x01(\t\x12\x1f\n\x17storageAccountNameValue\x18\x06 \x01(\t\x12\x1e\n\x16storageAccountKeyValue\x18\x07 \x01(\t\x12\x16\n\x0e\x63ontainerValue\x18\x08 \x01(\t\"\xb2\x01\n\x0eStreamTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12)\n\x0cstreamConfig\x18\x03 \x01(\x0b\x32\x13.types.StreamConfig\x12\x19\n\x11\x61nalyzeTemplateId\x18\x04 \x01(\t\x12\x1b\n\x13\x61nonymizeTemplateId\x18\x05 \x01(\t\x12\x1a\n\x12\x64\x61tasinkTemplateId\x18\x06 \x01(\t\"Z\n\x0cScanTemplate\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12\x35\n\x12\x63loudStorageConfig\x18\x02 \x01(\x0b\x32\x19.types.CloudStorageConfig\"\xc8\x01\n\x16ScannerCronJobTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x1f\n\x07trigger\x18\x03 \x01(\x0b\x32\x0e.types.Trigger\x12\x16\n\x0escanTemplateId\x18\x04 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x05 \x01(\t\x12\x1b\n\x13\x61nonymizeTemplateId\x18\x06 \x01(\t\x12\x1a\n\x12\x64\x61tasinkTemplateId\x18\x07 \x01(\t\"\xa6\x01\n\x12StreamsJobTemplate\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x19\n\x11streamsTemplateId\x18\x03 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x04 \x01(\t\x12\x1b\n\x13\x61nonymizeTemplateId\x18\x05 \x01(\t\x12\x1a\n\x12\x64\x61tasinkTemplateId\x18\x06 \x01(\t\",\n\x07Trigger\x12!\n\x08schedule\x18\x01 \x01(\x0b\x32\x0f.types.Schedule\"$\n\x08Schedule\x12\x18\n\x10recurrencePeriod\x18\x01 \x01(\t\"\x8b\x01\n\x16\x41nonymizeImageTemplate\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12\x12\n\ncreateTime\x18\x02 \x01(\t\x12\x14\n\x0cmodifiedTime\x18\x03 \x01(\t\x12\x32\n\x11\x66ieldTypeGraphics\x18\x04 \x03(\x0b\x32\x17.types.FieldTypeGraphic\"V\n\x10\x46ieldTypeGraphic\x12!\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x11.types.FieldTypes\x12\x1f\n\x07graphic\x18\x02 \x01(\x0b\x32\x0e.types.Graphic\"8\n\x07Graphic\x12-\n\x0e\x66illColorValue\x18\x01 \x01(\x0b\x32\x15.types.FillColorValue\":\n\x0e\x46illColorValue\x12\x0b\n\x03red\x18\x01 \x01(\x01\x12\r\n\x05green\x18\x02 \x01(\x01\x12\x0c\n\x04\x62lue\x18\x03 \x01(\x01\x62\x06proto3')
   ,
   dependencies=[common__pb2.DESCRIPTOR,])
 
@@ -1214,6 +1214,172 @@ _SCHEDULE = _descriptor.Descriptor(
   serialized_end=2756,
 )
 
+
+_ANONYMIZEIMAGETEMPLATE = _descriptor.Descriptor(
+  name='AnonymizeImageTemplate',
+  full_name='types.AnonymizeImageTemplate',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='description', full_name='types.AnonymizeImageTemplate.description', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='createTime', full_name='types.AnonymizeImageTemplate.createTime', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='modifiedTime', full_name='types.AnonymizeImageTemplate.modifiedTime', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='fieldTypeGraphics', full_name='types.AnonymizeImageTemplate.fieldTypeGraphics', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2759,
+  serialized_end=2898,
+)
+
+
+_FIELDTYPEGRAPHIC = _descriptor.Descriptor(
+  name='FieldTypeGraphic',
+  full_name='types.FieldTypeGraphic',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='fields', full_name='types.FieldTypeGraphic.fields', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='graphic', full_name='types.FieldTypeGraphic.graphic', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2900,
+  serialized_end=2986,
+)
+
+
+_GRAPHIC = _descriptor.Descriptor(
+  name='Graphic',
+  full_name='types.Graphic',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='fillColorValue', full_name='types.Graphic.fillColorValue', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2988,
+  serialized_end=3044,
+)
+
+
+_FILLCOLORVALUE = _descriptor.Descriptor(
+  name='FillColorValue',
+  full_name='types.FillColorValue',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='red', full_name='types.FillColorValue.red', index=0,
+      number=1, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='green', full_name='types.FillColorValue.green', index=1,
+      number=2, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='blue', full_name='types.FillColorValue.blue', index=2,
+      number=3, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3046,
+  serialized_end=3104,
+)
+
 _ANALYZETEMPLATE.fields_by_name['fields'].message_type = common__pb2._FIELDTYPES
 _ANONYMIZETEMPLATE.fields_by_name['fieldTypeTransformations'].message_type = _FIELDTYPETRANSFORMATION
 _FIELDTYPETRANSFORMATION.fields_by_name['fields'].message_type = common__pb2._FIELDTYPES
@@ -1237,6 +1403,10 @@ _STREAMTEMPLATE.fields_by_name['streamConfig'].message_type = _STREAMCONFIG
 _SCANTEMPLATE.fields_by_name['cloudStorageConfig'].message_type = _CLOUDSTORAGECONFIG
 _SCANNERCRONJOBTEMPLATE.fields_by_name['trigger'].message_type = _TRIGGER
 _TRIGGER.fields_by_name['schedule'].message_type = _SCHEDULE
+_ANONYMIZEIMAGETEMPLATE.fields_by_name['fieldTypeGraphics'].message_type = _FIELDTYPEGRAPHIC
+_FIELDTYPEGRAPHIC.fields_by_name['fields'].message_type = common__pb2._FIELDTYPES
+_FIELDTYPEGRAPHIC.fields_by_name['graphic'].message_type = _GRAPHIC
+_GRAPHIC.fields_by_name['fillColorValue'].message_type = _FILLCOLORVALUE
 DESCRIPTOR.message_types_by_name['AnalyzeTemplate'] = _ANALYZETEMPLATE
 DESCRIPTOR.message_types_by_name['AnonymizeTemplate'] = _ANONYMIZETEMPLATE
 DESCRIPTOR.message_types_by_name['FieldTypeTransformation'] = _FIELDTYPETRANSFORMATION
@@ -1262,6 +1432,10 @@ DESCRIPTOR.message_types_by_name['ScannerCronJobTemplate'] = _SCANNERCRONJOBTEMP
 DESCRIPTOR.message_types_by_name['StreamsJobTemplate'] = _STREAMSJOBTEMPLATE
 DESCRIPTOR.message_types_by_name['Trigger'] = _TRIGGER
 DESCRIPTOR.message_types_by_name['Schedule'] = _SCHEDULE
+DESCRIPTOR.message_types_by_name['AnonymizeImageTemplate'] = _ANONYMIZEIMAGETEMPLATE
+DESCRIPTOR.message_types_by_name['FieldTypeGraphic'] = _FIELDTYPEGRAPHIC
+DESCRIPTOR.message_types_by_name['Graphic'] = _GRAPHIC
+DESCRIPTOR.message_types_by_name['FillColorValue'] = _FILLCOLORVALUE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 AnalyzeTemplate = _reflection.GeneratedProtocolMessageType('AnalyzeTemplate', (_message.Message,), dict(
@@ -1438,6 +1612,34 @@ Schedule = _reflection.GeneratedProtocolMessageType('Schedule', (_message.Messag
   # @@protoc_insertion_point(class_scope:types.Schedule)
   ))
 _sym_db.RegisterMessage(Schedule)
+
+AnonymizeImageTemplate = _reflection.GeneratedProtocolMessageType('AnonymizeImageTemplate', (_message.Message,), dict(
+  DESCRIPTOR = _ANONYMIZEIMAGETEMPLATE,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.AnonymizeImageTemplate)
+  ))
+_sym_db.RegisterMessage(AnonymizeImageTemplate)
+
+FieldTypeGraphic = _reflection.GeneratedProtocolMessageType('FieldTypeGraphic', (_message.Message,), dict(
+  DESCRIPTOR = _FIELDTYPEGRAPHIC,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.FieldTypeGraphic)
+  ))
+_sym_db.RegisterMessage(FieldTypeGraphic)
+
+Graphic = _reflection.GeneratedProtocolMessageType('Graphic', (_message.Message,), dict(
+  DESCRIPTOR = _GRAPHIC,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.Graphic)
+  ))
+_sym_db.RegisterMessage(Graphic)
+
+FillColorValue = _reflection.GeneratedProtocolMessageType('FillColorValue', (_message.Message,), dict(
+  DESCRIPTOR = _FILLCOLORVALUE,
+  __module__ = 'template_pb2'
+  # @@protoc_insertion_point(class_scope:types.FillColorValue)
+  ))
+_sym_db.RegisterMessage(FillColorValue)
 
 
 # @@protoc_insertion_point(module_scope)

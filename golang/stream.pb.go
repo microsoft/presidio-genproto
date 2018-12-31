@@ -21,13 +21,13 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // StreamRequest represents the request to the stream service via GRPC
 type StreamRequest struct {
 	// The stream configuration for scanning streams such as Azure EventHub and Kafka
-	StreamConfig *StreamConfig `protobuf:"bytes,1,opt,name=streamConfig" json:"streamConfig,omitempty"`
+	StreamConfig *StreamConfig `protobuf:"bytes,1,opt,name=streamConfig,proto3" json:"streamConfig,omitempty"`
 	// The analyzer template configures the fields to analyze
-	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,2,opt,name=analyzeTemplate" json:"analyzeTemplate,omitempty"`
+	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,2,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
 	// The anonymizer template configures how to anonymize the sensitive data [optional]
-	AnonymizeTemplate *AnonymizeTemplate `protobuf:"bytes,3,opt,name=anonymizeTemplate" json:"anonymizeTemplate,omitempty"`
+	AnonymizeTemplate *AnonymizeTemplate `protobuf:"bytes,3,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate,omitempty"`
 	// The datasinkTemplate configures the output destination of the analyzer/anonymizer results
-	DatasinkTemplate     *DatasinkTemplate `protobuf:"bytes,4,opt,name=datasinkTemplate" json:"datasinkTemplate,omitempty"`
+	DatasinkTemplate     *DatasinkTemplate `protobuf:"bytes,4,opt,name=datasinkTemplate,proto3" json:"datasinkTemplate,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
 	XXX_sizecache        int32             `json:"-"`

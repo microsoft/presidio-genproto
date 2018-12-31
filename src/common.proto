@@ -53,3 +53,40 @@ message Location {
   // The location length
   sint32 length = 3;
 }
+
+// Define an image with extracted bounded boxes of text/image
+message Image{
+  // The image data in bytes
+  bytes data = 1;
+  // The image type JPEG/PNG/TIFF
+  string imageType = 2;
+  //Array of Boundingbox
+  repeated Boundingbox Boundingboxes = 3;
+  //Image Text
+  string text = 4;
+}
+
+// Define an extracted bounding box text/image from images
+message Boundingbox {
+  //Pixel X location of BBox
+  float xLocation = 1;
+  //Width of BBox
+  float width = 2;
+  //Pixel Y location of BBox     
+  float yLocation = 3;  
+  //Height of BBox   
+  float height = 4;   
+  //Text in BBox
+  string text = 5; 
+  //Start position of char in text      
+  sint32 startPosition = 6;
+  //End position of char in text
+sint32 endPosition   = 7; 
+}
+
+// Anonymize image detection type
+enum DetectionTypeEnum{
+  OCR = 0;
+  AZURE_OCR = 1;
+  AZURE_FACE = 2;
+}
