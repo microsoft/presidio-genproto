@@ -152,6 +152,73 @@ func (m *AnonymizeTemplate) GetFieldTypeTransformations() []*FieldTypeTransforma
 	return nil
 }
 
+// JsonSchemaTemplate represents the json template definition of the Anonymize service for anonymizying the sensitive data
+type JsonSchemaTemplate struct {
+	// Template description
+	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
+	// Template Creation date
+	CreateTime string `protobuf:"bytes,2,opt,name=createTime,proto3" json:"createTime,omitempty"`
+	// Template modification date
+	ModifiedTime string `protobuf:"bytes,3,opt,name=modifiedTime,proto3" json:"modifiedTime,omitempty"`
+	// Json schema
+	JsonSchema           string   `protobuf:"bytes,4,opt,name=jsonSchema,proto3" json:"jsonSchema,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *JsonSchemaTemplate) Reset()         { *m = JsonSchemaTemplate{} }
+func (m *JsonSchemaTemplate) String() string { return proto.CompactTextString(m) }
+func (*JsonSchemaTemplate) ProtoMessage()    {}
+func (*JsonSchemaTemplate) Descriptor() ([]byte, []int) {
+	return fileDescriptor_template_0de99c9221dbd5eb, []int{2}
+}
+func (m *JsonSchemaTemplate) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_JsonSchemaTemplate.Unmarshal(m, b)
+}
+func (m *JsonSchemaTemplate) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_JsonSchemaTemplate.Marshal(b, m, deterministic)
+}
+func (dst *JsonSchemaTemplate) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_JsonSchemaTemplate.Merge(dst, src)
+}
+func (m *JsonSchemaTemplate) XXX_Size() int {
+	return xxx_messageInfo_JsonSchemaTemplate.Size(m)
+}
+func (m *JsonSchemaTemplate) XXX_DiscardUnknown() {
+	xxx_messageInfo_JsonSchemaTemplate.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_JsonSchemaTemplate proto.InternalMessageInfo
+
+func (m *JsonSchemaTemplate) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *JsonSchemaTemplate) GetCreateTime() string {
+	if m != nil {
+		return m.CreateTime
+	}
+	return ""
+}
+
+func (m *JsonSchemaTemplate) GetModifiedTime() string {
+	if m != nil {
+		return m.ModifiedTime
+	}
+	return ""
+}
+
+func (m *JsonSchemaTemplate) GetJsonSchema() string {
+	if m != nil {
+		return m.JsonSchema
+	}
+	return ""
+}
+
 // FieldTypeTransformation represents the transformation for an array of fields types
 type FieldTypeTransformation struct {
 	// The array of field types
@@ -1779,6 +1846,7 @@ func (m *FillColorValue) GetBlue() float64 {
 func init() {
 	proto.RegisterType((*AnalyzeTemplate)(nil), "types.AnalyzeTemplate")
 	proto.RegisterType((*AnonymizeTemplate)(nil), "types.AnonymizeTemplate")
+	proto.RegisterType((*JsonSchemaTemplate)(nil), "types.JsonSchemaTemplate")
 	proto.RegisterType((*FieldTypeTransformation)(nil), "types.FieldTypeTransformation")
 	proto.RegisterType((*Transformation)(nil), "types.Transformation")
 	proto.RegisterType((*ReplaceValue)(nil), "types.ReplaceValue")
