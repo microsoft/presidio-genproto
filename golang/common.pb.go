@@ -90,11 +90,11 @@ func (FieldTypesEnum) EnumDescriptor() ([]byte, []int) {
 // FieldType strucy
 type FieldTypes struct {
 	// Field type name
-	Name string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// Field type language code
-	LanguageCode string `protobuf:"bytes,2,opt,name=languageCode" json:"languageCode,omitempty"`
+	LanguageCode string `protobuf:"bytes,2,opt,name=languageCode,proto3" json:"languageCode,omitempty"`
 	// The minScore will filter results which has lower certainty than the provided value.
-	MinScore             string   `protobuf:"bytes,3,opt,name=minScore" json:"minScore,omitempty"`
+	MinScore             string   `protobuf:"bytes,3,opt,name=minScore,proto3" json:"minScore,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -148,13 +148,13 @@ func (m *FieldTypes) GetMinScore() string {
 // AnalyzeResult represents the Analyze serivce findings
 type AnalyzeResult struct {
 	// The sensitive text result
-	Text string `protobuf:"bytes,1,opt,name=text" json:"text,omitempty"`
+	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
 	// The sensitive text type (supported types: FieldTypesEnum)
-	Field *FieldTypes `protobuf:"bytes,2,opt,name=field" json:"field,omitempty"`
+	Field *FieldTypes `protobuf:"bytes,2,opt,name=field,proto3" json:"field,omitempty"`
 	// The score of the result
-	Score float32 `protobuf:"fixed32,3,opt,name=score" json:"score,omitempty"`
+	Score float32 `protobuf:"fixed32,3,opt,name=score,proto3" json:"score,omitempty"`
 	// The loaction in the text of the finding
-	Location             *Location `protobuf:"bytes,4,opt,name=location" json:"location,omitempty"`
+	Location             *Location `protobuf:"bytes,4,opt,name=location,proto3" json:"location,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
 	XXX_unrecognized     []byte    `json:"-"`
 	XXX_sizecache        int32     `json:"-"`
@@ -215,11 +215,11 @@ func (m *AnalyzeResult) GetLocation() *Location {
 // The location in the text of the finding
 type Location struct {
 	// The location start
-	Start int32 `protobuf:"zigzag32,1,opt,name=start" json:"start,omitempty"`
+	Start int32 `protobuf:"zigzag32,1,opt,name=start,proto3" json:"start,omitempty"`
 	// The location end
-	End int32 `protobuf:"zigzag32,2,opt,name=end" json:"end,omitempty"`
+	End int32 `protobuf:"zigzag32,2,opt,name=end,proto3" json:"end,omitempty"`
 	// The location length
-	Length               int32    `protobuf:"zigzag32,3,opt,name=length" json:"length,omitempty"`
+	Length               int32    `protobuf:"zigzag32,3,opt,name=length,proto3" json:"length,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`

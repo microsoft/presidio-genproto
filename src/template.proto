@@ -27,6 +27,18 @@ message AnonymizeTemplate {
     repeated FieldTypeTransformation fieldTypeTransformations = 4;
 }
 
+// JsonSchemaTemplate represents the json template definition of the Anonymize service for anonymizying the sensitive data 
+message JsonSchemaTemplate{
+    // Template description
+    string description = 1;
+    // Template Creation date
+    string createTime = 2;
+    // Template modification date
+    string modifiedTime = 3;
+    // Json schema
+    string jsonSchema = 4;
+}
+
 // FieldTypeTransformation represents the transformation for an array of fields types
 message FieldTypeTransformation { 
     // The array of field types  
