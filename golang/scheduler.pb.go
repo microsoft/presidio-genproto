@@ -26,7 +26,7 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // ScannerCronJobApiRequest represents the request to the API HTTP service
 type ScannerCronJobApiRequest struct {
 	// The scanner cron job template id
-	ScannerCronJobTemplateId string `protobuf:"bytes,1,opt,name=ScannerCronJobTemplateId,proto3" json:"ScannerCronJobTemplateId,omitempty"`
+	ScannerCronJobTemplateId string `protobuf:"bytes,1,opt,name=ScannerCronJobTemplateId,json=scannerCronJobTemplateId,proto3" json:"ScannerCronJobTemplateId,omitempty"`
 	// The scanner cron job requeset represents the  the scanning job details [optional parameter]
 	ScannerCronJobRequest *ScannerCronJobRequest `protobuf:"bytes,2,opt,name=scannerCronJobRequest,proto3" json:"scannerCronJobRequest,omitempty"`
 	XXX_NoUnkeyedLiteral  struct{}               `json:"-"`
@@ -75,7 +75,7 @@ func (m *ScannerCronJobApiRequest) GetScannerCronJobRequest() *ScannerCronJobReq
 // ScannerCronJobRequest represents the request to the scheduler service via GRPC
 type ScannerCronJobRequest struct {
 	// Scanner cronjob name
-	Name string `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=Name,json=name,proto3" json:"Name,omitempty"`
 	// The trigger for a new job to start
 	Trigger *Trigger `protobuf:"bytes,2,opt,name=trigger,proto3" json:"trigger,omitempty"`
 	// The scanner request represents the scanning details
@@ -163,7 +163,7 @@ var xxx_messageInfo_ScannerCronJobResponse proto.InternalMessageInfo
 // StreamsJobApiRequest represents the request to the API HTTP service
 type StreamsJobApiRequest struct {
 	// The streams job template id
-	StreamsJobTemplateId string `protobuf:"bytes,1,opt,name=StreamsJobTemplateId,proto3" json:"StreamsJobTemplateId,omitempty"`
+	StreamsJobTemplateId string `protobuf:"bytes,1,opt,name=StreamsJobTemplateId,json=streamsJobTemplateId,proto3" json:"StreamsJobTemplateId,omitempty"`
 	// The streams request that contains the full streamsRequest
 	StreamsJobRequest    *StreamsJobRequest `protobuf:"bytes,2,opt,name=streamsJobRequest,proto3" json:"streamsJobRequest,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
