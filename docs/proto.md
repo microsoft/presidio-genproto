@@ -23,6 +23,14 @@
     - [AnonymizeImageService](#types.AnonymizeImageService)
   
 
+- [anonymize-json.proto](#anonymize-json.proto)
+    - [AnonymizeJsonApiRequest](#types.AnonymizeJsonApiRequest)
+    - [AnonymizeJsonRequest](#types.AnonymizeJsonRequest)
+  
+  
+  
+  
+
 - [anonymize.proto](#anonymize.proto)
     - [AnonymizeApiRequest](#types.AnonymizeApiRequest)
     - [AnonymizeRequest](#types.AnonymizeRequest)
@@ -110,6 +118,7 @@
     - [GoogleStorageConfig](#types.GoogleStorageConfig)
     - [Graphic](#types.Graphic)
     - [HashValue](#types.HashValue)
+    - [JsonSchemaTemplate](#types.JsonSchemaTemplate)
     - [KafkaConfig](#types.KafkaConfig)
     - [MaskValue](#types.MaskValue)
     - [RedactValue](#types.RedactValue)
@@ -282,6 +291,61 @@ The Anonymize Service is a service that anonymizes a given the text using predef
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | Apply | [AnonymizeImageRequest](#types.AnonymizeImageRequest) | [AnonymizeImageResponse](#types.AnonymizeImageRequest) | Apply method will execute on the given request and return the anonymize response with the sensitive text anonymized |
+
+ 
+
+
+
+<a name="anonymize-json.proto"/>
+<p align="right"><a href="#top">Top</a></p>
+
+## anonymize-json.proto
+
+
+
+<a name="types.AnonymizeJsonApiRequest"/>
+
+### AnonymizeJsonApiRequest
+AnonymizeJsonApiRequest represents the request to the API HTTP service
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| json | [string](#string) |  | The json to anonymize |
+| jsonSchemaId | [string](#string) |  | The json schema template id. One of jsonSchemaId or jsonSchema have to be configured. |
+| analyzeTemplateId | [string](#string) |  | The analyze template id - anonymization is done according to analyzing results. One of analyzeTemplateId or analyzeTemplate have to be configured. |
+| anonymizeTemplateId | [string](#string) |  | The anonymize template id - represents the anonymize configuration, which fields to anonymize and how. |
+| jsonSchemaTemplate | [JsonSchemaTemplate](#types.JsonSchemaTemplate) |  | Optional parameter for running the json anonymizer without creating a schema template. |
+| analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  | Optional parameter for running the analyzer without creating a template. |
+| anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  | Optional parameter for running the anonymizer without creating a template. |
+
+
+
+
+
+
+<a name="types.AnonymizeJsonRequest"/>
+
+### AnonymizeJsonRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| json | [string](#string) |  | The json to anonymize |
+| jsonSchema | [JsonSchemaTemplate](#types.JsonSchemaTemplate) |  | the Json schema template. |
+| analyzeTemplate | [AnalyzeTemplate](#types.AnalyzeTemplate) |  | The analyze tempalte represents which fields should be analyzed in the json. |
+| anonymizeTemplate | [AnonymizeTemplate](#types.AnonymizeTemplate) |  | The anonymize template represent the anonymize configuration, which fields to anonymize and how. |
+
+
+
+
+
+ 
+
+ 
+
+ 
 
  
 
@@ -1104,6 +1168,24 @@ Graphic represents how the sensitive content will be transforms
 
 ### HashValue
 Uses cryptographich hash on the given value with SHA-256 hash.
+
+
+
+
+
+
+<a name="types.JsonSchemaTemplate"/>
+
+### JsonSchemaTemplate
+JsonSchemaTemplate represents the json template definition of the Anonymize service for anonymizying the sensitive data
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| description | [string](#string) |  | Template description |
+| createTime | [string](#string) |  | Template Creation date |
+| modifiedTime | [string](#string) |  | Template modification date |
+| jsonSchema | [string](#string) |  | Json schema |
 
 
 
