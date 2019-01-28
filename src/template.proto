@@ -25,6 +25,8 @@ message AnonymizeTemplate {
     string modifiedTime = 3;
     // FieldTypeTransformation represents the transformation for an array of fields types
     repeated FieldTypeTransformation fieldTypeTransformations = 4;
+    // The default transformation applied for undeclared fields
+    Transformation defaultTransformation = 5;
 }
 
 // JsonSchemaTemplate represents the json template definition of the Anonymize service for anonymizying the sensitive data 
