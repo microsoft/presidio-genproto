@@ -12,6 +12,8 @@ message AnalyzeTemplate {
     string createTime = 3;
     // Template modification date
     string modifiedTime = 4;
+    // Field type language code
+    string languageCode = 2;
 }
 
 
