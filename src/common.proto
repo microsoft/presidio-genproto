@@ -6,7 +6,7 @@ message FieldTypes {
   // Field type name
   string name = 1;
   // The minScore will filter results which has lower certainty than the provided value.
-  string minScore = 3;
+  string minScore = 2;
 }
 
 // FieldTypes for Analyzing and Anonymizing
