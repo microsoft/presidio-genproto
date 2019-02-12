@@ -6,7 +6,7 @@ message FieldTypes {
   // Field type name
   string name = 1;
   // Field type language code
-  string languageCode = 2;
+  string languageCode = 2 [deprecated=true];
   // The minScore will filter results which has lower certainty than the provided value.
   string minScore = 3;
 }
