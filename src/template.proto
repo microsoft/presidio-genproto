@@ -12,6 +12,8 @@ message AnalyzeTemplate {
     string createTime = 3;
     // Template modification date
     string modifiedTime = 4;
+    // Language code, in ISO-639 format, https://en.wikipedia.org/wiki/ISO_639-1
+    string languageCode = 5;
 }
 
 
