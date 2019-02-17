@@ -84,7 +84,7 @@ func (x FieldTypesEnum) String() string {
 	return proto.EnumName(FieldTypesEnum_name, int32(x))
 }
 func (FieldTypesEnum) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_common_6173d97c671eff51, []int{0}
+	return fileDescriptor_common_4511e112bc2b870c, []int{0}
 }
 
 // Anonymize image detection type
@@ -111,14 +111,14 @@ func (x DetectionTypeEnum) String() string {
 	return proto.EnumName(DetectionTypeEnum_name, int32(x))
 }
 func (DetectionTypeEnum) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_common_6173d97c671eff51, []int{1}
+	return fileDescriptor_common_4511e112bc2b870c, []int{1}
 }
 
 // FieldType strucy
 type FieldTypes struct {
 	// Field type name
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	// Field type language code
+	// Language code, in ISO-639 format, https://en.wikipedia.org/wiki/ISO_639-1
 	LanguageCode string `protobuf:"bytes,2,opt,name=languageCode,proto3" json:"languageCode,omitempty"` // Deprecated: Do not use.
 	// The minScore will filter results which has lower certainty than the provided value.
 	MinScore             string   `protobuf:"bytes,3,opt,name=minScore,proto3" json:"minScore,omitempty"`
@@ -131,7 +131,7 @@ func (m *FieldTypes) Reset()         { *m = FieldTypes{} }
 func (m *FieldTypes) String() string { return proto.CompactTextString(m) }
 func (*FieldTypes) ProtoMessage()    {}
 func (*FieldTypes) Descriptor() ([]byte, []int) {
-	return fileDescriptor_common_6173d97c671eff51, []int{0}
+	return fileDescriptor_common_4511e112bc2b870c, []int{0}
 }
 func (m *FieldTypes) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_FieldTypes.Unmarshal(m, b)
@@ -192,7 +192,7 @@ func (m *AnalyzeResult) Reset()         { *m = AnalyzeResult{} }
 func (m *AnalyzeResult) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeResult) ProtoMessage()    {}
 func (*AnalyzeResult) Descriptor() ([]byte, []int) {
-	return fileDescriptor_common_6173d97c671eff51, []int{1}
+	return fileDescriptor_common_4511e112bc2b870c, []int{1}
 }
 func (m *AnalyzeResult) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeResult.Unmarshal(m, b)
@@ -257,7 +257,7 @@ func (m *Location) Reset()         { *m = Location{} }
 func (m *Location) String() string { return proto.CompactTextString(m) }
 func (*Location) ProtoMessage()    {}
 func (*Location) Descriptor() ([]byte, []int) {
-	return fileDescriptor_common_6173d97c671eff51, []int{2}
+	return fileDescriptor_common_4511e112bc2b870c, []int{2}
 }
 func (m *Location) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Location.Unmarshal(m, b)
@@ -317,7 +317,7 @@ func (m *Image) Reset()         { *m = Image{} }
 func (m *Image) String() string { return proto.CompactTextString(m) }
 func (*Image) ProtoMessage()    {}
 func (*Image) Descriptor() ([]byte, []int) {
-	return fileDescriptor_common_6173d97c671eff51, []int{3}
+	return fileDescriptor_common_4511e112bc2b870c, []int{3}
 }
 func (m *Image) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Image.Unmarshal(m, b)
@@ -390,7 +390,7 @@ func (m *Boundingbox) Reset()         { *m = Boundingbox{} }
 func (m *Boundingbox) String() string { return proto.CompactTextString(m) }
 func (*Boundingbox) ProtoMessage()    {}
 func (*Boundingbox) Descriptor() ([]byte, []int) {
-	return fileDescriptor_common_6173d97c671eff51, []int{4}
+	return fileDescriptor_common_4511e112bc2b870c, []int{4}
 }
 func (m *Boundingbox) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Boundingbox.Unmarshal(m, b)
@@ -469,9 +469,9 @@ func init() {
 	proto.RegisterEnum("types.DetectionTypeEnum", DetectionTypeEnum_name, DetectionTypeEnum_value)
 }
 
-func init() { proto.RegisterFile("common.proto", fileDescriptor_common_6173d97c671eff51) }
+func init() { proto.RegisterFile("common.proto", fileDescriptor_common_4511e112bc2b870c) }
 
-var fileDescriptor_common_6173d97c671eff51 = []byte{
+var fileDescriptor_common_4511e112bc2b870c = []byte{
 	// 628 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x54, 0x4d, 0x6f, 0xd3, 0x40,
 	0x10, 0xad, 0x9d, 0xef, 0xc9, 0x47, 0x37, 0x2b, 0x40, 0x11, 0xe2, 0x50, 0x45, 0x08, 0xaa, 0x22,
