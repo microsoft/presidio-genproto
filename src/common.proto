@@ -5,10 +5,8 @@ package types;
 message FieldTypes {
   // Field type name
   string name = 1;
-  // Language code, in ISO-639 format, https://en.wikipedia.org/wiki/ISO_639-1
-  string languageCode = 2 [deprecated=true];
   // The minScore will filter results which has lower certainty than the provided value.
-  string minScore = 3;
+  string minScore = 2;
 }
 
 // FieldTypes for Analyzing and Anonymizing
