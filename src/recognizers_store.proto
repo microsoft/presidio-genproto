@@ -1,0 +1,71 @@
+syntax = "proto3";
+package types;
+
+// PatternRecognizer is the object stored in the store
+message PatternRecognizer {
+    // The name of the recognizer, unique
+    string name = 1;
+    // The Regex used by this recognizer
+    string pattern = 2;
+    // The confidence of the result
+    float strength = 3;
+    // The entity name which this recognizer can detect
+    string entity = 4;
+    // The supported language
+    string language = 5;
+}
+
+// RecognizerInsertOrUpdateRequest represents the request for
+// inserting a new or updating an existing pattern recognizer
+message RecognizerInsertOrUpdateRequest {
+    // The recognizer to be inserted or updated
+    PatternRecognizer value = 1;
+}
+
+
+// RecognizerDeleteRequest represents the request for deleting an existing recognizer
+message RecognizerDeleteRequest {
+    // Name of the requested recognizer
+    string name = 1;
+}
+
+
+// RecognizerGetRequest represents the request for retrieving a recognizer
+message RecognizerGetRequest {
+    // Name of the requested recognizer
+    string name = 1;
+}
+
+// RecognizersGetAllRequest represents the request for retrieving all recognizers
+message RecognizersGetAllRequest {
+}
+
+// RecognizerGetTimestampRequest represents the request for getting the timestamp when the recognizers store was last updated 
+message RecognizerGetTimestampRequest {
+}
+
+// RecognizersStoreResponse represents a store response
+message RecognizersStoreResponse {
+}
+
+// RecognizersGetResponse represents a response to a get request
+message RecognizersGetResponse {
+    // An array of recognizers
+    repeated PatternRecognizer recognizers = 1;
+}
+
+// RecognizerTimestampResponse represents the response of getting the time of last store update
+message RecognizerTimestampResponse {
+    // The time (in seconds) of the last store update
+    uint64 unixTimestamp = 1;
+}
+
+// The Recognizers Store Service is a service that handles pattern recognizers in a persistent storage
+service RecognizersStoreService {
+  rpc ApplyInsert (RecognizerInsertOrUpdateRequest) returns (RecognizersStoreResponse) {}
+  rpc ApplyUpdate (RecognizerInsertOrUpdateRequest) returns (RecognizersStoreResponse) {}
+  rpc ApplyDelete (RecognizerDeleteRequest) returns (RecognizersStoreResponse) {}
+  rpc ApplyGet (RecognizerGetRequest) returns (RecognizersGetResponse) {}
+  rpc ApplyGetAll (RecognizersGetAllRequest) returns (RecognizersGetResponse) {}
+  rpc ApplyGetTimestamp(RecognizerGetTimestampRequest) returns (RecognizerTimestampResponse) {}
+}

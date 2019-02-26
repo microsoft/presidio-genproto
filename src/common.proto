@@ -79,7 +79,7 @@ message Boundingbox {
   //Start position of char in text      
   sint32 startPosition = 6;
   //End position of char in text
-sint32 endPosition   = 7; 
+  sint32 endPosition   = 7; 
 }
 
 // Anonymize image detection type
