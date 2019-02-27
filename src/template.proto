@@ -14,6 +14,8 @@ message AnalyzeTemplate {
     string modifiedTime = 4;
     // Language code, in ISO-639 format, https://en.wikipedia.org/wiki/ISO_639-1
     string languageCode = 5;
+    // Optional flag to request all existing entities. if true, "fields" must be empty.
+    bool allEntities = 6;
 }
 
 
