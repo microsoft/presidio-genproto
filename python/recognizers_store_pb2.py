@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='recognizers_store.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x17recognizers_store.proto\x12\x05types\"f\n\x11PatternRecognizer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07pattern\x18\x02 \x01(\t\x12\x10\n\x08strength\x18\x03 \x01(\x02\x12\x0e\n\x06\x65ntity\x18\x04 \x01(\t\x12\x10\n\x08language\x18\x05 \x01(\t\"J\n\x1fRecognizerInsertOrUpdateRequest\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.types.PatternRecognizer\"\'\n\x17RecognizerDeleteRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"$\n\x14RecognizerGetRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x1a\n\x18RecognizersGetAllRequest\"\x1f\n\x1dRecognizerGetTimestampRequest\"\x1a\n\x18RecognizersStoreResponse\"G\n\x16RecognizersGetResponse\x12-\n\x0brecognizers\x18\x01 \x03(\x0b\x32\x18.types.PatternRecognizer\"4\n\x1bRecognizerTimestampResponse\x12\x15\n\runixTimestamp\x18\x01 \x01(\x04\x32\x9b\x04\n\x17RecognizersStoreService\x12X\n\x0b\x41pplyInsert\x12&.types.RecognizerInsertOrUpdateRequest\x1a\x1f.types.RecognizersStoreResponse\"\x00\x12X\n\x0b\x41pplyUpdate\x12&.types.RecognizerInsertOrUpdateRequest\x1a\x1f.types.RecognizersStoreResponse\"\x00\x12P\n\x0b\x41pplyDelete\x12\x1e.types.RecognizerDeleteRequest\x1a\x1f.types.RecognizersStoreResponse\"\x00\x12H\n\x08\x41pplyGet\x12\x1b.types.RecognizerGetRequest\x1a\x1d.types.RecognizersGetResponse\"\x00\x12O\n\x0b\x41pplyGetAll\x12\x1f.types.RecognizersGetAllRequest\x1a\x1d.types.RecognizersGetResponse\"\x00\x12_\n\x11\x41pplyGetTimestamp\x12$.types.RecognizerGetTimestampRequest\x1a\".types.RecognizerTimestampResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x17recognizers_store.proto\x12\x05types\"\x8e\x01\n\x11PatternRecognizer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07pattern\x18\x02 \x01(\t\x12\r\n\x05score\x18\x03 \x01(\x02\x12\x0e\n\x06\x65ntity\x18\x04 \x01(\t\x12\x10\n\x08language\x18\x05 \x01(\t\x12\x11\n\tblacklist\x18\x06 \x03(\t\x12\x16\n\x0e\x63ontextPhrases\x18\x07 \x03(\t\"J\n\x1fRecognizerInsertOrUpdateRequest\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.types.PatternRecognizer\"\'\n\x17RecognizerDeleteRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"$\n\x14RecognizerGetRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x1a\n\x18RecognizersGetAllRequest\"\x1f\n\x1dRecognizerGetTimestampRequest\"\x1a\n\x18RecognizersStoreResponse\"G\n\x16RecognizersGetResponse\x12-\n\x0brecognizers\x18\x01 \x03(\x0b\x32\x18.types.PatternRecognizer\"4\n\x1bRecognizerTimestampResponse\x12\x15\n\runixTimestamp\x18\x01 \x01(\x04\x32\x9b\x04\n\x17RecognizersStoreService\x12X\n\x0b\x41pplyInsert\x12&.types.RecognizerInsertOrUpdateRequest\x1a\x1f.types.RecognizersStoreResponse\"\x00\x12X\n\x0b\x41pplyUpdate\x12&.types.RecognizerInsertOrUpdateRequest\x1a\x1f.types.RecognizersStoreResponse\"\x00\x12P\n\x0b\x41pplyDelete\x12\x1e.types.RecognizerDeleteRequest\x1a\x1f.types.RecognizersStoreResponse\"\x00\x12H\n\x08\x41pplyGet\x12\x1b.types.RecognizerGetRequest\x1a\x1d.types.RecognizersGetResponse\"\x00\x12O\n\x0b\x41pplyGetAll\x12\x1f.types.RecognizersGetAllRequest\x1a\x1d.types.RecognizersGetResponse\"\x00\x12_\n\x11\x41pplyGetTimestamp\x12$.types.RecognizerGetTimestampRequest\x1a\".types.RecognizerTimestampResponse\"\x00\x62\x06proto3')
 )
 
 
@@ -47,7 +47,7 @@ _PATTERNRECOGNIZER = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='strength', full_name='types.PatternRecognizer.strength', index=2,
+      name='score', full_name='types.PatternRecognizer.score', index=2,
       number=3, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -67,6 +67,20 @@ _PATTERNRECOGNIZER = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='blacklist', full_name='types.PatternRecognizer.blacklist', index=5,
+      number=6, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='contextPhrases', full_name='types.PatternRecognizer.contextPhrases', index=6,
+      number=7, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -79,8 +93,8 @@ _PATTERNRECOGNIZER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=34,
-  serialized_end=136,
+  serialized_start=35,
+  serialized_end=177,
 )
 
 
@@ -110,8 +124,8 @@ _RECOGNIZERINSERTORUPDATEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=138,
-  serialized_end=212,
+  serialized_start=179,
+  serialized_end=253,
 )
 
 
@@ -141,8 +155,8 @@ _RECOGNIZERDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=214,
-  serialized_end=253,
+  serialized_start=255,
+  serialized_end=294,
 )
 
 
@@ -172,8 +186,8 @@ _RECOGNIZERGETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=255,
-  serialized_end=291,
+  serialized_start=296,
+  serialized_end=332,
 )
 
 
@@ -196,8 +210,8 @@ _RECOGNIZERSGETALLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=293,
-  serialized_end=319,
+  serialized_start=334,
+  serialized_end=360,
 )
 
 
@@ -220,8 +234,8 @@ _RECOGNIZERGETTIMESTAMPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=321,
-  serialized_end=352,
+  serialized_start=362,
+  serialized_end=393,
 )
 
 
@@ -244,8 +258,8 @@ _RECOGNIZERSSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=354,
-  serialized_end=380,
+  serialized_start=395,
+  serialized_end=421,
 )
 
 
@@ -275,8 +289,8 @@ _RECOGNIZERSGETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=382,
-  serialized_end=453,
+  serialized_start=423,
+  serialized_end=494,
 )
 
 
@@ -306,8 +320,8 @@ _RECOGNIZERTIMESTAMPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=455,
-  serialized_end=507,
+  serialized_start=496,
+  serialized_end=548,
 )
 
 _RECOGNIZERINSERTORUPDATEREQUEST.fields_by_name['value'].message_type = _PATTERNRECOGNIZER
@@ -394,8 +408,8 @@ _RECOGNIZERSSTORESERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=510,
-  serialized_end=1049,
+  serialized_start=551,
+  serialized_end=1090,
   methods=[
   _descriptor.MethodDescriptor(
     name='ApplyInsert',

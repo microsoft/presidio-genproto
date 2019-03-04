@@ -8,11 +8,17 @@ message PatternRecognizer {
     // The Regex used by this recognizer
     string pattern = 2;
     // The confidence of the result
-    float strength = 3;
+    float score = 3;
     // The entity name which this recognizer can detect
     string entity = 4;
-    // The supported language
+    // The supported language code, in ISO-639 format, https://en.wikipedia.org/wiki/ISO_639-1
     string language = 5;
+    // A list of words that are considered PII and should always be detected
+    //e.g. ["Mr", "Mrs", "account"]
+    repeated string blacklist = 6;
+    // A list of strings that if found in the surroundings of the entity, increase the score of the result
+    // e.g. ["name", "address", ]
+    repeated string contextPhrases = 7;
 }
 
 // RecognizerInsertOrUpdateRequest represents the request for
