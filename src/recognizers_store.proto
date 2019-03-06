@@ -6,7 +6,7 @@ message PatternRecognizer {
     // The name of the recognizer, unique
     string name = 1;
     // The Regex used by this recognizer
-    string pattern = 2;
+    string regex = 2;
     // The confidence of the result
     float score = 3;
     // The entity name which this recognizer can detect
