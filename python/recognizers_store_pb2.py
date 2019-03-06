@@ -19,10 +19,55 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='recognizers_store.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\x17recognizers_store.proto\x12\x05types\"\x8c\x01\n\x11PatternRecognizer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05regex\x18\x02 \x01(\t\x12\r\n\x05score\x18\x03 \x01(\x02\x12\x0e\n\x06\x65ntity\x18\x04 \x01(\t\x12\x10\n\x08language\x18\x05 \x01(\t\x12\x11\n\tblacklist\x18\x06 \x03(\t\x12\x16\n\x0e\x63ontextPhrases\x18\x07 \x03(\t\"J\n\x1fRecognizerInsertOrUpdateRequest\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.types.PatternRecognizer\"\'\n\x17RecognizerDeleteRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"$\n\x14RecognizerGetRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x1a\n\x18RecognizersGetAllRequest\"\x1f\n\x1dRecognizerGetTimestampRequest\"\x1a\n\x18RecognizersStoreResponse\"G\n\x16RecognizersGetResponse\x12-\n\x0brecognizers\x18\x01 \x03(\x0b\x32\x18.types.PatternRecognizer\"4\n\x1bRecognizerTimestampResponse\x12\x15\n\runixTimestamp\x18\x01 \x01(\x04\x32\x9b\x04\n\x17RecognizersStoreService\x12X\n\x0b\x41pplyInsert\x12&.types.RecognizerInsertOrUpdateRequest\x1a\x1f.types.RecognizersStoreResponse\"\x00\x12X\n\x0b\x41pplyUpdate\x12&.types.RecognizerInsertOrUpdateRequest\x1a\x1f.types.RecognizersStoreResponse\"\x00\x12P\n\x0b\x41pplyDelete\x12\x1e.types.RecognizerDeleteRequest\x1a\x1f.types.RecognizersStoreResponse\"\x00\x12H\n\x08\x41pplyGet\x12\x1b.types.RecognizerGetRequest\x1a\x1d.types.RecognizersGetResponse\"\x00\x12O\n\x0b\x41pplyGetAll\x12\x1f.types.RecognizersGetAllRequest\x1a\x1d.types.RecognizersGetResponse\"\x00\x12_\n\x11\x41pplyGetTimestamp\x12$.types.RecognizerGetTimestampRequest\x1a\".types.RecognizerTimestampResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x17recognizers_store.proto\x12\x05types\"5\n\x07Pattern\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05regex\x18\x02 \x01(\t\x12\r\n\x05score\x18\x03 \x01(\x02\"\x90\x01\n\x11PatternRecognizer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06\x65ntity\x18\x02 \x01(\t\x12\x10\n\x08language\x18\x03 \x01(\t\x12 \n\x08patterns\x18\x04 \x03(\x0b\x32\x0e.types.Pattern\x12\x11\n\tblacklist\x18\x05 \x03(\t\x12\x16\n\x0e\x63ontextPhrases\x18\x06 \x03(\t\"J\n\x1fRecognizerInsertOrUpdateRequest\x12\'\n\x05value\x18\x01 \x01(\x0b\x32\x18.types.PatternRecognizer\"\'\n\x17RecognizerDeleteRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"$\n\x14RecognizerGetRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x1a\n\x18RecognizersGetAllRequest\"\x1f\n\x1dRecognizerGetTimestampRequest\"\x1a\n\x18RecognizersStoreResponse\"G\n\x16RecognizersGetResponse\x12-\n\x0brecognizers\x18\x01 \x03(\x0b\x32\x18.types.PatternRecognizer\"4\n\x1bRecognizerTimestampResponse\x12\x15\n\runixTimestamp\x18\x01 \x01(\x04\x32\x9b\x04\n\x17RecognizersStoreService\x12X\n\x0b\x41pplyInsert\x12&.types.RecognizerInsertOrUpdateRequest\x1a\x1f.types.RecognizersStoreResponse\"\x00\x12X\n\x0b\x41pplyUpdate\x12&.types.RecognizerInsertOrUpdateRequest\x1a\x1f.types.RecognizersStoreResponse\"\x00\x12P\n\x0b\x41pplyDelete\x12\x1e.types.RecognizerDeleteRequest\x1a\x1f.types.RecognizersStoreResponse\"\x00\x12H\n\x08\x41pplyGet\x12\x1b.types.RecognizerGetRequest\x1a\x1d.types.RecognizersGetResponse\"\x00\x12O\n\x0b\x41pplyGetAll\x12\x1f.types.RecognizersGetAllRequest\x1a\x1d.types.RecognizersGetResponse\"\x00\x12_\n\x11\x41pplyGetTimestamp\x12$.types.RecognizerGetTimestampRequest\x1a\".types.RecognizerTimestampResponse\"\x00\x62\x06proto3')
 )
 
 
+
+
+_PATTERN = _descriptor.Descriptor(
+  name='Pattern',
+  full_name='types.Pattern',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='types.Pattern.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='regex', full_name='types.Pattern.regex', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='score', full_name='types.Pattern.score', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=34,
+  serialized_end=87,
+)
 
 
 _PATTERNRECOGNIZER = _descriptor.Descriptor(
@@ -40,43 +85,36 @@ _PATTERNRECOGNIZER = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='regex', full_name='types.PatternRecognizer.regex', index=1,
+      name='entity', full_name='types.PatternRecognizer.entity', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='score', full_name='types.PatternRecognizer.score', index=2,
-      number=3, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='entity', full_name='types.PatternRecognizer.entity', index=3,
-      number=4, type=9, cpp_type=9, label=1,
+      name='language', full_name='types.PatternRecognizer.language', index=2,
+      number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='language', full_name='types.PatternRecognizer.language', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='blacklist', full_name='types.PatternRecognizer.blacklist', index=5,
-      number=6, type=9, cpp_type=9, label=3,
+      name='patterns', full_name='types.PatternRecognizer.patterns', index=3,
+      number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='contextPhrases', full_name='types.PatternRecognizer.contextPhrases', index=6,
-      number=7, type=9, cpp_type=9, label=3,
+      name='blacklist', full_name='types.PatternRecognizer.blacklist', index=4,
+      number=5, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='contextPhrases', full_name='types.PatternRecognizer.contextPhrases', index=5,
+      number=6, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -93,8 +131,8 @@ _PATTERNRECOGNIZER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=35,
-  serialized_end=175,
+  serialized_start=90,
+  serialized_end=234,
 )
 
 
@@ -124,8 +162,8 @@ _RECOGNIZERINSERTORUPDATEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=177,
-  serialized_end=251,
+  serialized_start=236,
+  serialized_end=310,
 )
 
 
@@ -155,8 +193,8 @@ _RECOGNIZERDELETEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=253,
-  serialized_end=292,
+  serialized_start=312,
+  serialized_end=351,
 )
 
 
@@ -186,8 +224,8 @@ _RECOGNIZERGETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=294,
-  serialized_end=330,
+  serialized_start=353,
+  serialized_end=389,
 )
 
 
@@ -210,8 +248,8 @@ _RECOGNIZERSGETALLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=332,
-  serialized_end=358,
+  serialized_start=391,
+  serialized_end=417,
 )
 
 
@@ -234,8 +272,8 @@ _RECOGNIZERGETTIMESTAMPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=360,
-  serialized_end=391,
+  serialized_start=419,
+  serialized_end=450,
 )
 
 
@@ -258,8 +296,8 @@ _RECOGNIZERSSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=393,
-  serialized_end=419,
+  serialized_start=452,
+  serialized_end=478,
 )
 
 
@@ -289,8 +327,8 @@ _RECOGNIZERSGETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=421,
-  serialized_end=492,
+  serialized_start=480,
+  serialized_end=551,
 )
 
 
@@ -320,12 +358,14 @@ _RECOGNIZERTIMESTAMPRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=494,
-  serialized_end=546,
+  serialized_start=553,
+  serialized_end=605,
 )
 
+_PATTERNRECOGNIZER.fields_by_name['patterns'].message_type = _PATTERN
 _RECOGNIZERINSERTORUPDATEREQUEST.fields_by_name['value'].message_type = _PATTERNRECOGNIZER
 _RECOGNIZERSGETRESPONSE.fields_by_name['recognizers'].message_type = _PATTERNRECOGNIZER
+DESCRIPTOR.message_types_by_name['Pattern'] = _PATTERN
 DESCRIPTOR.message_types_by_name['PatternRecognizer'] = _PATTERNRECOGNIZER
 DESCRIPTOR.message_types_by_name['RecognizerInsertOrUpdateRequest'] = _RECOGNIZERINSERTORUPDATEREQUEST
 DESCRIPTOR.message_types_by_name['RecognizerDeleteRequest'] = _RECOGNIZERDELETEREQUEST
@@ -336,6 +376,13 @@ DESCRIPTOR.message_types_by_name['RecognizersStoreResponse'] = _RECOGNIZERSSTORE
 DESCRIPTOR.message_types_by_name['RecognizersGetResponse'] = _RECOGNIZERSGETRESPONSE
 DESCRIPTOR.message_types_by_name['RecognizerTimestampResponse'] = _RECOGNIZERTIMESTAMPRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
+
+Pattern = _reflection.GeneratedProtocolMessageType('Pattern', (_message.Message,), dict(
+  DESCRIPTOR = _PATTERN,
+  __module__ = 'recognizers_store_pb2'
+  # @@protoc_insertion_point(class_scope:types.Pattern)
+  ))
+_sym_db.RegisterMessage(Pattern)
 
 PatternRecognizer = _reflection.GeneratedProtocolMessageType('PatternRecognizer', (_message.Message,), dict(
   DESCRIPTOR = _PATTERNRECOGNIZER,
@@ -408,8 +455,8 @@ _RECOGNIZERSSTORESERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=549,
-  serialized_end=1088,
+  serialized_start=608,
+  serialized_end=1147,
   methods=[
   _descriptor.MethodDescriptor(
     name='ApplyInsert',

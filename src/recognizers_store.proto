@@ -1,24 +1,34 @@
 syntax = "proto3";
 package types;
 
-// PatternRecognizer is the object stored in the store
-message PatternRecognizer {
-    // The name of the recognizer, unique
+// Pattern represents one regex (pattern) that is able to detect a certain
+// entity and how confident the result is
+message Pattern {
+    // The name of the pattern, unique
     string name = 1;
     // The Regex used by this recognizer
     string regex = 2;
     // The confidence of the result
     float score = 3;
+}
+
+// PatternRecognizer represents a recognizer which has the ability to detect
+// entities using one or more Patterns
+message PatternRecognizer {
+    // The name of the recognizer, unique
+    string name = 1;
     // The entity name which this recognizer can detect
-    string entity = 4;
+    string entity = 2;
     // The supported language code, in ISO-639 format, https://en.wikipedia.org/wiki/ISO_639-1
-    string language = 5;
+    string language = 3;
+    // List of supported patterns by this recognizer
+    repeated Pattern patterns = 4;
     // A list of words that are considered PII and should always be detected
     //e.g. ["Mr", "Mrs", "account"]
-    repeated string blacklist = 6;
+    repeated string blacklist = 5;
     // A list of strings that if found in the surroundings of the entity, increase the score of the result
     // e.g. ["name", "address", ]
-    repeated string contextPhrases = 7;
+    repeated string contextPhrases = 6;
 }
 
 // RecognizerInsertOrUpdateRequest represents the request for
