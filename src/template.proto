@@ -13,7 +13,7 @@ message AnalyzeTemplate {
     // Template modification date
     string modifiedTime = 4;
     // Language code, in ISO-639 format, https://en.wikipedia.org/wiki/ISO_639-1
-    string languageCode = 5;
+    string language = 5;
     // Optional flag to request all existing fields. if true, "fields" must be empty.
     bool allFields = 6;
 }
