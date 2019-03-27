@@ -54,8 +54,8 @@ message RecognizerGetRequest {
 message RecognizersGetAllRequest {
 }
 
-// RecognizerGetTimestampRequest represents the request for getting the timestamp when the recognizers store was last updated 
-message RecognizerGetTimestampRequest {
+// RecognizerGetHashRequest represents the request for getting the hash of all the stored recognizers 
+message RecognizerGetHashRequest {
 }
 
 // RecognizersStoreResponse represents a store response
@@ -68,10 +68,10 @@ message RecognizersGetResponse {
     repeated PatternRecognizer recognizers = 1;
 }
 
-// RecognizerTimestampResponse represents the response of getting the time of last store update
-message RecognizerTimestampResponse {
-    // The time (in seconds) of the last store update
-    uint64 unixTimestamp = 1;
+// RecognizerHashResponse represents the response of getting the hash of all the stored recognizers 
+message RecognizerHashResponse {
+    // The hash string of all the custom recognizers stored in the storage
+    string recognizersHash = 1;
 }
 
 // The Recognizers Store Service is a service that handles pattern recognizers in a persistent storage
@@ -81,5 +81,5 @@ service RecognizersStoreService {
   rpc ApplyDelete (RecognizerDeleteRequest) returns (RecognizersStoreResponse) {}
   rpc ApplyGet (RecognizerGetRequest) returns (RecognizersGetResponse) {}
   rpc ApplyGetAll (RecognizersGetAllRequest) returns (RecognizersGetResponse) {}
-  rpc ApplyGetTimestamp(RecognizerGetTimestampRequest) returns (RecognizerTimestampResponse) {}
+  rpc ApplyGetHash(RecognizerGetHashRequest) returns (RecognizerHashResponse) {}
 }
