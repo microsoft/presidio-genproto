@@ -6,16 +6,12 @@ package types;
 message AnalyzeTemplate {
     // Array of the fields to analyze
     repeated FieldTypes fields = 1;
-    // Optional flag to request all existing fields. if true, "fields" must be empty.
-    bool allFields = 2;
     // Template description
-    string description = 3;
+    string description = 2;
     // Template Creation date
-    string createTime = 4;
+    string createTime = 3;
     // Template modification date
-    string modifiedTime = 5;
-    // Language code, in ISO-639 format, https://en.wikipedia.org/wiki/ISO_639-1
-    string language = 6;
+    string modifiedTime = 4;
 }
 
 
