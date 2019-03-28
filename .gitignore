@@ -2,3 +2,4 @@
 .pytest*
 .vs
 .DS_Store
+vendor/
