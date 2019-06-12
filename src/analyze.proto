@@ -28,6 +28,8 @@ message AnalyzeRequest {
 message AnalyzeResponse{
   // Array of the analyze results finding
   repeated AnalyzeResult analyzeResults = 1;
+  // The assigned analysis request id, can be used to correlate logs
+  string requestId = 2;
 }
 
 // The Analyze Service is a service that analyze a given the text using predefined analyzers fields to identify patterns, 
