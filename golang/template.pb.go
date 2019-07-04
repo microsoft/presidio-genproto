@@ -21,13 +21,13 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // AnalyzeTemplate represents the template definition of the Analyze service- for analyzing sensitive text.
 type AnalyzeTemplate struct {
 	// Array of the fields to analyze
-	Fields []*FieldTypes `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields,omitempty"`
+	Fields []*FieldTypes `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields"`
 	// Template description
-	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description"`
 	// Template Creation date
-	CreateTime string `protobuf:"bytes,3,opt,name=createTime,proto3" json:"createTime,omitempty"`
+	CreateTime string `protobuf:"bytes,3,opt,name=createTime,proto3" json:"createTime"`
 	// Template modification date
-	ModifiedTime         string   `protobuf:"bytes,4,opt,name=modifiedTime,proto3" json:"modifiedTime,omitempty"`
+	ModifiedTime         string   `protobuf:"bytes,4,opt,name=modifiedTime,proto3" json:"modifiedTime"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -88,15 +88,15 @@ func (m *AnalyzeTemplate) GetModifiedTime() string {
 // AnonymizeTemplate represents the template definition of the Anonymize service for anonymizying the sensitive data
 type AnonymizeTemplate struct {
 	// Template description
-	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
+	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description"`
 	// Template Creation date
-	CreateTime string `protobuf:"bytes,2,opt,name=createTime,proto3" json:"createTime,omitempty"`
+	CreateTime string `protobuf:"bytes,2,opt,name=createTime,proto3" json:"createTime"`
 	// Template modification date
-	ModifiedTime string `protobuf:"bytes,3,opt,name=modifiedTime,proto3" json:"modifiedTime,omitempty"`
+	ModifiedTime string `protobuf:"bytes,3,opt,name=modifiedTime,proto3" json:"modifiedTime"`
 	// FieldTypeTransformation represents the transformation for an array of fields types
-	FieldTypeTransformations []*FieldTypeTransformation `protobuf:"bytes,4,rep,name=fieldTypeTransformations,proto3" json:"fieldTypeTransformations,omitempty"`
+	FieldTypeTransformations []*FieldTypeTransformation `protobuf:"bytes,4,rep,name=fieldTypeTransformations,proto3" json:"fieldTypeTransformations"`
 	// The default transformation applied for undeclared fields
-	DefaultTransformation *Transformation `protobuf:"bytes,5,opt,name=defaultTransformation,proto3" json:"defaultTransformation,omitempty"`
+	DefaultTransformation *Transformation `protobuf:"bytes,5,opt,name=defaultTransformation,proto3" json:"defaultTransformation"`
 	XXX_NoUnkeyedLiteral  struct{}        `json:"-"`
 	XXX_unrecognized      []byte          `json:"-"`
 	XXX_sizecache         int32           `json:"-"`
@@ -164,13 +164,13 @@ func (m *AnonymizeTemplate) GetDefaultTransformation() *Transformation {
 // JsonSchemaTemplate represents the json template definition of the Anonymize service for anonymizying the sensitive data
 type JsonSchemaTemplate struct {
 	// Template description
-	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
+	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description"`
 	// Template Creation date
-	CreateTime string `protobuf:"bytes,2,opt,name=createTime,proto3" json:"createTime,omitempty"`
+	CreateTime string `protobuf:"bytes,2,opt,name=createTime,proto3" json:"createTime"`
 	// Template modification date
-	ModifiedTime string `protobuf:"bytes,3,opt,name=modifiedTime,proto3" json:"modifiedTime,omitempty"`
+	ModifiedTime string `protobuf:"bytes,3,opt,name=modifiedTime,proto3" json:"modifiedTime"`
 	// Json schema
-	JsonSchema           string   `protobuf:"bytes,4,opt,name=jsonSchema,proto3" json:"jsonSchema,omitempty"`
+	JsonSchema           string   `protobuf:"bytes,4,opt,name=jsonSchema,proto3" json:"jsonSchema"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -231,9 +231,9 @@ func (m *JsonSchemaTemplate) GetJsonSchema() string {
 // FieldTypeTransformation represents the transformation for an array of fields types
 type FieldTypeTransformation struct {
 	// The array of field types
-	Fields []*FieldTypes `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields,omitempty"`
+	Fields []*FieldTypes `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields"`
 	// The transformation for the array of fields
-	Transformation       *Transformation `protobuf:"bytes,2,opt,name=transformation,proto3" json:"transformation,omitempty"`
+	Transformation       *Transformation `protobuf:"bytes,2,opt,name=transformation,proto3" json:"transformation"`
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
 	XXX_unrecognized     []byte          `json:"-"`
 	XXX_sizecache        int32           `json:"-"`
@@ -280,15 +280,15 @@ func (m *FieldTypeTransformation) GetTransformation() *Transformation {
 // Transformation represents the transformation types - how the sensitive text will change
 type Transformation struct {
 	// Relace the text with the defined value
-	ReplaceValue *ReplaceValue `protobuf:"bytes,2,opt,name=replaceValue,proto3" json:"replaceValue,omitempty"`
+	ReplaceValue *ReplaceValue `protobuf:"bytes,2,opt,name=replaceValue,proto3" json:"replaceValue"`
 	// Redact the text
-	RedactValue *RedactValue `protobuf:"bytes,3,opt,name=redactValue,proto3" json:"redactValue,omitempty"`
+	RedactValue *RedactValue `protobuf:"bytes,3,opt,name=redactValue,proto3" json:"redactValue"`
 	// Hashes the text
-	HashValue *HashValue `protobuf:"bytes,4,opt,name=hashValue,proto3" json:"hashValue,omitempty"`
+	HashValue *HashValue `protobuf:"bytes,4,opt,name=hashValue,proto3" json:"hashValue"`
 	// Mask n characters of the text
-	MaskValue *MaskValue `protobuf:"bytes,5,opt,name=maskValue,proto3" json:"maskValue,omitempty"`
+	MaskValue *MaskValue `protobuf:"bytes,5,opt,name=maskValue,proto3" json:"maskValue"`
 	// Encrypt/Decrypt the text
-	FPEValue             *FPEValue `protobuf:"bytes,6,opt,name=fPEValue,proto3" json:"fPEValue,omitempty"`
+	FPEValue             *FPEValue `protobuf:"bytes,6,opt,name=fPEValue,proto3" json:"fPEValue"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
 	XXX_unrecognized     []byte    `json:"-"`
 	XXX_sizecache        int32     `json:"-"`
@@ -359,7 +359,7 @@ func (m *Transformation) GetFPEValue() *FPEValue {
 // replace to 'We met in <Location>'
 type ReplaceValue struct {
 	// The value to replace
-	NewValue             string   `protobuf:"bytes,1,opt,name=newValue,proto3" json:"newValue,omitempty"`
+	NewValue             string   `protobuf:"bytes,1,opt,name=newValue,proto3" json:"newValue"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -464,11 +464,11 @@ var xxx_messageInfo_HashValue proto.InternalMessageInfo
 // Will output:  my credit card number is 4961-2765-*********
 type MaskValue struct {
 	// the masking char
-	MaskingCharacter string `protobuf:"bytes,1,opt,name=maskingCharacter,proto3" json:"maskingCharacter,omitempty"`
+	MaskingCharacter string `protobuf:"bytes,1,opt,name=maskingCharacter,proto3" json:"maskingCharacter"`
 	// number of chars to mask
-	CharsToMask int32 `protobuf:"varint,2,opt,name=charsToMask,proto3" json:"charsToMask,omitempty"`
+	CharsToMask int32 `protobuf:"varint,2,opt,name=charsToMask,proto3" json:"charsToMask"`
 	// Should start masking from end
-	FromEnd              bool     `protobuf:"varint,3,opt,name=fromEnd,proto3" json:"fromEnd,omitempty"`
+	FromEnd              bool     `protobuf:"varint,3,opt,name=fromEnd,proto3" json:"fromEnd"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -522,11 +522,11 @@ func (m *MaskValue) GetFromEnd() bool {
 // Encrypt the given value with FFI alogrithm to presereve detected value size.
 type FPEValue struct {
 	// base64 encoded 128, 192, 256 size key
-	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Key string `protobuf:"bytes,1,opt,name=key,proto3" json:"key"`
 	// base64 encoded tweak. Size must be below 8
-	Tweak string `protobuf:"bytes,2,opt,name=tweak,proto3" json:"tweak,omitempty"`
+	Tweak string `protobuf:"bytes,2,opt,name=tweak,proto3" json:"tweak"`
 	// true to decrypt value
-	Decrypt              bool     `protobuf:"varint,3,opt,name=decrypt,proto3" json:"decrypt,omitempty"`
+	Decrypt              bool     `protobuf:"varint,3,opt,name=decrypt,proto3" json:"decrypt"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -581,11 +581,11 @@ func (m *FPEValue) GetDecrypt() bool {
 // Supported database: mssql, mysql, sqlite3, postgreSQL, oracle
 type DBConfig struct {
 	// The database connection string
-	ConnectionString string `protobuf:"bytes,1,opt,name=connectionString,proto3" json:"connectionString,omitempty"`
+	ConnectionString string `protobuf:"bytes,1,opt,name=connectionString,proto3" json:"connectionString"`
 	// The table name
-	TableName string `protobuf:"bytes,2,opt,name=tableName,proto3" json:"tableName,omitempty"`
+	TableName string `protobuf:"bytes,2,opt,name=tableName,proto3" json:"tableName"`
 	// The database type
-	Type                 string   `protobuf:"bytes,3,opt,name=type,proto3" json:"type,omitempty"`
+	Type                 string   `protobuf:"bytes,3,opt,name=type,proto3" json:"type"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -639,11 +639,11 @@ func (m *DBConfig) GetType() string {
 // Datasink represents the configuration for storing the scanner output to the selected destination such as cloud storage, database, etc.
 type Datasink struct {
 	// The database configuration
-	DbConfig *DBConfig `protobuf:"bytes,1,opt,name=dbConfig,proto3" json:"dbConfig,omitempty"`
+	DbConfig *DBConfig `protobuf:"bytes,1,opt,name=dbConfig,proto3" json:"dbConfig"`
 	// The cloud storage configuration
-	CloudStorageConfig *CloudStorageConfig `protobuf:"bytes,2,opt,name=cloudStorageConfig,proto3" json:"cloudStorageConfig,omitempty"`
+	CloudStorageConfig *CloudStorageConfig `protobuf:"bytes,2,opt,name=cloudStorageConfig,proto3" json:"cloudStorageConfig"`
 	// The stream configuration
-	StreamConfig         *StreamConfig `protobuf:"bytes,3,opt,name=streamConfig,proto3" json:"streamConfig,omitempty"`
+	StreamConfig         *StreamConfig `protobuf:"bytes,3,opt,name=streamConfig,proto3" json:"streamConfig"`
 	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
 	XXX_unrecognized     []byte        `json:"-"`
 	XXX_sizecache        int32         `json:"-"`
@@ -697,14 +697,14 @@ func (m *Datasink) GetStreamConfig() *StreamConfig {
 // DatasinkTemplate represents the scanner service outputs definition.
 type DatasinkTemplate struct {
 	// Template description
-	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
+	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description"`
 	// Datasink represents the configuration for storing the scanner output.
 	// Datasink can output both of the analyze and anonymize results and to multiple outputs
 	// Supported outputs are CloudStorage: AWS S3, Azure Blob storage, Google Storage
 	// Streams: Azure EventHub, Kafka
 	// Database: MySql, SqlLite3, MSSQL, PostgreSQL
-	AnalyzeDatasink      []*Datasink `protobuf:"bytes,2,rep,name=analyzeDatasink,proto3" json:"analyzeDatasink,omitempty"`
-	AnonymizeDatasink    []*Datasink `protobuf:"bytes,3,rep,name=anonymizeDatasink,proto3" json:"anonymizeDatasink,omitempty"`
+	AnalyzeDatasink      []*Datasink `protobuf:"bytes,2,rep,name=analyzeDatasink,proto3" json:"analyzeDatasink"`
+	AnonymizeDatasink    []*Datasink `protobuf:"bytes,3,rep,name=anonymizeDatasink,proto3" json:"anonymizeDatasink"`
 	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
 	XXX_unrecognized     []byte      `json:"-"`
 	XXX_sizecache        int32       `json:"-"`
@@ -758,11 +758,11 @@ func (m *DatasinkTemplate) GetAnonymizeDatasink() []*Datasink {
 // Azure Blob Storage configuration
 type BlobStorageConfig struct {
 	// Azure account name
-	AccountName string `protobuf:"bytes,1,opt,name=accountName,proto3" json:"accountName,omitempty"`
+	AccountName string `protobuf:"bytes,1,opt,name=accountName,proto3" json:"accountName"`
 	// Azure account key
-	AccountKey string `protobuf:"bytes,2,opt,name=accountKey,proto3" json:"accountKey,omitempty"`
+	AccountKey string `protobuf:"bytes,2,opt,name=accountKey,proto3" json:"accountKey"`
 	// The blob storage container Name
-	ContainerName        string   `protobuf:"bytes,3,opt,name=containerName,proto3" json:"containerName,omitempty"`
+	ContainerName        string   `protobuf:"bytes,3,opt,name=containerName,proto3" json:"containerName"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -816,15 +816,15 @@ func (m *BlobStorageConfig) GetContainerName() string {
 // AWS S3 configuration
 type S3Config struct {
 	// The access id
-	AccessId string `protobuf:"bytes,1,opt,name=accessId,proto3" json:"accessId,omitempty"`
+	AccessId string `protobuf:"bytes,1,opt,name=accessId,proto3" json:"accessId"`
 	// The access key
-	AccessKey string `protobuf:"bytes,2,opt,name=accessKey,proto3" json:"accessKey,omitempty"`
+	AccessKey string `protobuf:"bytes,2,opt,name=accessKey,proto3" json:"accessKey"`
 	// The region
-	Region string `protobuf:"bytes,3,opt,name=region,proto3" json:"region,omitempty"`
+	Region string `protobuf:"bytes,3,opt,name=region,proto3" json:"region"`
 	// The bucket name
-	BucketName string `protobuf:"bytes,4,opt,name=bucketName,proto3" json:"bucketName,omitempty"`
+	BucketName string `protobuf:"bytes,4,opt,name=bucketName,proto3" json:"bucketName"`
 	// The s3 endpoint
-	Endpoint             string   `protobuf:"bytes,5,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
+	Endpoint             string   `protobuf:"bytes,5,opt,name=endpoint,proto3" json:"endpoint"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -892,13 +892,13 @@ func (m *S3Config) GetEndpoint() string {
 // Represents the Google Storage configuration
 type GoogleStorageConfig struct {
 	// The json
-	Json string `protobuf:"bytes,1,opt,name=json,proto3" json:"json,omitempty"`
+	Json string `protobuf:"bytes,1,opt,name=json,proto3" json:"json"`
 	// The project id
-	ProjectId string `protobuf:"bytes,2,opt,name=projectId,proto3" json:"projectId,omitempty"`
+	ProjectId string `protobuf:"bytes,2,opt,name=projectId,proto3" json:"projectId"`
 	// The scopes authentication [there are different scopes, which you can find here https://cloud.google.com/storage/docs/authentication]
-	Scopes string `protobuf:"bytes,3,opt,name=scopes,proto3" json:"scopes,omitempty"`
+	Scopes string `protobuf:"bytes,3,opt,name=scopes,proto3" json:"scopes"`
 	// The bucket name
-	BucketName           string   `protobuf:"bytes,4,opt,name=bucketName,proto3" json:"bucketName,omitempty"`
+	BucketName           string   `protobuf:"bytes,4,opt,name=bucketName,proto3" json:"bucketName"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -959,11 +959,11 @@ func (m *GoogleStorageConfig) GetBucketName() string {
 // Represents the cloud storage config - supported storage: Azure blob storage, AWS S3, Google storage
 type CloudStorageConfig struct {
 	// The azure blob storage config
-	BlobStorageConfig *BlobStorageConfig `protobuf:"bytes,1,opt,name=blobStorageConfig,proto3" json:"blobStorageConfig,omitempty"`
+	BlobStorageConfig *BlobStorageConfig `protobuf:"bytes,1,opt,name=blobStorageConfig,proto3" json:"blobStorageConfig"`
 	// The s3 config
-	S3Config *S3Config `protobuf:"bytes,2,opt,name=s3Config,proto3" json:"s3Config,omitempty"`
+	S3Config *S3Config `protobuf:"bytes,2,opt,name=s3Config,proto3" json:"s3Config"`
 	// The google storage config
-	GoogleStorageConfig  *GoogleStorageConfig `protobuf:"bytes,3,opt,name=GoogleStorageConfig,json=googleStorageConfig,proto3" json:"GoogleStorageConfig,omitempty"`
+	GoogleStorageConfig  *GoogleStorageConfig `protobuf:"bytes,3,opt,name=GoogleStorageConfig,json=googleStorageConfig,proto3" json:"GoogleStorageConfig"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
 	XXX_sizecache        int32                `json:"-"`
@@ -1017,11 +1017,11 @@ func (m *CloudStorageConfig) GetGoogleStorageConfig() *GoogleStorageConfig {
 // Represents the streams configuration
 type StreamConfig struct {
 	// The kafka configuration
-	KafkaConfig *KafkaConfig `protobuf:"bytes,1,opt,name=kafkaConfig,proto3" json:"kafkaConfig,omitempty"`
+	KafkaConfig *KafkaConfig `protobuf:"bytes,1,opt,name=kafkaConfig,proto3" json:"kafkaConfig"`
 	// The Azure Event Hub configuration
-	EhConfig *EHConfig `protobuf:"bytes,2,opt,name=ehConfig,proto3" json:"ehConfig,omitempty"`
+	EhConfig *EHConfig `protobuf:"bytes,2,opt,name=ehConfig,proto3" json:"ehConfig"`
 	// Number of partitions if applicable
-	PartitionCount       int32    `protobuf:"varint,3,opt,name=partitionCount,proto3" json:"partitionCount,omitempty"`
+	PartitionCount       int32    `protobuf:"varint,3,opt,name=partitionCount,proto3" json:"partitionCount"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -1075,13 +1075,13 @@ func (m *StreamConfig) GetPartitionCount() int32 {
 // The Kafka configuration
 type KafkaConfig struct {
 	// Kafka address
-	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address"`
 	// Kafka topic
-	Topic string `protobuf:"bytes,2,opt,name=topic,proto3" json:"topic,omitempty"`
+	Topic string `protobuf:"bytes,2,opt,name=topic,proto3" json:"topic"`
 	// SASL authentication user name
-	SaslUsername string `protobuf:"bytes,3,opt,name=saslUsername,proto3" json:"saslUsername,omitempty"`
+	SaslUsername string `protobuf:"bytes,3,opt,name=saslUsername,proto3" json:"saslUsername"`
 	// SASL authentication password
-	SaslPassword         string   `protobuf:"bytes,4,opt,name=saslPassword,proto3" json:"saslPassword,omitempty"`
+	SaslPassword         string   `protobuf:"bytes,4,opt,name=saslPassword,proto3" json:"saslPassword"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -1142,21 +1142,21 @@ func (m *KafkaConfig) GetSaslPassword() string {
 // Azure EventHub configuration
 type EHConfig struct {
 	// EventHub namespace
-	EhNamespace string `protobuf:"bytes,1,opt,name=ehNamespace,proto3" json:"ehNamespace,omitempty"`
+	EhNamespace string `protobuf:"bytes,1,opt,name=ehNamespace,proto3" json:"ehNamespace"`
 	// EventHub name
-	EhName string `protobuf:"bytes,2,opt,name=ehName,proto3" json:"ehName,omitempty"`
+	EhName string `protobuf:"bytes,2,opt,name=ehName,proto3" json:"ehName"`
 	// Eventhub connection string
-	EhConnectionString string `protobuf:"bytes,3,opt,name=ehConnectionString,proto3" json:"ehConnectionString,omitempty"`
+	EhConnectionString string `protobuf:"bytes,3,opt,name=ehConnectionString,proto3" json:"ehConnectionString"`
 	// Eventhub key name (a key name and a key value can provided instead of the full connection string)
-	EhKeyName string `protobuf:"bytes,4,opt,name=ehKeyName,proto3" json:"ehKeyName,omitempty"`
+	EhKeyName string `protobuf:"bytes,4,opt,name=ehKeyName,proto3" json:"ehKeyName"`
 	// Eventhub key value
-	EhKeyValue string `protobuf:"bytes,5,opt,name=ehKeyValue,proto3" json:"ehKeyValue,omitempty"`
+	EhKeyValue string `protobuf:"bytes,5,opt,name=ehKeyValue,proto3" json:"ehKeyValue"`
 	// Storage account name value
-	StorageAccountNameValue string `protobuf:"bytes,6,opt,name=storageAccountNameValue,proto3" json:"storageAccountNameValue,omitempty"`
+	StorageAccountNameValue string `protobuf:"bytes,6,opt,name=storageAccountNameValue,proto3" json:"storageAccountNameValue"`
 	// Storage account key value
-	StorageAccountKeyValue string `protobuf:"bytes,7,opt,name=storageAccountKeyValue,proto3" json:"storageAccountKeyValue,omitempty"`
+	StorageAccountKeyValue string `protobuf:"bytes,7,opt,name=storageAccountKeyValue,proto3" json:"storageAccountKeyValue"`
 	// Storage container  value
-	ContainerValue       string   `protobuf:"bytes,8,opt,name=containerValue,proto3" json:"containerValue,omitempty"`
+	ContainerValue       string   `protobuf:"bytes,8,opt,name=containerValue,proto3" json:"containerValue"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -1246,17 +1246,17 @@ func (m *EHConfig) GetContainerValue() string {
 // And sending the output to the selected destination
 type StreamTemplate struct {
 	// The job name
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name"`
 	// Template description
-	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description"`
 	// The selected stream configuration
-	StreamConfig *StreamConfig `protobuf:"bytes,3,opt,name=streamConfig,proto3" json:"streamConfig,omitempty"`
+	StreamConfig *StreamConfig `protobuf:"bytes,3,opt,name=streamConfig,proto3" json:"streamConfig"`
 	// The analyzer template id configures the fields to analyze
-	AnalyzeTemplateId string `protobuf:"bytes,4,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
+	AnalyzeTemplateId string `protobuf:"bytes,4,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId"`
 	// The anonymizer template id configures how to anonymize the sensitive data [optional]
-	AnonymizeTemplateId string `protobuf:"bytes,5,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId,omitempty"`
+	AnonymizeTemplateId string `protobuf:"bytes,5,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId"`
 	// The datasinkTemplateId configures the output destination of the analyzer/anonymizer results
-	DatasinkTemplateId   string   `protobuf:"bytes,6,opt,name=datasinkTemplateId,proto3" json:"datasinkTemplateId,omitempty"`
+	DatasinkTemplateId   string   `protobuf:"bytes,6,opt,name=datasinkTemplateId,proto3" json:"datasinkTemplateId"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -1332,9 +1332,9 @@ func (m *StreamTemplate) GetDatasinkTemplateId() string {
 // And sending the output to the selected destination
 type ScanTemplate struct {
 	// Template description
-	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
+	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description"`
 	// The selected cloud storage configuration
-	CloudStorageConfig   *CloudStorageConfig `protobuf:"bytes,2,opt,name=cloudStorageConfig,proto3" json:"cloudStorageConfig,omitempty"`
+	CloudStorageConfig   *CloudStorageConfig `protobuf:"bytes,2,opt,name=cloudStorageConfig,proto3" json:"cloudStorageConfig"`
 	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
 	XXX_unrecognized     []byte              `json:"-"`
 	XXX_sizecache        int32               `json:"-"`
@@ -1382,19 +1382,19 @@ func (m *ScanTemplate) GetCloudStorageConfig() *CloudStorageConfig {
 // on the selected time
 type ScannerCronJobTemplate struct {
 	// The job name
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name"`
 	// The job description
-	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description"`
 	// The trigger for a new job to start
-	Trigger *Trigger `protobuf:"bytes,3,opt,name=trigger,proto3" json:"trigger,omitempty"`
+	Trigger *Trigger `protobuf:"bytes,3,opt,name=trigger,proto3" json:"trigger"`
 	// The scan template id configures job input source
-	ScanTemplateId string `protobuf:"bytes,4,opt,name=scanTemplateId,proto3" json:"scanTemplateId,omitempty"`
+	ScanTemplateId string `protobuf:"bytes,4,opt,name=scanTemplateId,proto3" json:"scanTemplateId"`
 	// The analyzer template id configures the fields to analyze
-	AnalyzeTemplateId string `protobuf:"bytes,5,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
+	AnalyzeTemplateId string `protobuf:"bytes,5,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId"`
 	// The anonymizer template id configures how to anonymize the sensitive data [optional]
-	AnonymizeTemplateId string `protobuf:"bytes,6,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId,omitempty"`
+	AnonymizeTemplateId string `protobuf:"bytes,6,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId"`
 	// The datasink template id configures the output destination of the analyzer/anonymizer results
-	DatasinkTemplateId   string   `protobuf:"bytes,7,opt,name=datasinkTemplateId,proto3" json:"datasinkTemplateId,omitempty"`
+	DatasinkTemplateId   string   `protobuf:"bytes,7,opt,name=datasinkTemplateId,proto3" json:"datasinkTemplateId"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -1476,17 +1476,17 @@ func (m *ScannerCronJobTemplate) GetDatasinkTemplateId() string {
 // The kuberenetes job template. Creates a job that creates streams containers
 type StreamsJobTemplate struct {
 	// The job name
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name"`
 	// The job description
-	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description"`
 	// The scan template id configures job input source
-	StreamsTemplateId string `protobuf:"bytes,3,opt,name=streamsTemplateId,proto3" json:"streamsTemplateId,omitempty"`
+	StreamsTemplateId string `protobuf:"bytes,3,opt,name=streamsTemplateId,proto3" json:"streamsTemplateId"`
 	// The analyzer template id configures the fields to analyze
-	AnalyzeTemplateId string `protobuf:"bytes,4,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
+	AnalyzeTemplateId string `protobuf:"bytes,4,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId"`
 	// The anonymizer template id configures how to anonymize the sensitive data [optional]
-	AnonymizeTemplateId string `protobuf:"bytes,5,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId,omitempty"`
+	AnonymizeTemplateId string `protobuf:"bytes,5,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId"`
 	// The datasink template id configures the output destination of the analyzer/anonymizer results
-	DatasinkTemplateId   string   `protobuf:"bytes,6,opt,name=datasinkTemplateId,proto3" json:"datasinkTemplateId,omitempty"`
+	DatasinkTemplateId   string   `protobuf:"bytes,6,opt,name=datasinkTemplateId,proto3" json:"datasinkTemplateId"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -1561,7 +1561,7 @@ func (m *StreamsJobTemplate) GetDatasinkTemplateId() string {
 // Trigger defines the trigger for a new job to start
 type Trigger struct {
 	// Defines the job schedule
-	Schedule             *Schedule `protobuf:"bytes,1,opt,name=schedule,proto3" json:"schedule,omitempty"`
+	Schedule             *Schedule `protobuf:"bytes,1,opt,name=schedule,proto3" json:"schedule"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
 	XXX_unrecognized     []byte    `json:"-"`
 	XXX_sizecache        int32     `json:"-"`
@@ -1601,7 +1601,7 @@ func (m *Trigger) GetSchedule() *Schedule {
 // Defines the job schedule
 type Schedule struct {
 	// The recurrence period of the job, set as a cron expression
-	RecurrencePeriod     string   `protobuf:"bytes,1,opt,name=recurrencePeriod,proto3" json:"recurrencePeriod,omitempty"`
+	RecurrencePeriod     string   `protobuf:"bytes,1,opt,name=recurrencePeriod,proto3" json:"recurrencePeriod"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -1641,13 +1641,13 @@ func (m *Schedule) GetRecurrencePeriod() string {
 // AnonymizeImageTemplate represents the template definition of the Anonymize image service
 type AnonymizeImageTemplate struct {
 	// Template description
-	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description,omitempty"`
+	Description string `protobuf:"bytes,1,opt,name=description,proto3" json:"description"`
 	// Template Creation date
-	CreateTime string `protobuf:"bytes,2,opt,name=createTime,proto3" json:"createTime,omitempty"`
+	CreateTime string `protobuf:"bytes,2,opt,name=createTime,proto3" json:"createTime"`
 	// Template modification date
-	ModifiedTime string `protobuf:"bytes,3,opt,name=modifiedTime,proto3" json:"modifiedTime,omitempty"`
+	ModifiedTime string `protobuf:"bytes,3,opt,name=modifiedTime,proto3" json:"modifiedTime"`
 	// FieldTypeGraphic represents the graphics for an array of fields types
-	FieldTypeGraphics    []*FieldTypeGraphic `protobuf:"bytes,4,rep,name=fieldTypeGraphics,proto3" json:"fieldTypeGraphics,omitempty"`
+	FieldTypeGraphics    []*FieldTypeGraphic `protobuf:"bytes,4,rep,name=fieldTypeGraphics,proto3" json:"fieldTypeGraphics"`
 	XXX_NoUnkeyedLiteral struct{}            `json:"-"`
 	XXX_unrecognized     []byte              `json:"-"`
 	XXX_sizecache        int32               `json:"-"`
@@ -1708,9 +1708,9 @@ func (m *AnonymizeImageTemplate) GetFieldTypeGraphics() []*FieldTypeGraphic {
 // FieldTypeGraphic represents the graphics for an array of fields types
 type FieldTypeGraphic struct {
 	// The array of field types
-	Fields []*FieldTypes `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields,omitempty"`
+	Fields []*FieldTypes `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields"`
 	// The graphics for the array of fields
-	Graphic              *Graphic `protobuf:"bytes,2,opt,name=graphic,proto3" json:"graphic,omitempty"`
+	Graphic              *Graphic `protobuf:"bytes,2,opt,name=graphic,proto3" json:"graphic"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -1757,7 +1757,7 @@ func (m *FieldTypeGraphic) GetGraphic() *Graphic {
 // Graphic represents how the sensitive content will be transforms
 type Graphic struct {
 	// Fill the bbox with a color
-	FillColorValue       *FillColorValue `protobuf:"bytes,1,opt,name=fillColorValue,proto3" json:"fillColorValue,omitempty"`
+	FillColorValue       *FillColorValue `protobuf:"bytes,1,opt,name=fillColorValue,proto3" json:"fillColorValue"`
 	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
 	XXX_unrecognized     []byte          `json:"-"`
 	XXX_sizecache        int32           `json:"-"`
@@ -1797,11 +1797,11 @@ func (m *Graphic) GetFillColorValue() *FillColorValue {
 // Fill the bbox with a color
 type FillColorValue struct {
 	// 0 - 255
-	Red float64 `protobuf:"fixed64,1,opt,name=red,proto3" json:"red,omitempty"`
+	Red float64 `protobuf:"fixed64,1,opt,name=red,proto3" json:"red"`
 	// 0 - 255
-	Green float64 `protobuf:"fixed64,2,opt,name=green,proto3" json:"green,omitempty"`
+	Green float64 `protobuf:"fixed64,2,opt,name=green,proto3" json:"green"`
 	// 0 - 255
-	Blue                 float64  `protobuf:"fixed64,3,opt,name=blue,proto3" json:"blue,omitempty"`
+	Blue                 float64  `protobuf:"fixed64,3,opt,name=blue,proto3" json:"blue"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`

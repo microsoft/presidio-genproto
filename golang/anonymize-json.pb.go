@@ -21,21 +21,21 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // AnonymizeJsonApiRequest represents the request to the API HTTP service
 type AnonymizeJsonApiRequest struct {
 	// The json to anonymize
-	Json string `protobuf:"bytes,1,opt,name=json,proto3" json:"json,omitempty"`
+	Json string `protobuf:"bytes,1,opt,name=json,proto3" json:"json"`
 	// The json schema template id.
 	// One of jsonSchemaId or jsonSchema have to be configured.
-	JsonSchemaId string `protobuf:"bytes,2,opt,name=jsonSchemaId,proto3" json:"jsonSchemaId,omitempty"`
+	JsonSchemaId string `protobuf:"bytes,2,opt,name=jsonSchemaId,proto3" json:"jsonSchemaId"`
 	// The analyze template id - anonymization is done according to analyzing results.
 	// One of analyzeTemplateId or analyzeTemplate have to be configured.
-	AnalyzeTemplateId string `protobuf:"bytes,3,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
+	AnalyzeTemplateId string `protobuf:"bytes,3,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId"`
 	// The anonymize template id - represents the anonymize configuration, which fields to anonymize and how.
-	AnonymizeTemplateId string `protobuf:"bytes,4,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId,omitempty"`
+	AnonymizeTemplateId string `protobuf:"bytes,4,opt,name=anonymizeTemplateId,proto3" json:"anonymizeTemplateId"`
 	// Optional parameter for running the json anonymizer without creating a schema template.
-	JsonSchemaTemplate *JsonSchemaTemplate `protobuf:"bytes,5,opt,name=jsonSchemaTemplate,proto3" json:"jsonSchemaTemplate,omitempty"`
+	JsonSchemaTemplate *JsonSchemaTemplate `protobuf:"bytes,5,opt,name=jsonSchemaTemplate,proto3" json:"jsonSchemaTemplate"`
 	// Optional parameter for running the analyzer without creating a template.
-	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,6,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
+	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,6,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate"`
 	// Optional parameter for running the anonymizer without creating a template.
-	AnonymizeTemplate    *AnonymizeTemplate `protobuf:"bytes,7,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate,omitempty"`
+	AnonymizeTemplate    *AnonymizeTemplate `protobuf:"bytes,7,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
 	XXX_sizecache        int32              `json:"-"`
@@ -116,13 +116,13 @@ func (m *AnonymizeJsonApiRequest) GetAnonymizeTemplate() *AnonymizeTemplate {
 
 type AnonymizeJsonRequest struct {
 	// The json to anonymize
-	Json string `protobuf:"bytes,1,opt,name=json,proto3" json:"json,omitempty"`
+	Json string `protobuf:"bytes,1,opt,name=json,proto3" json:"json"`
 	// the Json schema template.
-	JsonSchema *JsonSchemaTemplate `protobuf:"bytes,2,opt,name=jsonSchema,proto3" json:"jsonSchema,omitempty"`
+	JsonSchema *JsonSchemaTemplate `protobuf:"bytes,2,opt,name=jsonSchema,proto3" json:"jsonSchema"`
 	// The analyze tempalte represents which fields should be analyzed in the json.
-	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,3,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
+	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,3,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate"`
 	// The anonymize template represent the anonymize configuration, which fields to anonymize and how.
-	AnonymizeTemplate    *AnonymizeTemplate `protobuf:"bytes,4,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate,omitempty"`
+	AnonymizeTemplate    *AnonymizeTemplate `protobuf:"bytes,4,opt,name=anonymizeTemplate,proto3" json:"anonymizeTemplate"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
 	XXX_sizecache        int32              `json:"-"`

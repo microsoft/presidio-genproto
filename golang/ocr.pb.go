@@ -26,7 +26,7 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // OcrRequest represents the request to the anonymize service via GRPC
 type OcrRequest struct {
 	// The image to ocr
-	Image                *Image   `protobuf:"bytes,1,opt,name=image,proto3" json:"image,omitempty"`
+	Image                *Image   `protobuf:"bytes,1,opt,name=image,proto3" json:"image"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -66,7 +66,7 @@ func (m *OcrRequest) GetImage() *Image {
 // OcrResponse represents the anonymize service response
 type OcrResponse struct {
 	// The image detected bboxes
-	Image                *Image   `protobuf:"bytes,1,opt,name=image,proto3" json:"image,omitempty"`
+	Image                *Image   `protobuf:"bytes,1,opt,name=image,proto3" json:"image"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`

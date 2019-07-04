@@ -26,20 +26,20 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // AnonymizeApiRequest represents the request to the API HTTP service
 type AnonymizeImageApiRequest struct {
 	// The image data to anonymize in bytes format
-	Data []byte `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Data []byte `protobuf:"bytes,1,opt,name=data,proto3" json:"data"`
 	// The image type JPEG/PNG/TIFF
-	ImageType string `protobuf:"bytes,2,opt,name=imageType,proto3" json:"imageType,omitempty"`
+	ImageType string `protobuf:"bytes,2,opt,name=imageType,proto3" json:"imageType"`
 	// The analyze template id - anonymization is done according to analyzing results.
 	// One of analyzeTemplateId or analyzeTemplate have to be configured.
-	AnalyzeTemplateId string `protobuf:"bytes,3,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId,omitempty"`
+	AnalyzeTemplateId string `protobuf:"bytes,3,opt,name=analyzeTemplateId,proto3" json:"analyzeTemplateId"`
 	// The anonymize image template id - represents the anonymize configuration, which fields to anonymize and how.
-	AnonymizeImageTemplateId string `protobuf:"bytes,4,opt,name=anonymizeImageTemplateId,proto3" json:"anonymizeImageTemplateId,omitempty"`
+	AnonymizeImageTemplateId string `protobuf:"bytes,4,opt,name=anonymizeImageTemplateId,proto3" json:"anonymizeImageTemplateId"`
 	// Optional parameter for running the analyzer without creating a template.
-	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,5,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate,omitempty"`
+	AnalyzeTemplate *AnalyzeTemplate `protobuf:"bytes,5,opt,name=analyzeTemplate,proto3" json:"analyzeTemplate"`
 	// Optional parameter for running the anonymize image without creating a template.
-	AnonymizeImageTemplate *AnonymizeImageTemplate `protobuf:"bytes,6,opt,name=anonymizeImageTemplate,proto3" json:"anonymizeImageTemplate,omitempty"`
+	AnonymizeImageTemplate *AnonymizeImageTemplate `protobuf:"bytes,6,opt,name=anonymizeImageTemplate,proto3" json:"anonymizeImageTemplate"`
 	// Anoymize image type detection OCR / Azure OCR / Azure Face
-	DetectionType        DetectionTypeEnum `protobuf:"varint,7,opt,name=detectionType,proto3,enum=types.DetectionTypeEnum" json:"detectionType,omitempty"`
+	DetectionType        DetectionTypeEnum `protobuf:"varint,7,opt,name=detectionType,proto3,enum=types.DetectionTypeEnum" json:"detectionType"`
 	XXX_NoUnkeyedLiteral struct{}          `json:"-"`
 	XXX_unrecognized     []byte            `json:"-"`
 	XXX_sizecache        int32             `json:"-"`
@@ -121,13 +121,13 @@ func (m *AnonymizeImageApiRequest) GetDetectionType() DetectionTypeEnum {
 // AnonymizeRequest represents the request to the anonymize service via GRPC
 type AnonymizeImageRequest struct {
 	// The Image to anonymize
-	Image *Image `protobuf:"bytes,1,opt,name=image,proto3" json:"image,omitempty"`
+	Image *Image `protobuf:"bytes,1,opt,name=image,proto3" json:"image"`
 	// The anonymize template represent the anonymize configuration, which fields to anonymize and how
-	Template *AnonymizeImageTemplate `protobuf:"bytes,2,opt,name=template,proto3" json:"template,omitempty"`
+	Template *AnonymizeImageTemplate `protobuf:"bytes,2,opt,name=template,proto3" json:"template"`
 	// Anoymize image detection type  OCR / Azure OCR / Azure Face
-	DetectionType DetectionTypeEnum `protobuf:"varint,3,opt,name=detectionType,proto3,enum=types.DetectionTypeEnum" json:"detectionType,omitempty"`
+	DetectionType DetectionTypeEnum `protobuf:"varint,3,opt,name=detectionType,proto3,enum=types.DetectionTypeEnum" json:"detectionType"`
 	// The analyze result containing the field type and location of the sensetive data to be anonymized.
-	AnalyzeResults       []*AnalyzeResult `protobuf:"bytes,4,rep,name=analyzeResults,proto3" json:"analyzeResults,omitempty"`
+	AnalyzeResults       []*AnalyzeResult `protobuf:"bytes,4,rep,name=analyzeResults,proto3" json:"analyzeResults"`
 	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
 	XXX_unrecognized     []byte           `json:"-"`
 	XXX_sizecache        int32            `json:"-"`
@@ -187,7 +187,7 @@ func (m *AnonymizeImageRequest) GetAnalyzeResults() []*AnalyzeResult {
 
 // AnonymizeResponse represents the anonymize service response
 type AnonymizeImageResponse struct {
-	Image                *Image   `protobuf:"bytes,1,opt,name=image,proto3" json:"image,omitempty"`
+	Image                *Image   `protobuf:"bytes,1,opt,name=image,proto3" json:"image"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`

@@ -26,9 +26,9 @@ const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 // ScannerCronJobApiRequest represents the request to the API HTTP service
 type ScannerCronJobApiRequest struct {
 	// The scanner cron job template id
-	ScannerCronJobTemplateId string `protobuf:"bytes,1,opt,name=ScannerCronJobTemplateId,json=scannerCronJobTemplateId,proto3" json:"ScannerCronJobTemplateId,omitempty"`
+	ScannerCronJobTemplateId string `protobuf:"bytes,1,opt,name=ScannerCronJobTemplateId,json=scannerCronJobTemplateId,proto3" json:"ScannerCronJobTemplateId"`
 	// The scanner cron job requeset represents the  the scanning job details [optional parameter]
-	ScannerCronJobRequest *ScannerCronJobRequest `protobuf:"bytes,2,opt,name=scannerCronJobRequest,proto3" json:"scannerCronJobRequest,omitempty"`
+	ScannerCronJobRequest *ScannerCronJobRequest `protobuf:"bytes,2,opt,name=scannerCronJobRequest,proto3" json:"scannerCronJobRequest"`
 	XXX_NoUnkeyedLiteral  struct{}               `json:"-"`
 	XXX_unrecognized      []byte                 `json:"-"`
 	XXX_sizecache         int32                  `json:"-"`
@@ -75,11 +75,11 @@ func (m *ScannerCronJobApiRequest) GetScannerCronJobRequest() *ScannerCronJobReq
 // ScannerCronJobRequest represents the request to the scheduler service via GRPC
 type ScannerCronJobRequest struct {
 	// Scanner cronjob name
-	Name string `protobuf:"bytes,1,opt,name=Name,json=name,proto3" json:"Name,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=Name,json=name,proto3" json:"Name"`
 	// The trigger for a new job to start
-	Trigger *Trigger `protobuf:"bytes,2,opt,name=trigger,proto3" json:"trigger,omitempty"`
+	Trigger *Trigger `protobuf:"bytes,2,opt,name=trigger,proto3" json:"trigger"`
 	// The scanner request represents the scanning details
-	ScanRequest          *ScanRequest `protobuf:"bytes,3,opt,name=scanRequest,proto3" json:"scanRequest,omitempty"`
+	ScanRequest          *ScanRequest `protobuf:"bytes,3,opt,name=scanRequest,proto3" json:"scanRequest"`
 	XXX_NoUnkeyedLiteral struct{}     `json:"-"`
 	XXX_unrecognized     []byte       `json:"-"`
 	XXX_sizecache        int32        `json:"-"`
@@ -163,9 +163,9 @@ var xxx_messageInfo_ScannerCronJobResponse proto.InternalMessageInfo
 // StreamsJobApiRequest represents the request to the API HTTP service
 type StreamsJobApiRequest struct {
 	// The streams job template id
-	StreamsJobTemplateId string `protobuf:"bytes,1,opt,name=StreamsJobTemplateId,json=streamsJobTemplateId,proto3" json:"StreamsJobTemplateId,omitempty"`
+	StreamsJobTemplateId string `protobuf:"bytes,1,opt,name=StreamsJobTemplateId,json=streamsJobTemplateId,proto3" json:"StreamsJobTemplateId"`
 	// The streams request that contains the full streamsRequest
-	StreamsJobRequest    *StreamsJobRequest `protobuf:"bytes,2,opt,name=streamsJobRequest,proto3" json:"streamsJobRequest,omitempty"`
+	StreamsJobRequest    *StreamsJobRequest `protobuf:"bytes,2,opt,name=streamsJobRequest,proto3" json:"streamsJobRequest"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
 	XXX_sizecache        int32              `json:"-"`
@@ -212,9 +212,9 @@ func (m *StreamsJobApiRequest) GetStreamsJobRequest() *StreamsJobRequest {
 // StreamsJobRequest represents the request to the scheduler service via GRPC
 type StreamsJobRequest struct {
 	// The streams job name
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name"`
 	// The streams requeset that hold the streaming details
-	StreamsRequest       *StreamRequest `protobuf:"bytes,2,opt,name=streamsRequest,proto3" json:"streamsRequest,omitempty"`
+	StreamsRequest       *StreamRequest `protobuf:"bytes,2,opt,name=streamsRequest,proto3" json:"streamsRequest"`
 	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
 	XXX_unrecognized     []byte         `json:"-"`
 	XXX_sizecache        int32          `json:"-"`
