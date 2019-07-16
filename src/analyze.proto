@@ -10,8 +10,10 @@ message AnalyzeApiRequest {
   string text = 1;
   // The analyze template id - that hold the analyze configuration
   string analyzeTemplateId = 2;
-  // Optional parameter for running the analyze service without creating a template 
+  // Optional parameter (if template id was not provided) for running the analyze service without creating a template 
   AnalyzeTemplate analyzeTemplate = 3;
+  // Threshold to filter results based on their score
+  string resultsScoreThreshold = 4;
 }
 
 
