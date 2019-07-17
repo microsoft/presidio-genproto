@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='analyze.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\ranalyze.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\"\x8c\x01\n\x11\x41nalyzeApiRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x02 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x03 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x1d\n\x15resultsScoreThreshold\x18\x04 \x01(\t\"O\n\x0e\x41nalyzeRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x02 \x01(\x0b\x32\x16.types.AnalyzeTemplate\"R\n\x0f\x41nalyzeResponse\x12,\n\x0e\x61nalyzeResults\x18\x01 \x03(\x0b\x32\x14.types.AnalyzeResult\x12\x11\n\trequestId\x18\x02 \x01(\t2J\n\x0e\x41nalyzeService\x12\x38\n\x05\x41pply\x12\x15.types.AnalyzeRequest\x1a\x16.types.AnalyzeResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\ranalyze.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\"\x8c\x01\n\x11\x41nalyzeApiRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x02 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x03 \x01(\x0b\x32\x16.types.AnalyzeTemplate\x12\x1d\n\x15resultsScoreThreshold\x18\x04 \x01(\x02\"O\n\x0e\x41nalyzeRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x02 \x01(\x0b\x32\x16.types.AnalyzeTemplate\"R\n\x0f\x41nalyzeResponse\x12,\n\x0e\x61nalyzeResults\x18\x01 \x03(\x0b\x32\x14.types.AnalyzeResult\x12\x11\n\trequestId\x18\x02 \x01(\t2J\n\x0e\x41nalyzeService\x12\x38\n\x05\x41pply\x12\x15.types.AnalyzeRequest\x1a\x16.types.AnalyzeResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[common__pb2.DESCRIPTOR,template__pb2.DESCRIPTOR,])
 
@@ -58,8 +58,8 @@ _ANALYZEAPIREQUEST = _descriptor.Descriptor(
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='resultsScoreThreshold', full_name='types.AnalyzeApiRequest.resultsScoreThreshold', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
