@@ -16,6 +16,8 @@ message AnalyzeTemplate {
     string modifiedTime = 5;
     // Language code, in ISO-639 format, https://en.wikipedia.org/wiki/ISO_639-1
     string language = 6;
+    // Threshold to filter results based on their score
+    float resultsScoreThreshold = 7;
 }
 
 
