@@ -30,7 +30,7 @@ enum FieldTypesEnum{
     UK_NHS = 16;
 }
 
-// AnalyzeResult represents the Analyze serivce findings
+// AnalyzeResult represents the Analyze service findings
 message AnalyzeResult {
   // The sensitive text result
   string text = 1;
@@ -38,7 +38,7 @@ message AnalyzeResult {
   FieldTypes field = 2;
   // The score of the result
   float score = 3;
-  // The loaction in the text of the finding
+  // The location in the text of the finding
   Location location = 4;
 }
 

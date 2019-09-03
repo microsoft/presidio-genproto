@@ -84,7 +84,7 @@ func (x FieldTypesEnum) String() string {
 	return proto.EnumName(FieldTypesEnum_name, int32(x))
 }
 func (FieldTypesEnum) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_common_1773253ef83f2420, []int{0}
+	return fileDescriptor_common_2e5e9bfb07687732, []int{0}
 }
 
 // Anonymize image detection type
@@ -111,7 +111,7 @@ func (x DetectionTypeEnum) String() string {
 	return proto.EnumName(DetectionTypeEnum_name, int32(x))
 }
 func (DetectionTypeEnum) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_common_1773253ef83f2420, []int{1}
+	return fileDescriptor_common_2e5e9bfb07687732, []int{1}
 }
 
 // FieldType strucy
@@ -129,7 +129,7 @@ func (m *FieldTypes) Reset()         { *m = FieldTypes{} }
 func (m *FieldTypes) String() string { return proto.CompactTextString(m) }
 func (*FieldTypes) ProtoMessage()    {}
 func (*FieldTypes) Descriptor() ([]byte, []int) {
-	return fileDescriptor_common_1773253ef83f2420, []int{0}
+	return fileDescriptor_common_2e5e9bfb07687732, []int{0}
 }
 func (m *FieldTypes) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_FieldTypes.Unmarshal(m, b)
@@ -163,7 +163,7 @@ func (m *FieldTypes) GetMinScore() string {
 	return ""
 }
 
-// AnalyzeResult represents the Analyze serivce findings
+// AnalyzeResult represents the Analyze service findings
 type AnalyzeResult struct {
 	// The sensitive text result
 	Text string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
@@ -171,7 +171,7 @@ type AnalyzeResult struct {
 	Field *FieldTypes `protobuf:"bytes,2,opt,name=field,proto3" json:"field,omitempty"`
 	// The score of the result
 	Score float32 `protobuf:"fixed32,3,opt,name=score,proto3" json:"score,omitempty"`
-	// The loaction in the text of the finding
+	// The location in the text of the finding
 	Location             *Location `protobuf:"bytes,4,opt,name=location,proto3" json:"location,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
 	XXX_unrecognized     []byte    `json:"-"`
@@ -182,7 +182,7 @@ func (m *AnalyzeResult) Reset()         { *m = AnalyzeResult{} }
 func (m *AnalyzeResult) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeResult) ProtoMessage()    {}
 func (*AnalyzeResult) Descriptor() ([]byte, []int) {
-	return fileDescriptor_common_1773253ef83f2420, []int{1}
+	return fileDescriptor_common_2e5e9bfb07687732, []int{1}
 }
 func (m *AnalyzeResult) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeResult.Unmarshal(m, b)
@@ -247,7 +247,7 @@ func (m *Location) Reset()         { *m = Location{} }
 func (m *Location) String() string { return proto.CompactTextString(m) }
 func (*Location) ProtoMessage()    {}
 func (*Location) Descriptor() ([]byte, []int) {
-	return fileDescriptor_common_1773253ef83f2420, []int{2}
+	return fileDescriptor_common_2e5e9bfb07687732, []int{2}
 }
 func (m *Location) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Location.Unmarshal(m, b)
@@ -307,7 +307,7 @@ func (m *Image) Reset()         { *m = Image{} }
 func (m *Image) String() string { return proto.CompactTextString(m) }
 func (*Image) ProtoMessage()    {}
 func (*Image) Descriptor() ([]byte, []int) {
-	return fileDescriptor_common_1773253ef83f2420, []int{3}
+	return fileDescriptor_common_2e5e9bfb07687732, []int{3}
 }
 func (m *Image) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Image.Unmarshal(m, b)
@@ -380,7 +380,7 @@ func (m *Boundingbox) Reset()         { *m = Boundingbox{} }
 func (m *Boundingbox) String() string { return proto.CompactTextString(m) }
 func (*Boundingbox) ProtoMessage()    {}
 func (*Boundingbox) Descriptor() ([]byte, []int) {
-	return fileDescriptor_common_1773253ef83f2420, []int{4}
+	return fileDescriptor_common_2e5e9bfb07687732, []int{4}
 }
 func (m *Boundingbox) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Boundingbox.Unmarshal(m, b)
@@ -459,9 +459,9 @@ func init() {
 	proto.RegisterEnum("types.DetectionTypeEnum", DetectionTypeEnum_name, DetectionTypeEnum_value)
 }
 
-func init() { proto.RegisterFile("common.proto", fileDescriptor_common_1773253ef83f2420) }
+func init() { proto.RegisterFile("common.proto", fileDescriptor_common_2e5e9bfb07687732) }
 
-var fileDescriptor_common_1773253ef83f2420 = []byte{
+var fileDescriptor_common_2e5e9bfb07687732 = []byte{
 	// 609 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x53, 0x4d, 0x6f, 0xd3, 0x40,
 	0x10, 0xad, 0xed, 0x7c, 0x8e, 0x93, 0x74, 0xbd, 0x02, 0x14, 0x21, 0x0e, 0x51, 0x84, 0x44, 0x55,
