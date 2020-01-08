@@ -26,7 +26,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 # Changing Presidio's API
 First, set up a Presidio development environment. For more info, see Presidio's development document (https://github.com/microsoft/presidio/edit/master/docs/development.md)
 
-Presidio leverages [protobuf](https://github.com/golang/protobuf) to create API classes and services across multiple environments. The proto files are stored on a different [Github repo](https://github.com/Microsoft/presidio-genproto)
+Presidio leverages [protobuf](https://github.com/golang/protobuf) to create API classes and services across multiple environments.
 
 Follow these steps to change Presidio's API:
 1. Fork the [presidio-genproto](https://github.com/Microsoft/presidio-genproto) repo into `YOUR_ORG/presidio-genproto`
