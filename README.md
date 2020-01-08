@@ -32,7 +32,7 @@ Follow these steps to change Presidio's API:
 1. Fork the [presidio-genproto](https://github.com/Microsoft/presidio-genproto) repo into `YOUR_ORG/presidio-genproto`
 2. Clone the repo into the `$GOPATH/src/github.com/YOUR_ORG/presidio-genproto` folder
 3. Make the desired changes to the .proto files in /src
-4. Make sure you have [protobuf](https://github.com/golang/protobuf) installed
+4. [Install the specific grpcio-tools and protobuf versions](install.md)
 5. Generate the Go and Python files. Run the following commands in the `src` folder of `presidio-genproto`:
 
     ```sh
