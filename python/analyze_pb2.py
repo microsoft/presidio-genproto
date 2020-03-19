@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='analyze.proto',
   package='types',
   syntax='proto3',
-  serialized_pb=_b('\n\ranalyze.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\"m\n\x11\x41nalyzeApiRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x02 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x03 \x01(\x0b\x32\x16.types.AnalyzeTemplate\"<\n\nRecognizer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06\x65ntity\x18\x02 \x01(\t\x12\x10\n\x08language\x18\x03 \x01(\t\"O\n\x0e\x41nalyzeRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x02 \x01(\x0b\x32\x16.types.AnalyzeTemplate\"R\n\x0f\x41nalyzeResponse\x12,\n\x0e\x61nalyzeResults\x18\x01 \x03(\x0b\x32\x14.types.AnalyzeResult\x12\x11\n\trequestId\x18\x02 \x01(\t\"\x17\n\x15RecognizersAllRequest\"F\n\x16RecognizersAllResponse\x12,\n\x11recognizerResults\x18\x01 \x03(\x0b\x32\x11.types.Recognizer2\x9e\x01\n\x0e\x41nalyzeService\x12\x38\n\x05\x41pply\x12\x15.types.AnalyzeRequest\x1a\x16.types.AnalyzeResponse\"\x00\x12R\n\x11GetAllRecognizers\x12\x1c.types.RecognizersAllRequest\x1a\x1d.types.RecognizersAllResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\ranalyze.proto\x12\x05types\x1a\x0c\x63ommon.proto\x1a\x0etemplate.proto\"m\n\x11\x41nalyzeApiRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12\x19\n\x11\x61nalyzeTemplateId\x18\x02 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x03 \x01(\x0b\x32\x16.types.AnalyzeTemplate\">\n\nRecognizer\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08\x65ntities\x18\x02 \x03(\t\x12\x10\n\x08language\x18\x03 \x01(\t\"O\n\x0e\x41nalyzeRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\x12/\n\x0f\x61nalyzeTemplate\x18\x02 \x01(\x0b\x32\x16.types.AnalyzeTemplate\"R\n\x0f\x41nalyzeResponse\x12,\n\x0e\x61nalyzeResults\x18\x01 \x03(\x0b\x32\x14.types.AnalyzeResult\x12\x11\n\trequestId\x18\x02 \x01(\t\")\n\x15RecognizersAllRequest\x12\x10\n\x08language\x18\x03 \x01(\t\"F\n\x16RecognizersAllResponse\x12,\n\x11recognizerResults\x18\x01 \x03(\x0b\x32\x11.types.Recognizer2\x9e\x01\n\x0e\x41nalyzeService\x12\x38\n\x05\x41pply\x12\x15.types.AnalyzeRequest\x1a\x16.types.AnalyzeResponse\"\x00\x12R\n\x11GetAllRecognizers\x12\x1c.types.RecognizersAllRequest\x1a\x1d.types.RecognizersAllResponse\"\x00\x62\x06proto3')
   ,
   dependencies=[common__pb2.DESCRIPTOR,template__pb2.DESCRIPTOR,])
 
@@ -88,9 +88,9 @@ _RECOGNIZER = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='entity', full_name='types.Recognizer.entity', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      name='entities', full_name='types.Recognizer.entities', index=1,
+      number=2, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
@@ -114,7 +114,7 @@ _RECOGNIZER = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=165,
-  serialized_end=225,
+  serialized_end=227,
 )
 
 
@@ -151,8 +151,8 @@ _ANALYZEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=227,
-  serialized_end=306,
+  serialized_start=229,
+  serialized_end=308,
 )
 
 
@@ -189,8 +189,8 @@ _ANALYZERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=308,
-  serialized_end=390,
+  serialized_start=310,
+  serialized_end=392,
 )
 
 
@@ -201,6 +201,13 @@ _RECOGNIZERSALLREQUEST = _descriptor.Descriptor(
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
+    _descriptor.FieldDescriptor(
+      name='language', full_name='types.RecognizersAllRequest.language', index=0,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -213,8 +220,8 @@ _RECOGNIZERSALLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=392,
-  serialized_end=415,
+  serialized_start=394,
+  serialized_end=435,
 )
 
 
@@ -244,8 +251,8 @@ _RECOGNIZERSALLRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=417,
-  serialized_end=487,
+  serialized_start=437,
+  serialized_end=507,
 )
 
 _ANALYZEAPIREQUEST.fields_by_name['analyzeTemplate'].message_type = template__pb2._ANALYZETEMPLATE
@@ -310,8 +317,8 @@ _ANALYZESERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=490,
-  serialized_end=648,
+  serialized_start=510,
+  serialized_end=668,
   methods=[
   _descriptor.MethodDescriptor(
     name='Apply',
