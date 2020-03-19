@@ -14,6 +14,16 @@ message AnalyzeApiRequest {
   AnalyzeTemplate analyzeTemplate = 3;
 }
 
+// Recognizer represents a known or custom recognizer
+message Recognizer {
+  // The name of the recognizer, unique
+  string name = 1;
+  // The entity name which this recognizer can detect
+  string entity = 2;
+  // The supported language code, in ISO-639 format, https://en.wikipedia.org/wiki/ISO_639-1
+  string language = 3;
+}
+
 
 // AnalyzeRequest represents the request to the analyze service via GRPC 
 message AnalyzeRequest {
@@ -32,9 +42,22 @@ message AnalyzeResponse{
   string requestId = 2;
 }
 
+// RecognizersRequest represents the request to get the recognizers
+// known to the analyze service via GRPC 
+message RecognizersAllRequest {
+}
+
+// RecognizersResponse represents the analyze service response
+message RecognizersAllResponse{
+  // Array of the recognizers
+  repeated Recognizer recognizerResults = 1;
+}
+
 // The Analyze Service is a service that analyze a given the text using predefined analyzers fields to identify patterns, 
 // formats, and checksums with relevant context.
 service AnalyzeService {
   // Apply method will execute on the given request and return the analyze response with the sensitive text findings
   rpc Apply (AnalyzeRequest) returns (AnalyzeResponse) {}
+  // Gets the list of known recognizers.
+  rpc GetAllRecognizers (RecognizersAllRequest) returns (RecognizersAllResponse) {}
 }
