@@ -40,7 +40,7 @@ func (m *AnalyzeApiRequest) Reset()         { *m = AnalyzeApiRequest{} }
 func (m *AnalyzeApiRequest) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeApiRequest) ProtoMessage()    {}
 func (*AnalyzeApiRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_analyze_75184c82548ff6bc, []int{0}
+	return fileDescriptor_analyze_5c83f6670f88ca2e, []int{0}
 }
 func (m *AnalyzeApiRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeApiRequest.Unmarshal(m, b)
@@ -81,6 +81,64 @@ func (m *AnalyzeApiRequest) GetAnalyzeTemplate() *AnalyzeTemplate {
 	return nil
 }
 
+// Recognizer represents a known or custom recognizer
+type Recognizer struct {
+	// The name of the recognizer, unique
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	// The entity names which this recognizer can detect
+	Entities []string `protobuf:"bytes,2,rep,name=entities,proto3" json:"entities,omitempty"`
+	// The supported language code, in ISO-639 format, https://en.wikipedia.org/wiki/ISO_639-1
+	Language             string   `protobuf:"bytes,3,opt,name=language,proto3" json:"language,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Recognizer) Reset()         { *m = Recognizer{} }
+func (m *Recognizer) String() string { return proto.CompactTextString(m) }
+func (*Recognizer) ProtoMessage()    {}
+func (*Recognizer) Descriptor() ([]byte, []int) {
+	return fileDescriptor_analyze_5c83f6670f88ca2e, []int{1}
+}
+func (m *Recognizer) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Recognizer.Unmarshal(m, b)
+}
+func (m *Recognizer) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Recognizer.Marshal(b, m, deterministic)
+}
+func (dst *Recognizer) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Recognizer.Merge(dst, src)
+}
+func (m *Recognizer) XXX_Size() int {
+	return xxx_messageInfo_Recognizer.Size(m)
+}
+func (m *Recognizer) XXX_DiscardUnknown() {
+	xxx_messageInfo_Recognizer.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Recognizer proto.InternalMessageInfo
+
+func (m *Recognizer) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *Recognizer) GetEntities() []string {
+	if m != nil {
+		return m.Entities
+	}
+	return nil
+}
+
+func (m *Recognizer) GetLanguage() string {
+	if m != nil {
+		return m.Language
+	}
+	return ""
+}
+
 // AnalyzeRequest represents the request to the analyze service via GRPC
 type AnalyzeRequest struct {
 	// The text to analyze
@@ -96,7 +154,7 @@ func (m *AnalyzeRequest) Reset()         { *m = AnalyzeRequest{} }
 func (m *AnalyzeRequest) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeRequest) ProtoMessage()    {}
 func (*AnalyzeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_analyze_75184c82548ff6bc, []int{1}
+	return fileDescriptor_analyze_5c83f6670f88ca2e, []int{2}
 }
 func (m *AnalyzeRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeRequest.Unmarshal(m, b)
@@ -145,7 +203,7 @@ func (m *AnalyzeResponse) Reset()         { *m = AnalyzeResponse{} }
 func (m *AnalyzeResponse) String() string { return proto.CompactTextString(m) }
 func (*AnalyzeResponse) ProtoMessage()    {}
 func (*AnalyzeResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_analyze_75184c82548ff6bc, []int{2}
+	return fileDescriptor_analyze_5c83f6670f88ca2e, []int{3}
 }
 func (m *AnalyzeResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_AnalyzeResponse.Unmarshal(m, b)
@@ -179,10 +237,94 @@ func (m *AnalyzeResponse) GetRequestId() string {
 	return ""
 }
 
+// RecognizersRequest represents the request to get the recognizers
+// known to the analyze service that support the input language via GRPC
+type RecognizersAllRequest struct {
+	// The supported language code, in ISO-639 format, https://en.wikipedia.org/wiki/ISO_639-1
+	Language             string   `protobuf:"bytes,3,opt,name=language,proto3" json:"language,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RecognizersAllRequest) Reset()         { *m = RecognizersAllRequest{} }
+func (m *RecognizersAllRequest) String() string { return proto.CompactTextString(m) }
+func (*RecognizersAllRequest) ProtoMessage()    {}
+func (*RecognizersAllRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_analyze_5c83f6670f88ca2e, []int{4}
+}
+func (m *RecognizersAllRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RecognizersAllRequest.Unmarshal(m, b)
+}
+func (m *RecognizersAllRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RecognizersAllRequest.Marshal(b, m, deterministic)
+}
+func (dst *RecognizersAllRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RecognizersAllRequest.Merge(dst, src)
+}
+func (m *RecognizersAllRequest) XXX_Size() int {
+	return xxx_messageInfo_RecognizersAllRequest.Size(m)
+}
+func (m *RecognizersAllRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_RecognizersAllRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RecognizersAllRequest proto.InternalMessageInfo
+
+func (m *RecognizersAllRequest) GetLanguage() string {
+	if m != nil {
+		return m.Language
+	}
+	return ""
+}
+
+// RecognizersResponse represents the analyze service response
+type RecognizersAllResponse struct {
+	// Array of the recognizers
+	RecognizerResults    []*Recognizer `protobuf:"bytes,1,rep,name=recognizerResults,proto3" json:"recognizerResults,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
+	XXX_unrecognized     []byte        `json:"-"`
+	XXX_sizecache        int32         `json:"-"`
+}
+
+func (m *RecognizersAllResponse) Reset()         { *m = RecognizersAllResponse{} }
+func (m *RecognizersAllResponse) String() string { return proto.CompactTextString(m) }
+func (*RecognizersAllResponse) ProtoMessage()    {}
+func (*RecognizersAllResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_analyze_5c83f6670f88ca2e, []int{5}
+}
+func (m *RecognizersAllResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RecognizersAllResponse.Unmarshal(m, b)
+}
+func (m *RecognizersAllResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RecognizersAllResponse.Marshal(b, m, deterministic)
+}
+func (dst *RecognizersAllResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RecognizersAllResponse.Merge(dst, src)
+}
+func (m *RecognizersAllResponse) XXX_Size() int {
+	return xxx_messageInfo_RecognizersAllResponse.Size(m)
+}
+func (m *RecognizersAllResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_RecognizersAllResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RecognizersAllResponse proto.InternalMessageInfo
+
+func (m *RecognizersAllResponse) GetRecognizerResults() []*Recognizer {
+	if m != nil {
+		return m.RecognizerResults
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*AnalyzeApiRequest)(nil), "types.AnalyzeApiRequest")
+	proto.RegisterType((*Recognizer)(nil), "types.Recognizer")
 	proto.RegisterType((*AnalyzeRequest)(nil), "types.AnalyzeRequest")
 	proto.RegisterType((*AnalyzeResponse)(nil), "types.AnalyzeResponse")
+	proto.RegisterType((*RecognizersAllRequest)(nil), "types.RecognizersAllRequest")
+	proto.RegisterType((*RecognizersAllResponse)(nil), "types.RecognizersAllResponse")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -199,6 +341,8 @@ const _ = grpc.SupportPackageIsVersion4
 type AnalyzeServiceClient interface {
 	// Apply method will execute on the given request and return the analyze response with the sensitive text findings
 	Apply(ctx context.Context, in *AnalyzeRequest, opts ...grpc.CallOption) (*AnalyzeResponse, error)
+	// Gets the list of known recognizers.
+	GetAllRecognizers(ctx context.Context, in *RecognizersAllRequest, opts ...grpc.CallOption) (*RecognizersAllResponse, error)
 }
 
 type analyzeServiceClient struct {
@@ -218,10 +362,21 @@ func (c *analyzeServiceClient) Apply(ctx context.Context, in *AnalyzeRequest, op
 	return out, nil
 }
 
+func (c *analyzeServiceClient) GetAllRecognizers(ctx context.Context, in *RecognizersAllRequest, opts ...grpc.CallOption) (*RecognizersAllResponse, error) {
+	out := new(RecognizersAllResponse)
+	err := c.cc.Invoke(ctx, "/types.AnalyzeService/GetAllRecognizers", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AnalyzeServiceServer is the server API for AnalyzeService service.
 type AnalyzeServiceServer interface {
 	// Apply method will execute on the given request and return the analyze response with the sensitive text findings
 	Apply(context.Context, *AnalyzeRequest) (*AnalyzeResponse, error)
+	// Gets the list of known recognizers.
+	GetAllRecognizers(context.Context, *RecognizersAllRequest) (*RecognizersAllResponse, error)
 }
 
 func RegisterAnalyzeServiceServer(s *grpc.Server, srv AnalyzeServiceServer) {
@@ -246,6 +401,24 @@ func _AnalyzeService_Apply_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AnalyzeService_GetAllRecognizers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecognizersAllRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AnalyzeServiceServer).GetAllRecognizers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/types.AnalyzeService/GetAllRecognizers",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AnalyzeServiceServer).GetAllRecognizers(ctx, req.(*RecognizersAllRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _AnalyzeService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "types.AnalyzeService",
 	HandlerType: (*AnalyzeServiceServer)(nil),
@@ -254,29 +427,40 @@ var _AnalyzeService_serviceDesc = grpc.ServiceDesc{
 			MethodName: "Apply",
 			Handler:    _AnalyzeService_Apply_Handler,
 		},
+		{
+			MethodName: "GetAllRecognizers",
+			Handler:    _AnalyzeService_GetAllRecognizers_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "analyze.proto",
 }
 
-func init() { proto.RegisterFile("analyze.proto", fileDescriptor_analyze_75184c82548ff6bc) }
+func init() { proto.RegisterFile("analyze.proto", fileDescriptor_analyze_5c83f6670f88ca2e) }
 
-var fileDescriptor_analyze_75184c82548ff6bc = []byte{
-	// 247 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4d, 0xcc, 0x4b, 0xcc,
-	0xa9, 0xac, 0x4a, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2d, 0xa9, 0x2c, 0x48, 0x2d,
-	0x96, 0xe2, 0x49, 0xce, 0xcf, 0xcd, 0xcd, 0xcf, 0x83, 0x08, 0x4a, 0xf1, 0x95, 0xa4, 0xe6, 0x16,
-	0xe4, 0x24, 0x96, 0x40, 0x15, 0x29, 0x4d, 0x67, 0xe4, 0x12, 0x74, 0x84, 0x68, 0x73, 0x2c, 0xc8,
-	0x0c, 0x4a, 0x2d, 0x2c, 0x4d, 0x2d, 0x2e, 0x11, 0x12, 0xe2, 0x62, 0x29, 0x49, 0xad, 0x28, 0x91,
-	0x60, 0x54, 0x60, 0xd4, 0xe0, 0x0c, 0x02, 0xb3, 0x85, 0x74, 0xb8, 0x04, 0xa1, 0xe6, 0x87, 0x40,
-	0x8d, 0xf0, 0x4c, 0x91, 0x60, 0x02, 0x2b, 0xc0, 0x94, 0x10, 0x72, 0xe0, 0xe2, 0x47, 0x13, 0x94,
-	0x60, 0x56, 0x60, 0xd4, 0xe0, 0x36, 0x12, 0xd3, 0x03, 0x3b, 0x4b, 0xcf, 0x11, 0x55, 0x36, 0x08,
-	0x5d, 0xb9, 0x52, 0x1a, 0x17, 0x1f, 0x54, 0x0d, 0x3e, 0x57, 0x61, 0xb1, 0x87, 0x89, 0x34, 0x7b,
-	0x72, 0xb9, 0xf8, 0xe1, 0xf6, 0x14, 0x17, 0xe4, 0xe7, 0x15, 0xa7, 0x0a, 0xd9, 0x70, 0xf1, 0x25,
-	0xc2, 0x85, 0x4a, 0x73, 0x4a, 0x8a, 0x25, 0x18, 0x15, 0x98, 0x35, 0xb8, 0x8d, 0x44, 0x50, 0xcd,
-	0x84, 0x48, 0x06, 0xa1, 0xa9, 0x15, 0x92, 0xe1, 0xe2, 0x2c, 0x82, 0xb8, 0x18, 0x1e, 0x40, 0x08,
-	0x01, 0x23, 0x2f, 0xb8, 0xb7, 0x82, 0x53, 0x8b, 0xca, 0x32, 0x93, 0x53, 0x85, 0x2c, 0xb8, 0x58,
-	0x1d, 0x0b, 0x0a, 0x72, 0x2a, 0x85, 0x44, 0xd1, 0x8d, 0x07, 0xeb, 0x91, 0x12, 0xc3, 0xb0, 0x15,
-	0xec, 0x4a, 0x25, 0x86, 0x24, 0x36, 0x70, 0x1c, 0x1a, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x07,
-	0xcc, 0xae, 0xff, 0xf9, 0x01, 0x00, 0x00,
+var fileDescriptor_analyze_5c83f6670f88ca2e = []byte{
+	// 354 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x93, 0x3f, 0x4f, 0xc2, 0x40,
+	0x18, 0xc6, 0x2d, 0x88, 0xb1, 0x2f, 0x0a, 0xe9, 0x45, 0x48, 0xd3, 0x60, 0xd2, 0x74, 0xea, 0x60,
+	0x18, 0x60, 0x71, 0x30, 0xd1, 0x4e, 0xc6, 0xf5, 0x74, 0xd0, 0xf1, 0xc4, 0x57, 0xd2, 0xe4, 0x7a,
+	0x3d, 0x7b, 0x87, 0x11, 0xbe, 0x88, 0x9b, 0x9f, 0xd5, 0x70, 0x2d, 0x87, 0xb4, 0x4a, 0xe2, 0xd6,
+	0x7b, 0x9f, 0xf7, 0xcf, 0xef, 0x79, 0x92, 0xc2, 0x29, 0x13, 0x8c, 0x2f, 0x57, 0x38, 0x96, 0x45,
+	0xae, 0x73, 0xd2, 0xd1, 0x4b, 0x89, 0x2a, 0x38, 0x99, 0xe5, 0x59, 0x96, 0x8b, 0xb2, 0x18, 0xf4,
+	0x34, 0x66, 0x92, 0x33, 0x5d, 0x35, 0x45, 0x9f, 0x0e, 0x78, 0x49, 0x39, 0x96, 0xc8, 0x94, 0xe2,
+	0xdb, 0x02, 0x95, 0x26, 0x04, 0x0e, 0x35, 0x7e, 0x68, 0xdf, 0x09, 0x9d, 0xd8, 0xa5, 0xe6, 0x9b,
+	0x5c, 0x80, 0x57, 0xed, 0x7f, 0xa8, 0x56, 0xdc, 0xbd, 0xf8, 0x2d, 0xd3, 0xd0, 0x14, 0xc8, 0x0d,
+	0xf4, 0x6b, 0x45, 0xbf, 0x1d, 0x3a, 0x71, 0x77, 0x32, 0x1c, 0x1b, 0xac, 0x71, 0xb2, 0xab, 0xd2,
+	0x7a, 0x7b, 0xf4, 0x08, 0x40, 0x71, 0x96, 0xcf, 0x45, 0xba, 0xc2, 0x62, 0x4d, 0x24, 0x58, 0x86,
+	0x1b, 0xa2, 0xf5, 0x37, 0x09, 0xe0, 0x18, 0x85, 0x4e, 0x75, 0x8a, 0xca, 0x6f, 0x85, 0xed, 0xd8,
+	0xa5, 0xf6, 0xbd, 0xd6, 0x38, 0x13, 0xf3, 0x05, 0x9b, 0x97, 0x87, 0x5d, 0x6a, 0xdf, 0xd1, 0x2b,
+	0xf4, 0xaa, 0xeb, 0xfb, 0xfc, 0xfe, 0xe2, 0xa0, 0xf5, 0x3f, 0x07, 0x19, 0xf4, 0xed, 0x1d, 0x25,
+	0x73, 0xa1, 0x90, 0x5c, 0x41, 0x8f, 0xd9, 0xd2, 0x82, 0x6b, 0xe5, 0x3b, 0x61, 0x3b, 0xee, 0x4e,
+	0xce, 0x76, 0x77, 0x96, 0x22, 0xad, 0xf5, 0x92, 0x11, 0xb8, 0x45, 0x49, 0x6c, 0xa3, 0xdf, 0x16,
+	0xa2, 0x29, 0x0c, 0xb6, 0x81, 0xa9, 0x84, 0xf3, 0x8d, 0xbb, 0x7d, 0x59, 0x3c, 0xc1, 0xb0, 0x3e,
+	0x54, 0xa1, 0x5e, 0x83, 0x57, 0x58, 0x65, 0x97, 0xd6, 0xab, 0x68, 0xb7, 0x93, 0xb4, 0xd9, 0x3b,
+	0xf9, 0x72, 0x6c, 0xce, 0xf7, 0x58, 0xbc, 0xa7, 0x33, 0x24, 0x97, 0xd0, 0x49, 0xa4, 0xe4, 0x4b,
+	0x32, 0xa8, 0xfb, 0x35, 0xa4, 0xc1, 0xb0, 0x11, 0x83, 0x61, 0x89, 0x0e, 0x08, 0x05, 0xef, 0x16,
+	0xb5, 0xe1, 0xb3, 0xb4, 0x64, 0xd4, 0xe0, 0xf8, 0x61, 0x3b, 0x38, 0xff, 0x43, 0xdd, 0xec, 0x7c,
+	0x3e, 0x32, 0xbf, 0xc0, 0xf4, 0x3b, 0x00, 0x00, 0xff, 0xff, 0x6e, 0x56, 0x94, 0xe2, 0x38, 0x03,
+	0x00, 0x00,
 }
