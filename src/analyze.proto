@@ -42,7 +42,7 @@ message AnalyzeResponse{
   string requestId = 2;
 }
 
-// RecognizersRequest represents the request to get the recognizers
+// RecognizersAllRequest represents the request to get the recognizers
 // known to the analyze service that support the input language via GRPC 
 message RecognizersAllRequest {
   // The supported language code, in ISO-639 format, https://en.wikipedia.org/wiki/ISO_639-1
