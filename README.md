@@ -1,6 +1,10 @@
 Proto packages for Presidio API
 ===========================
 
+## DEPRECATION NOTICE
+
+This repository is archived, as it is being used by an old Presidio version. To use the latest Presidio version, visit <https://www.github.com/microsoft/presidio>.
+
 [![Build Status](https://dev.azure.com/csedevil/Presidio/_apis/build/status/Presidio-genproto?branchName=master)](https://dev.azure.com/csedevil/Presidio/_build/latest?definitionId=57?branchName=master)
 
 This repository contains the generated GO and Python packages for [Presidio]
