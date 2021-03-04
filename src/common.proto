@@ -28,6 +28,7 @@ enum FieldTypesEnum{
     US_PASSPORT = 14;
     US_SSN = 15;
     UK_NHS = 16;
+    NATIONAL_ID = 17;
 }
 
 // AnalyzeResult represents the Analyze service findings
